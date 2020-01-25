@@ -75,7 +75,6 @@ fn main() {
 
     let host = cargo_env("HOST");
     let target = cargo_env("TARGET");
-    assert_eq!(host, target, "cross compilation is not supported");
 
     let (version_prefix, version_patch) = get_version();
 
@@ -530,7 +529,10 @@ fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("gmp-build");
     create_dir_or_panic(&build_dir);
     println!("$ cd {:?}", build_dir);
-    let conf = "../gmp-src/configure --enable-fat --disable-shared --with-pic";
+    let conf = format!(
+        "../gmp-src/configure --enable-fat --disable-shared --with-pic --host {}",
+        cargo_env("TARGET").into_string().expect("env var TARGET having sensible characters")
+    );
     configure(&build_dir, &OsString::from(conf));
     make_and_check(env, &build_dir);
     let build_lib = build_dir.join(".libs").join("libgmp.a");
@@ -781,8 +783,11 @@ fn build_mpfr(env: &Environment, lib: &Path, header: &Path) {
         &env.build_dir.join("gmp-build"),
         &build_dir.join("gmp-build"),
     );
-    let conf = "../mpfr-src/configure --enable-thread-safe --disable-shared \
-                --with-gmp-build=../gmp-build --with-pic";
+    let conf = format!(
+        "../mpfr-src/configure --enable-thread-safe --disable-shared \
+         --with-gmp-build=../gmp-build --with-pic --host {}",
+        cargo_env("TARGET").into_string().expect("env var TARGET having sensible characters")
+    );
     configure(&build_dir, &OsString::from(conf));
     make_and_check(env, &build_dir);
     let build_lib = build_dir.join("src").join(".libs").join("libmpfr.a");
@@ -803,11 +808,14 @@ fn build_mpc(env: &Environment, lib: &Path, header: &Path) {
         &env.build_dir.join("mpfr-build"),
         &build_dir.join("mpfr-build"),
     );
-    let conf = "../mpc-src/configure --disable-shared \
-                --with-mpfr-include=../mpfr-src/src \
-                --with-mpfr-lib=../mpfr-build/src/.libs \
-                --with-gmp-include=../gmp-build \
-                --with-gmp-lib=../gmp-build/.libs --with-pic";
+    let conf = format!(
+        "../mpc-src/configure --disable-shared \
+         --with-mpfr-include=../mpfr-src/src \
+         --with-mpfr-lib=../mpfr-build/src/.libs \
+         --with-gmp-include=../gmp-build \
+         --with-gmp-lib=../gmp-build/.libs --with-pic --host {}",
+        cargo_env("TARGET").into_string().expect("env var TARGET having sensible characters")
+    );
     configure(&build_dir, &OsString::from(conf));
     make_and_check(env, &build_dir);
     let build_lib = build_dir.join("src").join(".libs").join("libmpc.a");
@@ -1064,13 +1072,17 @@ fn make_and_check(env: &Environment, build_dir: &Path) {
     let mut make = Command::new("make");
     make.current_dir(build_dir).arg("-j").arg(&env.jobs);
     execute(make);
-    let mut make_check = Command::new("make");
-    make_check
-        .current_dir(build_dir)
-        .arg("-j")
-        .arg(&env.jobs)
-        .arg("check");
-    execute(make_check);
+    let host = cargo_env("HOST");
+    let target = cargo_env("TARGET");
+    if host == target {
+        let mut make_check = Command::new("make");
+        make_check
+            .current_dir(build_dir)
+            .arg("-j")
+            .arg(&env.jobs)
+            .arg("check");
+        execute(make_check);
+    }
 }
 
 #[cfg(unix)]
