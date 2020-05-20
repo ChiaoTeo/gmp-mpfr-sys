@@ -77,7 +77,7 @@ fn main() {
         .into_string()
         .expect("env var TARGET having sensible characters");
     let force_cross = there_is_env("CARGO_FEATURE_FORCE_CROSS");
-    if !force_cross && host != raw_target {
+    if !force_cross && !compilation_whitelisted(&host, &raw_target) {
         println!(
             "cargo:warning=Cross compilation not supported! \
              Use the `force-cross` feature to cross compile anyway. \
@@ -1244,6 +1244,23 @@ fn system_cache_dir() -> Option<PathBuf> {
                     .map(|x| AsRef::<Path>::as_ref(&x).join(".cache"))
             })
     }
+}
+
+fn compilation_whitelisted(host: &str, target: &str) -> bool {
+    if host == target {
+        return true;
+    }
+
+    // allow cross-compilation from x86_64 to i686, as it is a simple
+    // -m32 switch in GMP compilation
+    let (machine_x86_64, machine_i686) = ("x86_64", "i686");
+    if host.starts_with(machine_x86_64)
+        && target.starts_with(machine_i686)
+        && host[machine_x86_64.len()..] == target[machine_i686.len()..]
+    {
+        return true;
+    }
+    false
 }
 
 const BUG_47048_SAY_HI_C: &str = r#"/* say_hi.c */

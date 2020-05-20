@@ -221,9 +221,13 @@ Then, to build a crate with a dependency on this crate:
 
 While some cross compilation is possible, it is not tested
 automatically, and may not work. Merge requests that improve cross
-compilation are accepted. From the next minor version 1.3 onwards, the
-experimental feature ``force-cross`` must be enabled for cross
-compilation.
+compilation are accepted.
+
+From the next minor version 1.3 onwards, the experimental feature
+`force-cross` must be enabled for cross compilation. There is one case
+which is allowed even without the feature: when the only difference
+between host and target is that the host is x86_64 and the target is
+i686.
 
 ## Caching the built C libraries
 
