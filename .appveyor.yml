@@ -60,7 +60,14 @@ test_script:
   - cargo +1.37.0-%HOST% test --features fail-on-warnings
   - cargo +1.37.0-%HOST% test --release --features fail-on-warnings
   # Update libs now to make sure the update does not interfere with gcc
-  - pacman -Sy --noconfirm %MINGW_PACKAGE_PREFIX%-gmp %MINGW_PACKAGE_PREFIX%-mpfr %MINGW_PACKAGE_PREFIX%-mpc
+  - curl -O https://repo.msys2.org/msys/%MSYSTEM_CARCH%/pacman-5.2.2-1-%MSYSTEM_CARCH%.pkg.tar.xz
+  - pacman -U --noconfirm pacman-5.2.2-1-%MSYSTEM_CARCH%.pkg.tar.xz
+  - curl -O https://repo.msys2.org/mingw/%MSYSTEM_CARCH%/%MINGW_PACKAGE_PREFIX%-gmp-6.2.0-1-any.pkg.tar.xz
+  - pacman -U --noconfirm %MINGW_PACKAGE_PREFIX%-gmp-6.2.0-1-any.pkg.tar.xz
+  - curl -O https://repo.msys2.org/mingw/%MSYSTEM_CARCH%/%MINGW_PACKAGE_PREFIX%-mpfr-4.1.0-2-any.pkg.tar.zst
+  - pacman -U --noconfirm %MINGW_PACKAGE_PREFIX%-mpfr-4.1.0-2-any.pkg.tar.zst
+  - curl -O https://repo.msys2.org/mingw/%MSYSTEM_CARCH%/%MINGW_PACKAGE_PREFIX%-mpc-1.2.0-1-any.pkg.tar.zst
+  - pacman -U --noconfirm %MINGW_PACKAGE_PREFIX%-mpc-1.2.0-1-any.pkg.tar.zst
   - cargo clean
   - cargo +beta-%HOST% test --features "fail-on-warnings use-system-libs"
   - cargo +beta-%HOST% test --release --features "fail-on-warnings use-system-libs"
