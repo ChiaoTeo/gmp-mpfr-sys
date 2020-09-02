@@ -85,7 +85,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 
 ```toml
 [dependencies]
-gmp-mpfr-sys = "1.3"
+gmp-mpfr-sys = "1.4"
 ```
 
 This crate required rustc version 1.37.0 or later.
@@ -99,7 +99,7 @@ Rust bindings but do not use the C libraries directly.
 If on the other hand a dependent crate makes use of internal
 implementation details, or includes a C library that directly uses the
 header (*.h*) and library (*.a*) files built using C, it can be a good
-idea to depend on version `"~1.3"` instead of version `"1.3"` in order
+idea to depend on version `"~1.4"` instead of version `"1.4"` in order
 to ensure backwards compatibility at the C level as well.
 
 ## Optional features
@@ -118,7 +118,7 @@ selectively, you can add the dependency like this to [*Cargo.toml*]:
 
 ```toml
 [dependencies.gmp-mpfr-sys]
-version = "1.3"
+version = "1.4"
 default-features = false
 features = ["mpfr"]
 ```
@@ -222,11 +222,10 @@ While some cross compilation is possible, it is not tested
 automatically, and may not work. Merge requests that improve cross
 compilation are accepted.
 
-From the next minor version 1.3 onwards, the experimental feature
-`force-cross` must be enabled for cross compilation. There is one case
-which is allowed even without the feature: when the only difference
-between host and target is that the host is x86_64 and the target is
-i686.
+The experimental feature `force-cross` must be enabled for cross
+compilation. There is one case which is allowed even without the
+feature: when the only difference between host and target is that the
+host is x86_64 and the target is i686.
 
 ## Caching the built C libraries
 
@@ -276,7 +275,7 @@ To use a different directory, you can set the environment variable
 */
 #![no_std]
 #![warn(missing_docs)]
-#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.3")]
+#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.4")]
 #![doc(html_logo_url = "https://tspiteri.gitlab.io/gmp-mpfr-sys/rug.svg")]
 #![doc(test(attr(deny(warnings))))]
 #![cfg_attr(feature = "fail-on-warnings", deny(warnings))]
