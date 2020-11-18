@@ -137,8 +137,11 @@ There are three experimental feature:
 
  1. `use-system-libs`, disabled by default. Using this feature, the
     system libraries for [GMP], and [MPFR] and [MPC] if enabled, will
-    be used instead of building them from source. The versions must be
-    compatible with the versions provided by the crate.
+    be used instead of building them from source. The major versions
+    of the system libraries must be equal to those provided by the
+    crate, and the minor versions of the system libraries must be
+    greater or equal to those provided by the crate. There are no
+    restriction on the patch version.
  2. `force-cross`, disabled by default. Without this feature, the
     build will fail if cross compilation is detected, because cross
     compilation is not tested or supported and can lead to silent

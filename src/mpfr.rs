@@ -1550,17 +1550,19 @@ mod tests {
 
         assert_eq!(mpfr::VERSION_MAJOR, major);
         assert!(mpfr::VERSION_MINOR >= minor);
-        assert!(mpfr::VERSION_MINOR > minor || mpfr::VERSION_PATCHLEVEL >= patchlevel);
-        if mpfr::VERSION_MINOR == minor && mpfr::VERSION_PATCHLEVEL == patchlevel {
-            // tested string can have "-p*" suffix
-            assert!(version_matches_with_optional_p_suffix(
-                unsafe { tests::str_from_cstr(mpfr::get_version()) },
-                version
-            ));
-            assert!(version_matches_with_optional_p_suffix(
-                unsafe { tests::str_from_cstr(mpfr::VERSION_STRING) },
-                version
-            ));
+        if cfg!(not(feature = "use-system-libs")) {
+            assert!(mpfr::VERSION_MINOR > minor || mpfr::VERSION_PATCHLEVEL >= patchlevel);
+            if mpfr::VERSION_MINOR == minor && mpfr::VERSION_PATCHLEVEL == patchlevel {
+                // tested string can have "-p*" suffix
+                assert!(version_matches_with_optional_p_suffix(
+                    unsafe { tests::str_from_cstr(mpfr::get_version()) },
+                    version
+                ));
+                assert!(version_matches_with_optional_p_suffix(
+                    unsafe { tests::str_from_cstr(mpfr::VERSION_STRING) },
+                    version
+                ));
+            }
         }
     }
 

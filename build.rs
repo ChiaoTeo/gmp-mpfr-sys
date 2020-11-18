@@ -33,9 +33,9 @@ use std::str;
 const GMP_DIR: &str = "gmp-6.2.1-c";
 const MPFR_DIR: &str = "mpfr-4.1.0-c";
 const MPC_DIR: &str = "mpc-1.2.1-c";
-const GMP_VER: (i32, i32, i32) = (6, 2, 0);
-const MPFR_VER: (i32, i32, i32) = (4, 0, 2);
-const MPC_VER: (i32, i32, i32) = (1, 1, 0);
+const GMP_VER: (i32, i32, i32) = (6, 2, 1);
+const MPFR_VER: (i32, i32, i32) = (4, 1, 0);
+const MPC_VER: (i32, i32, i32) = (1, 2, 1);
 
 #[derive(Clone, Copy, PartialEq)]
 enum Target {
@@ -175,6 +175,7 @@ fn check_system_libs(env: &Environment) {
     cmd.current_dir(&try_dir);
     execute(cmd);
     process_gmp_header(
+        env,
         &try_dir.join("system_gmp.out"),
         Some(&env.out_dir.join("gmp_h.rs")),
     )
@@ -202,6 +203,7 @@ fn check_system_libs(env: &Environment) {
         cmd.current_dir(&try_dir);
         execute(cmd);
         process_mpfr_header(
+            env,
             &try_dir.join("system_mpfr.out"),
             Some(&env.out_dir.join("mpfr_h.rs")),
         )
@@ -227,6 +229,7 @@ fn check_system_libs(env: &Environment) {
         cmd.current_dir(&try_dir);
         execute(cmd);
         process_mpc_header(
+            env,
             &try_dir.join("system_mpc.out"),
             Some(&env.out_dir.join("mpc_h.rs")),
         )
@@ -291,14 +294,14 @@ fn compile_libs(env: &Environment) {
             clear_cache_redundancies(&env, mpfr_ah.is_some(), mpc_ah.is_some());
         }
     }
-    process_gmp_header(&gmp_ah.1, Some(&env.out_dir.join("gmp_h.rs")))
+    process_gmp_header(env, &gmp_ah.1, Some(&env.out_dir.join("gmp_h.rs")))
         .unwrap_or_else(|e| panic!("{}", e));
     if let Some(ref mpfr_ah) = mpfr_ah {
-        process_mpfr_header(&mpfr_ah.1, Some(&env.out_dir.join("mpfr_h.rs")))
+        process_mpfr_header(env, &mpfr_ah.1, Some(&env.out_dir.join("mpfr_h.rs")))
             .unwrap_or_else(|e| panic!("{}", e));
     }
     if let Some(ref mpc_ah) = mpc_ah {
-        process_mpc_header(&mpc_ah.1, Some(&env.out_dir.join("mpc_h.rs")))
+        process_mpc_header(env, &mpc_ah.1, Some(&env.out_dir.join("mpc_h.rs")))
             .unwrap_or_else(|e| panic!("{}", e));
     }
     write_link_info(&env, mpfr_ah.is_some(), mpc_ah.is_some());
@@ -543,19 +546,19 @@ fn load_cache(
             if let Some((ref a, ref h)) = *mpc_ah {
                 ok = ok && copy_file(&dir.join("libmpc.a"), a).is_ok();
                 let header = dir.join("mpc.h");
-                ok = ok && process_mpc_header(&header, None).is_ok();
+                ok = ok && process_mpc_header(env, &header, None).is_ok();
                 ok = ok && copy_file(&header, h).is_ok();
             }
             if let Some((ref a, ref h)) = *mpfr_ah {
                 ok = ok && copy_file(&dir.join("libmpfr.a"), a).is_ok();
                 let header = dir.join("mpfr.h");
-                ok = ok && process_mpfr_header(&header, None).is_ok();
+                ok = ok && process_mpfr_header(env, &header, None).is_ok();
                 ok = ok && copy_file(&header, h).is_ok();
             }
             let (ref a, ref h) = *gmp_ah;
             ok = ok && copy_file(&dir.join("libgmp.a"), a).is_ok();
             let header = dir.join("gmp.h");
-            ok = ok && process_gmp_header(&header, None).is_ok();
+            ok = ok && process_gmp_header(env, &header, None).is_ok();
             ok = ok && copy_file(&header, h).is_ok();
 
             if ok {
@@ -630,11 +633,22 @@ fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
     copy_file_or_panic(&build_header, &header);
 }
 
-fn compatible_version(major: i32, minor: i32, patchlevel: i32, expected: (i32, i32, i32)) -> bool {
-    major == expected.0 && (minor > expected.1 || (minor == expected.1 && patchlevel >= expected.2))
+fn compatible_version(
+    env: &Environment,
+    major: i32,
+    minor: i32,
+    patchlevel: i32,
+    expected: (i32, i32, i32),
+) -> bool {
+    (major == expected.0 && minor >= expected.1)
+        && (minor > expected.1 || patchlevel >= expected.2 || env.use_system_libs)
 }
 
-fn process_gmp_header(header: &Path, out_file: Option<&Path>) -> Result<(), String> {
+fn process_gmp_header(
+    env: &Environment,
+    header: &Path,
+    out_file: Option<&Path>,
+) -> Result<(), String> {
     let mut major = None;
     let mut minor = None;
     let mut patchlevel = None;
@@ -697,7 +711,7 @@ fn process_gmp_header(header: &Path, out_file: Option<&Path>) -> Result<(), Stri
     let major = major.expect("Cannot determine __GNU_MP_VERSION");
     let minor = minor.expect("Cannot determine __GNU_MP_VERSION_MINOR");
     let patchlevel = patchlevel.expect("Cannot determine __GNU_MP_VERSION_PATCHLEVEL");
-    if !compatible_version(major, minor, patchlevel, GMP_VER) {
+    if !compatible_version(env, major, minor, patchlevel, GMP_VER) {
         return Err(format!(
             "This version of gmp-mpfr-sys supports GMP {}.{}.{}, but {}.{}.{} was found",
             GMP_VER.0, GMP_VER.1, GMP_VER.2, major, minor, patchlevel
@@ -742,7 +756,11 @@ fn process_gmp_header(header: &Path, out_file: Option<&Path>) -> Result<(), Stri
     Ok(())
 }
 
-fn process_mpfr_header(header: &Path, out_file: Option<&Path>) -> Result<(), String> {
+fn process_mpfr_header(
+    env: &Environment,
+    header: &Path,
+    out_file: Option<&Path>,
+) -> Result<(), String> {
     let mut major = None;
     let mut minor = None;
     let mut patchlevel = None;
@@ -778,7 +796,7 @@ fn process_mpfr_header(header: &Path, out_file: Option<&Path>) -> Result<(), Str
     let major = major.expect("Cannot determine MPFR_VERSION_MAJOR");
     let minor = minor.expect("Cannot determine MPFR_VERSION_MINOR");
     let patchlevel = patchlevel.expect("Cannot determine MPFR_VERSION_PATCHLEVEL");
-    if !compatible_version(major, minor, patchlevel, MPFR_VER) {
+    if !compatible_version(env, major, minor, patchlevel, MPFR_VER) {
         return Err(format!(
             "This version of gmp-mpfr-sys supports MPFR {}.{}.{}, but {}.{}.{} was found",
             MPFR_VER.0, MPFR_VER.1, MPFR_VER.2, major, minor, patchlevel
@@ -803,7 +821,11 @@ fn process_mpfr_header(header: &Path, out_file: Option<&Path>) -> Result<(), Str
     Ok(())
 }
 
-fn process_mpc_header(header: &Path, out_file: Option<&Path>) -> Result<(), String> {
+fn process_mpc_header(
+    env: &Environment,
+    header: &Path,
+    out_file: Option<&Path>,
+) -> Result<(), String> {
     let mut major = None;
     let mut minor = None;
     let mut patchlevel = None;
@@ -839,7 +861,7 @@ fn process_mpc_header(header: &Path, out_file: Option<&Path>) -> Result<(), Stri
     let major = major.expect("Cannot determine MPC_VERSION_MAJOR");
     let minor = minor.expect("Cannot determine MPC_VERSION_MINOR");
     let patchlevel = patchlevel.expect("Cannot determine MPC_VERSION_PATCHLEVEL");
-    if !compatible_version(major, minor, patchlevel, MPC_VER) {
+    if !compatible_version(env, major, minor, patchlevel, MPC_VER) {
         return Err(format!(
             "This version of gmp-mpfr-sys supports MPC {}.{}.{}, but {}.{}.{} was found",
             MPC_VER.0, MPC_VER.1, MPC_VER.2, major, minor, patchlevel

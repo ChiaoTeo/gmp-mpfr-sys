@@ -1875,9 +1875,11 @@ mod tests {
 
         assert_eq!(gmp::VERSION, major);
         assert!(gmp::VERSION_MINOR >= minor);
-        assert!(gmp::VERSION_MINOR > minor || gmp::VERSION_PATCHLEVEL >= patchlevel);
-        if gmp::VERSION_MINOR == minor && gmp::VERSION_PATCHLEVEL == patchlevel {
-            assert_eq!(unsafe { tests::str_from_cstr(gmp::version) }, version);
+        if cfg!(not(feature = "use-system-libs")) {
+            assert!(gmp::VERSION_MINOR > minor || gmp::VERSION_PATCHLEVEL >= patchlevel);
+            if gmp::VERSION_MINOR == minor && gmp::VERSION_PATCHLEVEL == patchlevel {
+                assert_eq!(unsafe { tests::str_from_cstr(gmp::version) }, version);
+            }
         }
     }
 }

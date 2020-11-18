@@ -601,13 +601,15 @@ mod tests {
 
         assert_eq!(mpc::VERSION_MAJOR, major);
         assert!(mpc::VERSION_MINOR >= minor);
-        assert!(mpc::VERSION_MINOR > minor || mpc::VERSION_PATCHLEVEL >= patchlevel);
-        if mpc::VERSION_MINOR == minor && mpc::VERSION_PATCHLEVEL == patchlevel {
-            assert_eq!(unsafe { tests::str_from_cstr(mpc::get_version()) }, version);
-            assert_eq!(
-                unsafe { tests::str_from_cstr(mpc::VERSION_STRING) },
-                version
-            );
+        if cfg!(not(feature = "use-system-libs")) {
+            assert!(mpc::VERSION_MINOR > minor || mpc::VERSION_PATCHLEVEL >= patchlevel);
+            if mpc::VERSION_MINOR == minor && mpc::VERSION_PATCHLEVEL == patchlevel {
+                assert_eq!(unsafe { tests::str_from_cstr(mpc::get_version()) }, version);
+                assert_eq!(
+                    unsafe { tests::str_from_cstr(mpc::VERSION_STRING) },
+                    version
+                );
+            }
         }
     }
 }
