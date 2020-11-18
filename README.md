@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.2 news (unreleased)
+### Version 1.4.2 news (2020-11-18)
 
   * [GMP] was updated from version 6.2.0 to 6.2.1.
 
@@ -32,10 +32,6 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
   * [MPC] was updated from version 1.2.0 to 1.2.1.
   * The [`c-no-tests`][feat-exp-1-4] experimental feature was added.
-
-### Version 1.4.0 news (2020-09-02)
-
-  * [MPC] was updated from version 1.1.0 to 1.2.0.
 
 [feat-exp-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/#experimental-optional-features
 

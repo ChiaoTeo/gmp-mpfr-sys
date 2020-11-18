@@ -5,7 +5,7 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.4.2 (unreleased)
+Version 1.4.2 (2020-11-18)
 ==========================
 
   * [GMP] was updated from version 6.2.0 to 6.2.1.
