@@ -101,10 +101,10 @@ for:
       - rm Cargo.lock
       - cargo +%MSRV%-%HOST% test --features fail-on-warnings
       - cargo +%MSRV%-%HOST% test --release --features fail-on-warnings
-      # Install fresh GMP, MPFR, MPC now to avoid interference with gcc package
-      - pacman -Sy --noconfirm %MINGW_PACKAGE_PREFIX%-gmp %MINGW_PACKAGE_PREFIX%-mpfr %MINGW_PACKAGE_PREFIX%-mpc
-      - cargo clean
-      - cargo +beta-%HOST% test --features "fail-on-warnings use-system-libs"
-      - cargo +beta-%HOST% test --release --features "fail-on-warnings use-system-libs"
+#      # Install fresh GMP, MPFR, MPC now to avoid interference with gcc package
+#      - pacman -Sy --noconfirm %MINGW_PACKAGE_PREFIX%-gmp %MINGW_PACKAGE_PREFIX%-mpfr %MINGW_PACKAGE_PREFIX%-mpc
+#      - cargo clean
+#      - cargo +beta-%HOST% test --features "fail-on-warnings use-system-libs"
+#      - cargo +beta-%HOST% test --release --features "fail-on-warnings use-system-libs"
     after_test:
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d cache ]; then for c in cache/*/*.crate; do s=src/${c#cache/}; if [ ! -e ${s/.crate/} ]; then rm -v $c; fi; done; find cache -name \*.crate | sort; fi"
