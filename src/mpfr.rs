@@ -629,7 +629,7 @@ extern "C" {
     /// See: [`mpfr_div_q`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fdiv_005fq)
     #[link_name = "mpfr_div_q"]
     pub fn div_q(rop: mpfr_ptr, op1: mpfr_srcptr, op2: mpq_srcptr, rnd: rnd_t) -> c_int;
-    /// See: [`mpfr_rec_sqrt`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005frec_005fsqrt)
+    /// See: [`mpfr_sqrt`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsqrt)
     #[link_name = "mpfr_sqrt"]
     pub fn sqrt(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_sqrt_ui`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsqrt_005fui)
