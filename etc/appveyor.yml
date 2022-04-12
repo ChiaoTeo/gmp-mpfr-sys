@@ -14,9 +14,9 @@ branches:
 environment:
   matrix:
     - CI_OS: mac
-      APPVEYOR_BUILD_WORKER_IMAGE: macos
+      APPVEYOR_BUILD_WORKER_IMAGE: macos-monterey
     - CI_OS: mac
-      APPVEYOR_BUILD_WORKER_IMAGE: macos-mojave
+      APPVEYOR_BUILD_WORKER_IMAGE: macos-catalina
     - CI_OS: win
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       HOST: x86_64-pc-windows-gnu
