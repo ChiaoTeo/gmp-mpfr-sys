@@ -642,7 +642,7 @@ extern "C" {
     #[link_name = "mpfr_cbrt"]
     pub fn cbrt(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_rootn_ui`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005frootn_005fui)
-    #[link_name = "mpfr_root"]
+    #[link_name = "mpfr_rootn_ui"]
     pub fn rootn_ui(rop: mpfr_ptr, op: mpfr_srcptr, n: c_ulong, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_root`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005froot)
     #[link_name = "mpfr_root"]

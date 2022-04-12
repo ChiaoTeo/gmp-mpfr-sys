@@ -24,12 +24,19 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.4.8 news (unreleased)
+
+  * Bug fix: <code>[mpfr][mpfr-1-4]::[rootn\_ui][mpfr-ru-1-4]</code> was linking
+    to the MPFR function `mpfr_root` instead of `mpfr_rootn_ui`.
+
 ### Version 1.4.7 news (2021-09-23)
 
   * Bug fix: prefer `CC` environment variable over `gcc` when probing system
     libraries for the `use-system-libs` feature ([issue 20]).
 
 [issue 20]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/20
+[mpfr-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/index.html
+[mpfr-ru-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/fn.rootn_ui.html
 
 ### Other releases
 

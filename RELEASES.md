@@ -5,6 +5,12 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.4.8 (unreleased)
+==========================
+
+  * Bug fix: <code>[mpfr][mpfr-1-4]::[rootn\_ui][mpfr-ru-1-4]</code> was linking
+    to the MPFR function `mpfr_root` instead of `mpfr_rootn_ui`.
+
 Version 1.4.7 (2021-09-23)
 ==========================
 
@@ -54,6 +60,8 @@ Version 1.4.0 (2020-09-02)
 
 [cache-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/#caching-the-built-c-libraries
 [feat-exp-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/#experimental-optional-features
+[mpfr-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/index.html
+[mpfr-ru-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/fn.rootn_ui.html
 
 Version 1.3.1 (2020-07-17)
 ==========================
