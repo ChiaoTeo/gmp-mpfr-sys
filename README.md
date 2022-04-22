@@ -260,6 +260,10 @@ To use a different directory, you can set the environment variable
 `GMP_MPFR_SYS_CACHE` variable to an empty string or to a single
 underscore (`"_"`) will disable caching.
 
+**Warning:** Setting the `CFLAGS` environment variable during compilation may
+interfere with caching: in such a case consider disabling caching or changing
+the `GMP_MPFR_SYS_CACHE` environment variable in tandem with `CFLAGS`.
+
 [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
 [*RELEASES.md*]: https://gitlab.com/tspiteri/gmp-mpfr-sys/blob/master/RELEASES.md
 [GMP]: https://gmplib.org/
