@@ -24,6 +24,13 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.4.9 news (unreleased)
+
+  * Link system libraries statically in case of static musl target ([merge
+    request 2]).
+
+[merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
+
 ### Version 1.4.8 news (2022-04-12)
 
   * Bug fix: <code>[mpfr][mpfr-1-4]::[rootn\_ui][mpfr-ru-1-4]</code> was linking

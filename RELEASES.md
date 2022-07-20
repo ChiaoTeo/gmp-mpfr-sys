@@ -5,6 +5,14 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.4.9 (unreleased)
+==========================
+
+  * Link system libraries statically in case of static musl target ([merge
+    request 2]).
+
+[merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
+
 Version 1.4.8 (2022-04-12)
 ==========================
 
