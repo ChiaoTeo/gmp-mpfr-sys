@@ -5,15 +5,17 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.4.9 (unreleased)
+Version 1.4.9 (2022-07-20)
 ==========================
 
   * Link system libraries statically in case of static musl target ([merge
     request 2]).
-  * The [`f4ff6ff711ed` changeset] from the [GMP] 6.2 branch was merged to avoid
-    the `x18` register for arm64 since it is reserved in Darwin ([issue 25]).
+  * The [`f4ff6ff711ed` changeset] from the [gmp-6.2 branch] of [GMP] was merged
+    to avoid the `x18` register for arm64 since it is reserved in Darwin ([issue
+    25]).
 
 [`f4ff6ff711ed` changeset]: https://gmplib.org/repo/gmp-6.2/rev/f4ff6ff711ed
+[gmp-6.2 branch]: https://gmplib.org/repo/gmp-6.2
 [issue 25]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/25
 [merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
 

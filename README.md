@@ -24,24 +24,18 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.9 news (unreleased)
+### Version 1.4.9 news (2022-07-20)
 
   * Link system libraries statically in case of static musl target ([merge
     request 2]).
-  * The [`f4ff6ff711ed` changeset] from the [GMP] 6.2 branch was merged to avoid
-    the `x18` register for arm64 since it is reserved in Darwin ([issue 25]).
+  * The [`f4ff6ff711ed` changeset] from the [gmp-6.2 branch] of [GMP] was merged
+    to avoid the `x18` register for arm64 since it is reserved in Darwin ([issue
+    25]).
 
 [`f4ff6ff711ed` changeset]: https://gmplib.org/repo/gmp-6.2/rev/f4ff6ff711ed
+[gmp-6.2 branch]: https://gmplib.org/repo/gmp-6.2
 [issue 25]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/25
 [merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
-
-### Version 1.4.8 news (2022-04-12)
-
-  * Bug fix: <code>[mpfr][mpfr-1-4]::[rootn\_ui][mpfr-ru-1-4]</code> was linking
-    to the MPFR function `mpfr_root` instead of `mpfr_rootn_ui`.
-
-[mpfr-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/index.html
-[mpfr-ru-1-4]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/fn.rootn_ui.html
 
 ### Other releases
 
