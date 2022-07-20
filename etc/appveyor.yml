@@ -91,7 +91,7 @@ for:
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d src ]; then rm -r src; fi"
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d cache ]; then find cache -name \*.crate | sort; fi"
       # Install required packages
-      - pacman -Sy --noconfirm diffutils m4 make %MINGW_PACKAGE_PREFIX%-gcc
+      - pacman -S --needed --noconfirm diffutils m4 make %MINGW_PACKAGE_PREFIX%-gcc
     test_script:
       - cargo +beta-%HOST% test --features fail-on-warnings
       - cargo +beta-%HOST% test --release --features fail-on-warnings
