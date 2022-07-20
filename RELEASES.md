@@ -10,7 +10,11 @@ Version 1.4.9 (unreleased)
 
   * Link system libraries statically in case of static musl target ([merge
     request 2]).
+  * The [`f4ff6ff711ed` changeset] from the [GMP] 6.2 branch was merged to avoid
+    the `x18` register for arm64 since it is reserved in Darwin ([issue 25]).
 
+[`f4ff6ff711ed` changeset]: https://gmplib.org/repo/gmp-6.2/rev/f4ff6ff711ed
+[issue 25]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/25
 [merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
 
 Version 1.4.8 (2022-04-12)
