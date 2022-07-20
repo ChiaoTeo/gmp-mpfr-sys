@@ -36,7 +36,6 @@ unsafe {
 [GMP]: https://gmplib.org/
 */
 #![allow(non_camel_case_types, non_snake_case)]
-#![allow(clippy::cmp_owned)]
 
 use core::{
     cmp::Ordering,
@@ -939,6 +938,7 @@ pub unsafe extern "C" fn mpz_getlimbn(op: mpz_srcptr, n: size_t) -> limb_t {
     }
 }
 /// See: [`mpz_size`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fsize)
+#[allow(clippy::cast_abs_to_unsigned)]
 #[inline]
 pub unsafe extern "C" fn mpz_size(op: mpz_srcptr) -> usize {
     unsafe { (*op).size }.abs() as usize

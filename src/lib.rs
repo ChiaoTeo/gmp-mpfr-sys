@@ -376,11 +376,7 @@ NzQgMCAwLjY1NDc1IDAuNDc0MTMgMS4xNzQgMS4xMjg5IDEuMTc0eiIvPgogICA8L2c+CiAgPC9nPgog
 #![cfg_attr(feature = "fail-on-warnings", deny(warnings))]
 #![cfg_attr(unsafe_in_unsafe, warn(unsafe_op_in_unsafe_fn))]
 #![cfg_attr(not(unsafe_in_unsafe), allow(unused_unsafe))]
-#![allow(
-    clippy::missing_safety_doc,
-    clippy::unnecessary_cast,
-    clippy::useless_conversion
-)]
+#![allow(clippy::missing_safety_doc)]
 
 pub mod gmp;
 #[cfg(feature = "mpc")]

@@ -996,12 +996,12 @@ fn write_link_info(env: &Environment, feature_mpfr: bool, feature_mpc: bool) {
     println!("cargo:include_dir={}", include_str);
     println!("cargo:rustc-link-search=native={}", lib_str);
 
-    let target_env = env::var("CARGO_CFG_TARGET_ENV").unwrap_or(String::new());
+    let target_env = env::var("CARGO_CFG_TARGET_ENV").unwrap_or_default();
     if target_env == "musl" && env.use_system_libs {
         println!("cargo:rustc-link-search=/usr/lib");
     }
 
-    let target_features = env::var("CARGO_CFG_TARGET_FEATURE").unwrap_or(String::new());
+    let target_features = env::var("CARGO_CFG_TARGET_FEATURE").unwrap_or_default();
     let using_static_musl = target_env == "musl" && target_features.contains("crt-static");
     let use_static = using_static_musl || !env.use_system_libs;
     let maybe_static = if use_static { "static=" } else { "" };
