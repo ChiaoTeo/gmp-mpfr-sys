@@ -77,6 +77,7 @@ enum Workaround47048 {
 
 fn main() {
     let rustc = cargo_env("RUSTC");
+
     let cc = env::var_os("CC");
     let cc_cache_dir = cc.as_ref().map(|cc| {
         let mut dir = OsString::from("CC-");
@@ -84,6 +85,18 @@ fn main() {
         dir
     });
     let c_compiler = cc.unwrap_or_else(|| "gcc".into());
+
+    let cflags = env::var_os("CFLAGS");
+    let cflags_cache_dir = cflags.as_ref().map(|cflags| {
+        #[allow(deprecated)]
+        {
+            use std::hash::{Hash, Hasher, SipHasher};
+            let mut hasher = SipHasher::new();
+            cflags.hash(&mut hasher);
+            let hash = hasher.finish();
+            OsString::from(format!("CFLAGS-{:016X}", hash))
+        }
+    });
 
     let host = cargo_env("HOST")
         .into_string()
@@ -131,6 +144,10 @@ fn main() {
         .map(|cache| cache.join(&version_prefix))
         .map(|cache| cache.join(cache_target))
         .map(|cache| match cc_cache_dir {
+            Some(dir) => cache.join(dir),
+            None => cache,
+        })
+        .map(|cache| match cflags_cache_dir {
             Some(dir) => cache.join(dir),
             None => cache,
         });
