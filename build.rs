@@ -9,16 +9,18 @@
 //
 //  1. Configure GMP with --enable-fat so that built file is portable.
 //
-//  2. Configure GMP, MPFR and MPC with: --disable-shared --with-pic
+//  2. Configure MPFR with --enable-thread-safe --disable-decimal-float --disable-float128.
 //
-//  3. Add symlinks to work around relative path issues in MPFR and MPC.
+//  3. Configure GMP, MPFR and MPC with: --disable-shared --with-pic
+//
+//  4. Add symlinks to work around relative path issues in MPFR and MPC.
 //     In MPFR: ln -s ../gmp-build
 //     In MPC: ln -s ../mpfr-src ../mpfr-build ../gmp-build .
 //
-//  4. Unset CC and CFLAGS before building MPFR, so that both MPFR and MPC are
+//  5. Unset CC and CFLAGS before building MPFR, so that both MPFR and MPC are
 //     left to their default behavior and obtain them from gmp.h.
 //
-//  5. Use relative paths for configure otherwise msys/mingw might be
+//  6. Use relative paths for configure otherwise msys/mingw might be
 //     confused with drives and such.
 
 #[cfg(unix)]
@@ -943,8 +945,8 @@ fn build_mpfr(env: &Environment, lib: &Path, header: &Path) {
     std::env::remove_var("CFLAGS");
 
     let mut conf = String::from(
-        "../mpfr-src/configure --enable-thread-safe --disable-shared \
-         --with-gmp-build=../gmp-build --with-pic",
+        "../mpfr-src/configure --enable-thread-safe --disable-decimal-float --disable-float128 \
+         --disable-shared --with-gmp-build=../gmp-build --with-pic",
     );
     if let Some(cross_target) = env.cross_target.as_ref() {
         conf.push_str(" --host ");
