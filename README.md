@@ -193,8 +193,8 @@ To build on GNU/Linux, simply make sure you have `diffutils`, `gcc`,
 sudo dnf install diffutils gcc m4 make
 ```
 
-Note that you can use Clang instead of GCC by installing `clang` instead of
-`gcc` and setting the environment variable `CC=clang` before building the crate.
+Note that you can use Clang instead of GCC by installing `clang` and setting the
+environment variable `CC=clang` before building the crate.
 
 ## Building on macOS
 
@@ -237,6 +237,10 @@ Then, to build a crate with a dependency on this crate:
  2. Change to the crate directory.
 
  3. Build the crate using `cargo`.
+
+Note that you can use Clang instead of GCC by installing
+`mingw-w64-x86_64-clang` (32-bit: `mingw-w64-i686-clang`) and setting the
+environment variable `CC=clang` before building the crate.
 
 ## Cross compilation
 
