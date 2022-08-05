@@ -30,7 +30,7 @@ environment:
       MSYSTEM_PREFIX: C:/msys64/mingw64
       PKG_CONFIG_PATH: C:\msys64\mingw64\lib\pkgconfig;C:\msys64\mingw64\share\pkgconfig
     - CI_OS: win
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       HOST: i686-pc-windows-gnu
       CONFIG_SITE: C:/msys64/mingw32/etc/config.site
       MINGW_CHOST: i686-w64-mingw32
