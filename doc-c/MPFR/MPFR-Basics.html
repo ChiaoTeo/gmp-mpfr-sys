@@ -1,28 +1,22 @@
-<span id="MPFR-Basics"></span><div class="header">
+<div class="chapter" id="MPFR-Basics">
+<div class="header">
 <p>
-Next: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="n" rel="next">MPFR Interface</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="n" rel="next">MPFR Interface</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MPFR-Basics-1"></span><h2 class="chapter">4 MPFR Basics</h2>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Headers-and-Libraries" accesskey="1">Headers and Libraries</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Nomenclature-and-Types" accesskey="2">Nomenclature and Types</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#MPFR-Variable-Conventions" accesskey="3">MPFR Variable Conventions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Rounding" accesskey="4">Rounding</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="5">Floating-Point Values on Special Numbers</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Exceptions" accesskey="6">Exceptions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Memory-Handling" accesskey="7">Memory Handling</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Getting-the-Best-Efficiency-Out-of-MPFR" accesskey="8">Getting the Best Efficiency Out of MPFR</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#Headers-and-Libraries" accesskey="1">Headers and Libraries</a></li>
+<li><a href="#Nomenclature-and-Types" accesskey="2">Nomenclature and Types</a></li>
+<li><a href="#MPFR-Variable-Conventions" accesskey="3">MPFR Variable Conventions</a></li>
+<li><a href="#Rounding" accesskey="4">Rounding</a></li>
+<li><a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="5">Floating-Point Values on Special Numbers</a></li>
+<li><a href="#Exceptions" accesskey="6">Exceptions</a></li>
+<li><a href="#Memory-Handling" accesskey="7">Memory Handling</a></li>
+<li><a href="#Getting-the-Best-Efficiency-Out-of-MPFR" accesskey="8">Getting the Best Efficiency Out of MPFR</a></li>
+</ul>
 <hr>
-<span id="Headers-and-Libraries"></span><div class="header">
+<div class="section" id="Headers-and-Libraries">
+<div class="header">
 <p>
 Next: <a href="#Nomenclature-and-Types" accesskey="n" rel="next">Nomenclature and Types</a>, Previous: <a href="#MPFR-Basics" accesskey="p" rel="prev">MPFR Basics</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -115,7 +109,9 @@ or indirectly) and system headers/libraries should not define macros and
 symbols using these prefixes.
 </p>
 <hr>
-<span id="Nomenclature-and-Types"></span><div class="header">
+</div>
+<div class="section" id="Nomenclature-and-Types">
+<div class="header">
 <p>
 Next: <a href="#MPFR-Variable-Conventions" accesskey="n" rel="next">MPFR Variable Conventions</a>, Previous: <a href="#Headers-and-Libraries" accesskey="p" rel="prev">Headers and Libraries</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -183,7 +179,9 @@ provides operations on flags (<a href="#Exceptions">Exceptions</a>). This C data
 to represent a group of flags (or a mask).
 </p>
 <hr>
-<span id="MPFR-Variable-Conventions"></span><div class="header">
+</div>
+<div class="section" id="MPFR-Variable-Conventions">
+<div class="header">
 <p>
 Next: <a href="#Rounding" accesskey="n" rel="next">Rounding</a>, Previous: <a href="#Nomenclature-and-Types" accesskey="p" rel="prev">Nomenclature and Types</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -213,7 +211,9 @@ This computes the square of <var>x</var> with rounding mode <code>rnd</code>
 and puts the result back in <var>x</var>.
 </p>
 <hr>
-<span id="Rounding"></span><div class="header">
+</div>
+<div class="section" id="Rounding">
+<div class="header">
 <p>
 Next: <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="n" rel="next">Floating-Point Values on Special Numbers</a>, Previous: <a href="#MPFR-Variable-Conventions" accesskey="p" rel="prev">MPFR Variable Conventions</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -326,7 +326,9 @@ for special cases (like <code>acos(0)</code>) yield an overflow or
 an underflow if that value is not representable in the current exponent range.
 </p>
 <hr>
-<span id="Floating_002dPoint-Values-on-Special-Numbers"></span><div class="header">
+</div>
+<div class="section" id="Floating_002dPoint-Values-on-Special-Numbers">
+<div class="header">
 <p>
 Next: <a href="#Exceptions" accesskey="n" rel="next">Exceptions</a>, Previous: <a href="#Rounding" accesskey="p" rel="prev">Rounding</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -355,9 +357,9 @@ but is in its closure in the extended real numbers and the function can
 be extended by continuity, the result is the obtained limit.
 Examples: <code>mpfr_hypot</code> on (+Inf,0) gives +Inf. But <code>mpfr_pow</code>
 cannot be defined on (1,+Inf) using this rule, as one can find
-sequences (<em><var>x</var>_<var>n</var></em>,<em><var>y</var>_<var>n</var></em>) such that
-<em><var>x</var>_<var>n</var></em> goes to 1, <em><var>y</var>_<var>n</var></em> goes to +Inf
-and <em><var>x</var>_<var>n</var> to the <var>y</var>_<var>n</var></em> goes to any
+sequences (<em class='math'><var>x</var>_<var>n</var></em>,<em class='math'><var>y</var>_<var>n</var></em>) such that
+<em class='math'><var>x</var>_<var>n</var></em> goes to 1, <em class='math'><var>y</var>_<var>n</var></em> goes to +Inf
+and <em class='math'><var>x</var>_<var>n</var> to the <var>y</var>_<var>n</var></em> goes to any
 positive value when <var>n</var> goes to the infinity.
 </p>
 <p>When the input point is in the closure of the domain of the mathematical
@@ -389,7 +391,9 @@ since for any finite or infinite input <var>x</var>, <code>mpfr_hypot</code> on
 (<var>x</var>,+Inf) gives +Inf.
 </p>
 <hr>
-<span id="Exceptions"></span><div class="header">
+</div>
+<div class="section" id="Exceptions">
+<div class="header">
 <p>
 Next: <a href="#Memory-Handling" accesskey="n" rel="next">Memory Handling</a>, Previous: <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="p" rel="prev">Floating-Point Values on Special Numbers</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -415,7 +419,7 @@ mode, the halfway case is rounded toward zero.)
 <p>Note: This is not the single possible definition of the underflow. MPFR chooses
 to consider the underflow <em>after</em> rounding. The underflow before rounding
 can also be defined. For instance, consider a function that has the
-exact result <em>7 multiplied by two to the power
+exact result <em class='math'>7 multiplied by two to the power
 <var>e</var>-4</em>, where <var>e</var> is the smallest exponent (for a
 significand between 1/2 and 1),
 with a 2-bit target precision and rounding toward plus infinity.
@@ -424,7 +428,7 @@ before rounding, such a function call would yield an underflow, as
 <var>e</var>-1 is outside the current exponent range. However, MPFR
 first considers the rounded result assuming an unbounded exponent range.
 The exact result cannot be represented exactly in precision 2, and here,
-it is rounded to <em>0.5 times 2 to <var>e</var></em>, which is
+it is rounded to <em class='math'>0.5 times 2 to <var>e</var></em>, which is
 representable in the current exponent range. As a consequence, this will
 not yield an underflow in MPFR.
 </p>
@@ -464,13 +468,15 @@ the NaN flag whenever a NaN is generated, even when a NaN is propagated
 a range error in MPFR.
 </li></ul>
 <hr>
-<span id="Memory-Handling"></span><div class="header">
+</div>
+<div class="section" id="Memory-Handling">
+<div class="header">
 <p>
 Next: <a href="#Getting-the-Best-Efficiency-Out-of-MPFR" accesskey="n" rel="next">Getting the Best Efficiency Out of MPFR</a>, Previous: <a href="#Exceptions" accesskey="p" rel="prev">Exceptions</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Memory-Handling-1"></span><h3 class="section">4.7 Memory Handling</h3>
 <p>MPFR functions may create caches, e.g., when computing constants such
-as <em>Pi</em>, either because the user has called a function like
+as <em class='math'>Pi</em>, either because the user has called a function like
 <code>mpfr_const_pi</code> directly or because such a function was called
 internally by the MPFR library itself to compute some other function.
 When more precision is needed, the value is automatically recomputed;
@@ -531,7 +537,9 @@ a library using MPFR (directly or indirectly), in order to make sure that
 such a change is compatible with the library.
 </p>
 <hr>
-<span id="Getting-the-Best-Efficiency-Out-of-MPFR"></span><div class="header">
+</div>
+<div class="section" id="Getting-the-Best-Efficiency-Out-of-MPFR">
+<div class="header">
 <p>
 Previous: <a href="#Memory-Handling" accesskey="p" rel="prev">Memory Handling</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -551,8 +559,10 @@ Previous: <a href="#Memory-Handling" accesskey="p" rel="prev">Memory Handling</a
       need an auxiliary variable, you can directly write
       <code>mpfr_add (a, a, b, ...)</code>.
 </li></ul>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#Memory-Handling" accesskey="p" rel="prev">Memory Handling</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="n" rel="next">MPFR Interface</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

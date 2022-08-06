@@ -1,6 +1,7 @@
-<span id="C_002b_002b-Class-Interface"></span><div class="header">
+<div class="chapter" id="C_002b_002b-Class-Interface">
+<div class="header">
 <p>
-Next: <a href="constant.Custom_Allocation.html#start" accesskey="n" rel="next">Custom Allocation</a>, Previous: <a href="constant.Formatted_Input.html#Formatted-Input" accesskey="p" rel="prev">Formatted Input</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Custom_Allocation.html#start" accesskey="n" rel="next">Custom Allocation</a>, Previous: <a href="constant.Formatted_Input.html#Formatted-Input" accesskey="p" rel="prev">Formatted Input</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C_002b_002b-Class-Interface-1"></span><h2 class="chapter">12 C++ Class Interface</h2>
 <span id="index-C_002b_002b-interface"></span>
@@ -18,22 +19,17 @@ and member templates.
 and might be subject to incompatible changes if some unforeseen difficulty
 reveals itself.</strong>
 </p>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-General" accesskey="1">C++ Interface General</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-Integers" accesskey="2">C++ Interface Integers</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-Rationals" accesskey="3">C++ Interface Rationals</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-Floats" accesskey="4">C++ Interface Floats</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-Random-Numbers" accesskey="5">C++ Interface Random Numbers</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Interface-Limitations" accesskey="6">C++ Interface Limitations</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#C_002b_002b-Interface-General" accesskey="1">C++ Interface General</a></li>
+<li><a href="#C_002b_002b-Interface-Integers" accesskey="2">C++ Interface Integers</a></li>
+<li><a href="#C_002b_002b-Interface-Rationals" accesskey="3">C++ Interface Rationals</a></li>
+<li><a href="#C_002b_002b-Interface-Floats" accesskey="4">C++ Interface Floats</a></li>
+<li><a href="#C_002b_002b-Interface-Random-Numbers" accesskey="5">C++ Interface Random Numbers</a></li>
+<li><a href="#C_002b_002b-Interface-Limitations" accesskey="6">C++ Interface Limitations</a></li>
+</ul>
 <hr>
-<span id="C_002b_002b-Interface-General"></span><div class="header">
+<div class="section" id="C_002b_002b-Interface-General">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Interface-Integers" accesskey="n" rel="next">C++ Interface Integers</a>, Previous: <a href="#C_002b_002b-Class-Interface" accesskey="p" rel="prev">C++ Class Interface</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -52,10 +48,10 @@ libraries.  For example,
 </pre></div>
 <p>The classes defined are
 </p>
-<dl>
-<dt id="index-mpz_005fclass">Class: <strong>mpz_class</strong></dt>
-<dt id="index-mpq_005fclass">Class: <strong>mpq_class</strong></dt>
-<dt id="index-mpf_005fclass">Class: <strong>mpf_class</strong></dt>
+<dl class="def">
+<dt id="index-mpz_005fclass"><span class="category">Class: </span><span><strong>mpz_class</strong><a href='#index-mpz_005fclass' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass"><span class="category">Class: </span><span><strong>mpq_class</strong><a href='#index-mpq_005fclass' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass"><span class="category">Class: </span><span><strong>mpf_class</strong><a href='#index-mpf_005fclass' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 <p>The standard operators and various standard functions are overloaded to allow
 arithmetic with these classes.  For example,
@@ -98,10 +94,10 @@ the following sections for details).
 GMP C types, instead a reference to the underlying C object can be obtained
 with the following functions,
 </p>
-<dl>
-<dt id="index-mpz_005fclass_003a_003aget_005fmpz_005ft">Function: <em>mpz_t</em> <strong>mpz_class::get_mpz_t</strong> <em>()</em></dt>
-<dt id="index-mpq_005fclass_003a_003aget_005fmpq_005ft">Function: <em>mpq_t</em> <strong>mpq_class::get_mpq_t</strong> <em>()</em></dt>
-<dt id="index-mpf_005fclass_003a_003aget_005fmpf_005ft">Function: <em>mpf_t</em> <strong>mpf_class::get_mpf_t</strong> <em>()</em></dt>
+<dl class="def">
+<dt id="index-mpz_005fclass_003a_003aget_005fmpz_005ft"><span class="category">Function: </span><span><em>mpz_t</em> <strong>mpz_class::get_mpz_t</strong> <em>()</em><a href='#index-mpz_005fclass_003a_003aget_005fmpz_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aget_005fmpq_005ft"><span class="category">Function: </span><span><em>mpq_t</em> <strong>mpq_class::get_mpq_t</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003aget_005fmpq_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aget_005fmpf_005ft"><span class="category">Function: </span><span><em>mpf_t</em> <strong>mpf_class::get_mpf_t</strong> <em>()</em><a href='#index-mpf_005fclass_003a_003aget_005fmpf_005ft' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 <p>These can be used to call a C function which doesn&rsquo;t have a C++ class
 interface.  For example to set <code>a</code> to the GCD of <code>b</code> and <code>c</code>,
@@ -130,45 +126,47 @@ the past, and continues to do for compatibility.  The extras provided by
 anything.
 </p>
 <hr>
-<span id="C_002b_002b-Interface-Integers"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Interface-Integers">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Interface-Rationals" accesskey="n" rel="next">C++ Interface Rationals</a>, Previous: <a href="#C_002b_002b-Interface-General" accesskey="p" rel="prev">C++ Interface General</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C_002b_002b-Interface-Integers-1"></span><h3 class="section">12.2 C++ Interface Integers</h3>
-<dl>
-<dt id="index-mpz_005fclass_003a_003ampz_005fclass">Function: <em></em> <strong>mpz_class::mpz_class</strong> <em>(type <var>n</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpz_005fclass_003a_003ampz_005fclass"><span class="category">Function: </span><span><em></em> <strong>mpz_class::mpz_class</strong> <em>(type <var>n</var>)</em><a href='#index-mpz_005fclass_003a_003ampz_005fclass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpz_class</code>.  All the standard C++ types may be used, except
 <code>long long</code> and <code>long double</code>, and all the GMP C++ classes can be
 used, although conversions from <code>mpq_class</code> and <code>mpf_class</code> are
 <code>explicit</code>.  Any necessary conversion follows the corresponding C
 function, for example <code>double</code> follows <code>mpz_set_d</code>
-(see <a href="constant.Integer_Functions.html#Assigning-Integers">Assigning Integers</a>).
+(see <a href="constant.Integer_Functions.html#Assigning-Integers">Assignment Functions</a>).
 </p></dd></dl>
-<dl>
-<dt id="index-mpz_005fclass_003a_003ampz_005fclass-1">Function: <em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const mpz_t <var>z</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpz_005fclass_003a_003ampz_005fclass-1"><span class="category">Function: </span><span><em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const mpz_t <var>z</var>)</em><a href='#index-mpz_005fclass_003a_003ampz_005fclass-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpz_class</code> from an <code>mpz_t</code>.  The value in <var>z</var> is
 copied into the new <code>mpz_class</code>, there won&rsquo;t be any permanent association
 between it and <var>z</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpz_005fclass_003a_003ampz_005fclass-2">Function: <em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const char *<var>s</var>, int <var>base</var> = 0)</em></dt>
-<dt id="index-mpz_005fclass_003a_003ampz_005fclass-3">Function: <em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const string&amp; <var>s</var>, int <var>base</var> = 0)</em></dt>
+<dl class="def">
+<dt id="index-mpz_005fclass_003a_003ampz_005fclass-2"><span class="category">Function: </span><span><em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const char *<var>s</var>, int <var>base</var> = 0)</em><a href='#index-mpz_005fclass_003a_003ampz_005fclass-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003ampz_005fclass-3"><span class="category">Function: </span><span><em>explicit</em> <strong>mpz_class::mpz_class</strong> <em>(const string&amp; <var>s</var>, int <var>base</var> = 0)</em><a href='#index-mpz_005fclass_003a_003ampz_005fclass-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpz_class</code> converted from a string using <code>mpz_set_str</code>
-(see <a href="constant.Integer_Functions.html#Assigning-Integers">Assigning Integers</a>).
+(see <a href="constant.Integer_Functions.html#Assigning-Integers">Assignment Functions</a>).
 </p>
 <p>If the string is not a valid integer, an <code>std::invalid_argument</code>
 exception is thrown.  The same applies to <code>operator=</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_0022_0022">Function: <em>mpz_class</em> <strong>operator&quot;&quot;</strong> <em>_mpz (const char *<var>str</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_0022_0022"><span class="category">Function: </span><span><em>mpz_class</em> <strong>operator&quot;&quot;</strong> <em>_mpz (const char *<var>str</var>)</em><a href='#index-operator_0022_0022' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>With C++11 compilers, integers can be constructed with the syntax
 <code>123_mpz</code> which is equivalent to <code>mpz_class(&quot;123&quot;)</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_002f">Function: <em>mpz_class</em> <strong>operator/</strong> <em>(mpz_class <var>a</var>, mpz_class <var>d</var>)</em></dt>
-<dt id="index-operator_0025">Function: <em>mpz_class</em> <strong>operator%</strong> <em>(mpz_class <var>a</var>, mpz_class <var>d</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_002f"><span class="category">Function: </span><span><em>mpz_class</em> <strong>operator/</strong> <em>(mpz_class <var>a</var>, mpz_class <var>d</var>)</em><a href='#index-operator_002f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-operator_0025"><span class="category">Function: </span><span><em>mpz_class</em> <strong>operator%</strong> <em>(mpz_class <var>a</var>, mpz_class <var>d</var>)</em><a href='#index-operator_0025' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Divisions involving <code>mpz_class</code> round towards zero, as per the
-<code>mpz_tdiv_q</code> and <code>mpz_tdiv_r</code> functions (see <a href="constant.Integer_Functions.html#Integer-Division">Integer Division</a>).
+<code>mpz_tdiv_q</code> and <code>mpz_tdiv_r</code> functions (see <a href="constant.Integer_Functions.html#Integer-Division">Division Functions</a>).
 This is the same as the C99 <code>/</code> and <code>%</code> operators.
 </p>
 <p>The <code>mpz_fdiv&hellip;</code> or <code>mpz_cdiv&hellip;</code> functions can always be called
@@ -180,34 +178,34 @@ directly if desired.  For example,
 mpz_fdiv_q (q.get_mpz_t(), a.get_mpz_t(), d.get_mpz_t());
 </pre></div>
 </dd></dl>
-<dl>
-<dt id="index-abs">Function: <em>mpz_class</em> <strong>abs</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-cmp">Function: <em>int</em> <strong>cmp</strong> <em>(mpz_class <var>op1</var>, type <var>op2</var>)</em></dt>
-<dt id="index-cmp-1">Function: <em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpz_class <var>op2</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fsint_005fp">Function: <em>bool</em> <strong>mpz_class::fits_sint_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fslong_005fp">Function: <em>bool</em> <strong>mpz_class::fits_slong_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fsshort_005fp">Function: <em>bool</em> <strong>mpz_class::fits_sshort_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fuint_005fp">Function: <em>bool</em> <strong>mpz_class::fits_uint_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fulong_005fp">Function: <em>bool</em> <strong>mpz_class::fits_ulong_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afits_005fushort_005fp">Function: <em>bool</em> <strong>mpz_class::fits_ushort_p</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aget_005fd">Function: <em>double</em> <strong>mpz_class::get_d</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aget_005fsi">Function: <em>long</em> <strong>mpz_class::get_si</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aget_005fstr">Function: <em>string</em> <strong>mpz_class::get_str</strong> <em>(int <var>base</var> = 10)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aget_005fui">Function: <em>unsigned long</em> <strong>mpz_class::get_ui</strong> <em>(void)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aset_005fstr">Function: <em>int</em> <strong>mpz_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aset_005fstr-1">Function: <em>int</em> <strong>mpz_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-sgn">Function: <em>int</em> <strong>sgn</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-sqrt">Function: <em>mpz_class</em> <strong>sqrt</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-gcd">Function: <em>mpz_class</em> <strong>gcd</strong> <em>(mpz_class <var>op1</var>, mpz_class <var>op2</var>)</em></dt>
-<dt id="index-lcm">Function: <em>mpz_class</em> <strong>lcm</strong> <em>(mpz_class <var>op1</var>, mpz_class <var>op2</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afactorial">Function: <em>mpz_class</em> <strong>mpz_class::factorial</strong> <em>(type <var>op</var>)</em></dt>
-<dt id="index-factorial">Function: <em>mpz_class</em> <strong>factorial</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aprimorial">Function: <em>mpz_class</em> <strong>mpz_class::primorial</strong> <em>(type <var>op</var>)</em></dt>
-<dt id="index-primorial">Function: <em>mpz_class</em> <strong>primorial</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003afibonacci">Function: <em>mpz_class</em> <strong>mpz_class::fibonacci</strong> <em>(type <var>op</var>)</em></dt>
-<dt id="index-fibonacci">Function: <em>mpz_class</em> <strong>fibonacci</strong> <em>(mpz_class <var>op</var>)</em></dt>
-<dt id="index-mpz_005fclass_003a_003aswap">Function: <em>void</em> <strong>mpz_class::swap</strong> <em>(mpz_class&amp; <var>op</var>)</em></dt>
-<dt id="index-swap">Function: <em>void</em> <strong>swap</strong> <em>(mpz_class&amp; <var>op1</var>, mpz_class&amp; <var>op2</var>)</em></dt>
+<dl class="def">
+<dt id="index-abs"><span class="category">Function: </span><span><em>mpz_class</em> <strong>abs</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-abs' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(mpz_class <var>op1</var>, type <var>op2</var>)</em><a href='#index-cmp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp-1"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpz_class <var>op2</var>)</em><a href='#index-cmp-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fsint_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_sint_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fsint_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fslong_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_slong_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fslong_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fsshort_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_sshort_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fsshort_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fuint_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_uint_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fuint_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fulong_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_ulong_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fulong_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afits_005fushort_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpz_class::fits_ushort_p</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003afits_005fushort_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aget_005fd"><span class="category">Function: </span><span><em>double</em> <strong>mpz_class::get_d</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003aget_005fd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aget_005fsi"><span class="category">Function: </span><span><em>long</em> <strong>mpz_class::get_si</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003aget_005fsi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aget_005fstr"><span class="category">Function: </span><span><em>string</em> <strong>mpz_class::get_str</strong> <em>(int <var>base</var> = 10)</em><a href='#index-mpz_005fclass_003a_003aget_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aget_005fui"><span class="category">Function: </span><span><em>unsigned long</em> <strong>mpz_class::get_ui</strong> <em>(void)</em><a href='#index-mpz_005fclass_003a_003aget_005fui' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aset_005fstr"><span class="category">Function: </span><span><em>int</em> <strong>mpz_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em><a href='#index-mpz_005fclass_003a_003aset_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aset_005fstr-1"><span class="category">Function: </span><span><em>int</em> <strong>mpz_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em><a href='#index-mpz_005fclass_003a_003aset_005fstr-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sgn"><span class="category">Function: </span><span><em>int</em> <strong>sgn</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-sgn' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sqrt"><span class="category">Function: </span><span><em>mpz_class</em> <strong>sqrt</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-sqrt' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gcd"><span class="category">Function: </span><span><em>mpz_class</em> <strong>gcd</strong> <em>(mpz_class <var>op1</var>, mpz_class <var>op2</var>)</em><a href='#index-gcd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lcm"><span class="category">Function: </span><span><em>mpz_class</em> <strong>lcm</strong> <em>(mpz_class <var>op1</var>, mpz_class <var>op2</var>)</em><a href='#index-lcm' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afactorial"><span class="category">Function: </span><span><em>mpz_class</em> <strong>mpz_class::factorial</strong> <em>(type <var>op</var>)</em><a href='#index-mpz_005fclass_003a_003afactorial' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-factorial"><span class="category">Function: </span><span><em>mpz_class</em> <strong>factorial</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-factorial' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aprimorial"><span class="category">Function: </span><span><em>mpz_class</em> <strong>mpz_class::primorial</strong> <em>(type <var>op</var>)</em><a href='#index-mpz_005fclass_003a_003aprimorial' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-primorial"><span class="category">Function: </span><span><em>mpz_class</em> <strong>primorial</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-primorial' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003afibonacci"><span class="category">Function: </span><span><em>mpz_class</em> <strong>mpz_class::fibonacci</strong> <em>(type <var>op</var>)</em><a href='#index-mpz_005fclass_003a_003afibonacci' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fibonacci"><span class="category">Function: </span><span><em>mpz_class</em> <strong>fibonacci</strong> <em>(mpz_class <var>op</var>)</em><a href='#index-fibonacci' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpz_005fclass_003a_003aswap"><span class="category">Function: </span><span><em>void</em> <strong>mpz_class::swap</strong> <em>(mpz_class&amp; <var>op</var>)</em><a href='#index-mpz_005fclass_003a_003aswap' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-swap"><span class="category">Function: </span><span><em>void</em> <strong>swap</strong> <em>(mpz_class&amp; <var>op1</var>, mpz_class&amp; <var>op2</var>)</em><a href='#index-swap' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>These functions provide a C++ class interface to the corresponding GMP C
 routines.  Calling <code>factorial</code> or <code>primorial</code> on a negative number
 is undefined.
@@ -227,7 +225,9 @@ to follow the corresponding C functions <code>mpz_get_d</code> and <code>mpz_set
 And comparisons are always made exactly, as per <code>mpz_cmp_d</code>.
 </p>
 <hr>
-<span id="C_002b_002b-Interface-Rationals"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Interface-Rationals">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Interface-Floats" accesskey="n" rel="next">C++ Interface Floats</a>, Previous: <a href="#C_002b_002b-Interface-Integers" accesskey="p" rel="prev">C++ Interface Integers</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -235,9 +235,9 @@ Next: <a href="#C_002b_002b-Interface-Floats" accesskey="n" rel="next">C++ Inter
 <p>In all the following constructors, if a fraction is given then it should be in
 canonical form, or if not then <code>mpq_class::canonicalize</code> called.
 </p>
-<dl>
-<dt id="index-mpq_005fclass_003a_003ampq_005fclass">Function: <em></em> <strong>mpq_class::mpq_class</strong> <em>(type <var>op</var>)</em></dt>
-<dt id="index-mpq_005fclass_003a_003ampq_005fclass-1">Function: <em></em> <strong>mpq_class::mpq_class</strong> <em>(integer <var>num</var>, integer <var>den</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003ampq_005fclass"><span class="category">Function: </span><span><em></em> <strong>mpq_class::mpq_class</strong> <em>(type <var>op</var>)</em><a href='#index-mpq_005fclass_003a_003ampq_005fclass' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003ampq_005fclass-1"><span class="category">Function: </span><span><em></em> <strong>mpq_class::mpq_class</strong> <em>(integer <var>num</var>, integer <var>den</var>)</em><a href='#index-mpq_005fclass_003a_003ampq_005fclass-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpq_class</code>.  The initial value can be a single value of any
 type (conversion from <code>mpf_class</code> is <code>explicit</code>), or a pair of
 integers (<code>mpz_class</code> or standard C++ integer types) representing a
@@ -250,52 +250,52 @@ mpq_class q (1.75);
 mpq_class q (1, 3);
 </pre></div>
 </dd></dl>
-<dl>
-<dt id="index-mpq_005fclass_003a_003ampq_005fclass-2">Function: <em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const mpq_t <var>q</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003ampq_005fclass-2"><span class="category">Function: </span><span><em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const mpq_t <var>q</var>)</em><a href='#index-mpq_005fclass_003a_003ampq_005fclass-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpq_class</code> from an <code>mpq_t</code>.  The value in <var>q</var> is
 copied into the new <code>mpq_class</code>, there won&rsquo;t be any permanent association
 between it and <var>q</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclass_003a_003ampq_005fclass-3">Function: <em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const char *<var>s</var>, int <var>base</var> = 0)</em></dt>
-<dt id="index-mpq_005fclass_003a_003ampq_005fclass-4">Function: <em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const string&amp; <var>s</var>, int <var>base</var> = 0)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003ampq_005fclass-3"><span class="category">Function: </span><span><em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const char *<var>s</var>, int <var>base</var> = 0)</em><a href='#index-mpq_005fclass_003a_003ampq_005fclass-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003ampq_005fclass-4"><span class="category">Function: </span><span><em>explicit</em> <strong>mpq_class::mpq_class</strong> <em>(const string&amp; <var>s</var>, int <var>base</var> = 0)</em><a href='#index-mpq_005fclass_003a_003ampq_005fclass-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpq_class</code> converted from a string using <code>mpq_set_str</code>
-(see <a href="constant.Rational_Number_Functions.html#Initializing-Rationals">Initializing Rationals</a>).
+(see <a href="constant.Rational_Number_Functions.html#Initializing-Rationals">Initialization and Assignment Functions</a>).
 </p>
 <p>If the string is not a valid rational, an <code>std::invalid_argument</code>
 exception is thrown.  The same applies to <code>operator=</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_0022_0022-1">Function: <em>mpq_class</em> <strong>operator&quot;&quot;</strong> <em>_mpq (const char *<var>str</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_0022_0022-1"><span class="category">Function: </span><span><em>mpq_class</em> <strong>operator&quot;&quot;</strong> <em>_mpq (const char *<var>str</var>)</em><a href='#index-operator_0022_0022-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>With C++11 compilers, integral rationals can be constructed with the syntax
 <code>123_mpq</code> which is equivalent to <code>mpq_class(123_mpz)</code>. Other
 rationals can be built as <code>-1_mpq/2</code> or <code>0xb_mpq/123456_mpz</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclass_003a_003acanonicalize">Function: <em>void</em> <strong>mpq_class::canonicalize</strong> <em>()</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003acanonicalize"><span class="category">Function: </span><span><em>void</em> <strong>mpq_class::canonicalize</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003acanonicalize' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Put an <code>mpq_class</code> into canonical form, as per <a href="constant.Rational_Number_Functions.html#Rational-Number-Functions">Rational Number Functions</a>.  All arithmetic operators require their operands in canonical
 form, and will return results in canonical form.
 </p></dd></dl>
-<dl>
-<dt id="index-abs-1">Function: <em>mpq_class</em> <strong>abs</strong> <em>(mpq_class <var>op</var>)</em></dt>
-<dt id="index-cmp-2">Function: <em>int</em> <strong>cmp</strong> <em>(mpq_class <var>op1</var>, type <var>op2</var>)</em></dt>
-<dt id="index-cmp-3">Function: <em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpq_class <var>op2</var>)</em></dt>
-<dt id="index-mpq_005fclass_003a_003aget_005fd">Function: <em>double</em> <strong>mpq_class::get_d</strong> <em>(void)</em></dt>
-<dt id="index-mpq_005fclass_003a_003aget_005fstr">Function: <em>string</em> <strong>mpq_class::get_str</strong> <em>(int <var>base</var> = 10)</em></dt>
-<dt id="index-mpq_005fclass_003a_003aset_005fstr">Function: <em>int</em> <strong>mpq_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-mpq_005fclass_003a_003aset_005fstr-1">Function: <em>int</em> <strong>mpq_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-sgn-1">Function: <em>int</em> <strong>sgn</strong> <em>(mpq_class <var>op</var>)</em></dt>
-<dt id="index-mpq_005fclass_003a_003aswap">Function: <em>void</em> <strong>mpq_class::swap</strong> <em>(mpq_class&amp; <var>op</var>)</em></dt>
-<dt id="index-swap-1">Function: <em>void</em> <strong>swap</strong> <em>(mpq_class&amp; <var>op1</var>, mpq_class&amp; <var>op2</var>)</em></dt>
+<dl class="def">
+<dt id="index-abs-1"><span class="category">Function: </span><span><em>mpq_class</em> <strong>abs</strong> <em>(mpq_class <var>op</var>)</em><a href='#index-abs-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp-2"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(mpq_class <var>op1</var>, type <var>op2</var>)</em><a href='#index-cmp-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp-3"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpq_class <var>op2</var>)</em><a href='#index-cmp-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aget_005fd"><span class="category">Function: </span><span><em>double</em> <strong>mpq_class::get_d</strong> <em>(void)</em><a href='#index-mpq_005fclass_003a_003aget_005fd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aget_005fstr"><span class="category">Function: </span><span><em>string</em> <strong>mpq_class::get_str</strong> <em>(int <var>base</var> = 10)</em><a href='#index-mpq_005fclass_003a_003aget_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aset_005fstr"><span class="category">Function: </span><span><em>int</em> <strong>mpq_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em><a href='#index-mpq_005fclass_003a_003aset_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aset_005fstr-1"><span class="category">Function: </span><span><em>int</em> <strong>mpq_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em><a href='#index-mpq_005fclass_003a_003aset_005fstr-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sgn-1"><span class="category">Function: </span><span><em>int</em> <strong>sgn</strong> <em>(mpq_class <var>op</var>)</em><a href='#index-sgn-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aswap"><span class="category">Function: </span><span><em>void</em> <strong>mpq_class::swap</strong> <em>(mpq_class&amp; <var>op</var>)</em><a href='#index-mpq_005fclass_003a_003aswap' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-swap-1"><span class="category">Function: </span><span><em>void</em> <strong>swap</strong> <em>(mpq_class&amp; <var>op1</var>, mpq_class&amp; <var>op2</var>)</em><a href='#index-swap-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>These functions provide a C++ class interface to the corresponding GMP C
 routines.
 </p>
 <p><code>cmp</code> can be used with any of the classes or the standard C++ types,
 except <code>long long</code> and <code>long double</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclass_003a_003aget_005fnum">Function: <em>mpz_class&amp;</em> <strong>mpq_class::get_num</strong> <em>()</em></dt>
-<dt id="index-mpq_005fclass_003a_003aget_005fden">Function: <em>mpz_class&amp;</em> <strong>mpq_class::get_den</strong> <em>()</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003aget_005fnum"><span class="category">Function: </span><span><em>mpz_class&amp;</em> <strong>mpq_class::get_num</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003aget_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aget_005fden"><span class="category">Function: </span><span><em>mpz_class&amp;</em> <strong>mpq_class::get_den</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003aget_005fden' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Get a reference to an <code>mpz_class</code> which is the numerator or denominator
 of an <code>mpq_class</code>.  This can be used both for read and write access.  If
 the object returned is modified, it modifies the original <code>mpq_class</code>.
@@ -303,9 +303,9 @@ the object returned is modified, it modifies the original <code>mpq_class</code>
 <p>If direct manipulation might produce a non-canonical value, then
 <code>mpq_class::canonicalize</code> must be called before further operations.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclass_003a_003aget_005fnum_005fmpz_005ft">Function: <em>mpz_t</em> <strong>mpq_class::get_num_mpz_t</strong> <em>()</em></dt>
-<dt id="index-mpq_005fclass_003a_003aget_005fden_005fmpz_005ft">Function: <em>mpz_t</em> <strong>mpq_class::get_den_mpz_t</strong> <em>()</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclass_003a_003aget_005fnum_005fmpz_005ft"><span class="category">Function: </span><span><em>mpz_t</em> <strong>mpq_class::get_num_mpz_t</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003aget_005fnum_005fmpz_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fclass_003a_003aget_005fden_005fmpz_005ft"><span class="category">Function: </span><span><em>mpz_t</em> <strong>mpq_class::get_den_mpz_t</strong> <em>()</em><a href='#index-mpq_005fclass_003a_003aget_005fden_005fmpz_005ft' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Get a reference to the underlying <code>mpz_t</code> numerator or denominator of an
 <code>mpq_class</code>.  This can be passed to C functions expecting an
 <code>mpz_t</code>.  Any modifications made to the <code>mpz_t</code> will modify the
@@ -314,8 +314,8 @@ original <code>mpq_class</code>.
 <p>If direct manipulation might produce a non-canonical value, then
 <code>mpq_class::canonicalize</code> must be called before further operations.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_003e_003e-3">Function: <em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpq_class&amp; <var>rop</var>);</em></dt>
+<dl class="def">
+<dt id="index-operator_003e_003e-3"><span class="category">Function: </span><span><em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpq_class&amp; <var>rop</var>);</em><a href='#index-operator_003e_003e-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read <var>rop</var> from <var>stream</var>, using its <code>ios</code> formatting settings,
 the same as <code>mpq_t operator&gt;&gt;</code> (see <a href="constant.Formatted_Input.html#C_002b_002b-Formatted-Input">C++ Formatted Input</a>).
 </p>
@@ -323,7 +323,9 @@ the same as <code>mpq_t operator&gt;&gt;</code> (see <a href="constant.Formatted
 <code>mpq_class::canonicalize</code> must be called.
 </p></dd></dl>
 <hr>
-<span id="C_002b_002b-Interface-Floats"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Interface-Floats">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Interface-Random-Numbers" accesskey="n" rel="next">C++ Interface Random Numbers</a>, Previous: <a href="#C_002b_002b-Interface-Rationals" accesskey="p" rel="prev">C++ Interface Rationals</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -333,9 +335,9 @@ values, like <code>f=g*h+x*y</code>, those temporaries will have the same precis
 as the destination <code>f</code>.  Explicit constructors can be used if this
 doesn&rsquo;t suit.
 </p>
-<dl>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass">Function: <em></em> <strong>mpf_class::mpf_class</strong> <em>(type <var>op</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-1">Function: <em></em> <strong>mpf_class::mpf_class</strong> <em>(type <var>op</var>, mp_bitcnt_t <var>prec</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass"><span class="category">Function: </span><span><em></em> <strong>mpf_class::mpf_class</strong> <em>(type <var>op</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-1"><span class="category">Function: </span><span><em></em> <strong>mpf_class::mpf_class</strong> <em>(type <var>op</var>, mp_bitcnt_t <var>prec</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpf_class</code>.  Any standard C++ type can be used, except
 <code>long long</code> and <code>long double</code>, and any of the GMP C++ classes can be
 used.
@@ -343,7 +345,7 @@ used.
 <p>If <var>prec</var> is given, the initial precision is that value, in bits.  If
 <var>prec</var> is not given, then the initial precision is determined by the type
 of <var>op</var> given.  An <code>mpz_class</code>, <code>mpq_class</code>, or C++
-builtin type will give the default <code>mpf</code> precision (see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initializing Floats</a>).  An <code>mpf_class</code> or expression will give the precision of that
+builtin type will give the default <code>mpf</code> precision (see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initialization Functions</a>).  An <code>mpf_class</code> or expression will give the precision of that
 value.  The precision of a binary expression is the higher of the two
 operands.
 </p>
@@ -356,9 +358,9 @@ mpf_class f(-g, 1000);   // 1000 bits (at least)
 mpf_class f(x+y);        // greater of precisions of x and y
 </pre></div>
 </dd></dl>
-<dl>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-2">Function: <em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const mpf_t <var>f</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-3">Function: <em></em> <strong>mpf_class::mpf_class</strong> <em>(const mpf_t <var>f</var>, mp_bitcnt_t <var>prec</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-2"><span class="category">Function: </span><span><em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const mpf_t <var>f</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-3"><span class="category">Function: </span><span><em></em> <strong>mpf_class::mpf_class</strong> <em>(const mpf_t <var>f</var>, mp_bitcnt_t <var>prec</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-3' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpf_class</code> from an <code>mpf_t</code>.  The value in <var>f</var> is
 copied into the new <code>mpf_class</code>, there won&rsquo;t be any permanent association
 between it and <var>f</var>.
@@ -366,26 +368,26 @@ between it and <var>f</var>.
 <p>If <var>prec</var> is given, the initial precision is that value, in bits.  If
 <var>prec</var> is not given, then the initial precision is that of <var>f</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-4">Function: <em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const char *<var>s</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-5">Function: <em></em> <strong>mpf_class::mpf_class</strong> <em>(const char *<var>s</var>, mp_bitcnt_t <var>prec</var>, int <var>base</var> = 0)</em></dt>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-6">Function: <em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const string&amp; <var>s</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003ampf_005fclass-7">Function: <em></em> <strong>mpf_class::mpf_class</strong> <em>(const string&amp; <var>s</var>, mp_bitcnt_t <var>prec</var>, int <var>base</var> = 0)</em></dt>
+<dl class="def">
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-4"><span class="category">Function: </span><span><em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const char *<var>s</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-5"><span class="category">Function: </span><span><em></em> <strong>mpf_class::mpf_class</strong> <em>(const char *<var>s</var>, mp_bitcnt_t <var>prec</var>, int <var>base</var> = 0)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-5' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-6"><span class="category">Function: </span><span><em>explicit</em> <strong>mpf_class::mpf_class</strong> <em>(const string&amp; <var>s</var>)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-6' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003ampf_005fclass-7"><span class="category">Function: </span><span><em></em> <strong>mpf_class::mpf_class</strong> <em>(const string&amp; <var>s</var>, mp_bitcnt_t <var>prec</var>, int <var>base</var> = 0)</em><a href='#index-mpf_005fclass_003a_003ampf_005fclass-7' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct an <code>mpf_class</code> converted from a string using <code>mpf_set_str</code>
-(see <a href="constant.Floating_point_Functions.html#Assigning-Floats">Assigning Floats</a>).  If <var>prec</var> is given, the initial precision is
+(see <a href="constant.Floating_point_Functions.html#Assigning-Floats">Assignment Functions</a>).  If <var>prec</var> is given, the initial precision is
 that value, in bits.  If not, the default <code>mpf</code> precision
-(see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initializing Floats</a>) is used.
+(see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initialization Functions</a>) is used.
 </p>
 <p>If the string is not a valid float, an <code>std::invalid_argument</code> exception
 is thrown.  The same applies to <code>operator=</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_0022_0022-2">Function: <em>mpf_class</em> <strong>operator&quot;&quot;</strong> <em>_mpf (const char *<var>str</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_0022_0022-2"><span class="category">Function: </span><span><em>mpf_class</em> <strong>operator&quot;&quot;</strong> <em>_mpf (const char *<var>str</var>)</em><a href='#index-operator_0022_0022-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>With C++11 compilers, floats can be constructed with the syntax
 <code>1.23e-1_mpf</code> which is equivalent to <code>mpf_class(&quot;1.23e-1&quot;)</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpf_005fclass_003a_003aoperator_003d">Function: <em>mpf_class&amp;</em> <strong>mpf_class::operator=</strong> <em>(type <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpf_005fclass_003a_003aoperator_003d"><span class="category">Function: </span><span><em>mpf_class&amp;</em> <strong>mpf_class::operator=</strong> <em>(type <var>op</var>)</em><a href='#index-mpf_005fclass_003a_003aoperator_003d' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Convert and store the given <var>op</var> value to an <code>mpf_class</code> object.  The
 same types are accepted as for the constructors above.
 </p>
@@ -407,30 +409,30 @@ the standard <code>complex</code> template have been seen in both styles above,
 though of course <code>complex</code> is normally only actually specified for use
 with the builtin float types.
 </p></dd></dl>
-<dl>
-<dt id="index-abs-2">Function: <em>mpf_class</em> <strong>abs</strong> <em>(mpf_class <var>op</var>)</em></dt>
-<dt id="index-ceil">Function: <em>mpf_class</em> <strong>ceil</strong> <em>(mpf_class <var>op</var>)</em></dt>
-<dt id="index-cmp-4">Function: <em>int</em> <strong>cmp</strong> <em>(mpf_class <var>op1</var>, type <var>op2</var>)</em></dt>
-<dt id="index-cmp-5">Function: <em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpf_class <var>op2</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fsint_005fp">Function: <em>bool</em> <strong>mpf_class::fits_sint_p</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fslong_005fp">Function: <em>bool</em> <strong>mpf_class::fits_slong_p</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fsshort_005fp">Function: <em>bool</em> <strong>mpf_class::fits_sshort_p</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fuint_005fp">Function: <em>bool</em> <strong>mpf_class::fits_uint_p</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fulong_005fp">Function: <em>bool</em> <strong>mpf_class::fits_ulong_p</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003afits_005fushort_005fp">Function: <em>bool</em> <strong>mpf_class::fits_ushort_p</strong> <em>(void)</em></dt>
-<dt id="index-floor">Function: <em>mpf_class</em> <strong>floor</strong> <em>(mpf_class <var>op</var>)</em></dt>
-<dt id="index-hypot">Function: <em>mpf_class</em> <strong>hypot</strong> <em>(mpf_class <var>op1</var>, mpf_class <var>op2</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aget_005fd">Function: <em>double</em> <strong>mpf_class::get_d</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aget_005fsi">Function: <em>long</em> <strong>mpf_class::get_si</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aget_005fstr">Function: <em>string</em> <strong>mpf_class::get_str</strong> <em>(mp_exp_t&amp; <var>exp</var>, int <var>base</var> = 10, size_t <var>digits</var> = 0)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aget_005fui">Function: <em>unsigned long</em> <strong>mpf_class::get_ui</strong> <em>(void)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aset_005fstr">Function: <em>int</em> <strong>mpf_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aset_005fstr-1">Function: <em>int</em> <strong>mpf_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em></dt>
-<dt id="index-sgn-2">Function: <em>int</em> <strong>sgn</strong> <em>(mpf_class <var>op</var>)</em></dt>
-<dt id="index-sqrt-1">Function: <em>mpf_class</em> <strong>sqrt</strong> <em>(mpf_class <var>op</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aswap">Function: <em>void</em> <strong>mpf_class::swap</strong> <em>(mpf_class&amp; <var>op</var>)</em></dt>
-<dt id="index-swap-2">Function: <em>void</em> <strong>swap</strong> <em>(mpf_class&amp; <var>op1</var>, mpf_class&amp; <var>op2</var>)</em></dt>
-<dt id="index-trunc">Function: <em>mpf_class</em> <strong>trunc</strong> <em>(mpf_class <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-abs-2"><span class="category">Function: </span><span><em>mpf_class</em> <strong>abs</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-abs-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ceil"><span class="category">Function: </span><span><em>mpf_class</em> <strong>ceil</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-ceil' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp-4"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(mpf_class <var>op1</var>, type <var>op2</var>)</em><a href='#index-cmp-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cmp-5"><span class="category">Function: </span><span><em>int</em> <strong>cmp</strong> <em>(type <var>op1</var>, mpf_class <var>op2</var>)</em><a href='#index-cmp-5' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fsint_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_sint_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fsint_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fslong_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_slong_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fslong_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fsshort_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_sshort_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fsshort_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fuint_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_uint_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fuint_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fulong_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_ulong_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fulong_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003afits_005fushort_005fp"><span class="category">Function: </span><span><em>bool</em> <strong>mpf_class::fits_ushort_p</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003afits_005fushort_005fp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-floor"><span class="category">Function: </span><span><em>mpf_class</em> <strong>floor</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-floor' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-hypot"><span class="category">Function: </span><span><em>mpf_class</em> <strong>hypot</strong> <em>(mpf_class <var>op1</var>, mpf_class <var>op2</var>)</em><a href='#index-hypot' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aget_005fd"><span class="category">Function: </span><span><em>double</em> <strong>mpf_class::get_d</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003aget_005fd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aget_005fsi"><span class="category">Function: </span><span><em>long</em> <strong>mpf_class::get_si</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003aget_005fsi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aget_005fstr"><span class="category">Function: </span><span><em>string</em> <strong>mpf_class::get_str</strong> <em>(mp_exp_t&amp; <var>exp</var>, int <var>base</var> = 10, size_t <var>digits</var> = 0)</em><a href='#index-mpf_005fclass_003a_003aget_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aget_005fui"><span class="category">Function: </span><span><em>unsigned long</em> <strong>mpf_class::get_ui</strong> <em>(void)</em><a href='#index-mpf_005fclass_003a_003aget_005fui' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aset_005fstr"><span class="category">Function: </span><span><em>int</em> <strong>mpf_class::set_str</strong> <em>(const char *<var>str</var>, int <var>base</var>)</em><a href='#index-mpf_005fclass_003a_003aset_005fstr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aset_005fstr-1"><span class="category">Function: </span><span><em>int</em> <strong>mpf_class::set_str</strong> <em>(const string&amp; <var>str</var>, int <var>base</var>)</em><a href='#index-mpf_005fclass_003a_003aset_005fstr-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sgn-2"><span class="category">Function: </span><span><em>int</em> <strong>sgn</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-sgn-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sqrt-1"><span class="category">Function: </span><span><em>mpf_class</em> <strong>sqrt</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-sqrt-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aswap"><span class="category">Function: </span><span><em>void</em> <strong>mpf_class::swap</strong> <em>(mpf_class&amp; <var>op</var>)</em><a href='#index-mpf_005fclass_003a_003aswap' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-swap-2"><span class="category">Function: </span><span><em>void</em> <strong>swap</strong> <em>(mpf_class&amp; <var>op1</var>, mpf_class&amp; <var>op2</var>)</em><a href='#index-swap-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-trunc"><span class="category">Function: </span><span><em>mpf_class</em> <strong>trunc</strong> <em>(mpf_class <var>op</var>)</em><a href='#index-trunc' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>These functions provide a C++ class interface to the corresponding GMP C
 routines.
 </p>
@@ -439,31 +441,33 @@ except <code>long long</code> and <code>long double</code>.
 </p>
 <p>The accuracy provided by <code>hypot</code> is not currently guaranteed.
 </p></dd></dl>
-<dl>
-<dt id="index-mpf_005fclass_003a_003aget_005fprec">Function: <em>mp_bitcnt_t</em> <strong>mpf_class::get_prec</strong> <em>()</em></dt>
-<dt id="index-mpf_005fclass_003a_003aset_005fprec">Function: <em>void</em> <strong>mpf_class::set_prec</strong> <em>(mp_bitcnt_t <var>prec</var>)</em></dt>
-<dt id="index-mpf_005fclass_003a_003aset_005fprec_005fraw">Function: <em>void</em> <strong>mpf_class::set_prec_raw</strong> <em>(mp_bitcnt_t <var>prec</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpf_005fclass_003a_003aget_005fprec"><span class="category">Function: </span><span><em>mp_bitcnt_t</em> <strong>mpf_class::get_prec</strong> <em>()</em><a href='#index-mpf_005fclass_003a_003aget_005fprec' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aset_005fprec"><span class="category">Function: </span><span><em>void</em> <strong>mpf_class::set_prec</strong> <em>(mp_bitcnt_t <var>prec</var>)</em><a href='#index-mpf_005fclass_003a_003aset_005fprec' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpf_005fclass_003a_003aset_005fprec_005fraw"><span class="category">Function: </span><span><em>void</em> <strong>mpf_class::set_prec_raw</strong> <em>(mp_bitcnt_t <var>prec</var>)</em><a href='#index-mpf_005fclass_003a_003aset_005fprec_005fraw' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Get or set the current precision of an <code>mpf_class</code>.
 </p>
-<p>The restrictions described for <code>mpf_set_prec_raw</code> (see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initializing Floats</a>) apply to <code>mpf_class::set_prec_raw</code>.  Note in particular that the
+<p>The restrictions described for <code>mpf_set_prec_raw</code> (see <a href="constant.Floating_point_Functions.html#Initializing-Floats">Initialization Functions</a>) apply to <code>mpf_class::set_prec_raw</code>.  Note in particular that the
 <code>mpf_class</code> must be restored to it&rsquo;s allocated precision before being
 destroyed.  This must be done by application code, there&rsquo;s no automatic
 mechanism for it.
 </p></dd></dl>
 <hr>
-<span id="C_002b_002b-Interface-Random-Numbers"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Interface-Random-Numbers">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Interface-Limitations" accesskey="n" rel="next">C++ Interface Limitations</a>, Previous: <a href="#C_002b_002b-Interface-Floats" accesskey="p" rel="prev">C++ Interface Floats</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C_002b_002b-Interface-Random-Numbers-1"></span><h3 class="section">12.5 C++ Interface Random Numbers</h3>
-<dl>
-<dt id="index-gmp_005frandclass">Class: <strong>gmp_randclass</strong></dt>
+<dl class="def">
+<dt id="index-gmp_005frandclass"><span class="category">Class: </span><span><strong>gmp_randclass</strong><a href='#index-gmp_005frandclass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>The C++ class interface to the GMP random number functions uses
 <code>gmp_randclass</code> to hold an algorithm selection and current state, as per
 <code>gmp_randstate_t</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003agmp_005frandclass">Function: <em></em> <strong>gmp_randclass::gmp_randclass</strong> <em>(void (*<var>randinit</var>) (gmp_randstate_t, &hellip;), &hellip;)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003agmp_005frandclass"><span class="category">Function: </span><span><em></em> <strong>gmp_randclass::gmp_randclass</strong> <em>(void (*<var>randinit</var>) (gmp_randstate_t, &hellip;), &hellip;)</em><a href='#index-gmp_005frandclass_003a_003agmp_005frandclass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct a <code>gmp_randclass</code>, using a call to the given <var>randinit</var>
 function (see <a href="constant.Random_Number_Functions.html#Random-State-Initialization">Random State Initialization</a>).  The arguments expected are
 the same as <var>randinit</var>, but with <code>mpz_class</code> instead of <code>mpz_t</code>.
@@ -478,31 +482,31 @@ gmp_randclass r4 (gmp_randinit_mt);
 <p><code>gmp_randinit_lc_2exp_size</code> will fail if the size requested is too big,
 an <code>std::length_error</code> exception is thrown in that case.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003agmp_005frandclass-1">Function: <em></em> <strong>gmp_randclass::gmp_randclass</strong> <em>(gmp_randalg_t <var>alg</var>, &hellip;)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003agmp_005frandclass-1"><span class="category">Function: </span><span><em></em> <strong>gmp_randclass::gmp_randclass</strong> <em>(gmp_randalg_t <var>alg</var>, &hellip;)</em><a href='#index-gmp_005frandclass_003a_003agmp_005frandclass-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Construct a <code>gmp_randclass</code> using the same parameters as
 <code>gmp_randinit</code> (see <a href="constant.Random_Number_Functions.html#Random-State-Initialization">Random State Initialization</a>).  This function is
 obsolete and the above <var>randinit</var> style should be preferred.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003aseed">Function: <em>void</em> <strong>gmp_randclass::seed</strong> <em>(unsigned long int <var>s</var>)</em></dt>
-<dt id="index-gmp_005frandclass_003a_003aseed-1">Function: <em>void</em> <strong>gmp_randclass::seed</strong> <em>(mpz_class <var>s</var>)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003aseed"><span class="category">Function: </span><span><em>void</em> <strong>gmp_randclass::seed</strong> <em>(unsigned long int <var>s</var>)</em><a href='#index-gmp_005frandclass_003a_003aseed' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005frandclass_003a_003aseed-1"><span class="category">Function: </span><span><em>void</em> <strong>gmp_randclass::seed</strong> <em>(mpz_class <var>s</var>)</em><a href='#index-gmp_005frandclass_003a_003aseed-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Seed a random number generator.  See see <a href="constant.Random_Number_Functions.html#Random-Number-Functions">Random Number Functions</a>, for how
 to choose a good seed.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003aget_005fz_005fbits">Function: <em>mpz_class</em> <strong>gmp_randclass::get_z_bits</strong> <em>(mp_bitcnt_t <var>bits</var>)</em></dt>
-<dt id="index-gmp_005frandclass_003a_003aget_005fz_005fbits-1">Function: <em>mpz_class</em> <strong>gmp_randclass::get_z_bits</strong> <em>(mpz_class <var>bits</var>)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003aget_005fz_005fbits"><span class="category">Function: </span><span><em>mpz_class</em> <strong>gmp_randclass::get_z_bits</strong> <em>(mp_bitcnt_t <var>bits</var>)</em><a href='#index-gmp_005frandclass_003a_003aget_005fz_005fbits' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005frandclass_003a_003aget_005fz_005fbits-1"><span class="category">Function: </span><span><em>mpz_class</em> <strong>gmp_randclass::get_z_bits</strong> <em>(mpz_class <var>bits</var>)</em><a href='#index-gmp_005frandclass_003a_003aget_005fz_005fbits-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Generate a random integer with a specified number of bits.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003aget_005fz_005frange">Function: <em>mpz_class</em> <strong>gmp_randclass::get_z_range</strong> <em>(mpz_class <var>n</var>)</em></dt>
-<dd><p>Generate a random integer in the range 0 to <em><var>n</var>-1</em> inclusive.
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003aget_005fz_005frange"><span class="category">Function: </span><span><em>mpz_class</em> <strong>gmp_randclass::get_z_range</strong> <em>(mpz_class <var>n</var>)</em><a href='#index-gmp_005frandclass_003a_003aget_005fz_005frange' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Generate a random integer in the range 0 to <em class='math'><var>n</var>-1</em> inclusive.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005frandclass_003a_003aget_005ff">Function: <em>mpf_class</em> <strong>gmp_randclass::get_f</strong> <em>()</em></dt>
-<dt id="index-gmp_005frandclass_003a_003aget_005ff-1">Function: <em>mpf_class</em> <strong>gmp_randclass::get_f</strong> <em>(mp_bitcnt_t <var>prec</var>)</em></dt>
-<dd><p>Generate a random float <var>f</var> in the range <em>0 &lt;= <var>f</var> &lt; 1</em>.  <var>f</var>
+<dl class="def">
+<dt id="index-gmp_005frandclass_003a_003aget_005ff"><span class="category">Function: </span><span><em>mpf_class</em> <strong>gmp_randclass::get_f</strong> <em>()</em><a href='#index-gmp_005frandclass_003a_003aget_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005frandclass_003a_003aget_005ff-1"><span class="category">Function: </span><span><em>mpf_class</em> <strong>gmp_randclass::get_f</strong> <em>(mp_bitcnt_t <var>prec</var>)</em><a href='#index-gmp_005frandclass_003a_003aget_005ff-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Generate a random float <var>f</var> in the range <em class='math'>0 &lt;= <var>f</var> &lt; 1</em>.  <var>f</var>
 will be to <var>prec</var> bits precision, or if <var>prec</var> is not given then to
 the precision of the destination.  For example,
 </p>
@@ -514,13 +518,15 @@ f = r.get_f();           // random number, 512 bits
 </pre></div>
 </dd></dl>
 <hr>
-<span id="C_002b_002b-Interface-Limitations"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Interface-Limitations">
+<div class="header">
 <p>
 Previous: <a href="#C_002b_002b-Interface-Random-Numbers" accesskey="p" rel="prev">C++ Interface Random Numbers</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C_002b_002b-Interface-Limitations-1"></span><h3 class="section">12.6 C++ Interface Limitations</h3>
 <dl compact="compact">
-<dt><code>mpq_class</code> and Templated Reading</dt>
+<dt><span><code>mpq_class</code> and Templated Reading</span></dt>
 <dd><p>A generic piece of template code probably won&rsquo;t know that <code>mpq_class</code>
 requires a <code>canonicalize</code> call if inputs read with <code>operator&gt;&gt;</code>
 might be non-canonical.  This can lead to incorrect results.
@@ -538,7 +544,7 @@ pressed into service.  Or maybe, at the risk of inconsistency, the
 acceptable.  Send feedback or alternate ideas to <a href="mailto:gmp-bugs@gmplib.org">gmp-bugs@gmplib.org</a>.
 </p>
 </dd>
-<dt>Subclassing</dt>
+<dt><span>Subclassing</span></dt>
 <dd><p>Subclassing the GMP C++ classes works, but is not currently recommended.
 </p>
 <p>Expressions involving subclasses resolve correctly (or seem to), but in normal
@@ -547,7 +553,7 @@ There&rsquo;s many of those in the GMP classes, and a good way to reestablish th
 in a subclass is not yet provided.
 </p>
 </dd>
-<dt>Templated Expressions</dt>
+<dt><span>Templated Expressions</span></dt>
 <dd><p>A subtle difficulty exists when using expressions together with
 application-defined template functions.  Consider the following, with <code>T</code>
 intended to be some numeric type,
@@ -594,7 +600,7 @@ void fun (T f, T g)
 }
 </pre></div>
 </dd>
-<dt>C++11</dt>
+<dt><span>C++11</span></dt>
 <dd><p>C++11 provides several new ways in which types can be inferred: <code>auto</code>,
 <code>decltype</code>, etc. While they can be very convenient, they don&rsquo;t mix well
 with expression templates. In this example, the addition is performed twice,
@@ -618,8 +624,10 @@ mpz_class prod = sum * 2;
 expression may appear.
 </p></dd>
 </dl>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#C_002b_002b-Interface-Random-Numbers" accesskey="p" rel="prev">C++ Interface Random Numbers</a>, Up: <a href="#C_002b_002b-Class-Interface" accesskey="u" rel="up">C++ Class Interface</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Custom_Allocation.html#start" accesskey="n" rel="next">Custom Allocation</a>, Previous: <a href="constant.Formatted_Input.html#Formatted-Input" accesskey="p" rel="prev">Formatted Input</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

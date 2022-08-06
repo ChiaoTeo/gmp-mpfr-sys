@@ -1,6 +1,7 @@
-<span id="API-Compatibility"></span><div class="header">
+<div class="chapter" id="API-Compatibility">
+<div class="header">
 <p>
-Next: <a href="constant.MPFR_and_the_IEEE_754_Standard.html#start" accesskey="n" rel="next">MPFR and the IEEE 754 Standard</a>, Previous: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="p" rel="prev">MPFR Interface</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.MPFR_and_the_IEEE_754_Standard.html#start" accesskey="n" rel="next">MPFR and the IEEE 754 Standard</a>, Previous: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="p" rel="prev">MPFR Interface</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="API-Compatibility-1"></span><h2 class="chapter">6 API Compatibility</h2>
 <p>The goal of this section is to describe some API changes that occurred
@@ -33,20 +34,16 @@ MPFR.  This section should help developers to write portable code.
 also described in the NEWS file (for each version, instead of being
 classified like here), together with other changes.
 </p>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Type-and-Macro-Changes" accesskey="1">Type and Macro Changes</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Added-Functions" accesskey="2">Added Functions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Changed-Functions" accesskey="3">Changed Functions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Removed-Functions" accesskey="4">Removed Functions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Other-Changes" accesskey="5">Other Changes</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#Type-and-Macro-Changes" accesskey="1">Type and Macro Changes</a></li>
+<li><a href="#Added-Functions" accesskey="2">Added Functions</a></li>
+<li><a href="#Changed-Functions" accesskey="3">Changed Functions</a></li>
+<li><a href="#Removed-Functions" accesskey="4">Removed Functions</a></li>
+<li><a href="#Other-Changes" accesskey="5">Other Changes</a></li>
+</ul>
 <hr>
-<span id="Type-and-Macro-Changes"></span><div class="header">
+<div class="section" id="Type-and-Macro-Changes">
+<div class="header">
 <p>
 Next: <a href="#Added-Functions" accesskey="n" rel="next">Added Functions</a>, Previous: <a href="#API-Compatibility" accesskey="p" rel="prev">API Compatibility</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -120,7 +117,9 @@ were added in MPFR&nbsp;4.0 (for the new functions <code>mpfr_flags_clear</code>
 in particular).
 </p>
 <hr>
-<span id="Added-Functions"></span><div class="header">
+</div>
+<div class="section" id="Added-Functions">
+<div class="header">
 <p>
 Next: <a href="#Changed-Functions" accesskey="n" rel="next">Changed Functions</a>, Previous: <a href="#Type-and-Macro-Changes" accesskey="p" rel="prev">Type and Macro Changes</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -229,7 +228,9 @@ use <code>mpfr_get_z_exp</code>.
 </li><li> <code>mpfr_z_sub</code> in MPFR&nbsp;3.1.
 </li></ul>
 <hr>
-<span id="Changed-Functions"></span><div class="header">
+</div>
+<div class="section" id="Changed-Functions">
+<div class="header">
 <p>
 Next: <a href="#Removed-Functions" accesskey="n" rel="next">Removed Functions</a>, Previous: <a href="#Added-Functions" accesskey="p" rel="prev">Added Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -361,7 +362,9 @@ As a consequence, the returned values can be different between MPFR&nbsp;4.0
 and previous MPFR versions.
 </li></ul>
 <hr>
-<span id="Removed-Functions"></span><div class="header">
+</div>
+<div class="section" id="Removed-Functions">
+<div class="header">
 <p>
 Next: <a href="#Other-Changes" accesskey="n" rel="next">Other Changes</a>, Previous: <a href="#Changed-Functions" accesskey="p" rel="prev">Changed Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -380,7 +383,9 @@ MPFR&nbsp;2.1.0 and were announced as deprecated since MPFR&nbsp;3.1.0.
 It will be removed in a future release.
 </p>
 <hr>
-<span id="Other-Changes"></span><div class="header">
+</div>
+<div class="section" id="Other-Changes">
+<div class="header">
 <p>
 Previous: <a href="#Removed-Functions" accesskey="p" rel="prev">Removed Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -416,8 +421,10 @@ while still supporting optional functions (see <a href="constant.MPFR_Basics.htm
 <p>The way memory is allocated by MPFR should be regarded as well-specified
 only as of MPFR&nbsp;4.0.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#Removed-Functions" accesskey="p" rel="prev">Removed Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.MPFR_and_the_IEEE_754_Standard.html#start" accesskey="n" rel="next">MPFR and the IEEE 754 Standard</a>, Previous: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="p" rel="prev">MPFR Interface</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

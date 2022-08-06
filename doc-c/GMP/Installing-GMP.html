@@ -1,6 +1,7 @@
-<span id="Installing-GMP"></span><div class="header">
+<div class="chapter" id="Installing-GMP">
+<div class="header">
 <p>
-Next: <a href="constant.GMP_Basics.html#GMP-Basics" accesskey="n" rel="next">GMP Basics</a>, Previous: <a href="constant.Introduction_to_GMP.html#start" accesskey="p" rel="prev">Introduction to GMP</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.GMP_Basics.html#GMP-Basics" accesskey="n" rel="next">GMP Basics</a>, Previous: <a href="constant.Introduction_to_GMP.html#start" accesskey="p" rel="prev">Introduction to GNU MP</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Installing-GMP-1"></span><h2 class="chapter">2 Installing GMP</h2>
 <span id="index-Installing-GMP"></span>
@@ -27,22 +28,17 @@ make
 See <a href="constant.Reporting_Bugs.html#start">Reporting Bugs</a>, for information on what to include in useful bug
 reports.
 </p>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Build-Options" accesskey="1">Build Options</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#ABI-and-ISA" accesskey="2">ABI and ISA</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Notes-for-Package-Builds" accesskey="3">Notes for Package Builds</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Notes-for-Particular-Systems" accesskey="4">Notes for Particular Systems</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Known-Build-Problems" accesskey="5">Known Build Problems</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Performance-optimization" accesskey="6">Performance optimization</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#Build-Options" accesskey="1">Build Options</a></li>
+<li><a href="#ABI-and-ISA" accesskey="2">ABI and ISA</a></li>
+<li><a href="#Notes-for-Package-Builds" accesskey="3">Notes for Package Builds</a></li>
+<li><a href="#Notes-for-Particular-Systems" accesskey="4">Notes for Particular Systems</a></li>
+<li><a href="#Known-Build-Problems" accesskey="5">Known Build Problems</a></li>
+<li><a href="#Performance-optimization" accesskey="6">Performance optimization</a></li>
+</ul>
 <hr>
-<span id="Build-Options"></span><div class="header">
+<div class="section" id="Build-Options">
+<div class="header">
 <p>
 Next: <a href="#ABI-and-ISA" accesskey="n" rel="next">ABI and ISA</a>, Previous: <a href="#Installing-GMP" accesskey="p" rel="prev">Installing GMP</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -53,17 +49,15 @@ Next: <a href="#ABI-and-ISA" accesskey="n" rel="next">ABI and ISA</a>, Previous:
 installation information too.
 </p>
 <dl compact="compact">
-<dt>Tools</dt>
-<dd><span id="index-Non_002dUnix-systems"></span>
-<p>&lsquo;<samp>configure</samp>&rsquo; requires various Unix-like tools.  See <a href="#Notes-for-Particular-Systems">Notes for Particular Systems</a>, for some options on non-Unix systems.
+<dt id='index-Non_002dUnix-systems'><span>Tools<a href='#index-Non_002dUnix-systems' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>&lsquo;<samp>configure</samp>&rsquo; requires various Unix-like tools.  See <a href="#Notes-for-Particular-Systems">Notes for Particular Systems</a>, for some options on non-Unix systems.
 </p>
 <p>It might be possible to build without the help of &lsquo;<samp>configure</samp>&rsquo;, certainly
 all the code is there, but unfortunately you&rsquo;ll be on your own.
 </p>
 </dd>
-<dt>Build Directory</dt>
-<dd><span id="index-Build-directory"></span>
-<p>To compile in a separate build directory, <code>cd</code> to that directory, and
+<dt id='index-Build-directory'><span>Build Directory<a href='#index-Build-directory' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>To compile in a separate build directory, <code>cd</code> to that directory, and
 prefix the configure command with the path to the GMP source directory.  For
 example
 </p>
@@ -77,9 +71,8 @@ make them unable to build in a separate directory.  Use GNU <code>make</code>
 instead.
 </p>
 </dd>
-<dt><samp>--prefix</samp> and <samp>--exec-prefix</samp></dt>
-<dd><span id="index-Prefix"></span>
-<span id="index-Exec-prefix"></span>
+<dt id='index-Prefix'><span><samp>--prefix</samp> and <samp>--exec-prefix</samp><a href='#index-Prefix' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Exec-prefix"></span>
 <span id="index-Install-prefix"></span>
 <span id="index-_002d_002dprefix"></span>
 <span id="index-_002d_002dexec_002dprefix"></span>
@@ -95,18 +88,16 @@ it will be necessary to ensure both <samp>$prefix/include</samp> and
 <samp>$exec_prefix/include</samp> are available to the compiler.
 </p>
 </dd>
-<dt><samp>--disable-shared</samp>, <samp>--disable-static</samp></dt>
-<dd><span id="index-_002d_002ddisable_002dshared"></span>
-<span id="index-_002d_002ddisable_002dstatic"></span>
+<dt id='index-_002d_002ddisable_002dshared'><span><samp>--disable-shared</samp>, <samp>--disable-static</samp><a href='#index-_002d_002ddisable_002dshared' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002ddisable_002dstatic"></span>
 <p>By default both shared and static libraries are built (where possible), but
 one or other can be disabled.  Shared libraries result in smaller executables
 and permit code sharing between separate running processes, but on some CPUs
 are slightly slower, having a small cost on each function call.
 </p>
 </dd>
-<dt>Native Compilation, <samp>--build=CPU-VENDOR-OS</samp></dt>
-<dd><span id="index-Native-compilation"></span>
-<span id="index-Build-system"></span>
+<dt id='index-Native-compilation'><span>Native Compilation, <samp>--build=CPU-VENDOR-OS</samp><a href='#index-Native-compilation' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Build-system"></span>
 <span id="index-_002d_002dbuild"></span>
 <p>For normal native compilation, the system can be specified with
 &lsquo;<samp>--build</samp>&rsquo;.  By default &lsquo;<samp>./configure</samp>&rsquo; uses the output from running
@@ -122,9 +113,8 @@ generates shared libraries.  Running &lsquo;<samp>./config.guess</samp>&rsquo; i
 to see what it should be, if you don&rsquo;t know already.
 </p>
 </dd>
-<dt>Cross Compilation, <samp>--host=CPU-VENDOR-OS</samp></dt>
-<dd><span id="index-Cross-compiling"></span>
-<span id="index-Host-system"></span>
+<dt id='index-Cross-compiling'><span>Cross Compilation, <samp>--host=CPU-VENDOR-OS</samp><a href='#index-Cross-compiling' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Host-system"></span>
 <span id="index-_002d_002dhost"></span>
 <p>When cross-compiling, the system used for compiling is given by &lsquo;<samp>--build</samp>&rsquo;
 and the system where the library will run is given by &lsquo;<samp>--host</samp>&rsquo;.  For
@@ -164,9 +154,8 @@ libraries like GMP are only interested in the &lsquo;<samp>--host</samp>&rsquo; 
 they&rsquo;ll run.  (Some past versions of GMP used &lsquo;<samp>--target</samp>&rsquo; incorrectly.)
 </p>
 </dd>
-<dt>CPU types</dt>
-<dd><span id="index-CPU-types-1"></span>
-<p>In general, if you want a library that runs as fast as possible, you should
+<dt id='index-CPU-types-1'><span>CPU types<a href='#index-CPU-types-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>In general, if you want a library that runs as fast as possible, you should
 configure GMP for the exact CPU type your system uses.  However, this may mean
 the binaries won&rsquo;t run on older members of the family, and might run slower on
 other members, older or newer.  The best idea is always to build GMP for the
@@ -284,27 +273,24 @@ of what code and compiler options they select.
 <p>CPUs not listed will use generic C code.
 </p>
 </dd>
-<dt>Generic C Build</dt>
-<dd><span id="index-Generic-C"></span>
-<p>If some of the assembly code causes problems, or if otherwise desired, the
+<dt id='index-Generic-C'><span>Generic C Build<a href='#index-Generic-C' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>If some of the assembly code causes problems, or if otherwise desired, the
 generic C code can be selected with the configure <samp>--disable-assembly</samp>.
 </p>
 <p>Note that this will run quite slowly, but it should be portable and should at
 least make it possible to get something running if all else fails.
 </p>
 </dd>
-<dt>Fat binary, <samp>--enable-fat</samp></dt>
-<dd><span id="index-Fat-binary"></span>
-<span id="index-_002d_002denable_002dfat"></span>
+<dt id='index-Fat-binary'><span>Fat binary, <samp>--enable-fat</samp><a href='#index-Fat-binary' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002denable_002dfat"></span>
 <p>Using <samp>--enable-fat</samp> selects a &ldquo;fat binary&rdquo; build on x86, where
 optimized low level subroutines are chosen at runtime according to the CPU
 detected.  This means more code, but gives good performance on all x86 chips.
 (This option might become available for more architectures in the future.)
 </p>
 </dd>
-<dt><samp>ABI</samp></dt>
-<dd><span id="index-ABI"></span>
-<p>On some systems GMP supports multiple ABIs (application binary interfaces),
+<dt id='index-ABI'><span><samp>ABI</samp><a href='#index-ABI' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>On some systems GMP supports multiple ABIs (application binary interfaces),
 meaning data type sizes and calling conventions.  By default GMP chooses the
 best ABI available, but a particular ABI can be selected.  For example
 </p>
@@ -315,9 +301,8 @@ best ABI available, but a particular ABI can be selected.  For example
 applications need to do.
 </p>
 </dd>
-<dt><samp>CC</samp>, <samp>CFLAGS</samp></dt>
-<dd><span id="index-C-compiler"></span>
-<span id="index-CC"></span>
+<dt id='index-C-compiler'><span><samp>CC</samp>, <samp>CFLAGS</samp><a href='#index-C-compiler' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-CC"></span>
 <span id="index-CFLAGS"></span>
 <p>By default the C compiler used is chosen from among some likely candidates,
 with <code>gcc</code> normally preferred if it&rsquo;s present.  The usual
@@ -343,9 +328,8 @@ compiler will be used (if GMP recognises it).  For example &lsquo;<samp>CC=gcc</
 be used to force the use of GCC, with default flags (and default ABI).
 </p>
 </dd>
-<dt><samp>CPPFLAGS</samp></dt>
-<dd><span id="index-CPPFLAGS"></span>
-<p>Any flags like &lsquo;<samp>-D</samp>&rsquo; defines or &lsquo;<samp>-I</samp>&rsquo; includes required by the
+<dt id='index-CPPFLAGS'><span><samp>CPPFLAGS</samp><a href='#index-CPPFLAGS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Any flags like &lsquo;<samp>-D</samp>&rsquo; defines or &lsquo;<samp>-I</samp>&rsquo; includes required by the
 preprocessor should be set in &lsquo;<samp>CPPFLAGS</samp>&rsquo; rather than &lsquo;<samp>CFLAGS</samp>&rsquo;.
 Compiling is done with both &lsquo;<samp>CPPFLAGS</samp>&rsquo; and &lsquo;<samp>CFLAGS</samp>&rsquo;, but
 preprocessing uses just &lsquo;<samp>CPPFLAGS</samp>&rsquo;.  This distinction is because most
@@ -353,9 +337,8 @@ preprocessors won&rsquo;t accept all the flags the compiler does.  Preprocessing
 done separately in some configure tests.
 </p>
 </dd>
-<dt><samp>CC_FOR_BUILD</samp></dt>
-<dd><span id="index-CC_005fFOR_005fBUILD"></span>
-<p>Some build-time programs are compiled and run to generate host-specific data
+<dt id='index-CC_005fFOR_005fBUILD'><span><samp>CC_FOR_BUILD</samp><a href='#index-CC_005fFOR_005fBUILD' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Some build-time programs are compiled and run to generate host-specific data
 tables.  &lsquo;<samp>CC_FOR_BUILD</samp>&rsquo; is the compiler used for this.  It doesn&rsquo;t need
 to be in any particular ABI or mode, it merely needs to generate executables
 that can run.  The default is to try the selected &lsquo;<samp>CC</samp>&rsquo; and some likely
@@ -366,9 +349,8 @@ candidates such as &lsquo;<samp>cc</samp>&rsquo; and &lsquo;<samp>gcc</samp>&rsq
 they can be included as for instance &lsquo;<samp>CC_FOR_BUILD=&quot;cc -whatever&quot;</samp>&rsquo;.
 </p>
 </dd>
-<dt>C++ Support, <samp>--enable-cxx</samp></dt>
-<dd><span id="index-C_002b_002b-support"></span>
-<span id="index-_002d_002denable_002dcxx"></span>
+<dt id='index-C_002b_002b-support'><span>C++ Support, <samp>--enable-cxx</samp><a href='#index-C_002b_002b-support' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002denable_002dcxx"></span>
 <p>C++ support in GMP can be enabled with &lsquo;<samp>--enable-cxx</samp>&rsquo;, in which case a
 C++ compiler will be required.  As a convenience &lsquo;<samp>--enable-cxx=detect</samp>&rsquo;
 can be used to enable C++ support only if a compiler can be found.  The C++
@@ -391,9 +373,8 @@ built it, since name mangling and runtime support are usually incompatible
 between different compilers.
 </p>
 </dd>
-<dt><samp>CXX</samp>, <samp>CXXFLAGS</samp></dt>
-<dd><span id="index-C_002b_002b-compiler"></span>
-<span id="index-CXX"></span>
+<dt id='index-C_002b_002b-compiler'><span><samp>CXX</samp>, <samp>CXXFLAGS</samp><a href='#index-C_002b_002b-compiler' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-CXX"></span>
 <span id="index-CXXFLAGS"></span>
 <p>When C++ support is enabled, the C++ compiler and its flags can be set with
 variables &lsquo;<samp>CXX</samp>&rsquo; and &lsquo;<samp>CXXFLAGS</samp>&rsquo; in the usual way.  The default for
@@ -418,9 +399,8 @@ C++ code, only <code>g++</code> will invoke the linker the right way when
 building an executable or shared library from C++ object files.
 </p>
 </dd>
-<dt>Temporary Memory, <samp>--enable-alloca=&lt;choice&gt;</samp></dt>
-<dd><span id="index-Temporary-memory"></span>
-<span id="index-Stack-overflow"></span>
+<dt id='index-Temporary-memory'><span>Temporary Memory, <samp>--enable-alloca=&lt;choice&gt;</samp><a href='#index-Temporary-memory' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Stack-overflow"></span>
 <span id="index-alloca"></span>
 <span id="index-_002d_002denable_002dalloca"></span>
 <p>GMP allocates temporary workspace using one of the following three methods,
@@ -458,30 +438,26 @@ default.  See <a href="constant.Custom_Allocation.html#start">Custom Allocation<
 debugging memory related problems (see <a href="constant.GMP_Basics.html#Debugging">Debugging</a>).
 </p>
 </dd>
-<dt>FFT Multiplication, <samp>--disable-fft</samp></dt>
-<dd><span id="index-FFT-multiplication"></span>
-<span id="index-_002d_002ddisable_002dfft"></span>
+<dt id='index-FFT-multiplication'><span>FFT Multiplication, <samp>--disable-fft</samp><a href='#index-FFT-multiplication' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002ddisable_002dfft"></span>
 <p>By default multiplications are done using Karatsuba, 3-way Toom, higher degree
 Toom, and Fermat FFT.  The FFT is only used on large to very large operands
 and can be disabled to save code size if desired.
 </p>
 </dd>
-<dt>Assertion Checking, <samp>--enable-assert</samp></dt>
-<dd><span id="index-Assertion-checking"></span>
-<span id="index-_002d_002denable_002dassert"></span>
+<dt id='index-Assertion-checking'><span>Assertion Checking, <samp>--enable-assert</samp><a href='#index-Assertion-checking' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002denable_002dassert"></span>
 <p>This option enables some consistency checking within the library.  This can be
 of use while debugging, see <a href="constant.GMP_Basics.html#Debugging">Debugging</a>.
 </p>
 </dd>
-<dt>Execution Profiling, <samp>--enable-profiling=prof/gprof/instrument</samp></dt>
-<dd><span id="index-Execution-profiling"></span>
-<span id="index-_002d_002denable_002dprofiling"></span>
+<dt id='index-Execution-profiling'><span>Execution Profiling, <samp>--enable-profiling=prof/gprof/instrument</samp><a href='#index-Execution-profiling' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-_002d_002denable_002dprofiling"></span>
 <p>Enable profiling support, in one of various styles, see <a href="constant.GMP_Basics.html#Profiling">Profiling</a>.
 </p>
 </dd>
-<dt><samp>MPN_PATH</samp></dt>
-<dd><span id="index-MPN_005fPATH"></span>
-<p>Various assembly versions of each mpn subroutines are provided.  For a given
+<dt id='index-MPN_005fPATH'><span><samp>MPN_PATH</samp><a href='#index-MPN_005fPATH' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Various assembly versions of each mpn subroutines are provided.  For a given
 CPU, a search is made though a path to choose a version of each.  For example
 &lsquo;<samp>sparcv8</samp>&rsquo; has
 </p>
@@ -493,11 +469,10 @@ finally fall back on generic C.  Knowledgeable users with special requirements
 can specify a different path.  Normally this is completely unnecessary.
 </p>
 </dd>
-<dt>Documentation</dt>
-<dd><span id="index-Documentation-formats"></span>
-<span id="index-Texinfo"></span>
+<dt id='index-Documentation-formats'><span>Documentation<a href='#index-Documentation-formats' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Texinfo"></span>
 <p>The source for the document you&rsquo;re now reading is <samp>doc/gmp.texi</samp>, in
-Texinfo format, see <a href="https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html#Top">Texinfo</a> in <cite>Texinfo</cite>.
+Texinfo format, see <a data-manual="texinfo" href="https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html#Top">Texinfo</a> in <cite>Texinfo</cite>.
 </p>
 <span id="index-Postscript"></span>
 <span id="index-DVI"></span>
@@ -509,14 +484,16 @@ will require various TeX and Texinfo tools).
 <span id="index-DocBook"></span>
 <span id="index-XML"></span>
 <p>DocBook and XML can be generated by the Texinfo <code>makeinfo</code> program
-too, see <a href="https://www.gnu.org/software/texinfo/manual/texinfo/html_node/makeinfo-options.html#makeinfo-options">Options for <code>makeinfo</code></a> in <cite>Texinfo</cite>.
+too, see <a data-manual="texinfo" href="https://www.gnu.org/software/texinfo/manual/texinfo/html_node/makeinfo-options.html#makeinfo-options">Options for <code>makeinfo</code></a> in <cite>Texinfo</cite>.
 </p>
 <p>Some supplementary notes can also be found in the <samp>doc</samp> subdirectory.
 </p>
 </dd>
 </dl>
 <hr>
-<span id="ABI-and-ISA"></span><div class="header">
+</div>
+<div class="section" id="ABI-and-ISA">
+<div class="header">
 <p>
 Next: <a href="#Notes-for-Package-Builds" accesskey="n" rel="next">Notes for Package Builds</a>, Previous: <a href="#Build-Options" accesskey="p" rel="prev">Build Options</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -563,13 +540,12 @@ with a fresh <code>./configure</code> and <code>make</code> each.
 </p>
 <br>
 <dl compact="compact">
-<dt>AMD64 (&lsquo;<samp>x86_64</samp>&rsquo;)</dt>
-<dd><span id="index-AMD64"></span>
-<p>On AMD64 systems supporting both 32-bit and 64-bit modes for applications, the
+<dt id='index-AMD64'><span>AMD64 (&lsquo;<samp>x86_64</samp>&rsquo;)<a href='#index-AMD64' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>On AMD64 systems supporting both 32-bit and 64-bit modes for applications, the
 following ABI choices are available.
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>ABI=64</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=64</samp>&rsquo;</span></dt>
 <dd><p>The 64-bit ABI uses 64-bit limbs and pointers and makes full use of the chip
 architecture.  This is the default.  Applications will usually not need
 special compiler flags, but for reference the option is
@@ -578,7 +554,7 @@ special compiler flags, but for reference the option is
 <pre class="example">gcc  -m64
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=32</samp>&rsquo;</span></dt>
 <dd><p>The 32-bit ABI is the usual i386 conventions.  This will be slower, and is not
 recommended except for inter-operating with other code not yet 64-bit capable.
 Applications must be compiled with
@@ -589,7 +565,7 @@ Applications must be compiled with
 <p>(In GCC 2.95 and earlier there&rsquo;s no &lsquo;<samp>-m32</samp>&rsquo; option, it&rsquo;s the only mode.)
 </p>
 </dd>
-<dt>&lsquo;<samp>ABI=x32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=x32</samp>&rsquo;</span></dt>
 <dd><p>The x32 ABI uses 64-bit limbs but 32-bit pointers.  Like the 64-bit ABI, it
 makes full use of the chip&rsquo;s arithmetic capabilities.  This ABI is not
 supported by all operating systems.
@@ -601,11 +577,10 @@ supported by all operating systems.
 </dl>
 <br>
 </dd>
-<dt>HPPA 2.0 (&lsquo;<samp>hppa2.0*</samp>&rsquo;, &lsquo;<samp>hppa64</samp>&rsquo;)</dt>
-<dd><span id="index-HPPA"></span>
-<span id="index-HP_002dUX"></span>
+<dt id='index-HPPA'><span>HPPA 2.0 (&lsquo;<samp>hppa2.0*</samp>&rsquo;, &lsquo;<samp>hppa64</samp>&rsquo;)<a href='#index-HPPA' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-HP_002dUX"></span>
 <dl compact="compact">
-<dt>&lsquo;<samp>ABI=2.0w</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=2.0w</samp>&rsquo;</span></dt>
 <dd><p>The 2.0w ABI uses 64-bit limbs and pointers and is available on HP-UX 11 or
 up.  Applications must be compiled with
 </p>
@@ -614,7 +589,7 @@ up.  Applications must be compiled with
 cc  +DD64
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=2.0n</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=2.0n</samp>&rsquo;</span></dt>
 <dd><p>The 2.0n ABI means the 32-bit HPPA 1.0 ABI and all its normal calling
 conventions, but with 64-bit instructions permitted within functions.  GMP
 uses a 64-bit <code>long long</code> for a limb.  This ABI is available on hppa64
@@ -629,7 +604,7 @@ instructions for <code>long long</code> operations and so may be slower than for
 2.0w.  (The GMP assembly code is the same though.)
 </p>
 </dd>
-<dt>&lsquo;<samp>ABI=1.0</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=1.0</samp>&rsquo;</span></dt>
 <dd><p>HPPA 2.0 CPUs can run all HPPA 1.0 and 1.1 code in the 32-bit HPPA 1.0 ABI.
 No special compiler options are needed for applications.
 </p></dd>
@@ -644,13 +619,12 @@ GMP will detect how it was built, and skip to the corresponding &lsquo;<samp>ABI
 </p>
 <br>
 </dd>
-<dt>IA-64 under HP-UX (&lsquo;<samp>ia64*-*-hpux*</samp>&rsquo;, &lsquo;<samp>itanium*-*-hpux*</samp>&rsquo;)</dt>
-<dd><span id="index-IA_002d64"></span>
-<span id="index-HP_002dUX-1"></span>
+<dt id='index-IA_002d64'><span>IA-64 under HP-UX (&lsquo;<samp>ia64*-*-hpux*</samp>&rsquo;, &lsquo;<samp>itanium*-*-hpux*</samp>&rsquo;)<a href='#index-IA_002d64' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-HP_002dUX-1"></span>
 <p>HP-UX supports two ABIs for IA-64.  GMP performance is the same in both.
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>ABI=32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=32</samp>&rsquo;</span></dt>
 <dd><p>In the 32-bit ABI, pointers, <code>int</code>s and <code>long</code>s are 32 bits and GMP
 uses a 64 bit <code>long long</code> for a limb.  Applications can be compiled
 without any special flags since this ABI is the default in both HP C and GCC,
@@ -661,7 +635,7 @@ but for reference the flags are
 cc   +DD32
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=64</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=64</samp>&rsquo;</span></dt>
 <dd><p>In the 64-bit ABI, <code>long</code>s and pointers are 64 bits and GMP uses a
 <code>long</code> for a limb.  Applications must be compiled with
 </p>
@@ -676,15 +650,14 @@ choice.
 </p>
 <br>
 </dd>
-<dt>MIPS under IRIX 6 (&lsquo;<samp>mips*-*-irix[6789]</samp>&rsquo;)</dt>
-<dd><span id="index-MIPS"></span>
-<span id="index-IRIX"></span>
+<dt id='index-MIPS'><span>MIPS under IRIX 6 (&lsquo;<samp>mips*-*-irix[6789]</samp>&rsquo;)<a href='#index-MIPS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-IRIX"></span>
 <p>IRIX 6 always has a 64-bit MIPS 3 or better CPU, and supports ABIs o32, n32,
 and 64.  n32 or 64 are recommended, and GMP performance will be the same in
 each.  The default is n32.
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>ABI=o32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=o32</samp>&rsquo;</span></dt>
 <dd><p>The o32 ABI is 32-bit pointers and integers, and no 64-bit operations.  GMP
 will be slower than in n32 or 64, this option only exists to support old
 compilers, eg. GCC 2.7.2.  Applications can be compiled with no special
@@ -695,7 +668,7 @@ flags on an old compiler, or on a newer compiler with
 cc   -32
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=n32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=n32</samp>&rsquo;</span></dt>
 <dd><p>The n32 ABI is 32-bit pointers and integers, but with a 64-bit limb using a
 <code>long long</code>.  Applications must be compiled with
 </p>
@@ -704,7 +677,7 @@ cc   -32
 cc   -n32
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=64</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=64</samp>&rsquo;</span></dt>
 <dd><p>The 64-bit ABI is 64-bit pointers and integers.  Applications must be compiled
 with
 </p>
@@ -719,12 +692,10 @@ support for n32 or 64 and so only gets a 32-bit limb and the MIPS 2 code.
 </p>
 <br>
 </dd>
-<dt>PowerPC 64 (&lsquo;<samp>powerpc64</samp>&rsquo;, &lsquo;<samp>powerpc620</samp>&rsquo;, &lsquo;<samp>powerpc630</samp>&rsquo;, &lsquo;<samp>powerpc970</samp>&rsquo;, &lsquo;<samp>power4</samp>&rsquo;, &lsquo;<samp>power5</samp>&rsquo;)</dt>
-<dd><span id="index-PowerPC"></span>
-<dl compact="compact">
-<dt>&lsquo;<samp>ABI=mode64</samp>&rsquo;</dt>
-<dd><span id="index-AIX"></span>
-<p>The AIX 64 ABI uses 64-bit limbs and pointers and is the default on PowerPC 64
+<dt id='index-PowerPC'><span>PowerPC 64 (&lsquo;<samp>powerpc64</samp>&rsquo;, &lsquo;<samp>powerpc620</samp>&rsquo;, &lsquo;<samp>powerpc630</samp>&rsquo;, &lsquo;<samp>powerpc970</samp>&rsquo;, &lsquo;<samp>power4</samp>&rsquo;, &lsquo;<samp>power5</samp>&rsquo;)<a href='#index-PowerPC' class='copiable-anchor'> &para;</a></span></dt>
+<dd><dl compact="compact">
+<dt id='index-AIX'><span>&lsquo;<samp>ABI=mode64</samp>&rsquo;<a href='#index-AIX' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The AIX 64 ABI uses 64-bit limbs and pointers and is the default on PowerPC 64
 &lsquo;<samp>*-*-aix*</samp>&rsquo; systems.  Applications must be compiled with
 </p>
 <div class="example">
@@ -738,7 +709,7 @@ be compiled with
 <pre class="example">gcc  -m64
 </pre></div>
 </dd>
-<dt>&lsquo;<samp>ABI=mode32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=mode32</samp>&rsquo;</span></dt>
 <dd><p>The &lsquo;<samp>mode32</samp>&rsquo; ABI uses a 64-bit <code>long long</code> limb but with the chip
 still in 32-bit mode and using 32-bit calling conventions.  This is the default
 for systems where the true 64-bit ABI is unavailable.  No special compiler
@@ -746,7 +717,7 @@ options are typically needed for applications.  This ABI is not available under
 AIX.
 </p>
 </dd>
-<dt>&lsquo;<samp>ABI=32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=32</samp>&rsquo;</span></dt>
 <dd><p>This is the basic 32-bit PowerPC ABI, with a 32-bit limb.  No special compiler
 options are needed for applications.
 </p></dd>
@@ -757,12 +728,11 @@ use of a 64-bit chip.
 </p>
 <br>
 </dd>
-<dt>Sparc V9 (&lsquo;<samp>sparc64</samp>&rsquo;, &lsquo;<samp>sparcv9</samp>&rsquo;, &lsquo;<samp>ultrasparc*</samp>&rsquo;)</dt>
-<dd><span id="index-Sparc-V9"></span>
-<span id="index-Solaris"></span>
+<dt id='index-Sparc-V9'><span>Sparc V9 (&lsquo;<samp>sparc64</samp>&rsquo;, &lsquo;<samp>sparcv9</samp>&rsquo;, &lsquo;<samp>ultrasparc*</samp>&rsquo;)<a href='#index-Sparc-V9' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Solaris"></span>
 <span id="index-Sun"></span>
 <dl compact="compact">
-<dt>&lsquo;<samp>ABI=64</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=64</samp>&rsquo;</span></dt>
 <dd><p>The 64-bit V9 ABI is available on the various BSD sparc64 ports, recent
 versions of Sparc64 GNU/Linux, and Solaris 2.7 and up (when the kernel is in
 64-bit mode).  GCC 3.2 or higher, or Sun <code>cc</code> is required.  On
@@ -782,7 +752,7 @@ cc   -xarch=v9
 the only ABI available.
 </p>
 </dd>
-<dt>&lsquo;<samp>ABI=32</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ABI=32</samp>&rsquo;</span></dt>
 <dd><p>For the basic 32-bit ABI, GMP still uses as much of the V9 ISA as it can.  In
 the Sun documentation this combination is known as &ldquo;v8plus&rdquo;.  On GNU/Linux,
 depending on the default <code>gcc</code> mode, applications may need to be
@@ -823,7 +793,9 @@ cross-compile, for example
 </dd>
 </dl>
 <hr>
-<span id="Notes-for-Package-Builds"></span><div class="header">
+</div>
+<div class="section" id="Notes-for-Package-Builds">
+<div class="header">
 <p>
 Next: <a href="#Notes-for-Particular-Systems" accesskey="n" rel="next">Notes for Particular Systems</a>, Previous: <a href="#ABI-and-ISA" accesskey="p" rel="prev">ABI and ISA</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -836,7 +808,7 @@ distribution.
 <span id="index-Libtool-versioning"></span>
 <span id="index-Shared-library-versioning"></span>
 <p>Libtool is used to build the library and &lsquo;<samp>-version-info</samp>&rsquo; is set
-appropriately, having started from &lsquo;<samp>3:0:0</samp>&rsquo; in GMP 3.0 (see <a href="https://www.gnu.org/software/libtool/manual/html_node/Versioning.html#Versioning">Library interface versions</a> in <cite>GNU
+appropriately, having started from &lsquo;<samp>3:0:0</samp>&rsquo; in GMP 3.0 (see <a data-manual="libtool" href="https://www.gnu.org/software/libtool/manual/html_node/Versioning.html#Versioning">Library interface versions</a> in <cite>GNU
 Libtool</cite>).
 </p>
 <p>The GMP 4 series will be upwardly binary compatible in each release and will
@@ -889,7 +861,9 @@ might be necessary to create a <samp>/usr/include/gmp.h</samp> which tests
 preprocessor symbols and chooses the correct actual <samp>gmp.h</samp>.
 </p>
 <hr>
-<span id="Notes-for-Particular-Systems"></span><div class="header">
+</div>
+<div class="section" id="Notes-for-Particular-Systems">
+<div class="header">
 <p>
 Next: <a href="#Known-Build-Problems" accesskey="n" rel="next">Known Build Problems</a>, Previous: <a href="#Notes-for-Package-Builds" accesskey="p" rel="prev">Notes for Package Builds</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -898,9 +872,8 @@ Next: <a href="#Known-Build-Problems" accesskey="n" rel="next">Known Build Probl
 <span id="index-Particular-systems"></span>
 <span id="index-Systems"></span>
 <dl compact="compact">
-<dt>AIX 3 and 4</dt>
-<dd><span id="index-AIX-1"></span>
-<p>On systems &lsquo;<samp>*-*-aix[34]*</samp>&rsquo; shared libraries are disabled by default, since
+<dt id='index-AIX-1'><span>AIX 3 and 4<a href='#index-AIX-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>On systems &lsquo;<samp>*-*-aix[34]*</samp>&rsquo; shared libraries are disabled by default, since
 some versions of the native <code>ar</code> fail on the convenience libraries
 used.  A shared build can be attempted with
 </p>
@@ -914,16 +887,14 @@ but unfortunately this is done even if a fully functional <code>ld</code> is
 available.
 </p>
 </dd>
-<dt>ARM</dt>
-<dd><span id="index-ARM"></span>
-<p>On systems &lsquo;<samp>arm*-*-*</samp>&rsquo;, versions of GCC up to and including 2.95.3 have a
+<dt id='index-ARM'><span>ARM<a href='#index-ARM' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>On systems &lsquo;<samp>arm*-*-*</samp>&rsquo;, versions of GCC up to and including 2.95.3 have a
 bug in unsigned division, giving wrong results for some operands.  GMP
 &lsquo;<samp>./configure</samp>&rsquo; will demand GCC 2.95.4 or later.
 </p>
 </dd>
-<dt>Compaq C++</dt>
-<dd><span id="index-Compaq-C_002b_002b"></span>
-<p>Compaq C++ on OSF 5.1 has two flavours of <code>iostream</code>, a standard one and
+<dt id='index-Compaq-C_002b_002b'><span>Compaq C++<a href='#index-Compaq-C_002b_002b' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Compaq C++ on OSF 5.1 has two flavours of <code>iostream</code>, a standard one and
 an old pre-standard one (see &lsquo;<samp>man iostream_intro</samp>&rsquo;).  GMP can only use the
 standard one, which unfortunately is not the default but must be selected by
 defining <code>__USE_STD_IOSTREAM</code>.  Configure with for instance
@@ -932,9 +903,8 @@ defining <code>__USE_STD_IOSTREAM</code>.  Configure with for instance
 <pre class="example">./configure --enable-cxx CPPFLAGS=-D__USE_STD_IOSTREAM
 </pre></div>
 </dd>
-<dt>Floating Point Mode</dt>
-<dd><span id="index-Floating-point-mode"></span>
-<span id="index-Hardware-floating-point-mode"></span>
+<dt id='index-Floating-point-mode'><span>Floating Point Mode<a href='#index-Floating-point-mode' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Hardware-floating-point-mode"></span>
 <span id="index-Precision-of-hardware-floating-point"></span>
 <span id="index-x87"></span>
 <p>On some systems, the hardware floating point has a control mode which can set
@@ -945,9 +915,8 @@ precision when the hardware is in single precision mode.  Of course this
 affects all code, including application code, not just GMP.
 </p>
 </dd>
-<dt>FreeBSD 7.x, 8.x, 9.0, 9.1, 9.2</dt>
-<dd><span id="index-FreeBSD"></span>
-<p><code>m4</code> in these releases of FreeBSD has an eval function which ignores
+<dt id='index-FreeBSD'><span>FreeBSD 7.x, 8.x, 9.0, 9.1, 9.2<a href='#index-FreeBSD' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>m4</code> in these releases of FreeBSD has an eval function which ignores
 its 2nd and 3rd arguments, which makes it unsuitable for <samp>.asm</samp> file
 processing.  &lsquo;<samp>./configure</samp>&rsquo; will detect the problem and either abort or
 choose another m4 in the <code>PATH</code>.  The bug is fixed in FreeBSD 9.3 and 10.0,
@@ -955,16 +924,14 @@ so either upgrade or use GNU m4.  Note that the FreeBSD package system installs
 GNU m4 under the name &lsquo;<samp>gm4</samp>&rsquo;, which GMP cannot guess.
 </p>
 </dd>
-<dt>FreeBSD 7.x, 8.x, 9.x</dt>
-<dd><span id="index-FreeBSD-1"></span>
-<p>GMP releases starting with 6.0 do not support &lsquo;<samp>ABI=32</samp>&rsquo; on FreeBSD/amd64
+<dt id='index-FreeBSD-1'><span>FreeBSD 7.x, 8.x, 9.x<a href='#index-FreeBSD-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>GMP releases starting with 6.0 do not support &lsquo;<samp>ABI=32</samp>&rsquo; on FreeBSD/amd64
 prior to release 10.0 of the system.  The cause is a broken <code>limits.h</code>,
 which GMP no longer works around.
 </p>
 </dd>
-<dt>MS-DOS and MS Windows</dt>
-<dd><span id="index-MS_002dDOS"></span>
-<span id="index-MS-Windows"></span>
+<dt id='index-MS_002dDOS'><span>MS-DOS and MS Windows<a href='#index-MS_002dDOS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-MS-Windows"></span>
 <span id="index-Windows"></span>
 <span id="index-Cygwin"></span>
 <span id="index-DJGPP"></span>
@@ -985,9 +952,8 @@ build GMP on Windows (with a normal &lsquo;<samp>./configure</samp>&rsquo;), but
 software.
 </p>
 </dd>
-<dt>MS Windows DLLs</dt>
-<dd><span id="index-DLLs"></span>
-<span id="index-MS-Windows-1"></span>
+<dt id='index-DLLs'><span>MS Windows DLLs<a href='#index-DLLs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-MS-Windows-1"></span>
 <span id="index-Windows-1"></span>
 <p>On systems &lsquo;<samp>*-*-cygwin*</samp>&rsquo;, &lsquo;<samp>*-*-mingw*</samp>&rsquo; and &lsquo;<samp>*-*-pw32*</samp>&rsquo; by
 default GMP builds only a static library, but a DLL can be built instead using
@@ -1014,17 +980,15 @@ desired then the suggestion is to use the GMP string functions and confine I/O
 to the application.
 </p>
 </dd>
-<dt>Motorola 68k CPU Types</dt>
-<dd><span id="index-68000"></span>
-<p>&lsquo;<samp>m68k</samp>&rsquo; is taken to mean 68000.  &lsquo;<samp>m68020</samp>&rsquo; or higher will give a
+<dt id='index-68000'><span>Motorola 68k CPU Types<a href='#index-68000' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>&lsquo;<samp>m68k</samp>&rsquo; is taken to mean 68000.  &lsquo;<samp>m68020</samp>&rsquo; or higher will give a
 performance boost on applicable CPUs.  &lsquo;<samp>m68360</samp>&rsquo; can be used for CPU32
 series chips.  &lsquo;<samp>m68302</samp>&rsquo; can be used for &ldquo;Dragonball&rdquo; series chips,
 though this is merely a synonym for &lsquo;<samp>m68000</samp>&rsquo;.
 </p>
 </dd>
-<dt>NetBSD 5.x</dt>
-<dd><span id="index-NetBSD"></span>
-<p><code>m4</code> in these releases of NetBSD has an eval function which ignores its
+<dt id='index-NetBSD'><span>NetBSD 5.x<a href='#index-NetBSD' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>m4</code> in these releases of NetBSD has an eval function which ignores its
 2nd and 3rd arguments, which makes it unsuitable for <samp>.asm</samp> file
 processing.  &lsquo;<samp>./configure</samp>&rsquo; will detect the problem and either abort or
 choose another m4 in the <code>PATH</code>.  The bug is fixed in NetBSD 6, so either
@@ -1032,17 +996,15 @@ upgrade or use GNU m4.  Note that the NetBSD package system installs GNU m4
 under the name &lsquo;<samp>gm4</samp>&rsquo;, which GMP cannot guess.
 </p>
 </dd>
-<dt>OpenBSD 2.6</dt>
-<dd><span id="index-OpenBSD"></span>
-<p><code>m4</code> in this release of OpenBSD has a bug in <code>eval</code> that makes it
+<dt id='index-OpenBSD'><span>OpenBSD 2.6<a href='#index-OpenBSD' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>m4</code> in this release of OpenBSD has a bug in <code>eval</code> that makes it
 unsuitable for <samp>.asm</samp> file processing.  &lsquo;<samp>./configure</samp>&rsquo; will detect
 the problem and either abort or choose another m4 in the <code>PATH</code>.  The bug
 is fixed in OpenBSD 2.7, so either upgrade or use GNU m4.
 </p>
 </dd>
-<dt>Power CPU Types</dt>
-<dd><span id="index-Power_002fPowerPC"></span>
-<p>In GMP, CPU types &lsquo;<samp>power*</samp>&rsquo; and &lsquo;<samp>powerpc*</samp>&rsquo; will each use instructions
+<dt id='index-Power_002fPowerPC'><span>Power CPU Types<a href='#index-Power_002fPowerPC' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>In GMP, CPU types &lsquo;<samp>power*</samp>&rsquo; and &lsquo;<samp>powerpc*</samp>&rsquo; will each use instructions
 not available on the other, so it&rsquo;s important to choose the right one for the
 CPU that will be used.  Currently GMP has no assembly code support for using
 just the common instruction subset.  To get executables that run on both, the
@@ -1053,18 +1015,16 @@ workstations) is accepted by <samp>config.sub</samp>, but is currently equivalen
 <samp>--disable-assembly</samp>.
 </p>
 </dd>
-<dt>Sparc CPU Types</dt>
-<dd><span id="index-Sparc"></span>
-<p>&lsquo;<samp>sparcv8</samp>&rsquo; or &lsquo;<samp>supersparc</samp>&rsquo; on relevant systems will give a
+<dt id='index-Sparc'><span>Sparc CPU Types<a href='#index-Sparc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>&lsquo;<samp>sparcv8</samp>&rsquo; or &lsquo;<samp>supersparc</samp>&rsquo; on relevant systems will give a
 significant performance increase over the V7 code selected by plain
 &lsquo;<samp>sparc</samp>&rsquo;.
 </p>
 </dd>
-<dt>Sparc App Regs</dt>
-<dd><span id="index-Sparc-1"></span>
-<p>The GMP assembly code for both 32-bit and 64-bit Sparc clobbers the
+<dt id='index-Sparc-1'><span>Sparc App Regs<a href='#index-Sparc-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The GMP assembly code for both 32-bit and 64-bit Sparc clobbers the
 &ldquo;application registers&rdquo; <code>g2</code>, <code>g3</code> and <code>g4</code>, the same way
-that the GCC default &lsquo;<samp>-mapp-regs</samp>&rsquo; does (see <a href="https://gcc.gnu.org/onlinedocs/gcc/SPARC-Options.html#SPARC-Options">SPARC
+that the GCC default &lsquo;<samp>-mapp-regs</samp>&rsquo; does (see <a data-manual="gcc" href="https://gcc.gnu.org/onlinedocs/gcc/SPARC-Options.html#SPARC-Options">SPARC
 Options</a> in <cite>Using the GNU Compiler Collection (GCC)</cite>).
 </p>
 <p>This makes that code unsuitable for use with the special V9
@@ -1074,17 +1034,15 @@ cases the only suggestion currently is to build GMP with
 <samp>--disable-assembly</samp> to avoid the assembly code.
 </p>
 </dd>
-<dt>SunOS 4</dt>
-<dd><span id="index-SunOS"></span>
-<p><code>/usr/bin/m4</code> lacks various features needed to process <samp>.asm</samp>
+<dt id='index-SunOS'><span>SunOS 4<a href='#index-SunOS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>/usr/bin/m4</code> lacks various features needed to process <samp>.asm</samp>
 files, and instead &lsquo;<samp>./configure</samp>&rsquo; will automatically use
 <code>/usr/5bin/m4</code>, which we believe is always available (if not then use
 GNU m4).
 </p>
 </dd>
-<dt>x86 CPU Types</dt>
-<dd><span id="index-x86"></span>
-<span id="index-80x86"></span>
+<dt id='index-x86'><span>x86 CPU Types<a href='#index-x86' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-80x86"></span>
 <span id="index-i386"></span>
 <p>&lsquo;<samp>i586</samp>&rsquo;, &lsquo;<samp>pentium</samp>&rsquo; or &lsquo;<samp>pentiummmx</samp>&rsquo; code is good for its intended
 P5 Pentium chips, but quite slow when run on Intel P6 class chips (PPro, P-II,
@@ -1092,9 +1050,8 @@ P-III).  &lsquo;<samp>i386</samp>&rsquo; is a better choice when making binaries
 both.
 </p>
 </dd>
-<dt>x86 MMX and SSE2 Code</dt>
-<dd><span id="index-MMX"></span>
-<span id="index-SSE2"></span>
+<dt id='index-MMX'><span>x86 MMX and SSE2 Code<a href='#index-MMX' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-SSE2"></span>
 <p>If the CPU selected has MMX code but the assembler doesn&rsquo;t support it, a
 warning is given and non-MMX code is used instead.  This will be an inferior
 build, since the MMX code that&rsquo;s present is there because it&rsquo;s faster than the
@@ -1110,7 +1067,9 @@ Install a recent <code>gas</code> if MMX code is wanted on these systems.
 </p></dd>
 </dl>
 <hr>
-<span id="Known-Build-Problems"></span><div class="header">
+</div>
+<div class="section" id="Known-Build-Problems">
+<div class="header">
 <p>
 Next: <a href="#Performance-optimization" accesskey="n" rel="next">Performance optimization</a>, Previous: <a href="#Notes-for-Particular-Systems" accesskey="p" rel="prev">Notes for Particular Systems</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1119,7 +1078,7 @@ Next: <a href="#Performance-optimization" accesskey="n" rel="next">Performance o
 <p>You might find more up-to-date information at <a href="https://gmplib.org/">https://gmplib.org/</a>.
 </p>
 <dl compact="compact">
-<dt>Compiler link options</dt>
+<dt><span>Compiler link options</span></dt>
 <dd><p>The version of libtool currently in use rather aggressively strips compiler
 options when linking a shared library.  This will hopefully be relaxed in the
 future, but for now if this is a problem the suggestion is to create a little
@@ -1129,9 +1088,8 @@ script to hide them, and for instance configure with
 <pre class="example">./configure CC=gcc-with-my-options
 </pre></div>
 </dd>
-<dt>DJGPP (&lsquo;<samp>*-*-msdosdjgpp*</samp>&rsquo;)</dt>
-<dd><span id="index-DJGPP-1"></span>
-<p>The DJGPP port of <code>bash</code> 2.03 is unable to run the &lsquo;<samp>configure</samp>&rsquo;
+<dt id='index-DJGPP-1'><span>DJGPP (&lsquo;<samp>*-*-msdosdjgpp*</samp>&rsquo;)<a href='#index-DJGPP-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The DJGPP port of <code>bash</code> 2.03 is unable to run the &lsquo;<samp>configure</samp>&rsquo;
 script, it exits silently, having died writing a preamble to
 <samp>config.log</samp>.  Use <code>bash</code> 2.04 or higher.
 </p>
@@ -1141,9 +1099,8 @@ Running &lsquo;<samp>make libgmp.la</samp>&rsquo; directly helped, perhaps recur
 various subdirectories uses up memory.
 </p>
 </dd>
-<dt>GNU binutils <code>strip</code> prior to 2.12</dt>
-<dd><span id="index-Stripped-libraries"></span>
-<span id="index-Binutils-strip"></span>
+<dt id='index-Stripped-libraries'><span>GNU binutils <code>strip</code> prior to 2.12<a href='#index-Stripped-libraries' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Binutils-strip"></span>
 <span id="index-GNU-strip"></span>
 <p><code>strip</code> from GNU binutils 2.11 and earlier should not be used on the
 static libraries <samp>libgmp.a</samp> and <samp>libmp.a</samp> since it will discard all
@@ -1155,9 +1112,8 @@ used successfully.
 this and any version of <code>strip</code> can be used on them.
 </p>
 </dd>
-<dt><code>make</code> syntax error</dt>
-<dd><span id="index-SCO"></span>
-<span id="index-IRIX-1"></span>
+<dt id='index-SCO'><span><code>make</code> syntax error<a href='#index-SCO' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-IRIX-1"></span>
 <p>On certain versions of SCO OpenServer 5 and IRIX 6.5 the native <code>make</code>
 is unable to handle the long dependencies list for <samp>libgmp.la</samp>.  The
 symptom is a &ldquo;syntax error&rdquo; on the following line of the top-level
@@ -1172,52 +1128,48 @@ build work, but if any recompiling is done <samp>libgmp.la</samp> might not be
 rebuilt).
 </p>
 </dd>
-<dt>MacOS X (&lsquo;<samp>*-*-darwin*</samp>&rsquo;)</dt>
-<dd><span id="index-MacOS-X"></span>
-<span id="index-Darwin"></span>
+<dt id='index-MacOS-X'><span>MacOS X (&lsquo;<samp>*-*-darwin*</samp>&rsquo;)<a href='#index-MacOS-X' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-Darwin"></span>
 <p>Libtool currently only knows how to create shared libraries on MacOS X using
 the native <code>cc</code> (which is a modified GCC), not a plain GCC.  A
 static-only build should work though (&lsquo;<samp>--disable-shared</samp>&rsquo;).
 </p>
 </dd>
-<dt>NeXT prior to 3.3</dt>
-<dd><span id="index-NeXT"></span>
-<p>The system compiler on old versions of NeXT was a massacred and old GCC, even
+<dt id='index-NeXT'><span>NeXT prior to 3.3<a href='#index-NeXT' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The system compiler on old versions of NeXT was a massacred and old GCC, even
 if it called itself <samp>cc</samp>.  This compiler cannot be used to build GMP, you
 need to get a real GCC, and install that.  (NeXT may have fixed this in
 release 3.3 of their system.)
 </p>
 </dd>
-<dt>POWER and PowerPC</dt>
-<dd><span id="index-Power_002fPowerPC-1"></span>
-<p>Bugs in GCC 2.7.2 (and 2.6.3) mean it can&rsquo;t be used to compile GMP on POWER or
+<dt id='index-Power_002fPowerPC-1'><span>POWER and PowerPC<a href='#index-Power_002fPowerPC-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Bugs in GCC 2.7.2 (and 2.6.3) mean it can&rsquo;t be used to compile GMP on POWER or
 PowerPC.  If you want to use GCC for these machines, get GCC 2.7.2.1 (or
 later).
 </p>
 </dd>
-<dt>Sequent Symmetry</dt>
-<dd><span id="index-Sequent-Symmetry"></span>
-<p>Use the GNU assembler instead of the system assembler, since the latter has
+<dt id='index-Sequent-Symmetry'><span>Sequent Symmetry<a href='#index-Sequent-Symmetry' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Use the GNU assembler instead of the system assembler, since the latter has
 serious bugs.
 </p>
 </dd>
-<dt>Solaris 2.6</dt>
-<dd><span id="index-Solaris-1"></span>
-<p>The system <code>sed</code> prints an error &ldquo;Output line too long&rdquo; when libtool
+<dt id='index-Solaris-1'><span>Solaris 2.6<a href='#index-Solaris-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The system <code>sed</code> prints an error &ldquo;Output line too long&rdquo; when libtool
 builds <samp>libgmp.la</samp>.  This doesn&rsquo;t seem to cause any obvious ill effects,
 but GNU <code>sed</code> is recommended, to avoid any doubt.
 </p>
 </dd>
-<dt>Sparc Solaris 2.7 with gcc 2.95.2 in &lsquo;<samp>ABI=32</samp>&rsquo;</dt>
-<dd><span id="index-Solaris-2"></span>
-<p>A shared library build of GMP seems to fail in this combination, it builds but
+<dt id='index-Solaris-2'><span>Sparc Solaris 2.7 with gcc 2.95.2 in &lsquo;<samp>ABI=32</samp>&rsquo;<a href='#index-Solaris-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>A shared library build of GMP seems to fail in this combination, it builds but
 then fails the tests, apparently due to some incorrect data relocations within
 <code>gmp_randinit_lc_2exp_size</code>.  The exact cause is unknown,
 &lsquo;<samp>--disable-shared</samp>&rsquo; is recommended.
 </p></dd>
 </dl>
 <hr>
-<span id="Performance-optimization"></span><div class="header">
+</div>
+<div class="section" id="Performance-optimization">
+<div class="header">
 <p>
 Previous: <a href="#Known-Build-Problems" accesskey="p" rel="prev">Known Build Problems</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1249,8 +1201,10 @@ instructs the program how long to check FFT multiply parameters.  If you&rsquo;r
 going to use GMP for extremely large numbers, you may want to run <code>tuneup</code>
 with a large NNN value.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#Known-Build-Problems" accesskey="p" rel="prev">Known Build Problems</a>, Up: <a href="#Installing-GMP" accesskey="u" rel="up">Installing GMP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.GMP_Basics.html#GMP-Basics" accesskey="n" rel="next">GMP Basics</a>, Previous: <a href="constant.Introduction_to_GMP.html#start" accesskey="p" rel="prev">Introduction to GNU MP</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

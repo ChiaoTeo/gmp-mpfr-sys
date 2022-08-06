@@ -1,6 +1,7 @@
-<span id="Rational-Number-Functions"></span><div class="header">
+<div class="chapter" id="Rational-Number-Functions">
+<div class="header">
 <p>
-Next: <a href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions" accesskey="n" rel="next">Floating-point Functions</a>, Previous: <a href="constant.Integer_Functions.html#Integer-Functions" accesskey="p" rel="prev">Integer Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions" accesskey="n" rel="next">Floating-point Functions</a>, Previous: <a href="constant.Integer_Functions.html#Integer-Functions" accesskey="p" rel="prev">Integer Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Rational-Number-Functions-1"></span><h2 class="chapter">6 Rational Number Functions</h2>
 <span id="index-Rational-number-functions"></span>
@@ -18,69 +19,64 @@ Zero has the unique representation 0/1.
 the responsibility of the user to canonicalize the assigned variable before
 any arithmetic operations are performed on that variable.
 </p>
-<dl>
-<dt id="index-mpq_005fcanonicalize">Function: <em>void</em> <strong>mpq_canonicalize</strong> <em>(mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fcanonicalize"><span class="category">Function: </span><span><em>void</em> <strong>mpq_canonicalize</strong> <em>(mpq_t <var>op</var>)</em><a href='#index-mpq_005fcanonicalize' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Remove any factors that are common to the numerator and denominator of
 <var>op</var>, and make the denominator positive.
 </p></dd></dl>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Initializing-Rationals" accesskey="1">Initializing Rationals</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Rational-Conversions" accesskey="2">Rational Conversions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Rational-Arithmetic" accesskey="3">Rational Arithmetic</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Comparing-Rationals" accesskey="4">Comparing Rationals</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Applying-Integer-Functions" accesskey="5">Applying Integer Functions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#I_002fO-of-Rationals" accesskey="6">I/O of Rationals</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#Initializing-Rationals" accesskey="1">Initialization and Assignment Functions</a></li>
+<li><a href="#Rational-Conversions" accesskey="2">Conversion Functions</a></li>
+<li><a href="#Rational-Arithmetic" accesskey="3">Arithmetic Functions</a></li>
+<li><a href="#Comparing-Rationals" accesskey="4">Comparison Functions</a></li>
+<li><a href="#Applying-Integer-Functions" accesskey="5">Applying Integer Functions to Rationals</a></li>
+<li><a href="#I_002fO-of-Rationals" accesskey="6">Input and Output Functions</a></li>
+</ul>
 <hr>
-<span id="Initializing-Rationals"></span><div class="header">
+<div class="section" id="Initializing-Rationals">
+<div class="header">
 <p>
-Next: <a href="#Rational-Conversions" accesskey="n" rel="next">Rational Conversions</a>, Previous: <a href="#Rational-Number-Functions" accesskey="p" rel="prev">Rational Number Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Rational-Conversions" accesskey="n" rel="next">Conversion Functions</a>, Previous: <a href="#Rational-Number-Functions" accesskey="p" rel="prev">Rational Number Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Initialization-and-Assignment-Functions"></span><h3 class="section">6.1 Initialization and Assignment Functions</h3>
 <span id="index-Rational-assignment-functions"></span>
 <span id="index-Assignment-functions-2"></span>
 <span id="index-Rational-initialization-functions"></span>
 <span id="index-Initialization-functions-2"></span>
-<dl>
-<dt id="index-mpq_005finit">Function: <em>void</em> <strong>mpq_init</strong> <em>(mpq_t <var>x</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005finit"><span class="category">Function: </span><span><em>void</em> <strong>mpq_init</strong> <em>(mpq_t <var>x</var>)</em><a href='#index-mpq_005finit' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Initialize <var>x</var> and set it to 0/1.  Each variable should normally only be
 initialized once, or at least cleared out (using the function <code>mpq_clear</code>)
 between each initialization.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005finits">Function: <em>void</em> <strong>mpq_inits</strong> <em>(mpq_t <var>x</var>, ...)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005finits"><span class="category">Function: </span><span><em>void</em> <strong>mpq_inits</strong> <em>(mpq_t <var>x</var>, ...)</em><a href='#index-mpq_005finits' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Initialize a NULL-terminated list of <code>mpq_t</code> variables, and set their
 values to 0/1.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclear">Function: <em>void</em> <strong>mpq_clear</strong> <em>(mpq_t <var>x</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclear"><span class="category">Function: </span><span><em>void</em> <strong>mpq_clear</strong> <em>(mpq_t <var>x</var>)</em><a href='#index-mpq_005fclear' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Free the space occupied by <var>x</var>.  Make sure to call this function for all
 <code>mpq_t</code> variables when you are done with them.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fclears">Function: <em>void</em> <strong>mpq_clears</strong> <em>(mpq_t <var>x</var>, ...)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fclears"><span class="category">Function: </span><span><em>void</em> <strong>mpq_clears</strong> <em>(mpq_t <var>x</var>, ...)</em><a href='#index-mpq_005fclears' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Free the space occupied by a NULL-terminated list of <code>mpq_t</code> variables.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fset">Function: <em>void</em> <strong>mpq_set</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op</var>)</em></dt>
-<dt id="index-mpq_005fset_005fz">Function: <em>void</em> <strong>mpq_set_z</strong> <em>(mpq_t <var>rop</var>, const mpz_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fset"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op</var>)</em><a href='#index-mpq_005fset' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fset_005fz"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_z</strong> <em>(mpq_t <var>rop</var>, const mpz_t <var>op</var>)</em><a href='#index-mpq_005fset_005fz' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Assign <var>rop</var> from <var>op</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fset_005fui">Function: <em>void</em> <strong>mpq_set_ui</strong> <em>(mpq_t <var>rop</var>, unsigned long int <var>op1</var>, unsigned long int <var>op2</var>)</em></dt>
-<dt id="index-mpq_005fset_005fsi">Function: <em>void</em> <strong>mpq_set_si</strong> <em>(mpq_t <var>rop</var>, signed long int <var>op1</var>, unsigned long int <var>op2</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fset_005fui"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_ui</strong> <em>(mpq_t <var>rop</var>, unsigned long int <var>op1</var>, unsigned long int <var>op2</var>)</em><a href='#index-mpq_005fset_005fui' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fset_005fsi"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_si</strong> <em>(mpq_t <var>rop</var>, signed long int <var>op1</var>, unsigned long int <var>op2</var>)</em><a href='#index-mpq_005fset_005fsi' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set the value of <var>rop</var> to <var>op1</var>/<var>op2</var>.  Note that if <var>op1</var> and
 <var>op2</var> have common factors, <var>rop</var> has to be passed to
 <code>mpq_canonicalize</code> before any operations are performed on <var>rop</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fset_005fstr">Function: <em>int</em> <strong>mpq_set_str</strong> <em>(mpq_t <var>rop</var>, const char *<var>str</var>, int <var>base</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fset_005fstr"><span class="category">Function: </span><span><em>int</em> <strong>mpq_set_str</strong> <em>(mpq_t <var>rop</var>, const char *<var>str</var>, int <var>base</var>)</em><a href='#index-mpq_005fset_005fstr' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> from a null-terminated string <var>str</var> in the given <var>base</var>.
 </p>
 <p>The string can be an integer like &ldquo;41&rdquo; or a fraction like &ldquo;41/152&rdquo;.  The
@@ -88,7 +84,7 @@ fraction must be in canonical form (see <a href="#Rational-Number-Functions">Rat
 not then <code>mpq_canonicalize</code> must be called.
 </p>
 <p>The numerator and optional denominator are parsed the same as in
-<code>mpz_set_str</code> (see <a href="constant.Integer_Functions.html#Assigning-Integers">Assigning Integers</a>).  White space is allowed in
+<code>mpz_set_str</code> (see <a href="constant.Integer_Functions.html#Assigning-Integers">Assignment Functions</a>).  White space is allowed in
 the string, and is simply ignored.  The <var>base</var> can vary from 2 to 62, or
 if <var>base</var> is 0 then the leading characters are used: <code>0x</code> or <code>0X</code> for hex,
 <code>0b</code> or <code>0B</code> for binary,
@@ -99,36 +95,38 @@ whereas <code>0xEF/0x100</code> is 239/256.
 <p>The return value is 0 if the entire string is a valid number, or -1 if
 not.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fswap">Function: <em>void</em> <strong>mpq_swap</strong> <em>(mpq_t <var>rop1</var>, mpq_t <var>rop2</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fswap"><span class="category">Function: </span><span><em>void</em> <strong>mpq_swap</strong> <em>(mpq_t <var>rop1</var>, mpq_t <var>rop2</var>)</em><a href='#index-mpq_005fswap' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Swap the values <var>rop1</var> and <var>rop2</var> efficiently.
 </p></dd></dl>
 <hr>
-<span id="Rational-Conversions"></span><div class="header">
+</div>
+<div class="section" id="Rational-Conversions">
+<div class="header">
 <p>
-Next: <a href="#Rational-Arithmetic" accesskey="n" rel="next">Rational Arithmetic</a>, Previous: <a href="#Initializing-Rationals" accesskey="p" rel="prev">Initializing Rationals</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Rational-Arithmetic" accesskey="n" rel="next">Arithmetic Functions</a>, Previous: <a href="#Initializing-Rationals" accesskey="p" rel="prev">Initialization and Assignment Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Conversion-Functions-1"></span><h3 class="section">6.2 Conversion Functions</h3>
 <span id="index-Rational-conversion-functions"></span>
 <span id="index-Conversion-functions-1"></span>
-<dl>
-<dt id="index-mpq_005fget_005fd">Function: <em>double</em> <strong>mpq_get_d</strong> <em>(const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fget_005fd"><span class="category">Function: </span><span><em>double</em> <strong>mpq_get_d</strong> <em>(const mpq_t <var>op</var>)</em><a href='#index-mpq_005fget_005fd' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Convert <var>op</var> to a <code>double</code>, truncating if necessary (i.e. rounding
 towards zero).
 </p>
 <p>If the exponent from the conversion is too big or too small to fit a
 <code>double</code> then the result is system dependent.  For too big an infinity is
-returned when available.  For too small <em>0.0</em> is normally returned.
+returned when available.  For too small <em class='math'>0.0</em> is normally returned.
 Hardware overflow, underflow and denorm traps may or may not occur.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fset_005fd">Function: <em>void</em> <strong>mpq_set_d</strong> <em>(mpq_t <var>rop</var>, double <var>op</var>)</em></dt>
-<dt id="index-mpq_005fset_005ff">Function: <em>void</em> <strong>mpq_set_f</strong> <em>(mpq_t <var>rop</var>, const mpf_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fset_005fd"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_d</strong> <em>(mpq_t <var>rop</var>, double <var>op</var>)</em><a href='#index-mpq_005fset_005fd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fset_005ff"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_f</strong> <em>(mpq_t <var>rop</var>, const mpf_t <var>op</var>)</em><a href='#index-mpq_005fset_005ff' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to the value of <var>op</var>.  There is no rounding, this conversion
 is exact.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fget_005fstr">Function: <em>char *</em> <strong>mpq_get_str</strong> <em>(char *<var>str</var>, int <var>base</var>, const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fget_005fstr"><span class="category">Function: </span><span><em>char *</em> <strong>mpq_get_str</strong> <em>(char *<var>str</var>, int <var>base</var>, const mpq_t <var>op</var>)</em><a href='#index-mpq_005fget_005fstr' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Convert <var>op</var> to a string of digits in base <var>base</var>.  The base argument
 may vary from 2 to 62 or from -2 to -36.  The string will be of
 the form &lsquo;<samp>num/den</samp>&rsquo;, or if the denominator is 1 then just &lsquo;<samp>num</samp>&rsquo;.
@@ -157,77 +155,81 @@ null-terminator.
 or the given <var>str</var>.
 </p></dd></dl>
 <hr>
-<span id="Rational-Arithmetic"></span><div class="header">
+</div>
+<div class="section" id="Rational-Arithmetic">
+<div class="header">
 <p>
-Next: <a href="#Comparing-Rationals" accesskey="n" rel="next">Comparing Rationals</a>, Previous: <a href="#Rational-Conversions" accesskey="p" rel="prev">Rational Conversions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Comparing-Rationals" accesskey="n" rel="next">Comparison Functions</a>, Previous: <a href="#Rational-Conversions" accesskey="p" rel="prev">Conversion Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Arithmetic-Functions-1"></span><h3 class="section">6.3 Arithmetic Functions</h3>
 <span id="index-Rational-arithmetic-functions"></span>
 <span id="index-Arithmetic-functions-1"></span>
-<dl>
-<dt id="index-mpq_005fadd">Function: <em>void</em> <strong>mpq_add</strong> <em>(mpq_t <var>sum</var>, const mpq_t <var>addend1</var>, const mpq_t <var>addend2</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fadd"><span class="category">Function: </span><span><em>void</em> <strong>mpq_add</strong> <em>(mpq_t <var>sum</var>, const mpq_t <var>addend1</var>, const mpq_t <var>addend2</var>)</em><a href='#index-mpq_005fadd' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>sum</var> to <var>addend1</var> + <var>addend2</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fsub">Function: <em>void</em> <strong>mpq_sub</strong> <em>(mpq_t <var>difference</var>, const mpq_t <var>minuend</var>, const mpq_t <var>subtrahend</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fsub"><span class="category">Function: </span><span><em>void</em> <strong>mpq_sub</strong> <em>(mpq_t <var>difference</var>, const mpq_t <var>minuend</var>, const mpq_t <var>subtrahend</var>)</em><a href='#index-mpq_005fsub' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>difference</var> to <var>minuend</var> - <var>subtrahend</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fmul">Function: <em>void</em> <strong>mpq_mul</strong> <em>(mpq_t <var>product</var>, const mpq_t <var>multiplier</var>, const mpq_t <var>multiplicand</var>)</em></dt>
-<dd><p>Set <var>product</var> to <em><var>multiplier</var> times <var>multiplicand</var></em>.
+<dl class="def">
+<dt id="index-mpq_005fmul"><span class="category">Function: </span><span><em>void</em> <strong>mpq_mul</strong> <em>(mpq_t <var>product</var>, const mpq_t <var>multiplier</var>, const mpq_t <var>multiplicand</var>)</em><a href='#index-mpq_005fmul' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>product</var> to <em class='math'><var>multiplier</var> times <var>multiplicand</var></em>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fmul_005f2exp">Function: <em>void</em> <strong>mpq_mul_2exp</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op1</var>, mp_bitcnt_t <var>op2</var>)</em></dt>
-<dd><p>Set <var>rop</var> to <em><var>op1</var> times 2 raised to
+<dl class="def">
+<dt id="index-mpq_005fmul_005f2exp"><span class="category">Function: </span><span><em>void</em> <strong>mpq_mul_2exp</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op1</var>, mp_bitcnt_t <var>op2</var>)</em><a href='#index-mpq_005fmul_005f2exp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to <em class='math'><var>op1</var> times 2 raised to
 <var>op2</var></em>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fdiv">Function: <em>void</em> <strong>mpq_div</strong> <em>(mpq_t <var>quotient</var>, const mpq_t <var>dividend</var>, const mpq_t <var>divisor</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fdiv"><span class="category">Function: </span><span><em>void</em> <strong>mpq_div</strong> <em>(mpq_t <var>quotient</var>, const mpq_t <var>dividend</var>, const mpq_t <var>divisor</var>)</em><a href='#index-mpq_005fdiv' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-Division-functions-1"></span>
 <p>Set <var>quotient</var> to <var>dividend</var>/<var>divisor</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fdiv_005f2exp">Function: <em>void</em> <strong>mpq_div_2exp</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op1</var>, mp_bitcnt_t <var>op2</var>)</em></dt>
-<dd><p>Set <var>rop</var> to <em><var>op1</var> divided by 2 raised to
+<dl class="def">
+<dt id="index-mpq_005fdiv_005f2exp"><span class="category">Function: </span><span><em>void</em> <strong>mpq_div_2exp</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op1</var>, mp_bitcnt_t <var>op2</var>)</em><a href='#index-mpq_005fdiv_005f2exp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to <em class='math'><var>op1</var> divided by 2 raised to
 <var>op2</var></em>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fneg">Function: <em>void</em> <strong>mpq_neg</strong> <em>(mpq_t <var>negated_operand</var>, const mpq_t <var>operand</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fneg"><span class="category">Function: </span><span><em>void</em> <strong>mpq_neg</strong> <em>(mpq_t <var>negated_operand</var>, const mpq_t <var>operand</var>)</em><a href='#index-mpq_005fneg' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>negated_operand</var> to -<var>operand</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fabs">Function: <em>void</em> <strong>mpq_abs</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fabs"><span class="category">Function: </span><span><em>void</em> <strong>mpq_abs</strong> <em>(mpq_t <var>rop</var>, const mpq_t <var>op</var>)</em><a href='#index-mpq_005fabs' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to the absolute value of <var>op</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005finv">Function: <em>void</em> <strong>mpq_inv</strong> <em>(mpq_t <var>inverted_number</var>, const mpq_t <var>number</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005finv"><span class="category">Function: </span><span><em>void</em> <strong>mpq_inv</strong> <em>(mpq_t <var>inverted_number</var>, const mpq_t <var>number</var>)</em><a href='#index-mpq_005finv' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>inverted_number</var> to 1/<var>number</var>.  If the new denominator is
 zero, this routine will divide by zero.
 </p></dd></dl>
 <hr>
-<span id="Comparing-Rationals"></span><div class="header">
+</div>
+<div class="section" id="Comparing-Rationals">
+<div class="header">
 <p>
-Next: <a href="#Applying-Integer-Functions" accesskey="n" rel="next">Applying Integer Functions</a>, Previous: <a href="#Rational-Arithmetic" accesskey="p" rel="prev">Rational Arithmetic</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Applying-Integer-Functions" accesskey="n" rel="next">Applying Integer Functions to Rationals</a>, Previous: <a href="#Rational-Arithmetic" accesskey="p" rel="prev">Arithmetic Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Comparison-Functions-1"></span><h3 class="section">6.4 Comparison Functions</h3>
 <span id="index-Rational-comparison-functions"></span>
 <span id="index-Comparison-functions-1"></span>
-<dl>
-<dt id="index-mpq_005fcmp">Function: <em>int</em> <strong>mpq_cmp</strong> <em>(const mpq_t <var>op1</var>, const mpq_t <var>op2</var>)</em></dt>
-<dt id="index-mpq_005fcmp_005fz">Function: <em>int</em> <strong>mpq_cmp_z</strong> <em>(const mpq_t <var>op1</var>, const mpz_t <var>op2</var>)</em></dt>
-<dd><p>Compare <var>op1</var> and <var>op2</var>.  Return a positive value if <em><var>op1</var> &gt;
-<var>op2</var></em>, zero if <em><var>op1</var> = <var>op2</var></em>, and a negative value if
-<em><var>op1</var> &lt; <var>op2</var></em>.
+<dl class="def">
+<dt id="index-mpq_005fcmp"><span class="category">Function: </span><span><em>int</em> <strong>mpq_cmp</strong> <em>(const mpq_t <var>op1</var>, const mpq_t <var>op2</var>)</em><a href='#index-mpq_005fcmp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fcmp_005fz"><span class="category">Function: </span><span><em>int</em> <strong>mpq_cmp_z</strong> <em>(const mpq_t <var>op1</var>, const mpz_t <var>op2</var>)</em><a href='#index-mpq_005fcmp_005fz' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Compare <var>op1</var> and <var>op2</var>.  Return a positive value if <em class='math'><var>op1</var> &gt;
+<var>op2</var></em>, zero if <em class='math'><var>op1</var> = <var>op2</var></em>, and a negative value if
+<em class='math'><var>op1</var> &lt; <var>op2</var></em>.
 </p>
 <p>To determine if two rationals are equal, <code>mpq_equal</code> is faster than
 <code>mpq_cmp</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fcmp_005fui">Macro: <em>int</em> <strong>mpq_cmp_ui</strong> <em>(const mpq_t <var>op1</var>, unsigned long int <var>num2</var>, unsigned long int <var>den2</var>)</em></dt>
-<dt id="index-mpq_005fcmp_005fsi">Macro: <em>int</em> <strong>mpq_cmp_si</strong> <em>(const mpq_t <var>op1</var>, long int <var>num2</var>, unsigned long int <var>den2</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fcmp_005fui"><span class="category">Macro: </span><span><em>int</em> <strong>mpq_cmp_ui</strong> <em>(const mpq_t <var>op1</var>, unsigned long int <var>num2</var>, unsigned long int <var>den2</var>)</em><a href='#index-mpq_005fcmp_005fui' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fcmp_005fsi"><span class="category">Macro: </span><span><em>int</em> <strong>mpq_cmp_si</strong> <em>(const mpq_t <var>op1</var>, long int <var>num2</var>, unsigned long int <var>den2</var>)</em><a href='#index-mpq_005fcmp_005fsi' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Compare <var>op1</var> and <var>num2</var>/<var>den2</var>.  Return a positive value if
-<em><var>op1</var> &gt; <var>num2</var>/<var>den2</var></em>, zero if <em><var>op1</var> =
-<var>num2</var>/<var>den2</var></em>, and a negative value if <em><var>op1</var> &lt;
+<em class='math'><var>op1</var> &gt; <var>num2</var>/<var>den2</var></em>, zero if <em class='math'><var>op1</var> =
+<var>num2</var>/<var>den2</var></em>, and a negative value if <em class='math'><var>op1</var> &lt;
 <var>num2</var>/<var>den2</var></em>.
 </p>
 <p><var>num2</var> and <var>den2</var> are allowed to have common factors.
@@ -235,26 +237,28 @@ Next: <a href="#Applying-Integer-Functions" accesskey="n" rel="next">Applying In
 <p>These functions are implemented as a macros and evaluate their arguments
 multiple times.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fsgn">Macro: <em>int</em> <strong>mpq_sgn</strong> <em>(const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fsgn"><span class="category">Macro: </span><span><em>int</em> <strong>mpq_sgn</strong> <em>(const mpq_t <var>op</var>)</em><a href='#index-mpq_005fsgn' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-Sign-tests-1"></span>
 <span id="index-Rational-sign-tests"></span>
-<p>Return <em>+1</em> if <em><var>op</var> &gt; 0</em>, 0 if <em><var>op</var> = 0</em>, and
-<em>-1</em> if <em><var>op</var> &lt; 0</em>.
+<p>Return <em class='math'>+1</em> if <em class='math'><var>op</var> &gt; 0</em>, 0 if <em class='math'><var>op</var> = 0</em>, and
+<em class='math'>-1</em> if <em class='math'><var>op</var> &lt; 0</em>.
 </p>
 <p>This function is actually implemented as a macro.  It evaluates its
 argument multiple times.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fequal">Function: <em>int</em> <strong>mpq_equal</strong> <em>(const mpq_t <var>op1</var>, const mpq_t <var>op2</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fequal"><span class="category">Function: </span><span><em>int</em> <strong>mpq_equal</strong> <em>(const mpq_t <var>op1</var>, const mpq_t <var>op2</var>)</em><a href='#index-mpq_005fequal' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return non-zero if <var>op1</var> and <var>op2</var> are equal, zero if they are
 non-equal.  Although <code>mpq_cmp</code> can be used for the same purpose, this
 function is much faster.
 </p></dd></dl>
 <hr>
-<span id="Applying-Integer-Functions"></span><div class="header">
+</div>
+<div class="section" id="Applying-Integer-Functions">
+<div class="header">
 <p>
-Next: <a href="#I_002fO-of-Rationals" accesskey="n" rel="next">I/O of Rationals</a>, Previous: <a href="#Comparing-Rationals" accesskey="p" rel="prev">Comparing Rationals</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#I_002fO-of-Rationals" accesskey="n" rel="next">Input and Output Functions</a>, Previous: <a href="#Comparing-Rationals" accesskey="p" rel="prev">Comparison Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Applying-Integer-Functions-to-Rationals"></span><h3 class="section">6.5 Applying Integer Functions to Rationals</h3>
 <span id="index-Rational-numerator-and-denominator"></span>
@@ -268,26 +272,28 @@ access to the numerator and denominator of an <code>mpq_t</code>.
 (see <a href="#Rational-Number-Functions">Rational Number Functions</a>) then <code>mpq_canonicalize</code> must be
 called before any other <code>mpq</code> functions are applied to that <code>mpq_t</code>.
 </p>
-<dl>
-<dt id="index-mpq_005fnumref">Macro: <em>mpz_t</em> <strong>mpq_numref</strong> <em>(const mpq_t <var>op</var>)</em></dt>
-<dt id="index-mpq_005fdenref">Macro: <em>mpz_t</em> <strong>mpq_denref</strong> <em>(const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fnumref"><span class="category">Macro: </span><span><em>mpz_t</em> <strong>mpq_numref</strong> <em>(const mpq_t <var>op</var>)</em><a href='#index-mpq_005fnumref' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fdenref"><span class="category">Macro: </span><span><em>mpz_t</em> <strong>mpq_denref</strong> <em>(const mpq_t <var>op</var>)</em><a href='#index-mpq_005fdenref' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return a reference to the numerator and denominator of <var>op</var>, respectively.
 The <code>mpz</code> functions can be used on the result of these macros.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005fget_005fnum">Function: <em>void</em> <strong>mpq_get_num</strong> <em>(mpz_t <var>numerator</var>, const mpq_t <var>rational</var>)</em></dt>
-<dt id="index-mpq_005fget_005fden">Function: <em>void</em> <strong>mpq_get_den</strong> <em>(mpz_t <var>denominator</var>, const mpq_t <var>rational</var>)</em></dt>
-<dt id="index-mpq_005fset_005fnum">Function: <em>void</em> <strong>mpq_set_num</strong> <em>(mpq_t <var>rational</var>, const mpz_t <var>numerator</var>)</em></dt>
-<dt id="index-mpq_005fset_005fden">Function: <em>void</em> <strong>mpq_set_den</strong> <em>(mpq_t <var>rational</var>, const mpz_t <var>denominator</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fget_005fnum"><span class="category">Function: </span><span><em>void</em> <strong>mpq_get_num</strong> <em>(mpz_t <var>numerator</var>, const mpq_t <var>rational</var>)</em><a href='#index-mpq_005fget_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fget_005fden"><span class="category">Function: </span><span><em>void</em> <strong>mpq_get_den</strong> <em>(mpz_t <var>denominator</var>, const mpq_t <var>rational</var>)</em><a href='#index-mpq_005fget_005fden' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fset_005fnum"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_num</strong> <em>(mpq_t <var>rational</var>, const mpz_t <var>numerator</var>)</em><a href='#index-mpq_005fset_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpq_005fset_005fden"><span class="category">Function: </span><span><em>void</em> <strong>mpq_set_den</strong> <em>(mpq_t <var>rational</var>, const mpz_t <var>denominator</var>)</em><a href='#index-mpq_005fset_005fden' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Get or set the numerator or denominator of a rational.  These functions are
 equivalent to calling <code>mpz_set</code> with an appropriate <code>mpq_numref</code> or
 <code>mpq_denref</code>.  Direct use of <code>mpq_numref</code> or <code>mpq_denref</code> is
 recommended instead of these functions.
 </p></dd></dl>
 <hr>
-<span id="I_002fO-of-Rationals"></span><div class="header">
+</div>
+<div class="section" id="I_002fO-of-Rationals">
+<div class="header">
 <p>
-Previous: <a href="#Applying-Integer-Functions" accesskey="p" rel="prev">Applying Integer Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Applying-Integer-Functions" accesskey="p" rel="prev">Applying Integer Functions to Rationals</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Input-and-Output-Functions-1"></span><h3 class="section">6.6 Input and Output Functions</h3>
 <span id="index-Rational-input-and-output-functions"></span>
@@ -305,8 +311,8 @@ for these functions.
 </p>
 <p>See also <a href="constant.Formatted_Output.html#Formatted-Output">Formatted Output</a> and <a href="constant.Formatted_Input.html#Formatted-Input">Formatted Input</a>.
 </p>
-<dl>
-<dt id="index-mpq_005fout_005fstr">Function: <em>size_t</em> <strong>mpq_out_str</strong> <em>(FILE *<var>stream</var>, int <var>base</var>, const mpq_t <var>op</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005fout_005fstr"><span class="category">Function: </span><span><em>size_t</em> <strong>mpq_out_str</strong> <em>(FILE *<var>stream</var>, int <var>base</var>, const mpq_t <var>op</var>)</em><a href='#index-mpq_005fout_005fstr' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Output <var>op</var> on stdio stream <var>stream</var>, as a string of digits in base
 <var>base</var>.  The base argument may vary from 2 to 62 or from -2 to
 -36. Output is in the form
@@ -319,8 +325,8 @@ are used.
 </p>
 <p>Return the number of bytes written, or if an error occurred, return 0.
 </p></dd></dl>
-<dl>
-<dt id="index-mpq_005finp_005fstr">Function: <em>size_t</em> <strong>mpq_inp_str</strong> <em>(mpq_t <var>rop</var>, FILE *<var>stream</var>, int <var>base</var>)</em></dt>
+<dl class="def">
+<dt id="index-mpq_005finp_005fstr"><span class="category">Function: </span><span><em>size_t</em> <strong>mpq_inp_str</strong> <em>(mpq_t <var>rop</var>, FILE *<var>stream</var>, int <var>base</var>)</em><a href='#index-mpq_005finp_005fstr' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read a string of digits from <var>stream</var> and convert them to a rational in
 <var>rop</var>.  Any initial white-space characters are read and discarded.  Return
 the number of characters read (including white space), or 0 if a rational
@@ -336,11 +342,13 @@ characters of the string determine the base, &lsquo;<samp>0x</samp>&rsquo; or &l
 hexadecimal, <code>0b</code> and <code>0B</code> for binary, &lsquo;<samp>0</samp>&rsquo; for octal, or
 decimal otherwise.  The leading characters
 are examined separately for the numerator and denominator of a fraction, so
-for instance &lsquo;<samp>0x10/11</samp>&rsquo; is <em>16/11</em>, whereas &lsquo;<samp>0x10/0x11</samp>&rsquo; is
-<em>16/17</em>.
+for instance &lsquo;<samp>0x10/11</samp>&rsquo; is <em class='math'>16/11</em>, whereas &lsquo;<samp>0x10/0x11</samp>&rsquo; is
+<em class='math'>16/17</em>.
 </p></dd></dl>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#Applying-Integer-Functions" accesskey="p" rel="prev">Applying Integer Functions</a>, Up: <a href="#Rational-Number-Functions" accesskey="u" rel="up">Rational Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions" accesskey="n" rel="next">Floating-point Functions</a>, Previous: <a href="constant.Integer_Functions.html#Integer-Functions" accesskey="p" rel="prev">Integer Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

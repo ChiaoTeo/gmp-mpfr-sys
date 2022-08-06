@@ -1,26 +1,25 @@
-<span id="Formatted-Input"></span><div class="header">
+<div class="chapter" id="Formatted-Input">
+<div class="header">
 <p>
-Next: <a href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface" accesskey="n" rel="next">C++ Class Interface</a>, Previous: <a href="constant.Formatted_Output.html#Formatted-Output" accesskey="p" rel="prev">Formatted Output</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface" accesskey="n" rel="next">C++ Class Interface</a>, Previous: <a href="constant.Formatted_Output.html#Formatted-Output" accesskey="p" rel="prev">Formatted Output</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Formatted-Input-1"></span><h2 class="chapter">11 Formatted Input</h2>
 <span id="index-Formatted-input"></span>
 <span id="index-scanf-formatted-input"></span>
-<table class="menu" style="margin: 0; width: auto; padding: 0; border: 0;" border="0" cellspacing="0">
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Formatted-Input-Strings" accesskey="1">Formatted Input Strings</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#Formatted-Input-Functions" accesskey="2">Formatted Input Functions</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-<tr><td style="padding: 0; border: 0;"  align="left" valign="top">&bull; <a href="#C_002b_002b-Formatted-Input" accesskey="3">C++ Formatted Input</a></td><td style="padding: 0; border: 0;" >&nbsp;&nbsp;</td><td style="padding: 0; border: 0;"  align="left" valign="top">
-</td></tr>
-</table>
+<ul class="section-toc">
+<li><a href="#Formatted-Input-Strings" accesskey="1">Formatted Input Strings</a></li>
+<li><a href="#Formatted-Input-Functions" accesskey="2">Formatted Input Functions</a></li>
+<li><a href="#C_002b_002b-Formatted-Input" accesskey="3">C++ Formatted Input</a></li>
+</ul>
 <hr>
-<span id="Formatted-Input-Strings"></span><div class="header">
+<div class="section" id="Formatted-Input-Strings">
+<div class="header">
 <p>
 Next: <a href="#Formatted-Input-Functions" accesskey="n" rel="next">Formatted Input Functions</a>, Previous: <a href="#Formatted-Input" accesskey="p" rel="prev">Formatted Input</a>, Up: <a href="#Formatted-Input" accesskey="u" rel="up">Formatted Input</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Formatted-Input-Strings-1"></span><h3 class="section">11.1 Formatted Input Strings</h3>
 <p><code>gmp_scanf</code> and friends accept format strings similar to the standard C
-<code>scanf</code> (see <a href="https://www.gnu.org/software/libc/manual/html_node/Formatted-Input.html#Formatted-Input">Formatted Input</a> in <cite>The GNU C
+<code>scanf</code> (see <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Formatted-Input.html#Formatted-Input">Formatted Input</a> in <cite>The GNU C
 Library Reference Manual</cite>).  A format specification is of the form
 </p>
 <div class="example">
@@ -109,7 +108,7 @@ support from the C library, the rest are standard.
 read either fixed point or scientific format, and either upper or lower case
 &lsquo;<samp>e</samp>&rsquo; for the exponent in scientific format.
 </p>
-<p>C99 style hex float format (<code>printf %a</code>, see <a href="constant.Formatted_Output.html#Formatted-Output-Strings">Formatted Output Strings</a>) is always accepted for <code>mpf_t</code>, but for the standard float
+<p>C99 style hex float format (<code>printf %a</code>, see <a href="constant.Formatted_Output.html#Formatted-Output-Strings">Format Strings</a>) is always accepted for <code>mpf_t</code>, but for the standard float
 types it will depend on the C library.
 </p>
 <p>&lsquo;<samp>x</samp>&rsquo; and &lsquo;<samp>X</samp>&rsquo; are identical, both accept both upper and lower case
@@ -118,7 +117,7 @@ hexadecimal.
 <p>&lsquo;<samp>o</samp>&rsquo;, &lsquo;<samp>u</samp>&rsquo;, &lsquo;<samp>x</samp>&rsquo; and &lsquo;<samp>X</samp>&rsquo; all read positive or negative
 values.  For the standard C types these are described as &ldquo;unsigned&rdquo;
 conversions, but that merely affects certain overflow handling, negatives are
-still allowed (per <code>strtoul</code>, see <a href="https://www.gnu.org/software/libc/manual/html_node/Parsing-of-Integers.html#Parsing-of-Integers">Parsing of
+still allowed (per <code>strtoul</code>, see <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Parsing-of-Integers.html#Parsing-of-Integers">Parsing of
 Integers</a> in <cite>The GNU C Library Reference Manual</cite>).  For GMP types there are
 no overflows, so &lsquo;<samp>d</samp>&rsquo; and &lsquo;<samp>u</samp>&rsquo; are identical.
 </p>
@@ -142,14 +141,16 @@ nothing at all.
 </p>
 <p>For float conversions, the decimal point character (or string) expected is
 taken from the current locale settings on systems which provide
-<code>localeconv</code> (see <a href="https://www.gnu.org/software/libc/manual/html_node/Locales.html#Locales">Locales and Internationalization</a> in <cite>The GNU C Library Reference Manual</cite>).  The C library will normally do the same
+<code>localeconv</code> (see <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Locales.html#Locales">Locales and Internationalization</a> in <cite>The GNU C Library Reference Manual</cite>).  The C library will normally do the same
 for standard float input.
 </p>
 <p>The format string is only interpreted as plain <code>char</code>s, multibyte
 characters are not recognised.  Perhaps this will change in the future.
 </p>
 <hr>
-<span id="Formatted-Input-Functions"></span><div class="header">
+</div>
+<div class="section" id="Formatted-Input-Functions">
+<div class="header">
 <p>
 Next: <a href="#C_002b_002b-Formatted-Input" accesskey="n" rel="next">C++ Formatted Input</a>, Previous: <a href="#Formatted-Input-Strings" accesskey="p" rel="prev">Formatted Input Strings</a>, Up: <a href="#Formatted-Input" accesskey="u" rel="up">Formatted Input</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -157,7 +158,7 @@ Next: <a href="#C_002b_002b-Formatted-Input" accesskey="n" rel="next">C++ Format
 <span id="index-Input-functions-3"></span>
 <p>Each of the following functions is similar to the corresponding C library
 function.  The plain <code>scanf</code> forms take a variable argument list.  The
-<code>vscanf</code> forms take an argument pointer, see <a href="https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html#Variadic-Functions">Variadic Functions</a> in <cite>The GNU C Library Reference Manual</cite>, or &lsquo;<samp>man 3
+<code>vscanf</code> forms take an argument pointer, see <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html#Variadic-Functions">Variadic Functions</a> in <cite>The GNU C Library Reference Manual</cite>, or &lsquo;<samp>man 3
 va_start</samp>&rsquo;.
 </p>
 <p>It should be emphasised that if a format string is invalid, or the arguments
@@ -168,19 +169,19 @@ since it doesn&rsquo;t recognise the GMP extensions.
 <p>No overlap is permitted between the <var>fmt</var> string and any of the results
 produced.
 </p>
-<dl>
-<dt id="index-gmp_005fscanf">Function: <em>int</em> <strong>gmp_scanf</strong> <em>(const char *<var>fmt</var>, &hellip;)</em></dt>
-<dt id="index-gmp_005fvscanf">Function: <em>int</em> <strong>gmp_vscanf</strong> <em>(const char *<var>fmt</var>, va_list <var>ap</var>)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005fscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_scanf</strong> <em>(const char *<var>fmt</var>, &hellip;)</em><a href='#index-gmp_005fscanf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005fvscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_vscanf</strong> <em>(const char *<var>fmt</var>, va_list <var>ap</var>)</em><a href='#index-gmp_005fvscanf' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read from the standard input <code>stdin</code>.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005ffscanf">Function: <em>int</em> <strong>gmp_fscanf</strong> <em>(FILE *<var>fp</var>, const char *<var>fmt</var>, &hellip;)</em></dt>
-<dt id="index-gmp_005fvfscanf">Function: <em>int</em> <strong>gmp_vfscanf</strong> <em>(FILE *<var>fp</var>, const char *<var>fmt</var>, va_list <var>ap</var>)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005ffscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_fscanf</strong> <em>(FILE *<var>fp</var>, const char *<var>fmt</var>, &hellip;)</em><a href='#index-gmp_005ffscanf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005fvfscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_vfscanf</strong> <em>(FILE *<var>fp</var>, const char *<var>fmt</var>, va_list <var>ap</var>)</em><a href='#index-gmp_005fvfscanf' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read from the stream <var>fp</var>.
 </p></dd></dl>
-<dl>
-<dt id="index-gmp_005fsscanf">Function: <em>int</em> <strong>gmp_sscanf</strong> <em>(const char *<var>s</var>, const char *<var>fmt</var>, &hellip;)</em></dt>
-<dt id="index-gmp_005fvsscanf">Function: <em>int</em> <strong>gmp_vsscanf</strong> <em>(const char *<var>s</var>, const char *<var>fmt</var>, va_list <var>ap</var>)</em></dt>
+<dl class="def">
+<dt id="index-gmp_005fsscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_sscanf</strong> <em>(const char *<var>s</var>, const char *<var>fmt</var>, &hellip;)</em><a href='#index-gmp_005fsscanf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gmp_005fvsscanf"><span class="category">Function: </span><span><em>int</em> <strong>gmp_vsscanf</strong> <em>(const char *<var>s</var>, const char *<var>fmt</var>, va_list <var>ap</var>)</em><a href='#index-gmp_005fvsscanf' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read from a null-terminated string <var>s</var>.
 </p></dd></dl>
 <p>The return value from each of these functions is the same as the standard C99
@@ -214,7 +215,9 @@ entire input, it is deliberately made identical to <code>gmp_fscanf</code>, the 
 way C99 <code>sscanf</code> is the same as <code>fscanf</code>.
 </p>
 <hr>
-<span id="C_002b_002b-Formatted-Input"></span><div class="header">
+</div>
+<div class="section" id="C_002b_002b-Formatted-Input">
+<div class="header">
 <p>
 Previous: <a href="#Formatted-Input-Functions" accesskey="p" rel="prev">Formatted Input Functions</a>, Up: <a href="#Formatted-Input" accesskey="u" rel="up">Formatted Input</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -223,12 +226,12 @@ Previous: <a href="#Formatted-Input-Functions" accesskey="p" rel="prev">Formatte
 <span id="index-istream-input"></span>
 <p>The following functions are provided in <samp>libgmpxx</samp> (see <a href="constant.GMP_Basics.html#Headers-and-Libraries">Headers and Libraries</a>), which is built only if C++ support is enabled (see <a href="constant.Installing_GMP.html#Build-Options">Build Options</a>).  Prototypes are available from <code>&lt;gmp.h&gt;</code>.
 </p>
-<dl>
-<dt id="index-operator_003e_003e">Function: <em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpz_t <var>rop</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_003e_003e"><span class="category">Function: </span><span><em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpz_t <var>rop</var>)</em><a href='#index-operator_003e_003e' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read <var>rop</var> from <var>stream</var>, using its <code>ios</code> formatting settings.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_003e_003e-1">Function: <em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpq_t <var>rop</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_003e_003e-1"><span class="category">Function: </span><span><em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpq_t <var>rop</var>)</em><a href='#index-operator_003e_003e-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>An integer like &lsquo;<samp>123</samp>&rsquo; will be read, or a fraction like &lsquo;<samp>5/9</samp>&rsquo;.  No
 whitespace is allowed around the &lsquo;<samp>/</samp>&rsquo;.  If the fraction is not in
 canonical form then <code>mpq_canonicalize</code> must be called (see <a href="constant.Rational_Number_Functions.html#Rational-Number-Functions">Rational Number Functions</a>) before operating on it.
@@ -236,10 +239,10 @@ canonical form then <code>mpq_canonicalize</code> must be called (see <a href="c
 <p>As per integer input, an &lsquo;<samp>0</samp>&rsquo; or &lsquo;<samp>0x</samp>&rsquo; base indicator is read when
 none of <code>ios::dec</code>, <code>ios::oct</code> or <code>ios::hex</code> are set.  This is
 done separately for numerator and denominator, so that for instance
-&lsquo;<samp>0x10/11</samp>&rsquo; is <em>16/11</em> and &lsquo;<samp>0x10/0x11</samp>&rsquo; is <em>16/17</em>.
+&lsquo;<samp>0x10/11</samp>&rsquo; is <em class='math'>16/11</em> and &lsquo;<samp>0x10/0x11</samp>&rsquo; is <em class='math'>16/17</em>.
 </p></dd></dl>
-<dl>
-<dt id="index-operator_003e_003e-2">Function: <em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpf_t <var>rop</var>)</em></dt>
+<dl class="def">
+<dt id="index-operator_003e_003e-2"><span class="category">Function: </span><span><em>istream&amp;</em> <strong>operator&gt;&gt;</strong> <em>(istream&amp; <var>stream</var>, mpf_t <var>rop</var>)</em><a href='#index-operator_003e_003e-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Read <var>rop</var> from <var>stream</var>, using its <code>ios</code> formatting settings.
 </p>
 <p>Hex or octal floats are not supported, but might be in the future, or perhaps
@@ -261,8 +264,10 @@ cin &gt;&gt; z;
 that for instance using <code>+</code> with an <code>mpz_t</code> will have unpredictable
 results.  For classes with overloading, see <a href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface">C++ Class Interface</a>.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="#Formatted-Input-Functions" accesskey="p" rel="prev">Formatted Input Functions</a>, Up: <a href="#Formatted-Input" accesskey="u" rel="up">Formatted Input</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface" accesskey="n" rel="next">C++ Class Interface</a>, Previous: <a href="constant.Formatted_Output.html#Formatted-Output" accesskey="p" rel="prev">Formatted Output</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

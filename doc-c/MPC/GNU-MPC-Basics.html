@@ -1,6 +1,7 @@
-<span id="GNU-MPC-Basics"></span><div class="header">
+<div class="chapter" id="GNU-MPC-Basics">
+<div class="header">
 <p>
-Next: <a href="constant.Complex_Functions.html#Complex-Functions" accesskey="n" rel="next">Complex Functions</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Complex_Functions.html#Complex-Functions" accesskey="n" rel="next">Complex Functions</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GNU-MPC-Basics-1"></span><h2 class="chapter">4 GNU MPC Basics</h2>
 <span id="index-mpc_002eh"></span>
@@ -11,7 +12,16 @@ by adding the line
 </p><div class="example">
 <pre class="example">   #include &quot;mpc.h&quot;
 </pre></div>
-<span id="Nomenclature-and-Types"></span><h3 class="section">4.1 Nomenclature and Types</h3>
+<ul class="section-toc">
+<li><a href="#Nomenclature-and-Types" accesskey="1">Nomenclature and Types</a></li>
+<li><a href="#Function-Classes" accesskey="2">Function Classes</a></li>
+<li><a href="#GNU-MPC-Variable-Conventions" accesskey="3">GNU MPC Variable Conventions</a></li>
+<li><a href="#Rounding-Modes" accesskey="4">Rounding Modes</a></li>
+<li><a href="#Return-Value" accesskey="5">Return Value</a></li>
+<li><a href="#Branch-Cuts-And-Special-Values" accesskey="6">Branch Cuts And Special Values</a></li>
+</ul>
+<div class="section" id="Nomenclature-and-Types">
+<h3 class="section">4.1 Nomenclature and Types</h3>
 <span id="index-Complex-number"></span>
 <span id="index-mpc_005ft"></span>
 <p><em>Complex number</em> or <em>Complex</em> for short, is a pair of two
@@ -35,12 +45,16 @@ the corresponding C data type is <code>mpc_rnd_t</code>.
 A complex rounding mode is a pair of two rounding modes: one for the real
 part, one for the imaginary part.
 </p>
-<span id="Function-Classes"></span><h3 class="section">4.2 Function Classes</h3>
+</div>
+<div class="section" id="Function-Classes">
+<h3 class="section">4.2 Function Classes</h3>
 <p>There is only one class of functions in the GNU MPC library, namely functions for
 complex arithmetic. The function names begin with <code>mpc_</code>. The
 associated type is <code>mpc_t</code>.
 </p>
-<span id="GNU-MPC-Variable-Conventions"></span><h3 class="section">4.3 GNU MPC Variable Conventions</h3>
+</div>
+<div class="section" id="GNU-MPC-Variable-Conventions">
+<h3 class="section">4.3 GNU MPC Variable Conventions</h3>
 <p>As a general rule, all GNU MPC functions expect output arguments before input
 arguments.  This notation is based on an analogy with the assignment operator.
 </p>
@@ -71,7 +85,9 @@ Hence unless you change its precision, or clear and reinitialise it,
 a complex variable will have the same allocated space during all its
 life.
 </p>
-<span id="Rounding-Modes"></span><h3 class="section">4.4 Rounding Modes</h3>
+</div>
+<div class="section" id="Rounding-Modes">
+<h3 class="section">4.4 Rounding Modes</h3>
 <p>A complex rounding mode is of the form <code>MPC_RNDxy</code> where
 <code>x</code> and <code>y</code> are one of <code>N</code> (to nearest), <code>Z</code> (towards
 zero), <code>U</code> (towards plus infinity), <code>D</code> (towards minus infinity).
@@ -86,7 +102,9 @@ numbers, it is rounded to the one with the least significant bit set to zero.
 For example, the number 5, which is represented by (101) in binary, is rounded
 to (100)=4 with a precision of two bits, and not to (110)=6.
 </p>
-<span id="return_002dvalue"></span><span id="Return-Value"></span><h3 class="section">4.5 Return Value</h3>
+<span id="return_002dvalue"></span></div>
+<div class="section" id="Return-Value">
+<h3 class="section">4.5 Return Value</h3>
 <p>Most GNU MPC functions have a return value of type <code>int</code>, which is used
 to indicate the position of the rounded real and imaginary parts with respect
 to the exact (infinite precision) values.
@@ -104,7 +122,9 @@ the macros <code>MPC_INEX1(i)</code> and <code>MPC_INEX2(i)</code>, applied to
 the return value <code>i</code> of such a function, yield the exactness value
 corresponding to the first or the second computed value, respectively.
 </p>
-<span id="Branch-Cuts-And-Special-Values"></span><h3 class="section">4.6 Branch Cuts And Special Values</h3>
+</div>
+<div class="section" id="Branch-Cuts-And-Special-Values">
+<h3 class="section">4.6 Branch Cuts And Special Values</h3>
 <p>Some complex functions have branch cuts, across which the function is
 discontinous. In GNU MPC, the branch cuts chosen are the same as those
 specified for the corresponding functions in the ISO C99 standard.
@@ -114,8 +134,10 @@ either infinite or a NaN or a signed zero, a function returns the same
 value as those specified for the corresponding function in the ISO C99
 standard.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="constant.Complex_Functions.html#Complex-Functions" accesskey="n" rel="next">Complex Functions</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">Top</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Complex_Functions.html#Complex-Functions" accesskey="n" rel="next">Complex Functions</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>

@@ -3077,8 +3077,4 @@
 	* doc/gmp.texi (mpz_invert): Clarify behavior in the zero ring.
 
 2014-04-04  Marc Glisse  <marc.glisse@inria.fr>
-
-	* longlong.h (i386): Add comment about "cc" clobber.
-
-2014-04-04  Torbjorn Granlund  <tege@gmplib.org>
 ... (truncated)
