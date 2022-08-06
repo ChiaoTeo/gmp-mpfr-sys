@@ -87,7 +87,6 @@ for:
       - rustup --version
       - rustup toolchain install --profile minimal beta-%HOST% 1.37.0-%HOST%
       - rustup component add --toolchain beta-%HOST% rustfmt clippy
-      - gcc --version
     before_test:
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d src ]; then rm -r src; fi"
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d cache ]; then find cache -name \*.crate | sort; fi"
