@@ -5,6 +5,18 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.4.10 (unreleased)
+===========================
+
+  * All the changesets until [`402b9c4efacb`] from the [gmp-6.2 branch] of [GMP]
+    were merged.
+  * [MPFR] is now configured with `--disable-decimal-float --disable-float128`
+    which avoids some failed tests with Clang in some situations.
+  * Build caching should now work properly when the `CFLAGS` environment
+    variable is set during compilation.
+
+[`402b9c4efacb`]: https://gmplib.org/repo/gmp-6.2/rev/402b9c4efacb
+
 Version 1.4.9 (2022-07-20)
 ==========================
 
