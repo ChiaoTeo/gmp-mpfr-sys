@@ -19,7 +19,7 @@ TARDIR="$HOME/Downloads"
 GMPVER=6.2.1
 GMPVERP="$GMPVER"
 GMPTAR="$TARDIR/gmp-$GMPVER.tar.lz"
-GMPPATCH="../etc/gmp-6.2-f4ff6ff711ed.patch"
+GMPPATCH="../etc/gmp-6.2-402b9c4efacb.patch"
 
 MPFRVER=4.1.0
 MPFRVERP="$MPFRVER-p13"
