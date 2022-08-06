@@ -24,7 +24,7 @@ GMPPATCH="../etc/gmp-6.2-402b9c4efacb.patch"
 MPFRVER=4.1.0
 MPFRVERP="$MPFRVER-p13"
 MPFRTAR="$TARDIR/mpfr-$MPFRVER.tar.xz"
-MPFRPATCH="$TARDIR/mpfr-$MPFRVERP-allpatches"
+MPFRPATCH="../etc/mpfr-4.1.0-p13.patch"
 
 MPCVER=1.2.1
 MPCVERP="$MPCVER"
