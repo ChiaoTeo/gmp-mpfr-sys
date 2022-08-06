@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.10 news (unreleased)
+### Version 1.4.10 news (2022-08-06)
 
   * All the changesets until [`402b9c4efacb`] from the [gmp-6.2 branch] of [GMP]
     were merged.

@@ -5,7 +5,7 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.4.10 (unreleased)
+Version 1.4.10 (2022-08-06)
 ===========================
 
   * All the changesets until [`402b9c4efacb`] from the [gmp-6.2 branch] of [GMP]
