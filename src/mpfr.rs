@@ -634,6 +634,9 @@ extern "C" {
     /// See: [`mpfr_rootn_ui`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005frootn_005fui)
     #[link_name = "mpfr_rootn_ui"]
     pub fn rootn_ui(rop: mpfr_ptr, op: mpfr_srcptr, n: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_rootn_si`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005frootn_005fsi)
+    #[link_name = "mpfr_rootn_si"]
+    pub fn rootn_si(rop: mpfr_ptr, op: mpfr_srcptr, n: c_long, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_root`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005froot)
     #[link_name = "mpfr_root"]
     #[deprecated(
@@ -856,6 +859,12 @@ extern "C" {
     /// See: [`mpfr_log1p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005flog1p)
     #[link_name = "mpfr_log1p"]
     pub fn log1p(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_log2p1`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005flog2p1)
+    #[link_name = "mpfr_log2p1"]
+    pub fn log2p1(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_log10p1`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005flog10p1)
+    #[link_name = "mpfr_log10p1"]
+    pub fn log10p1(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_exp`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fexp)
     #[link_name = "mpfr_exp"]
     pub fn exp(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
@@ -868,15 +877,37 @@ extern "C" {
     /// See: [`mpfr_expm1`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fexpm1)
     #[link_name = "mpfr_expm1"]
     pub fn expm1(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_exp2m1`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fexp2m1)
+    #[link_name = "mpfr_exp2m1"]
+    pub fn exp2m1(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_exp10m1`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fexp10m1)
+    #[link_name = "mpfr_exp10m1"]
+    pub fn exp10m1(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_pow`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow)
     #[link_name = "mpfr_pow"]
     pub fn pow(rop: mpfr_ptr, op1: mpfr_srcptr, op2: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_powr`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpowr)
+    #[link_name = "mpfr_powr"]
+    pub fn powr(rop: mpfr_ptr, op1: mpfr_srcptr, op2: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_pow_ui`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fui)
     #[link_name = "mpfr_pow_ui"]
     pub fn pow_ui(rop: mpfr_ptr, op1: mpfr_srcptr, op2: c_ulong, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_pow_si`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fsi)
     #[link_name = "mpfr_pow_si"]
     pub fn pow_si(rop: mpfr_ptr, op1: mpfr_srcptr, op2: c_long, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_pow_uj`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fuj)
+    #[link_name = "mpfr_pow_uj"]
+    pub fn pow_uj(rop: mpfr_ptr, op1: mpfr_srcptr, op2: uintmax_t, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_pow_sj`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fsj)
+    #[link_name = "mpfr_pow_sj"]
+    pub fn pow_sj(rop: mpfr_ptr, op1: mpfr_srcptr, op2: intmax_t, rnd: rnd_t) -> c_int;
+}
+/// See: [`mpfr_pown`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpown)
+#[inline]
+pub unsafe extern "C" fn pown(rop: mpfr_ptr, op1: mpfr_srcptr, op2: intmax_t, rnd: rnd_t) -> c_int {
+    unsafe { pow_sj(rop, op1, op2, rnd) }
+}
+extern "C" {
     /// See: [`mpfr_pow_z`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fz)
     #[link_name = "mpfr_pow_z"]
     pub fn pow_z(rop: mpfr_ptr, op1: mpfr_srcptr, op2: mpz_srcptr, rnd: rnd_t) -> c_int;
@@ -886,6 +917,10 @@ extern "C" {
     /// See: [`mpfr_ui_pow`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fui_005fpow)
     #[link_name = "mpfr_ui_pow"]
     pub fn ui_pow(rop: mpfr_ptr, op1: c_ulong, op2: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    //int mpfr_compound_si (mpfr_t rop, mpfr_t op, long int n, mpfr_rnd_t rnd)
+    /// See: [`mpfr_compound_si`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcompound_005fsi)
+    #[link_name = "mpfr_compound_si"]
+    pub fn compound_si(rop: mpfr_ptr, op: mpfr_srcptr, n: c_long, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_cos`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcos)
     #[link_name = "mpfr_cos"]
     pub fn cos(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
@@ -895,6 +930,24 @@ extern "C" {
     /// See: [`mpfr_tan`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ftan)
     #[link_name = "mpfr_tan"]
     pub fn tan(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_cosu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcosu)
+    #[link_name = "mpfr_cosu"]
+    pub fn cosu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_sinu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsinu)
+    #[link_name = "mpfr_sinu"]
+    pub fn sinu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_tanu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ftanu)
+    #[link_name = "mpfr_tanu"]
+    pub fn tanu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_cospi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcospi)
+    #[link_name = "mpfr_cospi"]
+    pub fn cospi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_sinpi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsinpi)
+    #[link_name = "mpfr_sinpi"]
+    pub fn sinpi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_tanpi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ftanpi)
+    #[link_name = "mpfr_tanpi"]
+    pub fn tanpi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_sin_cos`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsin_005fcos)
     #[link_name = "mpfr_sin_cos"]
     pub fn sin_cos(sop: mpfr_ptr, cop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
@@ -916,9 +969,33 @@ extern "C" {
     /// See: [`mpfr_atan`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatan)
     #[link_name = "mpfr_atan"]
     pub fn atan(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_acosu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005facosu)
+    #[link_name = "mpfr_acosu"]
+    pub fn acosu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_asinu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fasinu)
+    #[link_name = "mpfr_asinu"]
+    pub fn asinu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_atanu`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatanu)
+    #[link_name = "mpfr_atanu"]
+    pub fn atanu(rop: mpfr_ptr, op: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_acospi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005facospi)
+    #[link_name = "mpfr_acospi"]
+    pub fn acospi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_asinpi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fasinpi)
+    #[link_name = "mpfr_asinpi"]
+    pub fn asinpi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_atanpi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatanpi)
+    #[link_name = "mpfr_atanpi"]
+    pub fn atanpi(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_atan2`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatan2)
     #[link_name = "mpfr_atan2"]
     pub fn atan2(rop: mpfr_ptr, y: mpfr_srcptr, x: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_atan2u`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatan2u)
+    #[link_name = "mpfr_atan2u"]
+    pub fn atan2u(rop: mpfr_ptr, y: mpfr_srcptr, x: mpfr_srcptr, u: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_atan2pi`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fatan2pi)
+    #[link_name = "mpfr_atan2pi"]
+    pub fn atan2pi(rop: mpfr_ptr, y: mpfr_srcptr, x: mpfr_srcptr, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_cosh`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcosh)
     #[link_name = "mpfr_cosh"]
     pub fn cosh(rop: mpfr_ptr, op: mpfr_srcptr, rnd: rnd_t) -> c_int;
@@ -1117,6 +1194,9 @@ extern "C" {
     /// See: [`mpfr_fmod`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ffmod)
     #[link_name = "mpfr_fmod"]
     pub fn fmod(r: mpfr_ptr, x: mpfr_srcptr, y: mpfr_srcptr, rnd: rnd_t) -> c_int;
+    /// See: [`mpfr_fmod_ui`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ffmod_005fui)
+    #[link_name = "mpfr_fmod_ui"]
+    pub fn fmod_ui(r: mpfr_ptr, x: mpfr_srcptr, y: c_ulong, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_fmodquo`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005ffmodquo)
     #[link_name = "mpfr_fmodquo"]
     pub fn fmodquo(
