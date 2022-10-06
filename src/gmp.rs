@@ -37,12 +37,10 @@ unsafe {
 */
 #![allow(non_camel_case_types, non_snake_case)]
 
-use core::{
-    cmp::Ordering,
-    fmt::{Debug, Formatter, Result as FmtResult},
-    mem::MaybeUninit,
-    ptr::NonNull,
-};
+use core::cmp::Ordering;
+use core::fmt::{Debug, Formatter, Result as FmtResult};
+use core::mem::MaybeUninit;
+use core::ptr::NonNull;
 use libc::{c_char, c_int, c_long, c_uchar, c_uint, c_ulong, c_ushort, c_void, FILE};
 
 include!(concat!(env!("OUT_DIR"), "/gmp_h.rs"));

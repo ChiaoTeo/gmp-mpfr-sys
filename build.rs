@@ -23,20 +23,18 @@
 //  6. Use relative paths for configure otherwise msys/mingw might be
 //     confused with drives and such.
 
+use std::cmp::Ordering;
+use std::env;
+use std::ffi::{OsStr, OsString};
+use std::fs::{self, File};
+use std::io::{BufRead, BufReader, BufWriter, Result as IoResult, Write};
 #[cfg(unix)]
 use std::os::unix::fs as unix_fs;
 #[cfg(windows)]
 use std::os::windows::fs as windows_fs;
-use std::{
-    cmp::Ordering,
-    env,
-    ffi::{OsStr, OsString},
-    fs::{self, File},
-    io::{BufRead, BufReader, BufWriter, Result as IoResult, Write},
-    path::{Path, PathBuf},
-    process::{Command, Stdio},
-    str,
-};
+use std::path::{Path, PathBuf};
+use std::process::{Command, Stdio};
+use std::str;
 
 const GMP_DIR: &str = "gmp-6.2.1-c";
 const MPFR_DIR: &str = "mpfr-4.1.0-p13-c";
@@ -1368,10 +1366,8 @@ fn system_cache_dir() -> Option<PathBuf> {
     {
         use core::{mem::MaybeUninit, ptr, slice};
         use std::os::windows::ffi::OsStringExt;
-        use winapi::{
-            shared::winerror::S_OK,
-            um::{combaseapi, knownfolders::FOLDERID_LocalAppData, shlobj, winbase},
-        };
+        use winapi::shared::winerror::S_OK;
+        use winapi::um::{combaseapi, knownfolders::FOLDERID_LocalAppData, shlobj, winbase};
         let id = &FOLDERID_LocalAppData;
         let flags = 0;
         let access = ptr::null_mut();
