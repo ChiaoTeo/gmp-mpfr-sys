@@ -605,10 +605,8 @@ pub unsafe extern "C" fn mpz_perfect_square_p(op: mpz_srcptr) -> c_int {
     let op_size = unsafe { (*op).size };
     if op_size > 0 {
         unsafe { mpn_perfect_square_p((*op).d.as_ptr(), op_size.into()) }
-    } else if op_size >= 0 {
-        1
     } else {
-        0
+        (op_size >= 0) as c_int
     }
 }
 
@@ -909,11 +907,7 @@ pub unsafe extern "C" fn mpz_odd_p(op: mpz_srcptr) -> c_int {
 /// See: [`mpz_even_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005feven_005fp)
 #[inline]
 pub unsafe extern "C" fn mpz_even_p(op: mpz_srcptr) -> c_int {
-    if unsafe { mpz_odd_p(op) } == 0 {
-        1
-    } else {
-        0
-    }
+    (unsafe { mpz_odd_p(op) } == 0) as c_int
 }
 extern "C" {
     /// See: [`mpz_sizeinbase`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fsizeinbase)

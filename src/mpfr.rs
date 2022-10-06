@@ -784,20 +784,12 @@ extern "C" {
 /// See: [`mpfr_nan_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fnan_005fp)
 #[inline]
 pub unsafe extern "C" fn nan_p(op: mpfr_srcptr) -> c_int {
-    if unsafe { (*op).exp } == EXP_NAN {
-        1
-    } else {
-        0
-    }
+    (unsafe { (*op).exp } == EXP_NAN) as c_int
 }
 /// See: [`mpfr_inf_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005finf_005fp)
 #[inline]
 pub unsafe extern "C" fn inf_p(op: mpfr_srcptr) -> c_int {
-    if unsafe { (*op).exp } == EXP_INF {
-        1
-    } else {
-        0
-    }
+    (unsafe { (*op).exp } == EXP_INF) as c_int
 }
 extern "C" {
     /// See: [`mpfr_number_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fnumber_005fp)
@@ -807,20 +799,12 @@ extern "C" {
 /// See: [`mpfr_zero_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fzero_005fp)
 #[inline]
 pub unsafe extern "C" fn zero_p(op: mpfr_srcptr) -> c_int {
-    if unsafe { (*op).exp } == EXP_ZERO {
-        1
-    } else {
-        0
-    }
+    (unsafe { (*op).exp } == EXP_ZERO) as c_int
 }
 /// See: [`mpfr_regular_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fregular_005fp)
 #[inline]
 pub unsafe extern "C" fn regular_p(op: mpfr_srcptr) -> c_int {
-    if unsafe { (*op).exp } > EXP_INF {
-        1
-    } else {
-        0
-    }
+    (unsafe { (*op).exp } > EXP_INF) as c_int
 }
 /// See: [`mpfr_sgn`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsgn)
 #[inline]
@@ -1249,11 +1233,7 @@ extern "C" {
 /// See: [`mpfr_signbit`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsignbit)
 #[inline]
 pub unsafe extern "C" fn signbit(op: mpfr_srcptr) -> c_int {
-    if unsafe { (*op).sign } < 0 {
-        1
-    } else {
-        0
-    }
+    (unsafe { (*op).sign } < 0) as c_int
 }
 /// See: [`mpfr_setsign`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsetsign)
 #[inline]
