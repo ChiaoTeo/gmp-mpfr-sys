@@ -210,7 +210,7 @@ fn check_system_libs(env: &Environment) {
 
     let mut cmd = Command::new(&env.c_compiler);
     cmd.current_dir(&try_dir)
-        .args(["-fPIC", "system_gmp.c", "-lgmp", "-o", "system_gmp.exe"]);
+        .args(&["-fPIC", "system_gmp.c", "-lgmp", "-o", "system_gmp.exe"]);
     execute(cmd);
 
     cmd = Command::new(try_dir.join("system_gmp.exe"));
@@ -231,7 +231,7 @@ fn check_system_libs(env: &Environment) {
         create_file_or_panic(&try_dir.join("system_mpfr.c"), SYSTEM_MPFR_C);
 
         cmd = Command::new(&env.c_compiler);
-        cmd.current_dir(&try_dir).args([
+        cmd.current_dir(&try_dir).args(&[
             "-fPIC",
             "system_mpfr.c",
             "-lmpfr",
@@ -257,7 +257,7 @@ fn check_system_libs(env: &Environment) {
         create_file_or_panic(&try_dir.join("system_mpc.c"), SYSTEM_MPC_C);
 
         cmd = Command::new(&env.c_compiler);
-        cmd.current_dir(&try_dir).args([
+        cmd.current_dir(&try_dir).args(&[
             "-fPIC",
             "system_mpc.c",
             "-lmpc",
@@ -1063,7 +1063,7 @@ impl Environment {
             cmd.current_dir(&try_dir)
                 .stdout(Stdio::null())
                 .stderr(Stdio::null())
-                .args([&*filename, "--emit=dep-info,metadata"]);
+                .args(&[&*filename, "--emit=dep-info,metadata"]);
             println!("$ {:?} >& /dev/null", cmd);
             let status = cmd
                 .status()
@@ -1140,17 +1140,17 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
     create_file_or_panic(&try_dir.join("workaround.c"), BUG_47048_WORKAROUND_C);
 
     let mut cmd = Command::new(&env.c_compiler);
-    cmd.current_dir(&try_dir).args(["-fPIC", "-c", "say_hi.c"]);
+    cmd.current_dir(&try_dir).args(&["-fPIC", "-c", "say_hi.c"]);
     execute(cmd);
 
     cmd = Command::new("ar");
     cmd.current_dir(&try_dir)
-        .args(["cr", "libsay_hi.a", "say_hi.o"]);
+        .args(&["cr", "libsay_hi.a", "say_hi.o"]);
     execute(cmd);
 
     cmd = Command::new(&env.c_compiler);
     cmd.current_dir(&try_dir)
-        .args(["c_main.c", "-L.", "-lsay_hi", "-o", "c_main.exe"]);
+        .args(&["c_main.c", "-L.", "-lsay_hi", "-o", "c_main.exe"]);
     execute(cmd);
 
     // try simple rustc command that should work, so that failure
@@ -1161,7 +1161,7 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
     cmd = Command::new(&env.rustc);
     cmd.current_dir(&try_dir)
-        .args(["r_main.rs", "-L.", "-lsay_hi", "-o", "r_main.exe"])
+        .args(&["r_main.rs", "-L.", "-lsay_hi", "-o", "r_main.exe"])
         .stdout(Stdio::null())
         .stderr(Stdio::null());
     println!(
@@ -1179,16 +1179,16 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
         cmd = Command::new(&env.c_compiler);
         cmd.current_dir(&try_dir)
-            .args(["-fPIC", "-O2", "-c", "workaround.c"]);
+            .args(&["-fPIC", "-O2", "-c", "workaround.c"]);
         execute(cmd);
 
         cmd = Command::new("ar");
         cmd.current_dir(&try_dir)
-            .args(["cr", "libworkaround_47048.a", "workaround.o"]);
+            .args(&["cr", "libworkaround_47048.a", "workaround.o"]);
         execute(cmd);
 
         cmd = Command::new(&env.rustc);
-        cmd.current_dir(&try_dir).args([
+        cmd.current_dir(&try_dir).args(&[
             "r_main.rs",
             "-L.",
             "-lsay_hi",
@@ -1210,7 +1210,7 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
 fn mingw_pkg_config_libdir_or_panic() {
     let mut cmd = Command::new("pkg-config");
-    cmd.args(["--libs-only-L", "gmp"]);
+    cmd.args(&["--libs-only-L", "gmp"]);
     let output = execute_stdout(cmd);
     if output.len() < 2 || &output[0..2] != b"-L" {
         panic!("expected pkg-config output to begin with \"-L\"");

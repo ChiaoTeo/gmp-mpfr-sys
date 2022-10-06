@@ -9,6 +9,7 @@
 name = "gmp-mpfr-sys"
 version = "1.4.10"
 edition = "2018"
+rust-version = "1.37"
 description = "Rust FFI bindings for GMP, MPFR and MPC"
 documentation = "https://docs.rs/gmp-mpfr-sys"
 repository = "https://gitlab.com/tspiteri/gmp-mpfr-sys"
