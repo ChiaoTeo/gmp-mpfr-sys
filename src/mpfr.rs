@@ -307,7 +307,7 @@ extern "C" {
 }
 /// See: [`mpfr_get_prec`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fget_005fprec)
 #[inline]
-pub unsafe extern "C" fn get_prec(x: mpfr_srcptr) -> prec_t {
+pub const unsafe extern "C" fn get_prec(x: mpfr_srcptr) -> prec_t {
     unsafe { (*x).prec }
 }
 
@@ -785,12 +785,12 @@ extern "C" {
 }
 /// See: [`mpfr_nan_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fnan_005fp)
 #[inline]
-pub unsafe extern "C" fn nan_p(op: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn nan_p(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).exp } == EXP_NAN) as c_int
 }
 /// See: [`mpfr_inf_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005finf_005fp)
 #[inline]
-pub unsafe extern "C" fn inf_p(op: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn inf_p(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).exp } == EXP_INF) as c_int
 }
 extern "C" {
@@ -800,12 +800,12 @@ extern "C" {
 }
 /// See: [`mpfr_zero_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fzero_005fp)
 #[inline]
-pub unsafe extern "C" fn zero_p(op: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn zero_p(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).exp } == EXP_ZERO) as c_int
 }
 /// See: [`mpfr_regular_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fregular_005fp)
 #[inline]
-pub unsafe extern "C" fn regular_p(op: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn regular_p(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).exp } > EXP_INF) as c_int
 }
 /// See: [`mpfr_sgn`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsgn)
@@ -1224,7 +1224,7 @@ extern "C" {
 }
 /// See: [`mpfr_get_exp`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fget_005fexp)
 #[inline]
-pub unsafe extern "C" fn get_exp(x: mpfr_srcptr) -> exp_t {
+pub const unsafe extern "C" fn get_exp(x: mpfr_srcptr) -> exp_t {
     unsafe { (*x).exp }
 }
 extern "C" {
@@ -1269,7 +1269,7 @@ pub const VERSION_PATCHLEVEL: c_int = MPFR_VERSION_PATCHLEVEL;
 pub const VERSION_STRING: *const c_char = MPFR_VERSION_STRING;
 /// See: [`MPFR_VERSION_NUM`](../C/MPFR/constant.MPFR_Interface.html#index-MPFR_005fVERSION_005fNUM)
 #[inline]
-pub extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> c_int {
+pub const extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> c_int {
     (major << 16) | (minor << 8) | patchlevel
 }
 extern "C" {
@@ -1452,13 +1452,13 @@ pub unsafe extern "C" fn div_2exp(
 
 /// See: [`mpfr_custom_get_size`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fsize)
 #[inline]
-pub unsafe extern "C" fn custom_get_size(prec: prec_t) -> usize {
-    let bits = prec_t::from(NUMB_BITS);
+pub const unsafe extern "C" fn custom_get_size(prec: prec_t) -> usize {
+    let bits = NUMB_BITS as prec_t;
     ((prec + bits - 1) / bits) as usize * mem::size_of::<limb_t>()
 }
 /// See: [`mpfr_custom_init`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005finit)
 #[inline]
-pub unsafe extern "C" fn custom_init(significand: *mut c_void, prec: prec_t) {
+pub const unsafe extern "C" fn custom_init(significand: *mut c_void, prec: prec_t) {
     let _ = (significand, prec);
 }
 /// See: [`mpfr_custom_init_set`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005finit_005fset)
@@ -1486,7 +1486,7 @@ pub unsafe extern "C" fn custom_init_set(
 }
 /// See: [`mpfr_custom_get_kind`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fkind)
 #[inline]
-pub unsafe extern "C" fn custom_get_kind(x: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn custom_get_kind(x: mpfr_srcptr) -> c_int {
     unsafe {
         if (*x).exp > EXP_INF {
             REGULAR_KIND * (*x).sign
@@ -1501,12 +1501,12 @@ pub unsafe extern "C" fn custom_get_kind(x: mpfr_srcptr) -> c_int {
 }
 /// See: [`mpfr_custom_get_significand`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fsignificand)
 #[inline]
-pub unsafe extern "C" fn custom_get_significand(x: mpfr_srcptr) -> *mut c_void {
+pub const unsafe extern "C" fn custom_get_significand(x: mpfr_srcptr) -> *mut c_void {
     unsafe { (*x).d }.as_ptr() as *mut c_void
 }
 /// See: [`mpfr_custom_get_exp`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fexp)
 #[inline]
-pub unsafe extern "C" fn custom_get_exp(x: mpfr_srcptr) -> exp_t {
+pub const unsafe extern "C" fn custom_get_exp(x: mpfr_srcptr) -> exp_t {
     unsafe { (*x).exp }
 }
 /// See: [`mpfr_custom_move`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fmove)

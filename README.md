@@ -42,6 +42,18 @@ text of the [GNU LGPL] and [GNU GPL] for details.
         <code>[gmp][gmp-1-5]::[mpq\_numref\_const][gmp-qnc-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref][gmp-qd-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref\_const][gmp-qdc-1-5]</code>
+      * <code>[mpfr][mpfr-1-5]::[get\_prec][mpfr-gp-1-5]</code>,
+      * <code>[mpfr][mpfr-1-5]::[nan\_p][mpfr-np-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[inf\_p][mpfr-ip-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[zero\_p][mpfr-zp-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[regular\_p][mpfr-rp-1-5]</code>
+      * <code>[mpfr][mpfr-1-5]::[get\_exp][mpfr-ge-1-5]</code>
+      * <code>[mpfr][mpfr-1-5]::[VERSION\_NUM][mpfr-vn-1-5]</code>
+      * <code>[mpfr][mpfr-1-5]::[custom\_get\_size][mpfr-cgs-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[custom\_init][mpfr-ci-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[custom\_get\_kind][mpfr-cgk-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[custom\_get\_significand][mpfr-cgsi-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[custom\_get\_exp][mpfr-cge-1-5]</code>
   * The <code>[gmp][gmp-1-5]::[MPZ\_ROINIT\_N][gmp-zrn-1-5]</code> function is
     now `extern "C"`.
 
@@ -61,6 +73,19 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 [gmp-zsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_size.html
+[mpfr-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/index.html
+[mpfr-cge-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_exp.html
+[mpfr-cgk-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_kind.html
+[mpfr-cgs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_size.html
+[mpfr-cgsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_significand.html
+[mpfr-ci-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_init.html
+[mpfr-ge-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.get_exp.html
+[mpfr-gp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.get_prec.html
+[mpfr-ip-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.inf_p.html
+[mpfr-np-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.nan_p.html
+[mpfr-rp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.regular_p.html
+[mpfr-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.VERSION_NUM.html
+[mpfr-zp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.zero_p.html
 
 ### Version 1.4.12 news (2022-12-11)
 
