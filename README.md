@@ -33,11 +33,16 @@ text of the [GNU LGPL] and [GNU GPL] for details.
         <code>[gmp][gmp-1-5]::[mpf\_sgn][gmp-fs-1-5]</code>
       * <code>[gmp][gmp-1-5]::[mpz\_odd\_p][gmp-zop-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpz\_even\_p][gmp-zep-1-5]</code>
+      * <code>[gmp][gmp-1-5]::[mpz\_fits\_ulong\_p][gmp-zfulp-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpz\_fits\_uint\_p][gmp-zfuip-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpz\_fits\_ushort\_p][gmp-zfusp-1-5]</code>
+      * <code>[gmp][gmp-1-5]::[mpz\_getlimbn][gmp-zg-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpz\_size][gmp-zsi-1-5]</code>,
       * <code>[gmp][gmp-1-5]::[mpq\_numref][gmp-qn-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_numref\_const][gmp-qnc-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref][gmp-qd-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref\_const][gmp-qdc-1-5]</code>
-  * The <code>[gmp][gmp-1-5]::[MPZ\_ROINIT\_N]][gmp-zrn-1-5]</code> function is
+  * The <code>[gmp][gmp-1-5]::[MPZ\_ROINIT\_N][gmp-zrn-1-5]</code> function is
     now `extern "C"`.
 
 [gmp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/index.html
@@ -48,9 +53,14 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [gmp-qnc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_numref_const.html
 [gmp-qs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_sgn.html
 [gmp-zep-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_even_p.html
+[gmp-zfuip-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_fits_uint_p.html
+[gmp-zfulp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_fits_ulong_p.html
+[gmp-zfusp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_fits_ushort_p.html
+[gmp-zg-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_getlimbn.html
 [gmp-zop-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_odd_p.html
 [gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
+[gmp-zsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_size.html
 
 ### Version 1.4.12 news (2022-12-11)
 

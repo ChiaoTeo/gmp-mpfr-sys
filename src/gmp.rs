@@ -842,30 +842,22 @@ macro_rules! mpz_fits {
         #[cfg(not(nails))]
         $(#[$attr])*
         #[inline]
-        pub unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
+        pub const unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
             let n = unsafe { (*op).size };
-            let p = unsafe { (*op).d }.as_ptr();
-            let fits = n == 0 || (n == 1 && unsafe { *p } <= limb_t::from($max));
-            if fits {
-                1
-            } else {
-                0
-            }
+            let p = unsafe { (*op).d }.as_ptr() as *const limb_t;
+            let fits = n == 0 || (n == 1 && unsafe { *p } <= ($max as limb_t));
+            fits as c_int
         }
         #[cfg(nails)]
         $(#[$attr])*
         #[inline]
-        pub unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
-            let n = (*op).size;
-            let p = (*op).d;
-            let fits = n == 0 || (n == 1 && (*p) <= limb_t::from($max))
+        pub const unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
+            let n = unsafe { (*op).size };
+            let p = unsafe { (*op).d }.as_ptr() as *const limb_t;
+            let fits = n == 0 || (n == 1 && unsafe { *p } <= ($max as limb_t))
                 || (n == 2
-                    && (*(p.offset(1))) <= limb_t::from($max) >> NUMB_BITS);
-            if fits {
-                1
-            } else {
-                0
-            }
+                    && unsafe { *(p.offset(1)) } <= ($max as limb_t) >> NUMB_BITS);
+            fits as c_int
         }
     }
 }
@@ -923,16 +915,16 @@ extern "C" {
 }
 /// See: [`mpz_getlimbn`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fgetlimbn)
 #[inline]
-pub unsafe extern "C" fn mpz_getlimbn(op: mpz_srcptr, n: size_t) -> limb_t {
-    if n >= 0 && n < size_t::from(unsafe { (*op).size }.abs()) {
-        unsafe { *((*op).d.as_ptr().offset(n as isize)) }
+pub const unsafe extern "C" fn mpz_getlimbn(op: mpz_srcptr, n: size_t) -> limb_t {
+    if n >= 0 && n < (unsafe { (*op).size }.abs() as size_t) {
+        unsafe { *(((*op).d.as_ptr() as *const limb_t).offset(n as isize)) }
     } else {
         0
     }
 }
 /// See: [`mpz_size`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fsize)
 #[inline]
-pub unsafe extern "C" fn mpz_size(op: mpz_srcptr) -> usize {
+pub const unsafe extern "C" fn mpz_size(op: mpz_srcptr) -> usize {
     unsafe { (*op).size }.unsigned_abs() as usize
 }
 extern "C" {
