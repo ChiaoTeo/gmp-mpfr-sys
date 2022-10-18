@@ -80,7 +80,7 @@ fn main() {
         libc::fputc(b'\n' as c_int, stdout);
 #       libc::rewind(stdout);
 #       let mut buf = [0u8; 73];
-#       libc::fread(buf.as_mut_ptr() as _, 1, 73, stdout);
+#       libc::fread(buf.as_mut_ptr().cast(), 1, 73, stdout);
 #       let stdout = real_stdout;
         libc::fclose(stdout);
 #       if !tmp_file.is_null() {

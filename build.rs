@@ -770,8 +770,8 @@ fn process_gmp_header(
             "const GMP_LIMB_BITS: c_int = {};\n",
             "const GMP_NAIL_BITS: c_int = {};\n",
             "type GMP_LIMB_T = {};\n",
-            "const GMP_CC: *const c_char = b\"{}\\0\".as_ptr() as _;\n",
-            "const GMP_CFLAGS: *const c_char = b\"{}\\0\".as_ptr() as _;\n"
+            "const GMP_CC: *const c_char = b\"{}\\0\".as_ptr().cast();\n",
+            "const GMP_CFLAGS: *const c_char = b\"{}\\0\".as_ptr().cast();\n"
         ),
         major, minor, patchlevel, limb_bits, nail_bits, long_long_limb, cc, cflags
     );
@@ -836,7 +836,7 @@ fn process_mpfr_header(
             "const MPFR_VERSION_MAJOR: c_int = {};\n",
             "const MPFR_VERSION_MINOR: c_int = {};\n",
             "const MPFR_VERSION_PATCHLEVEL: c_int = {};\n",
-            "const MPFR_VERSION_STRING: *const c_char = b\"{}\\0\".as_ptr() as _;\n"
+            "const MPFR_VERSION_STRING: *const c_char = b\"{}\\0\".as_ptr().cast();\n"
         ),
         major, minor, patchlevel, version
     );
@@ -901,7 +901,7 @@ fn process_mpc_header(
             "const MPC_VERSION_MAJOR: c_int = {};\n",
             "const MPC_VERSION_MINOR: c_int = {};\n",
             "const MPC_VERSION_PATCHLEVEL: c_int = {};\n",
-            "const MPC_VERSION_STRING: *const c_char = b\"{}\\0\".as_ptr() as _;\n"
+            "const MPC_VERSION_STRING: *const c_char = b\"{}\\0\".as_ptr().cast();\n"
         ),
         major, minor, patchlevel, version
     );
@@ -1281,7 +1281,7 @@ fn system_cache_dir() -> Option<PathBuf> {
                 let path = path.assume_init();
                 let slice = slice::from_raw_parts(path, winbase::lstrlenW(path) as usize);
                 let string = OsString::from_wide(slice);
-                combaseapi::CoTaskMemFree(path as _);
+                combaseapi::CoTaskMemFree(path.cast());
                 Some(string.into())
             } else {
                 None
