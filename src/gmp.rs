@@ -724,11 +724,12 @@ extern "C" {
 }
 /// See: [`mpz_sgn`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fsgn)
 #[inline]
-pub unsafe extern "C" fn mpz_sgn(op: mpz_srcptr) -> c_int {
-    match unsafe { (*op).size }.cmp(&0) {
-        Ordering::Less => -1,
-        Ordering::Equal => 0,
-        Ordering::Greater => 1,
+pub const unsafe extern "C" fn mpz_sgn(op: mpz_srcptr) -> c_int {
+    let size = unsafe { (*op).size };
+    if size < 0 {
+        -1
+    } else {
+        (size > 0) as c_int
     }
 }
 extern "C" {
@@ -897,16 +898,16 @@ extern "C" {
 }
 /// See: [`mpz_odd_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fodd_005fp)
 #[inline]
-pub unsafe extern "C" fn mpz_odd_p(op: mpz_srcptr) -> c_int {
+pub const unsafe extern "C" fn mpz_odd_p(op: mpz_srcptr) -> c_int {
     if unsafe { (*op).size } == 0 {
         0
     } else {
-        1 & unsafe { *(*op).d.as_ptr() } as c_int
+        1 & unsafe { *((*op).d.as_ptr() as *const limb_t) } as c_int
     }
 }
 /// See: [`mpz_even_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005feven_005fp)
 #[inline]
-pub unsafe extern "C" fn mpz_even_p(op: mpz_srcptr) -> c_int {
+pub const unsafe extern "C" fn mpz_even_p(op: mpz_srcptr) -> c_int {
     (unsafe { mpz_odd_p(op) } == 0) as c_int
 }
 extern "C" {
@@ -1086,11 +1087,12 @@ extern "C" {
 }
 /// See: [`mpq_sgn`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fsgn)
 #[inline]
-pub unsafe extern "C" fn mpq_sgn(op: mpq_srcptr) -> c_int {
-    match unsafe { (*op).num.size }.cmp(&0) {
-        Ordering::Less => -1,
-        Ordering::Equal => 0,
-        Ordering::Greater => 1,
+pub const unsafe extern "C" fn mpq_sgn(op: mpq_srcptr) -> c_int {
+    let size = unsafe { (*op).num.size };
+    if size < 0 {
+        -1
+    } else {
+        (size > 0) as c_int
     }
 }
 extern "C" {
@@ -1103,22 +1105,22 @@ extern "C" {
 
 /// See: [`mpq_numref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fnumref)
 #[inline]
-pub unsafe extern "C" fn mpq_numref(op: mpq_ptr) -> mpz_ptr {
+pub const unsafe extern "C" fn mpq_numref(op: mpq_ptr) -> mpz_ptr {
     op as mpz_ptr
 }
 /// Constant version of [`mpq_numref`](fn.mpq_numref.html).
 #[inline]
-pub unsafe extern "C" fn mpq_numref_const(op: mpq_srcptr) -> mpz_srcptr {
+pub const unsafe extern "C" fn mpq_numref_const(op: mpq_srcptr) -> mpz_srcptr {
     op as mpz_srcptr
 }
 /// See: [`mpq_denref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fdenref)
 #[inline]
-pub unsafe extern "C" fn mpq_denref(op: mpq_ptr) -> mpz_ptr {
+pub const unsafe extern "C" fn mpq_denref(op: mpq_ptr) -> mpz_ptr {
     unsafe { (op as mpz_ptr).offset(1) }
 }
 /// Constant version of [`mpq_denref`](fn.mpq_denref.html).
 #[inline]
-pub unsafe extern "C" fn mpq_denref_const(op: mpq_srcptr) -> mpz_srcptr {
+pub const unsafe extern "C" fn mpq_denref_const(op: mpq_srcptr) -> mpz_srcptr {
     unsafe { (op as mpz_srcptr).offset(1) }
 }
 extern "C" {
@@ -1330,11 +1332,12 @@ extern "C" {
 }
 /// See: [`mpf_sgn`](../C/GMP/constant.Floating_point_Functions.html#index-mpf_005fsgn)
 #[inline]
-pub unsafe extern "C" fn mpf_sgn(op: mpf_srcptr) -> c_int {
-    match unsafe { (*op).size }.cmp(&0) {
-        Ordering::Less => -1,
-        Ordering::Equal => 0,
-        Ordering::Greater => 1,
+pub const unsafe extern "C" fn mpf_sgn(op: mpf_srcptr) -> c_int {
+    let size = unsafe { (*op).size };
+    if size < 0 {
+        -1
+    } else {
+        (size > 0) as c_int
     }
 }
 

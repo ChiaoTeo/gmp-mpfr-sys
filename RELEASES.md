@@ -9,6 +9,27 @@ Version 1.5.0 (unreleased)
 ==========================
 
   * The crate now requires rustc version 1.65.0 or later.
+  * The following functions are now `const` functions:
+      * <code>[gmp][gmp-1-5]::[mpz\_sgn][gmp-zs-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpq\_sgn][gmp-qs-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpf\_sgn][gmp-fs-1-5]</code>
+      * <code>[gmp][gmp-1-5]::[mpz\_odd\_p][gmp-zop-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpz\_even\_p][gmp-zep-1-5]</code>
+      * <code>[gmp][gmp-1-5]::[mpq\_numref][gmp-qn-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpq\_numref\_const][gmp-qnc-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpq\_denref][gmp-qd-1-5]</code>,
+        <code>[gmp][gmp-1-5]::[mpq\_denref\_const][gmp-qdc-1-5]</code>
+
+[gmp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/index.html
+[gmp-fs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpf_sgn.html
+[gmp-qd-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_denref.html
+[gmp-qdc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_denref_const.html
+[gmp-qn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_numref.html
+[gmp-qnc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_numref_const.html
+[gmp-qs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_sgn.html
+[gmp-zep-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_even_p.html
+[gmp-zop-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_odd_p.html
+[gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 
 Version 1.4.12 (2022-12-11)
 ===========================
