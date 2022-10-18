@@ -54,6 +54,15 @@ text of the [GNU LGPL] and [GNU GPL] for details.
         <code>[mpfr][mpfr-1-5]::[custom\_get\_kind][mpfr-cgk-1-5]</code>,
         <code>[mpfr][mpfr-1-5]::[custom\_get\_significand][mpfr-cgsi-1-5]</code>,
         <code>[mpfr][mpfr-1-5]::[custom\_get\_exp][mpfr-cge-1-5]</code>
+      * <code>[mpc][mpc-1-5]::[INEX\_RE][mpc-ir-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[INEX\_IM][mpc-ii-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[INEX1][mpc-i1-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[INEX2][mpc-i2-1-5]</code>
+      * <code>[mpc][mpc-1-5]::[realref][mpc-r-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[realref\_const][mpc-rc-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[imagref][mpc-i-1-5]</code>,
+        <code>[mpc][mpc-1-5]::[imagref\_const][mpc-ic-1-5]</code>
+      * <code>[mpc][mpc-1-5]::[VERSION\_NUM][mpc-vn-1-5]</code>
   * The <code>[gmp][gmp-1-5]::[MPZ\_ROINIT\_N][gmp-zrn-1-5]</code> function is
     now `extern "C"`.
 
@@ -73,6 +82,16 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 [gmp-zsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_size.html
+[mpc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/index.html
+[mpc-i-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref.html
+[mpc-i1-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX1.html
+[mpc-i2-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX2.html
+[mpc-ic-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref_const.html
+[mpc-ii-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_IM.html
+[mpc-ir-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_RE.html
+[mpc-r-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref.html
+[mpc-rc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref_const.html
+[mpc-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.VERSION_NUM.html
 [mpfr-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/index.html
 [mpfr-cge-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_exp.html
 [mpfr-cgk-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_kind.html

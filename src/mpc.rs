@@ -52,7 +52,7 @@ use libc::{c_char, c_int, c_long, c_ulong, intmax_t, uintmax_t, FILE};
 include!(concat!(env!("OUT_DIR"), "/mpc_h.rs"));
 
 #[inline]
-extern "C" fn INEX_NEG(inex: c_int) -> c_int {
+const extern "C" fn INEX_NEG(inex: c_int) -> c_int {
     match inex {
         2 => -1,
         0 => 0,
@@ -61,22 +61,22 @@ extern "C" fn INEX_NEG(inex: c_int) -> c_int {
 }
 /// See: [Return Value](../C/MPC/constant.GNU_MPC_Basics.html#return_002dvalue)
 #[inline]
-pub extern "C" fn INEX_RE(inex: c_int) -> c_int {
+pub const extern "C" fn INEX_RE(inex: c_int) -> c_int {
     INEX_NEG((inex) & 3)
 }
 /// See: [Return Value](../C/MPC/constant.GNU_MPC_Basics.html#return_002dvalue)
 #[inline]
-pub extern "C" fn INEX_IM(inex: c_int) -> c_int {
+pub const extern "C" fn INEX_IM(inex: c_int) -> c_int {
     INEX_NEG((inex) >> 2)
 }
 /// See: [Return Value](../C/MPC/constant.GNU_MPC_Basics.html#return_002dvalue)
 #[inline]
-pub extern "C" fn INEX1(inex: c_int) -> c_int {
+pub const extern "C" fn INEX1(inex: c_int) -> c_int {
     inex & 15
 }
 /// See: [Return Value](../C/MPC/constant.GNU_MPC_Basics.html#return_002dvalue)
 #[inline]
-pub extern "C" fn INEX2(inex: c_int) -> c_int {
+pub const extern "C" fn INEX2(inex: c_int) -> c_int {
     inex >> 4
 }
 
@@ -308,22 +308,22 @@ extern "C" {
 }
 /// See: [`mpc_realref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005frealref)
 #[inline]
-pub unsafe extern "C" fn realref(op: mpc_ptr) -> mpfr_ptr {
+pub const unsafe extern "C" fn realref(op: mpc_ptr) -> mpfr_ptr {
     op as mpfr_ptr
 }
 /// Constant version of [`realref`](fn.realref.html).
 #[inline]
-pub unsafe extern "C" fn realref_const(op: mpc_srcptr) -> mpfr_srcptr {
+pub const unsafe extern "C" fn realref_const(op: mpc_srcptr) -> mpfr_srcptr {
     op as mpfr_srcptr
 }
 /// See: [`mpc_imagref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005fimagref)
 #[inline]
-pub unsafe extern "C" fn imagref(op: mpc_ptr) -> mpfr_ptr {
+pub const unsafe extern "C" fn imagref(op: mpc_ptr) -> mpfr_ptr {
     unsafe { (op as mpfr_ptr).offset(1) }
 }
 /// Constant version of [`imagref`](fn.imagref.html).
 #[inline]
-pub unsafe extern "C" fn imagref_const(op: mpc_srcptr) -> mpfr_srcptr {
+pub const unsafe extern "C" fn imagref_const(op: mpc_srcptr) -> mpfr_srcptr {
     unsafe { (op as mpfr_srcptr).offset(1) }
 }
 extern "C" {
@@ -557,7 +557,7 @@ pub const VERSION_PATCHLEVEL: c_int = MPC_VERSION_PATCHLEVEL;
 pub const VERSION_STRING: *const c_char = MPC_VERSION_STRING;
 /// See: [`MPC_VERSION_NUM`](../C/MPC/constant.Complex_Functions.html#index-MPC_005fVERSION_005fNUM)
 #[inline]
-pub extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> c_int {
+pub const extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> c_int {
     (major << 16) | (minor << 8) | patchlevel
 }
 
