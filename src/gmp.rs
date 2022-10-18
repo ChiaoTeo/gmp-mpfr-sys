@@ -953,13 +953,8 @@ extern "C" {
     pub fn mpz_roinit_n(x: mpz_ptr, xp: mp_srcptr, xs: size_t) -> mpz_srcptr;
 }
 /// See: [`MPZ_ROINIT_N`](../C/GMP/constant.Integer_Functions.html#index-MPZ_005fROINIT_005fN)
-///
-/// Note that this function is not currently `extern "C"` because such
-/// functions cannot be const functions, and this function is intended
-/// primarily for constant values. The function will be changed to
-/// `extern "C"` once such functions can be const functions.
 #[inline]
-pub const unsafe fn MPZ_ROINIT_N(xp: mp_ptr, xs: size_t) -> mpz_t {
+pub const unsafe extern "C" fn MPZ_ROINIT_N(xp: mp_ptr, xs: size_t) -> mpz_t {
     mpz_t {
         alloc: 0,
         size: xs as c_int,

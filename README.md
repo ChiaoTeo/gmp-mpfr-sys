@@ -37,6 +37,8 @@ text of the [GNU LGPL] and [GNU GPL] for details.
         <code>[gmp][gmp-1-5]::[mpq\_numref\_const][gmp-qnc-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref][gmp-qd-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_denref\_const][gmp-qdc-1-5]</code>
+  * The <code>[gmp][gmp-1-5]::[MPZ\_ROINIT\_N]][gmp-zrn-1-5]</code> function is
+    now `extern "C"`.
 
 [gmp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/index.html
 [gmp-fs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpf_sgn.html
@@ -47,6 +49,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [gmp-qs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpq_sgn.html
 [gmp-zep-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_even_p.html
 [gmp-zop-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_odd_p.html
+[gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 
 ### Version 1.4.12 news (2022-12-11)
