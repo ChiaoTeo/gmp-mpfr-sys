@@ -1264,28 +1264,24 @@ fn system_cache_dir() -> Option<PathBuf> {
     #[cfg(target_os = "windows")]
     {
         use core::mem::MaybeUninit;
-        use core::ptr;
         use core::slice;
         use std::os::windows::ffi::OsStringExt;
-        use winapi::shared::winerror::S_OK;
-        use winapi::um::combaseapi;
-        use winapi::um::knownfolders::FOLDERID_LocalAppData;
-        use winapi::um::shlobj;
-        use winapi::um::winbase;
-        let id = &FOLDERID_LocalAppData;
-        let flags = 0;
-        let access = ptr::null_mut();
-        let mut path = MaybeUninit::uninit();
+        use windows_sys::Win32::Foundation::S_OK;
+        use windows_sys::Win32::Globalization;
+        use windows_sys::Win32::System::Com;
+        use windows_sys::Win32::UI::Shell::{self, FOLDERID_LocalAppData};
+
         unsafe {
-            if shlobj::SHGetKnownFolderPath(id, flags, access, path.as_mut_ptr()) == S_OK {
-                let path = path.assume_init();
-                let slice = slice::from_raw_parts(path, winbase::lstrlenW(path) as usize);
-                let string = OsString::from_wide(slice);
-                combaseapi::CoTaskMemFree(path.cast());
-                Some(string.into())
-            } else {
-                None
+            let mut path = MaybeUninit::uninit();
+            if Shell::SHGetKnownFolderPath(&FOLDERID_LocalAppData, 0, 0, path.as_mut_ptr()) != S_OK
+            {
+                return None;
             }
+            let path = path.assume_init();
+            let slice = slice::from_raw_parts(path, Globalization::lstrlenW(path) as usize);
+            let string = OsString::from_wide(slice);
+            Com::CoTaskMemFree(path.cast());
+            Some(string.into())
         }
     }
     #[cfg(any(target_os = "macos", target_os = "ios"))]
