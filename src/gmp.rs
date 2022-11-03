@@ -844,7 +844,7 @@ macro_rules! mpz_fits {
         #[inline]
         pub const unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
             let n = unsafe { (*op).size };
-            let p = unsafe { (*op).d }.as_ptr() as *const limb_t;
+            let p = unsafe { (*op).d }.as_ptr().cast_const();
             let fits = n == 0 || (n == 1 && unsafe { *p } <= ($max as limb_t));
             fits as c_int
         }
@@ -853,7 +853,7 @@ macro_rules! mpz_fits {
         #[inline]
         pub const unsafe extern "C" fn $name(op: mpz_srcptr) -> c_int {
             let n = unsafe { (*op).size };
-            let p = unsafe { (*op).d }.as_ptr() as *const limb_t;
+            let p = unsafe { (*op).d }.as_ptr().cast_const();
             let fits = n == 0 || (n == 1 && unsafe { *p } <= ($max as limb_t))
                 || (n == 2
                     && unsafe { *(p.offset(1)) } <= ($max as limb_t) >> NUMB_BITS);
@@ -894,7 +894,7 @@ pub const unsafe extern "C" fn mpz_odd_p(op: mpz_srcptr) -> c_int {
     if unsafe { (*op).size } == 0 {
         0
     } else {
-        1 & unsafe { *((*op).d.as_ptr() as *const limb_t) } as c_int
+        1 & unsafe { *((*op).d.as_ptr().cast_const()) } as c_int
     }
 }
 /// See: [`mpz_even_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005feven_005fp)
@@ -917,7 +917,7 @@ extern "C" {
 #[inline]
 pub const unsafe extern "C" fn mpz_getlimbn(op: mpz_srcptr, n: size_t) -> limb_t {
     if n >= 0 && n < (unsafe { (*op).size }.abs() as size_t) {
-        unsafe { *(((*op).d.as_ptr() as *const limb_t).offset(n as isize)) }
+        unsafe { *(((*op).d.as_ptr().cast_const()).offset(n as isize)) }
     } else {
         0
     }

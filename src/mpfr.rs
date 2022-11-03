@@ -46,7 +46,7 @@ using 200-bit precision. The program outputs:
 use core::mem::MaybeUninit;
 use gmp_mpfr_sys::mpfr;
 use gmp_mpfr_sys::mpfr::rnd_t;
-use libc::{c_char, c_int, STDOUT_FILENO};
+use libc::{c_int, STDOUT_FILENO};
 
 fn main() {
     unsafe {
@@ -71,11 +71,11 @@ fn main() {
             mpfr::add(&mut s, &s, &u, rnd_t::RNDD);
         }
 
-        let stdout = libc::fdopen(STDOUT_FILENO, b"w\0".as_ptr() as *const c_char);
+        let stdout = libc::fdopen(STDOUT_FILENO, b"w\0".as_ptr().cast());
 #       let real_stdout = stdout;
 #       let tmp_file = libc::tmpfile();
 #       let stdout = if tmp_file.is_null() { real_stdout } else { tmp_file };
-        libc::fputs(b"Sum is \0".as_ptr() as *const c_char, stdout);
+        libc::fputs(b"Sum is \0".as_ptr().cast(), stdout);
         mpfr::out_str(stdout, 10, 0, &s, rnd_t::RNDD);
         libc::fputc(b'\n' as c_int, stdout);
 #       libc::rewind(stdout);
@@ -287,10 +287,7 @@ macro_rules! MPFR_DECL_INIT {
             prec: $prec as $crate::mpfr::prec_t,
             sign: 1,
             exp: 1 - $crate::mpfr::exp_t::max_value(),
-            d: unsafe {
-                core::ptr::NonNull::new_unchecked(limbs[..].as_mut_ptr())
-                    .cast::<$crate::gmp::limb_t>()
-            },
+            d: unsafe { core::ptr::NonNull::new_unchecked(limbs[..].as_mut_ptr()).cast() },
         };
     };
 }
@@ -1481,7 +1478,7 @@ pub unsafe extern "C" fn custom_init_set(
         (*x).prec = prec;
         (*x).sign = s;
         (*x).exp = e;
-        (*x).d = NonNull::new_unchecked(significand as *mut limb_t);
+        (*x).d = NonNull::new_unchecked(significand.cast());
     }
 }
 /// See: [`mpfr_custom_get_kind`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fkind)
@@ -1502,7 +1499,7 @@ pub const unsafe extern "C" fn custom_get_kind(x: mpfr_srcptr) -> c_int {
 /// See: [`mpfr_custom_get_significand`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fsignificand)
 #[inline]
 pub const unsafe extern "C" fn custom_get_significand(x: mpfr_srcptr) -> *mut c_void {
-    unsafe { (*x).d }.as_ptr() as *mut c_void
+    unsafe { (*x).d }.as_ptr().cast()
 }
 /// See: [`mpfr_custom_get_exp`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fget_005fexp)
 #[inline]
@@ -1512,7 +1509,7 @@ pub const unsafe extern "C" fn custom_get_exp(x: mpfr_srcptr) -> exp_t {
 /// See: [`mpfr_custom_move`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fcustom_005fmove)
 #[inline]
 pub unsafe extern "C" fn custom_move(x: mpfr_ptr, new_position: *mut c_void) {
-    unsafe { (*x).d = NonNull::new_unchecked(new_position as *mut limb_t) }
+    unsafe { (*x).d = NonNull::new_unchecked(new_position.cast()) }
 }
 
 #[cfg(test)]
