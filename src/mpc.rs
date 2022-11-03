@@ -47,7 +47,8 @@ unsafe {
 
 use crate::gmp::{mpf_t, mpq_t, mpz_t, randstate_t};
 use crate::mpfr::{mpfr_t, prec_t, rnd_t as mpfr_rnd_t};
-use libc::{c_char, c_int, c_long, c_ulong, intmax_t, uintmax_t, FILE};
+use core::ffi::{c_char, c_int, c_long, c_ulong};
+use libc::{intmax_t, uintmax_t, FILE};
 
 include!(concat!(env!("OUT_DIR"), "/mpc_h.rs"));
 

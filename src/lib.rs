@@ -387,9 +387,9 @@ pub mod C;
 
 #[cfg(test)]
 mod tests {
+    use core::ffi::c_char;
     use core::slice;
     use core::str;
-    use libc::c_char;
 
     pub unsafe fn str_from_cstr<'a>(cstr: *const c_char) -> &'a str {
         let s = unsafe { slice::from_raw_parts(cstr.cast(), libc::strlen(cstr)) };
