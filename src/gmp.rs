@@ -1825,7 +1825,8 @@ extern "C" {
 #[cfg(test)]
 mod tests {
     use crate::gmp;
-    use core::{mem, ptr::NonNull};
+    use core::mem;
+    use core::ptr::NonNull;
 
     #[test]
     fn check_mpq_num_den_offsets() {

@@ -26,7 +26,8 @@
 use std::cmp::Ordering;
 use std::env;
 use std::ffi::{OsStr, OsString};
-use std::fs::{self, File};
+use std::fs;
+use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Result as IoResult, Write};
 #[cfg(unix)]
 use std::os::unix::fs as unix_fs;
@@ -1364,10 +1365,15 @@ fn write_flush(writer: &mut BufWriter<File>, buf: &str, name: &Path) {
 fn system_cache_dir() -> Option<PathBuf> {
     #[cfg(target_os = "windows")]
     {
-        use core::{mem::MaybeUninit, ptr, slice};
+        use core::mem::MaybeUninit;
+        use core::ptr;
+        use core::slice;
         use std::os::windows::ffi::OsStringExt;
         use winapi::shared::winerror::S_OK;
-        use winapi::um::{combaseapi, knownfolders::FOLDERID_LocalAppData, shlobj, winbase};
+        use winapi::um::combaseapi;
+        use winapi::um::knownfolders::FOLDERID_LocalAppData;
+        use winapi::um::shlobj;
+        use winapi::um::winbase;
         let id = &FOLDERID_LocalAppData;
         let flags = 0;
         let access = ptr::null_mut();

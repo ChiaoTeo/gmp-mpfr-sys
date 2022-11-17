@@ -44,8 +44,9 @@ using 200-bit precision. The program outputs:
 
 ```rust
 use core::mem::MaybeUninit;
-use gmp_mpfr_sys::mpfr::{self, rnd_t};
-use libc::{self, c_char, c_int, STDOUT_FILENO};
+use gmp_mpfr_sys::mpfr;
+use gmp_mpfr_sys::mpfr::rnd_t;
+use libc::{c_char, c_int, STDOUT_FILENO};
 
 fn main() {
     unsafe {
@@ -105,7 +106,8 @@ fn main() {
 #![allow(clippy::needless_doctest_main)]
 
 use crate::gmp::{limb_t, mpf_t, mpq_t, mpz_t, randstate_t, NUMB_BITS};
-use core::{mem, ptr::NonNull};
+use core::mem;
+use core::ptr::NonNull;
 #[doc(hidden)]
 // libc::c_int is public for the mpfr_round_nearest_away macro
 pub use libc::c_int;

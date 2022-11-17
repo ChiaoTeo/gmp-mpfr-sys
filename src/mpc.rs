@@ -20,7 +20,8 @@ Function and type bindings for the [MPC] library.
 # Examples
 
 ```rust
-use core::{f64, mem::MaybeUninit};
+use core::f64;
+use core::mem::MaybeUninit;
 use gmp_mpfr_sys::{mpc, mpfr};
 let one_third = 1.0_f64 / 3.0;
 let neg_inf = f64::NEG_INFINITY;
@@ -562,7 +563,9 @@ pub extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> 
 
 #[cfg(test)]
 mod tests {
-    use crate::{gmp, mpc, mpfr};
+    use crate::gmp;
+    use crate::mpc;
+    use crate::mpfr;
     use core::ptr::NonNull;
 
     #[test]
