@@ -24,34 +24,9 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.11 news (unreleased)
+### Version 1.4.11 news (2022-11-17)
 
   * [MPFR] was updated from version 4.1.0-p13 to 4.1.1.
-
-### Version 1.4.10 news (2022-08-06)
-
-  * All the changesets until [`402b9c4efacb`] from the [gmp-6.2 branch] of [GMP]
-    were merged.
-  * [MPFR] is now configured with `--disable-decimal-float --disable-float128`
-    which avoids some failed tests with Clang in some situations.
-  * Build caching should now work properly when the `CFLAGS` environment
-    variable is set during compilation.
-
-[`402b9c4efacb`]: https://gmplib.org/repo/gmp-6.2/rev/402b9c4efacb
-
-### Version 1.4.9 news (2022-07-20)
-
-  * Link system libraries statically in case of static musl target ([merge
-    request 2]).
-  * The [`f4ff6ff711ed` changeset] from the [gmp-6.2 branch] of [GMP] was merged
-    to avoid the `x18` register for arm64 since it is reserved in Darwin ([issue
-    25]).
-
-[`402b9c4efacb`]: https://gmplib.org/repo/gmp-6.2/rev/402b9c4efacb
-[`f4ff6ff711ed` changeset]: https://gmplib.org/repo/gmp-6.2/rev/f4ff6ff711ed
-[gmp-6.2 branch]: https://gmplib.org/repo/gmp-6.2
-[issue 25]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/25
-[merge request 2]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/2
 
 ### Other releases
 
