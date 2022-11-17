@@ -21,8 +21,8 @@ some operations are quiet (even on a signaling NaN).
 where it gives +Inf (like for +0), following the usual limit rules,
 instead of -Inf.
 </p>
-<p>The <code>mpfr_root</code> function predates IEEE&nbsp;754-2008 and behaves
-differently from its rootn operation.
+<p>The <code>mpfr_root</code> function predates IEEE&nbsp;754-2008, where rootn was
+introduced, and behaves differently from the IEEE&nbsp;754 rootn operation.
 It is deprecated and <code>mpfr_rootn_ui</code> should be used instead.
 </p>
 <p>Operations with an unsigned zero: For functions taking an argument of

@@ -23,14 +23,14 @@ standard, plus away-from-zero, as well as for basic operations as for other
 mathematical functions. Faithful rounding (partially supported) is provided
 too, but the results may no longer be reproducible.
 </li></ul>
-<p>In particular, with a precision of 53 bits and in any of the four standard
-rounding modes, MPFR is able to
-exactly reproduce all computations with double-precision machine
-floating-point numbers (e.g., <code>double</code> type in C, with a C
-implementation that rigorously follows Annex F of the ISO C99 standard
-and <code>FP_CONTRACT</code> pragma set to <code>OFF</code>) on the four arithmetic
-operations and the square root, except the default exponent range is much
-wider and subnormal numbers are not implemented (but can be emulated).
+<p>In particular, MPFR follows the specification of the IEEE&nbsp;754 standard,
+currently IEEE&nbsp;754-2019 (which will be referred to as IEEE&nbsp;754
+in this manual), with some minor differences, such as: there is a single
+NaN, the default exponent range is much wider, and subnormal numbers are
+not implemented (but the exponent range can be reduced to any interval,
+and subnormals can be emulated). For instance, computations in the
+binary64 format (a.k.a. double precision) can be reproduced by using
+a precision of 53 bits.
 </p>
 <p>This version of MPFR is released under the GNU Lesser General Public
 License, version 3 or any later version.

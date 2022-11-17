@@ -30,7 +30,7 @@ You should include that file in any program using the MPFR library:
 <pre class="example">#include &lt;mpfr.h&gt;
 </pre></div>
 <span id="index-stdio_002eh"></span>
-<p>Note however that prototypes for MPFR functions with <code>FILE *</code> parameters
+<p>Note, however, that prototypes for MPFR functions with <code>FILE *</code> parameters
 are provided only if <code>&lt;stdio.h&gt;</code> is included too (before <samp>mpfr.h</samp>):
 </p>
 <div class="example">
@@ -124,15 +124,22 @@ Next: <a href="#MPFR-Variable-Conventions" accesskey="n" rel="next">MPFR Variabl
 representing a radix-2 floating-point number consisting of a sign,
 an arbitrary-precision normalized significand (also called mantissa),
 and an exponent (an integer in some given range); these are called
-<em>regular numbers</em>. Like in the IEEE&nbsp;754 standard, a floating-point
-number can also have three kinds of special values: a signed zero, a
-signed infinity, and Not-a-Number (NaN). NaN can represent the default
-value of a floating-point object and the result of some operations for
-which no other results would make sense, such as 0 divided by 0 or
-+Infinity minus +Infinity; unless documented otherwise, the sign bit of
-a NaN is unspecified. Note that contrary to IEEE&nbsp;754, MPFR has a single
-kind of NaN and does not have subnormals. Other than that, the behavior
-is very similar to IEEE&nbsp;754, but there may be some differences.
+<em>regular numbers</em>. By convention, the radix point of the significand
+is just before the first digit (which is always 1 due to normalization),
+like in the C language, but unlike in IEEE&nbsp;754 (thus, for a given
+number, the exponent values in MPFR and in IEEE&nbsp;754 differ by 1).
+</p>
+<p>Like in the IEEE&nbsp;754 standard, a floating-point number can also
+have three kinds of special values: a signed zero (+0 or -0),
+a signed infinity (+Inf or -Inf), and Not-a-Number (NaN). NaN
+can represent the default value of a floating-point object and the
+result of some operations for which no other results would make sense,
+such as 0 divided by 0 or +Inf minus +Inf; unless
+documented otherwise, the sign bit of a NaN is unspecified.
+Note that contrary to IEEE&nbsp;754, MPFR has a single kind of NaN and
+does not have subnormals.
+Other than that, the behavior is very similar to IEEE&nbsp;754, but there
+are some minor differences.
 </p>
 <p>The C data type for such objects is <code>mpfr_t</code>, internally defined
 as a one-element array of a structure (so that when passed as an
@@ -222,13 +229,13 @@ Next: <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="n" rel=
 </p>
 <ul>
 <li> <code>MPFR_RNDN</code>: round to nearest, with the even rounding rule
-      (roundTiesToEven in IEEE&nbsp;754-2008); see details below.
-</li><li> <code>MPFR_RNDD</code>: round toward minus infinity
-      (roundTowardNegative in IEEE&nbsp;754-2008).
-</li><li> <code>MPFR_RNDU</code>: round toward plus infinity
-      (roundTowardPositive in IEEE&nbsp;754-2008).
+      (roundTiesToEven in IEEE&nbsp;754); see details below.
+</li><li> <code>MPFR_RNDD</code>: round toward negative infinity
+      (roundTowardNegative in IEEE&nbsp;754).
+</li><li> <code>MPFR_RNDU</code>: round toward positive infinity
+      (roundTowardPositive in IEEE&nbsp;754).
 </li><li> <code>MPFR_RNDZ</code>: round toward zero
-      (roundTowardZero in IEEE&nbsp;754-2008).
+      (roundTowardZero in IEEE&nbsp;754).
 </li><li> <code>MPFR_RNDA</code>: round away from zero.
 </li><li> <code>MPFR_RNDF</code>: faithful rounding. This feature is currently
 experimental. Specific support for this rounding mode has been added
@@ -248,8 +255,8 @@ IEEE&nbsp;754 standard: in case the number to be rounded lies exactly
 in the middle between two consecutive representable numbers, it is
 rounded to the one with an even significand; in radix 2, this means
 that the least significant bit is 0. For example, the number 2.5,
-which is represented by (10.1) in binary, is rounded to (10.0)=2 with
-a precision of two bits, and not to (11.0)=3.
+which is represented by (10.1) in binary, is rounded to (10.0)&nbsp;=&nbsp;2<!-- /@w -->
+with a precision of two bits, and not to (11.0)&nbsp;=&nbsp;3<!-- /@w -->.
 This rule avoids the <em>drift</em> phenomenon mentioned by Knuth in volume 2
 of The Art of Computer Programming (Section&nbsp;4.2.2).
 </p>
@@ -355,12 +362,12 @@ the description of the MPFR function (<a href="constant.MPFR_Interface.html#MPFR
 <p>When the input point is not in the domain of the mathematical function
 but is in its closure in the extended real numbers and the function can
 be extended by continuity, the result is the obtained limit.
-Examples: <code>mpfr_hypot</code> on (+Inf,0) gives +Inf. But <code>mpfr_pow</code>
-cannot be defined on (1,+Inf) using this rule, as one can find
-sequences (<em class='math'><var>x</var>_<var>n</var></em>,<em class='math'><var>y</var>_<var>n</var></em>) such that
-<em class='math'><var>x</var>_<var>n</var></em> goes to 1, <em class='math'><var>y</var>_<var>n</var></em> goes to +Inf
-and <em class='math'><var>x</var>_<var>n</var> to the <var>y</var>_<var>n</var></em> goes to any
-positive value when <var>n</var> goes to the infinity.
+Examples: <code>mpfr_hypot</code> on (+Inf,0) gives +Inf. But
+<code>mpfr_pow</code> cannot be defined on (1,+Inf) using this rule, as
+one can find sequences (<var>x</var>_<var>n</var>,<var>y</var>_<var>n</var>)
+such that <var>x</var>_<var>n</var> goes to 1, <var>y</var>_<var>n</var> goes
+to +Inf and <var>x</var>_<var>n</var> to the <var>y</var>_<var>n</var>
+goes to any positive value when <var>n</var> goes to the infinity.
 </p>
 <p>When the input point is in the closure of the domain of the mathematical
 function and an input argument is +0 (resp. -0), one considers
@@ -386,9 +393,15 @@ the result is NaN. Example: <code>mpfr_sqrt</code> on -17 gives NaN.
 a partial function is constant on the finite floating-point numbers;
 such a case is always explicitly specified in <a href="constant.MPFR_Interface.html#MPFR-Interface">MPFR Interface</a>.
 Example: <code>mpfr_hypot</code> on (NaN,0) gives NaN, but <code>mpfr_hypot</code>
-on (NaN,+Inf) gives +Inf (as specified in <a href="constant.MPFR_Interface.html#Transcendental-Functions">Transcendental Functions</a>),
-since for any finite or infinite input <var>x</var>, <code>mpfr_hypot</code> on
-(<var>x</var>,+Inf) gives +Inf.
+on (NaN,+Inf) gives +Inf (as specified in
+<a href="constant.MPFR_Interface.html#Transcendental-Functions">Transcendental Functions</a>), since for any finite or infinite
+input <var>x</var>, <code>mpfr_hypot</code> on (<var>x</var>,+Inf) gives +Inf.
+</p>
+<p>MPFR also tries to follow the specifications of the IEEE&nbsp;754 standard
+on special values (IEEE&nbsp;754 agree with the above rules in most cases).
+Any difference with IEEE&nbsp;754 that is not explicitly mentioned, other
+than those due to the single NaN, is unintended and might be regarded as a
+bug. See also <a href="constant.MPFR_and_the_IEEE_754_Standard.html#start">MPFR and the IEEE 754 Standard</a>.
 </p>
 <hr>
 </div>
@@ -419,16 +432,16 @@ mode, the halfway case is rounded toward zero.)
 <p>Note: This is not the single possible definition of the underflow. MPFR chooses
 to consider the underflow <em>after</em> rounding. The underflow before rounding
 can also be defined. For instance, consider a function that has the
-exact result <em class='math'>7 multiplied by two to the power
-<var>e</var>-4</em>, where <var>e</var> is the smallest exponent (for a
-significand between 1/2 and 1),
-with a 2-bit target precision and rounding toward plus infinity.
-The exact result has the exponent <var>e</var>-1. With the underflow
-before rounding, such a function call would yield an underflow, as
-<var>e</var>-1 is outside the current exponent range. However, MPFR
+exact result 7 multiplied by two to the power
+<var>e</var>&nbsp;-&nbsp;4<!-- /@w -->, where <var>e</var> is the smallest exponent
+(for a significand between 1/2 and 1),
+with a 2-bit target precision and rounding toward positive infinity.
+The exact result has the exponent <var>e</var>&nbsp;-&nbsp;1<!-- /@w -->. With the
+underflow before rounding, such a function call would yield an underflow, as
+<var>e</var>&nbsp;-&nbsp;1<!-- /@w --> is outside the current exponent range. However, MPFR
 first considers the rounded result assuming an unbounded exponent range.
 The exact result cannot be represented exactly in precision 2, and here,
-it is rounded to <em class='math'>0.5 times 2 to <var>e</var></em>, which is
+it is rounded to 0.5 times 2 to <var>e</var>, which is
 representable in the current exponent range. As a consequence, this will
 not yield an underflow in MPFR.
 </p>
@@ -476,7 +489,7 @@ Next: <a href="#Getting-the-Best-Efficiency-Out-of-MPFR" accesskey="n" rel="next
 </div>
 <span id="Memory-Handling-1"></span><h3 class="section">4.7 Memory Handling</h3>
 <p>MPFR functions may create caches, e.g., when computing constants such
-as <em class='math'>Pi</em>, either because the user has called a function like
+as Pi, either because the user has called a function like
 <code>mpfr_const_pi</code> directly or because such a function was called
 internally by the MPFR library itself to compute some other function.
 When more precision is needed, the value is automatically recomputed;
