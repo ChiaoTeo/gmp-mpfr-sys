@@ -374,8 +374,7 @@ NzQgMCAwLjY1NDc1IDAuNDc0MTMgMS4xNzQgMS4xMjg5IDEuMTc0eiIvPgogICA8L2c+CiAgPC9nPgog
 ")]
 #![doc(test(attr(deny(warnings))))]
 #![cfg_attr(feature = "fail-on-warnings", deny(warnings))]
-#![cfg_attr(unsafe_in_unsafe, warn(unsafe_op_in_unsafe_fn))]
-#![cfg_attr(not(unsafe_in_unsafe), allow(unused_unsafe))]
+#![warn(unsafe_op_in_unsafe_fn)]
 #![allow(clippy::missing_safety_doc, clippy::useless_conversion)]
 
 pub mod gmp;
@@ -384,7 +383,6 @@ pub mod mpc;
 #[cfg(feature = "mpfr")]
 pub mod mpfr;
 
-#[cfg(extended_key_value_attributes)]
 pub mod C;
 
 #[cfg(test)]
