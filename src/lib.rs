@@ -265,7 +265,7 @@ underscore (`"_"`) will disable caching.
 [GNU GPL]: https://www.gnu.org/licenses/gpl-3.0.html
 [GNU LGPL]: https://www.gnu.org/licenses/lgpl-3.0.en.html
 [GNU]: https://www.gnu.org/
-[MPC]: http://www.multiprecision.org/mpc/
+[MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
 [`Complex`]: https://docs.rs/rug/&#42;/rug/struct.Complex.html
 [`Float`]: https://docs.rs/rug/&#42;/rug/struct.Float.html

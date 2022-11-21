@@ -41,7 +41,7 @@ unsafe {
 }
 ```
 
-[MPC]: http://www.multiprecision.org/mpc/
+[MPC]: https://www.multiprecision.org/mpc/
 */
 #![allow(non_camel_case_types, non_snake_case)]
 

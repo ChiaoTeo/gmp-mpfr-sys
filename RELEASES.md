@@ -356,7 +356,7 @@ Version 1.0.0 (2017-04-24)
 [mpc-rc-1-0]: https://docs.rs/gmp-mpfr-sys/~1.0/gmp_mpfr_sys/mpc/fn.realref_const.html
 
 [GMP]: https://gmplib.org/
-[MPC]: http://www.multiprecision.org/mpc/
+[MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
 [`MaybeUninit`]: https://doc.rust-lang.org/nightly/core/mem/union.MaybeUninit.html
 [`NonNull`]: https://doc.rust-lang.org/nightly/std/ptr/struct.NonNull.html
