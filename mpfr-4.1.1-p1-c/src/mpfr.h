@@ -27,7 +27,7 @@ https://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 #define MPFR_VERSION_MAJOR 4
 #define MPFR_VERSION_MINOR 1
 #define MPFR_VERSION_PATCHLEVEL 1
-#define MPFR_VERSION_STRING "4.1.1"
+#define MPFR_VERSION_STRING "4.1.1-p1"
 
 /* User macros:
    MPFR_USE_FILE:        Define it to make MPFR define functions dealing
@@ -1027,7 +1027,7 @@ __MPFR_DECLSPEC int mpfr_total_order_p (mpfr_srcptr, mpfr_srcptr);
 #if __GNUC__ > 2 || __GNUC_MINOR__ >= 95
 #define mpfr_custom_get_kind(x)                                         \
   __extension__ ({                                                      \
-    mpfr_ptr _x = (x);                                                  \
+    mpfr_srcptr _x = (x);                                               \
     _x->_mpfr_exp >  __MPFR_EXP_INF ?                                   \
       (mpfr_int) MPFR_REGULAR_KIND * MPFR_SIGN (_x)                     \
       : _x->_mpfr_exp == __MPFR_EXP_INF ?                               \
