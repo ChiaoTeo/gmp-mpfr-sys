@@ -22,9 +22,9 @@ GMPTAR="$TARDIR/gmp-$GMPVER.tar.lz"
 GMPPATCH="../etc/gmp-6.2-402b9c4efacb.patch"
 
 MPFRVER=4.1.1
-MPFRVERP="$MPFRVER"
+MPFRVERP="$MPFRVER-p1"
 MPFRTAR="$TARDIR/mpfr-$MPFRVER.tar.xz"
-MPFRPATCH="../etc/$MPFRVERP.patch"
+MPFRPATCH="../etc/mpfr-$MPFRVERP.patch"
 
 MPCVER=1.2.1
 MPCVERP="$MPCVER"
