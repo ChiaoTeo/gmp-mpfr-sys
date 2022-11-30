@@ -124,15 +124,7 @@ pub const RNDDD: c_int = RNDD + (RNDD << 4);
 
 /// See: [`mpc_t`](../C/MPC/constant.GNU_MPC_Basics.html#index-mpc_005ft)
 ///
-/// # Future compatibility
-///
-/// The fields listed here are considered internal details. These
-/// internals may change in new minor releases of this crate, though
-/// they will be kept unchanged for patch releases. Any code that
-/// makes use of these internals should list the dependency as
-/// `version = "~1.4"` inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct mpc_t {

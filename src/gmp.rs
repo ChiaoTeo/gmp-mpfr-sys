@@ -92,15 +92,7 @@ pub type bitcnt_t = c_ulong;
 /// See: [`mpz_t`](../C/GMP/constant.GMP_Basics.html#index-mpz_005ft)
 /// and [Integer Internals](../C/GMP/constant.Internals.html#Integer-Internals)
 ///
-/// # Future compatibility
-///
-/// The fields listed here are considered internal details. These
-/// internals may change in new minor releases of this crate, though
-/// they will be kept unchanged for patch releases. Any code that
-/// makes use of these internals should list the dependency as
-/// `version = "~1.4"` inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct mpz_t {
@@ -115,16 +107,7 @@ pub struct mpz_t {
 /// See: [`mpq_t`](../C/GMP/constant.GMP_Basics.html#index-mpq_005ft)
 /// and [Rational Internals](../C/GMP/constant.Internals.html#Rational-Internals)
 ///
-/// # Future compatibility
-///
-/// The fields listed here are considered internal details. These
-/// internals may change in new minor releases of this crate, though
-/// they will be kept unchanged for patch releases. Any code that
-/// makes use of these internals should list the dependency as
-/// `version = "~1.4"` inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
-///
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct mpq_t {
@@ -137,15 +120,7 @@ pub struct mpq_t {
 /// See: [`mpf_t`](../C/GMP/constant.GMP_Basics.html#index-mpf_005ft)
 /// and [Float Internals](../C/GMP/constant.Internals.html#Float-Internals)
 ///
-/// # Future compatibility
-///
-/// The fields listed here are considered internal details. These
-/// internals may change in new minor releases of this crate, though
-/// they will be kept unchanged for patch releases. Any code that
-/// makes use of these internals should list the dependency as
-/// `version = "~1.4"` inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct mpf_t {
@@ -161,15 +136,7 @@ pub struct mpf_t {
 
 /// See: [`gmp_randstate_t`](../C/GMP/constant.GMP_Basics.html#index-gmp_005frandstate_005ft)
 ///
-/// # Future compatibility
-///
-/// The fields listed here are considered internal details. These
-/// internals may change in new minor releases of this crate, though
-/// they will be kept unchanged for patch releases. Any code that
-/// makes use of these internals should list the dependency as
-/// `version = "~1.4"` inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct randstate_t {
@@ -194,16 +161,9 @@ impl Debug for randstate_t {
 
 /// The type for the [`seed`] field in the [`randstate_t`] struct.
 ///
-/// # Future compatibility
-///
-/// This type is considered internal details. These internals may
-/// change in new minor releases of this crate, though they will be
-/// kept unchanged for patch releases. Any code that makes use of
-/// these internals should list the dependency as `version = "~1.4"`
-/// inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
 /// [`seed`]: `randstate_t::seed`
+///
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct randseed_t {
@@ -227,16 +187,9 @@ impl Debug for randseed_t {
 
 /// The type for the [`algdata`] field in the [`randstate_t`] struct.
 ///
-/// # Future compatibility
-///
-/// This type is considered internal details. These internals may
-/// change in new minor releases of this crate, though they will be
-/// kept unchanged for patch releases. Any code that makes use of
-/// these internals should list the dependency as `version = "~1.4"`
-/// inside [*Cargo.toml*], *not* `version = "1.4"`.
-///
-/// [*Cargo.toml*]: https://doc.rust-lang.org/cargo/guide/dependencies.html
 /// [`algdata`]: `randstate_t::algdata`
+///
+#[doc = include_str!("internal_fields.md")]
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct randfnptr_t {
