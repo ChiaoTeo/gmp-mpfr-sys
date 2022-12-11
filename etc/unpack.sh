@@ -156,8 +156,8 @@ fi
 chmod -R u+w *
 # Truncate ChangeLog
 truncate ChangeLog $CHANGELOG_CHARS
-# Remove doc/*.info*, doc/*.tex
-rm doc/*.info* doc/*.tex
+# Remove doc/*.info*, build-aux/*.tex
+rm doc/*.info* build-aux/*.tex
 # Remove doc/Makefile from ac_config_files in configure
 sed -i.rm~ '
     /^ac_config_files=/s,^\([^#]*\) \(doc/Makefile\)\([^#]*\)\($\| #\),\1\3 #gmp-mpfr-sys \2\4,
