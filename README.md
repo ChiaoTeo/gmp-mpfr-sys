@@ -24,9 +24,13 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.12 news (unreleased)
+### Version 1.4.12 news (2022-12-11)
 
   * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.
+  * Bug fix: compilation fixed for new git repositories without HEAD, such as
+    for a new cargo project ([issue 27]).
+
+[issue 27]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/27
 
 ### Version 1.4.11 news (2022-11-17)
 

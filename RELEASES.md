@@ -5,10 +5,14 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.4.12 (unreleased)
+Version 1.4.12 (2022-12-11)
 ===========================
 
   * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.
+  * Bug fix: compilation fixed for new git repositories without HEAD, such as
+    for a new cargo project ([issue 27]).
+
+[issue 27]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/27
 
 Version 1.4.11 (2022-11-17)
 ===========================
