@@ -67,13 +67,6 @@ struct Environment {
     version_prefix: String,
     version_patch: Option<u64>,
     use_system_libs: bool,
-    workaround_47048: Workaround47048,
-}
-
-#[derive(Clone, Copy, PartialEq)]
-enum Workaround47048 {
-    Yes,
-    No,
 }
 
 fn main() {
@@ -160,7 +153,7 @@ fn main() {
             _ => {}
         }
     }
-    let mut env = Environment {
+    let env = Environment {
         rustc,
         c_compiler,
         target,
@@ -176,7 +169,6 @@ fn main() {
         version_prefix,
         version_patch,
         use_system_libs,
-        workaround_47048: Workaround47048::No,
     };
     env.check_feature(
         "extended_key_value_attributes",
@@ -188,8 +180,6 @@ fn main() {
     // make sure we have target directories
     create_dir_or_panic(&env.lib_dir);
     create_dir_or_panic(&env.include_dir);
-
-    env.workaround_47048 = check_for_bug_47048(&env);
 
     if env.use_system_libs {
         check_system_libs(&env);
@@ -1029,9 +1019,6 @@ fn write_link_info(env: &Environment, feature_mpfr: bool, feature_mpc: bool) {
         println!("cargo:rustc-link-lib={maybe_static}mpfr");
     }
     println!("cargo:rustc-link-lib={maybe_static}gmp");
-    if env.target == Target::Mingw && env.workaround_47048 == Workaround47048::Yes {
-        println!("cargo:rustc-link-lib=static=workaround_47048");
-    }
 }
 
 impl Environment {
@@ -1096,6 +1083,7 @@ fn check_for_msvc(env: &Environment) {
     }
 }
 
+#[allow(dead_code)]
 fn rustc_later_eq(major: i32, minor: i32) -> bool {
     let rustc = cargo_env("RUSTC");
     let output = Command::new(rustc)
@@ -1123,86 +1111,6 @@ fn rustc_later_eq(major: i32, minor: i32) -> bool {
             ver_minor >= minor
         }
     }
-}
-
-fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
-    if env.target != Target::Mingw || rustc_later_eq(1, 43) {
-        return Workaround47048::No;
-    }
-    let try_dir = env.build_dir.join("try_47048");
-    remove_dir_or_panic(&try_dir);
-    create_dir_or_panic(&try_dir);
-    println!("$ cd {try_dir:?}");
-    println!("$ #Check for bug 47048");
-    create_file_or_panic(&try_dir.join("say_hi.c"), BUG_47048_SAY_HI_C);
-    create_file_or_panic(&try_dir.join("c_main.c"), BUG_47048_C_MAIN_C);
-    create_file_or_panic(&try_dir.join("r_main.rs"), BUG_47048_R_MAIN_RS);
-    create_file_or_panic(&try_dir.join("workaround.c"), BUG_47048_WORKAROUND_C);
-
-    let mut cmd = Command::new(&env.c_compiler);
-    cmd.current_dir(&try_dir).args(["-fPIC", "-c", "say_hi.c"]);
-    execute(cmd);
-
-    cmd = Command::new("ar");
-    cmd.current_dir(&try_dir)
-        .args(["cr", "libsay_hi.a", "say_hi.o"]);
-    execute(cmd);
-
-    cmd = Command::new(&env.c_compiler);
-    cmd.current_dir(&try_dir)
-        .args(["c_main.c", "-L.", "-lsay_hi", "-o", "c_main.exe"]);
-    execute(cmd);
-
-    // try simple rustc command that should work, so that failure
-    // really is the bug being checked for
-    cmd = Command::new(&env.rustc);
-    cmd.arg("--version");
-    execute(cmd);
-
-    cmd = Command::new(&env.rustc);
-    cmd.current_dir(&try_dir)
-        .args(["r_main.rs", "-L.", "-lsay_hi", "-o", "r_main.exe"])
-        .stdout(Stdio::null())
-        .stderr(Stdio::null());
-    println!("$ {cmd:?} >& /dev/null && echo Bug 47048 not found || echo Working around bug 47048");
-    let status = cmd
-        .status()
-        .unwrap_or_else(|_| panic!("Unable to execute: {cmd:?}"));
-    let need_workaround = if status.success() {
-        println!("Bug 47048 not found");
-        Workaround47048::No
-    } else {
-        println!("Working around bug 47048");
-
-        cmd = Command::new(&env.c_compiler);
-        cmd.current_dir(&try_dir)
-            .args(["-fPIC", "-O2", "-c", "workaround.c"]);
-        execute(cmd);
-
-        cmd = Command::new("ar");
-        cmd.current_dir(&try_dir)
-            .args(["cr", "libworkaround_47048.a", "workaround.o"]);
-        execute(cmd);
-
-        cmd = Command::new(&env.rustc);
-        cmd.current_dir(&try_dir).args([
-            "r_main.rs",
-            "-L.",
-            "-lsay_hi",
-            "-lworkaround_47048",
-            "-o",
-            "r_main.exe",
-        ]);
-        execute(cmd);
-
-        let src = try_dir.join("libworkaround_47048.a");
-        let dst = env.lib_dir.join("libworkaround_47048.a");
-        copy_file_or_panic(&src, &dst);
-
-        Workaround47048::Yes
-    };
-    remove_dir_or_panic(&try_dir);
-    need_workaround
 }
 
 fn mingw_pkg_config_libdir_or_panic() {
@@ -1424,45 +1332,6 @@ fn compilation_target_allowed(host: &str, target: &str) -> bool {
 
     false
 }
-
-const BUG_47048_SAY_HI_C: &str = r#"/* say_hi.c */
-#include <stdio.h>
-void say_hi(void) {
-    fprintf(stdout, "hi!\n");
-}
-"#;
-
-const BUG_47048_C_MAIN_C: &str = r#"/* c_main.c */
-void say_hi(void);
-int main(void) {
-    say_hi();
-    return 0;
-}
-"#;
-
-const BUG_47048_R_MAIN_RS: &str = r#"// r_main.rs
-extern "C" {
-    fn say_hi();
-}
-fn main() {
-    unsafe {
-        say_hi();
-    }
-}
-"#;
-
-const BUG_47048_WORKAROUND_C: &str = r#"/* workaround.c */
-#define _CRTBLD
-#include <stdio.h>
-
-FILE *__cdecl __acrt_iob_func(unsigned index)
-{
-    return &(__iob_func()[index]);
-}
-
-typedef FILE *__cdecl (*_f__acrt_iob_func)(unsigned index);
-_f__acrt_iob_func __MINGW_IMP_SYMBOL(__acrt_iob_func) = __acrt_iob_func;
-"#;
 
 // prints part of the header
 const SYSTEM_GMP_C: &str = r##"/* system_gmp.c */
