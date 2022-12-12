@@ -95,7 +95,7 @@ fn main() {
             let mut hasher = SipHasher::new();
             cflags.hash(&mut hasher);
             let hash = hasher.finish();
-            OsString::from(format!("CFLAGS-{:016X}", hash))
+            OsString::from(format!("CFLAGS-{hash:016X}"))
         }
     });
 
@@ -108,9 +108,8 @@ fn main() {
     let force_cross = there_is_env("CARGO_FEATURE_FORCE_CROSS");
     if !force_cross && !compilation_target_allowed(&host, &raw_target) {
         panic!(
-            "Cross compilation from {} to {} not supported! \
-             Use the `force-cross` feature to cross compile anyway.",
-            host, raw_target
+            "Cross compilation from {host} to {raw_target} not supported! \
+             Use the `force-cross` feature to cross compile anyway."
         );
     }
 
@@ -204,14 +203,14 @@ fn check_system_libs(env: &Environment) {
     let try_dir = env.build_dir.join("system_libs");
     remove_dir_or_panic(&try_dir);
     create_dir_or_panic(&try_dir);
-    println!("$ cd {:?}", try_dir);
+    println!("$ cd {try_dir:?}");
 
     println!("$ #Check for system GMP");
     create_file_or_panic(&try_dir.join("system_gmp.c"), SYSTEM_GMP_C);
 
     let mut cmd = Command::new(&env.c_compiler);
     cmd.current_dir(&try_dir)
-        .args(&["-fPIC", "system_gmp.c", "-lgmp", "-o", "system_gmp.exe"]);
+        .args(["-fPIC", "system_gmp.c", "-lgmp", "-o", "system_gmp.exe"]);
     execute(cmd);
 
     cmd = Command::new(try_dir.join("system_gmp.exe"));
@@ -232,7 +231,7 @@ fn check_system_libs(env: &Environment) {
         create_file_or_panic(&try_dir.join("system_mpfr.c"), SYSTEM_MPFR_C);
 
         cmd = Command::new(&env.c_compiler);
-        cmd.current_dir(&try_dir).args(&[
+        cmd.current_dir(&try_dir).args([
             "-fPIC",
             "system_mpfr.c",
             "-lmpfr",
@@ -258,7 +257,7 @@ fn check_system_libs(env: &Environment) {
         create_file_or_panic(&try_dir.join("system_mpc.c"), SYSTEM_MPC_C);
 
         cmd = Command::new(&env.c_compiler);
-        cmd.current_dir(&try_dir).args(&[
+        cmd.current_dir(&try_dir).args([
             "-fPIC",
             "system_mpc.c",
             "-lmpc",
@@ -353,12 +352,12 @@ fn compile_libs(env: &Environment) {
 fn get_version() -> (String, Option<u64>) {
     let version = cargo_env("CARGO_PKG_VERSION")
         .into_string()
-        .unwrap_or_else(|e| panic!("version not in utf-8: {:?}", e));
+        .unwrap_or_else(|e| panic!("version not in utf-8: {e:?}"));
     let last_dot = version
         .rfind('.')
-        .unwrap_or_else(|| panic!("version has no dots: {}", version));
+        .unwrap_or_else(|| panic!("version has no dots: {version}"));
     if last_dot == 0 {
-        panic!("version starts with dot: {}", version);
+        panic!("version starts with dot: {version}");
     }
     match version[last_dot + 1..].parse::<u64>() {
         Ok(patch) => {
@@ -662,7 +661,7 @@ fn should_save_cache(env: &Environment, mpfr: bool, mpc: bool) -> bool {
 fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("gmp-build");
     create_dir_or_panic(&build_dir);
-    println!("$ cd {:?}", build_dir);
+    println!("$ cd {build_dir:?}");
     let mut conf = String::from("../gmp-src/configure --enable-fat --disable-shared --with-pic");
     if let Some(cross_target) = env.cross_target.as_ref() {
         conf.push_str(" --host ");
@@ -762,7 +761,7 @@ fn process_gmp_header(
     }
 
     let limb_bits = limb_bits.expect("Cannot determine GMP_LIMB_BITS");
-    println!("cargo:limb_bits={}", limb_bits);
+    println!("cargo:limb_bits={limb_bits}");
 
     let nail_bits = nail_bits.expect("Cannot determine GMP_NAIL_BITS");
     if nail_bits > 0 {
@@ -932,7 +931,7 @@ fn process_mpc_header(
 fn build_mpfr(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("mpfr-build");
     create_dir_or_panic(&build_dir);
-    println!("$ cd {:?}", build_dir);
+    println!("$ cd {build_dir:?}");
     link_dir(
         &env.build_dir.join("gmp-build"),
         &build_dir.join("gmp-build"),
@@ -962,7 +961,7 @@ fn build_mpfr(env: &Environment, lib: &Path, header: &Path) {
 fn build_mpc(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("mpc-build");
     create_dir_or_panic(&build_dir);
-    println!("$ cd {:?}", build_dir);
+    println!("$ cd {build_dir:?}");
     // steal link from mpfr-build to save some copying under MinGW,
     // where a symlink is a just a copy (unless in developer mode).
     mv("../mpfr-build/gmp-build", &build_dir);
@@ -1009,10 +1008,10 @@ fn write_link_info(env: &Environment, feature_mpfr: bool, feature_mpc: bool) {
             env.include_dir.display()
         )
     });
-    println!("cargo:out_dir={}", out_str);
-    println!("cargo:lib_dir={}", lib_str);
-    println!("cargo:include_dir={}", include_str);
-    println!("cargo:rustc-link-search=native={}", lib_str);
+    println!("cargo:out_dir={out_str}");
+    println!("cargo:lib_dir={lib_str}");
+    println!("cargo:include_dir={include_str}");
+    println!("cargo:rustc-link-search=native={lib_str}");
 
     let target_env = env::var("CARGO_CFG_TARGET_ENV").unwrap_or_default();
     if target_env == "musl" && env.use_system_libs {
@@ -1024,12 +1023,12 @@ fn write_link_info(env: &Environment, feature_mpfr: bool, feature_mpc: bool) {
     let use_static = using_static_musl || !env.use_system_libs;
     let maybe_static = if use_static { "static=" } else { "" };
     if feature_mpc {
-        println!("cargo:rustc-link-lib={}mpc", maybe_static);
+        println!("cargo:rustc-link-lib={maybe_static}mpc");
     }
     if feature_mpfr {
-        println!("cargo:rustc-link-lib={}mpfr", maybe_static);
+        println!("cargo:rustc-link-lib={maybe_static}mpfr");
     }
-    println!("cargo:rustc-link-lib={}gmp", maybe_static);
+    println!("cargo:rustc-link-lib={maybe_static}gmp");
     if env.target == Target::Mingw && env.workaround_47048 == Workaround47048::Yes {
         println!("cargo:rustc-link-lib=static=workaround_47048");
     }
@@ -1038,10 +1037,10 @@ fn write_link_info(env: &Environment, feature_mpfr: bool, feature_mpc: bool) {
 impl Environment {
     #[allow(dead_code)]
     fn check_feature(&self, name: &str, contents: &str, nightly_features: Option<&str>) {
-        let try_dir = self.out_dir.join(format!("try_{}", name));
-        let filename = format!("try_{}.rs", name);
+        let try_dir = self.out_dir.join(format!("try_{name}"));
+        let filename = format!("try_{name}.rs");
         create_dir_or_panic(&try_dir);
-        println!("$ cd {:?}", try_dir);
+        println!("$ cd {try_dir:?}");
 
         enum Iteration {
             Stable,
@@ -1053,7 +1052,7 @@ impl Environment {
                 Iteration::Stable => contents,
                 Iteration::Unstable => match nightly_features {
                     Some(features) => {
-                        s = format!("#![feature({})]\n{}", features, contents);
+                        s = format!("#![feature({features})]\n{contents}");
                         &s
                     }
                     None => continue,
@@ -1064,15 +1063,15 @@ impl Environment {
             cmd.current_dir(&try_dir)
                 .stdout(Stdio::null())
                 .stderr(Stdio::null())
-                .args(&[&*filename, "--emit=dep-info,metadata"]);
-            println!("$ {:?} >& /dev/null", cmd);
+                .args([&*filename, "--emit=dep-info,metadata"]);
+            println!("$ {cmd:?} >& /dev/null");
             let status = cmd
                 .status()
-                .unwrap_or_else(|_| panic!("Unable to execute: {:?}", cmd));
+                .unwrap_or_else(|_| panic!("Unable to execute: {cmd:?}"));
             if status.success() {
-                println!("cargo:rustc-cfg={}", name);
+                println!("cargo:rustc-cfg={name}");
                 if let Iteration::Unstable = *i {
-                    println!("cargo:rustc-cfg=nightly_{}", name);
+                    println!("cargo:rustc-cfg=nightly_{name}");
                 }
                 break;
             }
@@ -1084,7 +1083,7 @@ impl Environment {
 
 fn cargo_env(name: &str) -> OsString {
     env::var_os(name)
-        .unwrap_or_else(|| panic!("environment variable not found: {}, please use cargo", name))
+        .unwrap_or_else(|| panic!("environment variable not found: {name}, please use cargo"))
 }
 
 fn there_is_env(name: &str) -> bool {
@@ -1105,7 +1104,7 @@ fn rustc_later_eq(major: i32, minor: i32) -> bool {
         .expect("unable to run rustc --version");
     let version = String::from_utf8(output.stdout).expect("unrecognized rustc version");
     if !version.starts_with("rustc ") {
-        panic!("unrecognized rustc version: {}", version);
+        panic!("unrecognized rustc version: {version}");
     }
     let remain = &version[6..];
     let dot = remain.find('.').expect("unrecognized rustc version");
@@ -1133,7 +1132,7 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
     let try_dir = env.build_dir.join("try_47048");
     remove_dir_or_panic(&try_dir);
     create_dir_or_panic(&try_dir);
-    println!("$ cd {:?}", try_dir);
+    println!("$ cd {try_dir:?}");
     println!("$ #Check for bug 47048");
     create_file_or_panic(&try_dir.join("say_hi.c"), BUG_47048_SAY_HI_C);
     create_file_or_panic(&try_dir.join("c_main.c"), BUG_47048_C_MAIN_C);
@@ -1141,17 +1140,17 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
     create_file_or_panic(&try_dir.join("workaround.c"), BUG_47048_WORKAROUND_C);
 
     let mut cmd = Command::new(&env.c_compiler);
-    cmd.current_dir(&try_dir).args(&["-fPIC", "-c", "say_hi.c"]);
+    cmd.current_dir(&try_dir).args(["-fPIC", "-c", "say_hi.c"]);
     execute(cmd);
 
     cmd = Command::new("ar");
     cmd.current_dir(&try_dir)
-        .args(&["cr", "libsay_hi.a", "say_hi.o"]);
+        .args(["cr", "libsay_hi.a", "say_hi.o"]);
     execute(cmd);
 
     cmd = Command::new(&env.c_compiler);
     cmd.current_dir(&try_dir)
-        .args(&["c_main.c", "-L.", "-lsay_hi", "-o", "c_main.exe"]);
+        .args(["c_main.c", "-L.", "-lsay_hi", "-o", "c_main.exe"]);
     execute(cmd);
 
     // try simple rustc command that should work, so that failure
@@ -1162,16 +1161,13 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
     cmd = Command::new(&env.rustc);
     cmd.current_dir(&try_dir)
-        .args(&["r_main.rs", "-L.", "-lsay_hi", "-o", "r_main.exe"])
+        .args(["r_main.rs", "-L.", "-lsay_hi", "-o", "r_main.exe"])
         .stdout(Stdio::null())
         .stderr(Stdio::null());
-    println!(
-        "$ {:?} >& /dev/null && echo Bug 47048 not found || echo Working around bug 47048",
-        cmd
-    );
+    println!("$ {cmd:?} >& /dev/null && echo Bug 47048 not found || echo Working around bug 47048");
     let status = cmd
         .status()
-        .unwrap_or_else(|_| panic!("Unable to execute: {:?}", cmd));
+        .unwrap_or_else(|_| panic!("Unable to execute: {cmd:?}"));
     let need_workaround = if status.success() {
         println!("Bug 47048 not found");
         Workaround47048::No
@@ -1180,16 +1176,16 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
         cmd = Command::new(&env.c_compiler);
         cmd.current_dir(&try_dir)
-            .args(&["-fPIC", "-O2", "-c", "workaround.c"]);
+            .args(["-fPIC", "-O2", "-c", "workaround.c"]);
         execute(cmd);
 
         cmd = Command::new("ar");
         cmd.current_dir(&try_dir)
-            .args(&["cr", "libworkaround_47048.a", "workaround.o"]);
+            .args(["cr", "libworkaround_47048.a", "workaround.o"]);
         execute(cmd);
 
         cmd = Command::new(&env.rustc);
-        cmd.current_dir(&try_dir).args(&[
+        cmd.current_dir(&try_dir).args([
             "r_main.rs",
             "-L.",
             "-lsay_hi",
@@ -1211,53 +1207,53 @@ fn check_for_bug_47048(env: &Environment) -> Workaround47048 {
 
 fn mingw_pkg_config_libdir_or_panic() {
     let mut cmd = Command::new("pkg-config");
-    cmd.args(&["--libs-only-L", "gmp"]);
+    cmd.args(["--libs-only-L", "gmp"]);
     let output = execute_stdout(cmd);
     if output.len() < 2 || &output[0..2] != b"-L" {
         panic!("expected pkg-config output to begin with \"-L\"");
     }
     let libdir = str::from_utf8(&output[2..]).expect("output from pkg-config not utf-8");
-    println!("cargo:rustc-link-search=native={}", libdir);
+    println!("cargo:rustc-link-search=native={libdir}");
 }
 
 fn remove_dir(dir: &Path) -> IoResult<()> {
     if !dir.exists() {
         return Ok(());
     }
-    assert!(dir.is_dir(), "Not a directory: {:?}", dir);
-    println!("$ rm -r {:?}", dir);
+    assert!(dir.is_dir(), "Not a directory: {dir:?}");
+    println!("$ rm -r {dir:?}");
     fs::remove_dir_all(dir)
 }
 
 fn remove_dir_or_panic(dir: &Path) {
-    remove_dir(dir).unwrap_or_else(|_| panic!("Unable to remove directory: {:?}", dir));
+    remove_dir(dir).unwrap_or_else(|_| panic!("Unable to remove directory: {dir:?}"));
 }
 
 fn create_dir(dir: &Path) -> IoResult<()> {
-    println!("$ mkdir -p {:?}", dir);
+    println!("$ mkdir -p {dir:?}");
     fs::create_dir_all(dir)
 }
 
 fn create_dir_or_panic(dir: &Path) {
-    create_dir(dir).unwrap_or_else(|_| panic!("Unable to create directory: {:?}", dir));
+    create_dir(dir).unwrap_or_else(|_| panic!("Unable to create directory: {dir:?}"));
 }
 
 fn create_file_or_panic(filename: &Path, contents: &str) {
     println!("$ printf '%s' {:?}... > {:?}", &contents[0..10], filename);
     let mut file =
-        File::create(filename).unwrap_or_else(|_| panic!("Unable to create file: {:?}", filename));
+        File::create(filename).unwrap_or_else(|_| panic!("Unable to create file: {filename:?}"));
     file.write_all(contents.as_bytes())
-        .unwrap_or_else(|_| panic!("Unable to write to file: {:?}", filename));
+        .unwrap_or_else(|_| panic!("Unable to write to file: {filename:?}"));
 }
 
 fn copy_file(src: &Path, dst: &Path) -> IoResult<u64> {
-    println!("$ cp {:?} {:?}", src, dst);
+    println!("$ cp {src:?} {dst:?}");
     fs::copy(src, dst)
 }
 
 fn copy_file_or_panic(src: &Path, dst: &Path) {
     copy_file(src, dst).unwrap_or_else(|_| {
-        panic!("Unable to copy {:?} -> {:?}", src, dst);
+        panic!("Unable to copy {src:?} -> {dst:?}");
     });
 }
 
@@ -1284,9 +1280,9 @@ fn make_and_check(env: &Environment, build_dir: &Path) {
 
 #[cfg(unix)]
 fn link_dir(src: &Path, dst: &Path) {
-    println!("$ ln -s {:?} {:?}", src, dst);
+    println!("$ ln -s {src:?} {dst:?}");
     unix_fs::symlink(src, dst).unwrap_or_else(|_| {
-        panic!("Unable to symlink {:?} -> {:?}", src, dst);
+        panic!("Unable to symlink {src:?} -> {dst:?}");
     });
 }
 
@@ -1309,57 +1305,57 @@ fn mv(src: &str, dst_dir: &Path) {
 }
 
 fn execute(mut command: Command) {
-    println!("$ {:?}", command);
+    println!("$ {command:?}");
     let status = command
         .status()
-        .unwrap_or_else(|_| panic!("Unable to execute: {:?}", command));
+        .unwrap_or_else(|_| panic!("Unable to execute: {command:?}"));
     if !status.success() {
         if let Some(code) = status.code() {
-            panic!("Program failed with code {}: {:?}", code, command);
+            panic!("Program failed with code {code}: {command:?}");
         } else {
-            panic!("Program failed: {:?}", command);
+            panic!("Program failed: {command:?}");
         }
     }
 }
 
 fn execute_stdout(mut command: Command) -> Vec<u8> {
-    println!("$ {:?}", command);
+    println!("$ {command:?}");
     let output = command
         .output()
-        .unwrap_or_else(|_| panic!("Unable to execute: {:?}", command));
+        .unwrap_or_else(|_| panic!("Unable to execute: {command:?}"));
     if !output.status.success() {
         if let Some(code) = output.status.code() {
-            panic!("Program failed with code {}: {:?}", code, command);
+            panic!("Program failed with code {code}: {command:?}");
         } else {
-            panic!("Program failed: {:?}", command);
+            panic!("Program failed: {command:?}");
         }
     }
     output.stdout
 }
 
 fn open(name: &Path) -> BufReader<File> {
-    let file = File::open(name).unwrap_or_else(|_| panic!("Cannot open file: {:?}", name));
+    let file = File::open(name).unwrap_or_else(|_| panic!("Cannot open file: {name:?}"));
     BufReader::new(file)
 }
 
 fn create(name: &Path) -> BufWriter<File> {
-    let file = File::create(name).unwrap_or_else(|_| panic!("Cannot create file: {:?}", name));
+    let file = File::create(name).unwrap_or_else(|_| panic!("Cannot create file: {name:?}"));
     BufWriter::new(file)
 }
 
 fn read_line(reader: &mut BufReader<File>, buf: &mut String, name: &Path) -> usize {
     reader
         .read_line(buf)
-        .unwrap_or_else(|_| panic!("Cannot read from: {:?}", name))
+        .unwrap_or_else(|_| panic!("Cannot read from: {name:?}"))
 }
 
 fn write_flush(writer: &mut BufWriter<File>, buf: &str, name: &Path) {
     writer
         .write_all(buf.as_bytes())
-        .unwrap_or_else(|_| panic!("Cannot write to: {:?}", name));
+        .unwrap_or_else(|_| panic!("Cannot write to: {name:?}"));
     writer
         .flush()
-        .unwrap_or_else(|_| panic!("Cannot write to: {:?}", name));
+        .unwrap_or_else(|_| panic!("Cannot write to: {name:?}"));
 }
 
 fn system_cache_dir() -> Option<PathBuf> {
