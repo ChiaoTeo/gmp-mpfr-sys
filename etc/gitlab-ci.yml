@@ -5,11 +5,14 @@
 # notice and this notice are preserved. This file is offered as-is,
 # without any warranty.
 
+variables:
+  MSRV: 1.65.0
+
 before_script:
   - getconf LONG_BIT
   - rustup self update
   - rustup --version
-  - if [ -n "$HOST" ]; then rustup toolchain install --profile minimal beta-$HOST 1.37.0-$HOST; fi
+  - if [ -n "$HOST" ]; then rustup toolchain install --profile minimal beta-$HOST $MSRV-$HOST; fi
   - if [ -n "$HOST" ]; then rustup component add --toolchain beta-$HOST rustfmt clippy; fi
   - if [ -d cargo/registry/cache ]; then rm -rf $CARGO_HOME/registry/cache; mkdir -p $CARGO_HOME/registry; cp -R cargo/registry/cache $CARGO_HOME/registry/; echo Copied registry/cache; fi
   - (if cd $CARGO_HOME/registry && [ -d src ]; then rm -r src; fi)
@@ -35,8 +38,8 @@ x86_64-gnulinux:
   - cargo +beta-$HOST fmt -- --check
   - cargo +beta-$HOST clippy --all-targets --features fail-on-warnings
   - rm Cargo.lock
-  - cargo +1.37.0-$HOST test --features fail-on-warnings
-  - cargo +1.37.0-$HOST test --release --features fail-on-warnings
+  - cargo +$MSRV-$HOST test --features fail-on-warnings
+  - cargo +$MSRV-$HOST test --release --features fail-on-warnings
   only:
   - ci
 
@@ -54,8 +57,8 @@ i686-gnulinux:
   - cargo +beta-$HOST fmt -- --check
   - cargo +beta-$HOST clippy --all-targets --features fail-on-warnings
   - rm Cargo.lock
-  - cargo +1.37.0-$HOST test --features fail-on-warnings
-  - cargo +1.37.0-$HOST test --release --features fail-on-warnings
+  - cargo +$MSRV-$HOST test --features fail-on-warnings
+  - cargo +$MSRV-$HOST test --release --features fail-on-warnings
   only:
   - ci
 
@@ -74,9 +77,9 @@ x86_64-i686-gnulinux:
   - cargo +beta-$HOST test --target $TARGET --features fail-on-warnings
   - cargo +beta-$HOST test --release --target $TARGET --features fail-on-warnings
   - rm Cargo.lock
-  - rustup target add --toolchain 1.37.0-$HOST $TARGET
-  - cargo +1.37.0-$HOST test --target $TARGET --features fail-on-warnings
-  - cargo +1.37.0-$HOST test --release --target $TARGET --features fail-on-warnings
+  - rustup target add --toolchain $MSRV-$HOST $TARGET
+  - cargo +$MSRV-$HOST test --target $TARGET --features fail-on-warnings
+  - cargo +$MSRV-$HOST test --release --target $TARGET --features fail-on-warnings
   only:
   - ci
 
@@ -98,8 +101,8 @@ x86_64-i686-gnulinux:
 #  - cargo +beta-$HOST fmt -- --check
 #  - cargo +beta-$HOST clippy --all-targets --features "fail-on-warnings use-system-libs"
 #  - rm Cargo.lock
-#  - cargo +1.37.0-$HOST test --features "fail-on-warnings use-system-libs"
-#  - cargo +1.37.0-$HOST test --release --features "fail-on-warnings use-system-libs"
+#  - cargo +$MSRV-$HOST test --features "fail-on-warnings use-system-libs"
+#  - cargo +$MSRV-$HOST test --release --features "fail-on-warnings use-system-libs"
 #  only:
 #  - ci
 #
@@ -119,8 +122,8 @@ x86_64-i686-gnulinux:
 #  - cargo +beta-$HOST fmt -- --check
 #  - cargo +beta-$HOST clippy --all-targets --features "fail-on-warnings use-system-libs"
 #  - rm Cargo.lock
-#  - cargo +1.37.0-$HOST test --features "fail-on-warnings use-system-libs"
-#  - cargo +1.37.0-$HOST test --release --features "fail-on-warnings use-system-libs"
+#  - cargo +$MSRV-$HOST test --features "fail-on-warnings use-system-libs"
+#  - cargo +$MSRV-$HOST test --release --features "fail-on-warnings use-system-libs"
 #  only:
 #  - ci
 

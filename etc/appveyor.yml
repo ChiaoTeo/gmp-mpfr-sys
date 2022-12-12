@@ -12,6 +12,7 @@ branches:
     - www
 
 environment:
+  MSRV: 1.65.0
   matrix:
     - CI_OS: mac
       APPVEYOR_BUILD_WORKER_IMAGE: macos-monterey
@@ -58,7 +59,7 @@ for:
       - curl --proto =https --tlsv1.2 -sSf -o rustup-init.sh https://sh.rustup.rs
       - sh rustup-init.sh -y --default-toolchain none --no-modify-path
       - rustup --version
-      - rustup toolchain install --profile minimal beta 1.37.0
+      - rustup toolchain install --profile minimal beta $MSRV
       - rustup component add --toolchain beta rustfmt clippy
     before_test:
       - (if cd $HOME/.cargo/registry && [ -d src ]; then rm -r src; fi)
@@ -69,8 +70,8 @@ for:
       - cargo +beta fmt -- --check
       - cargo +beta clippy --all-targets --features fail-on-warnings
       - rm Cargo.lock
-      - cargo +1.37.0 test --features fail-on-warnings
-      - cargo +1.37.0 test --release --features fail-on-warnings
+      - cargo +$MSRV test --features fail-on-warnings
+      - cargo +$MSRV test --release --features fail-on-warnings
     after_test:
       - (if cd $HOME/.cargo/registry && [ -d cache ]; then for c in cache/*/*.crate; do s=src/${c#cache/}; if [ ! -e ${s%.crate} ]; then rm -v $c; fi; done; find cache -name \*.crate | sort; fi)
 
@@ -85,7 +86,7 @@ for:
       - curl --proto =https --tlsv1.2 -sSf -o rustup-init.exe https://win.rustup.rs
       - rustup-init.exe -y --default-toolchain none --no-modify-path
       - rustup --version
-      - rustup toolchain install --profile minimal beta-%HOST% 1.37.0-%HOST%
+      - rustup toolchain install --profile minimal beta-%HOST% %MSRV%-%HOST%
       - rustup component add --toolchain beta-%HOST% rustfmt clippy
     before_test:
       - bash -c "if cd ""$USERPROFILE/.cargo/registry"" && [ -d src ]; then rm -r src; fi"
@@ -98,8 +99,8 @@ for:
       - cargo +beta-%HOST% fmt -- --check
       - cargo +beta-%HOST% clippy --all-targets --features fail-on-warnings
       - rm Cargo.lock
-      - cargo +1.37.0-%HOST% test --features fail-on-warnings
-      - cargo +1.37.0-%HOST% test --release --features fail-on-warnings
+      - cargo +%MSRV%-%HOST% test --features fail-on-warnings
+      - cargo +%MSRV%-%HOST% test --release --features fail-on-warnings
       # Install fresh GMP, MPFR, MPC now to avoid interference with gcc package
       - pacman -Sy --noconfirm %MINGW_PACKAGE_PREFIX%-gmp %MINGW_PACKAGE_PREFIX%-mpfr %MINGW_PACKAGE_PREFIX%-mpc
       - cargo clean

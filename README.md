@@ -24,6 +24,10 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.5.0 news (unreleased)
+
+  * The crate now requires rustc version 1.65.0 or later.
+
 ### Version 1.4.12 news (2022-12-11)
 
   * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.
@@ -96,7 +100,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 gmp-mpfr-sys = "1.4"
 ```
 
-This crate required rustc version 1.37.0 or later.
+This crate required rustc version 1.65.0 or later.
 
 If the C libraries have a major version bump with some deprecated
 functions removed, but no features are removed in the Rust bindings,

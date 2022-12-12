@@ -8,8 +8,8 @@
 [package]
 name = "gmp-mpfr-sys"
 version = "1.4.12"
-edition = "2018"
-rust-version = "1.37"
+edition = "2021"
+rust-version = "1.65"
 description = "Rust FFI bindings for GMP, MPFR and MPC"
 documentation = "https://docs.rs/gmp-mpfr-sys"
 repository = "https://gitlab.com/tspiteri/gmp-mpfr-sys"
