@@ -191,7 +191,7 @@ pub type exp_t = c_long;
 /// See: [Nomenclature and Types](../C/MPFR/constant.MPFR_Basics.html#Nomenclature-and-Types)
 pub const PREC_MIN: prec_t = 1;
 /// See: [Nomenclature and Types](../C/MPFR/constant.MPFR_Basics.html#Nomenclature-and-Types)
-pub const PREC_MAX: prec_t = prec_t::max_value() - 256;
+pub const PREC_MAX: prec_t = prec_t::MAX - 256;
 
 /// See: [`mpfr_t`](../C/MPFR/constant.MPFR_Basics.html#index-mpfr_005ft)
 /// and [Internals](../C/MPFR/constant.MPFR_Interface.html#Internals)
@@ -238,7 +238,7 @@ type mpfr_srcptr = *const mpfr_t;
 
 // Private constants.
 
-const EXP_MAX: exp_t = exp_t::max_value();
+const EXP_MAX: exp_t = exp_t::MAX;
 const EXP_NAN: exp_t = 1 - EXP_MAX;
 const EXP_ZERO: exp_t = 0 - EXP_MAX;
 const EXP_INF: exp_t = 2 - EXP_MAX;
@@ -277,7 +277,7 @@ macro_rules! MPFR_DECL_INIT {
         let mut $name = $crate::mpfr::mpfr_t {
             prec: $prec as $crate::mpfr::prec_t,
             sign: 1,
-            exp: 1 - $crate::mpfr::exp_t::max_value(),
+            exp: 1 - $crate::mpfr::exp_t::MAX,
             d: unsafe { core::ptr::NonNull::new_unchecked(limbs[..].as_mut_ptr()).cast() },
         };
     };

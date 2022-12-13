@@ -817,7 +817,7 @@ macro_rules! mpz_fits {
 }
 mpz_fits! {
     /// See: [`mpz_fits_ulong_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fulong_005fp)
-    fn mpz_fits_ulong_p(c_ulong::max_value());
+    fn mpz_fits_ulong_p(c_ulong::MAX);
 }
 extern "C" {
     /// See: [`mpz_fits_slong_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fslong_005fp)
@@ -826,7 +826,7 @@ extern "C" {
 }
 mpz_fits! {
     /// See: [`mpz_fits_uint_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fuint_005fp)
-    fn mpz_fits_uint_p(c_uint::max_value());
+    fn mpz_fits_uint_p(c_uint::MAX);
 }
 extern "C" {
     /// See: [`mpz_fits_sint_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fsint_005fp)
@@ -835,7 +835,7 @@ extern "C" {
 }
 mpz_fits! {
     /// See: [`mpz_fits_ushort_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fushort_005fp)
-    fn mpz_fits_ushort_p(c_ushort::max_value());
+    fn mpz_fits_ushort_p(c_ushort::MAX);
 }
 extern "C" {
     /// See: [`mpz_fits_sshort_p`](../C/GMP/constant.Integer_Functions.html#index-mpz_005ffits_005fsshort_005fp)
