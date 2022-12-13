@@ -29,7 +29,8 @@ Version 1.5.0 (unreleased)
         <code>[mpfr][mpfr-1-5]::[inf\_p][mpfr-ip-1-5]</code>,
         <code>[mpfr][mpfr-1-5]::[zero\_p][mpfr-zp-1-5]</code>,
         <code>[mpfr][mpfr-1-5]::[regular\_p][mpfr-rp-1-5]</code>
-      * <code>[mpfr][mpfr-1-5]::[get\_exp][mpfr-ge-1-5]</code>
+      * <code>[mpfr][mpfr-1-5]::[get\_exp][mpfr-ge-1-5]</code>,
+        <code>[mpfr][mpfr-1-5]::[signbit][mpfr-s-1-5]</code>
       * <code>[mpfr][mpfr-1-5]::[VERSION\_NUM][mpfr-vn-1-5]</code>
       * <code>[mpfr][mpfr-1-5]::[custom\_get\_size][mpfr-cgs-1-5]</code>,
         <code>[mpfr][mpfr-1-5]::[custom\_init][mpfr-ci-1-5]</code>,
@@ -85,6 +86,7 @@ Version 1.5.0 (unreleased)
 [mpfr-ip-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.inf_p.html
 [mpfr-np-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.nan_p.html
 [mpfr-rp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.regular_p.html
+[mpfr-s-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.signbit.html
 [mpfr-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.VERSION_NUM.html
 [mpfr-zp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.zero_p.html
 

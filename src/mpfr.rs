@@ -1222,7 +1222,7 @@ extern "C" {
 }
 /// See: [`mpfr_signbit`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsignbit)
 #[inline]
-pub unsafe extern "C" fn signbit(op: mpfr_srcptr) -> c_int {
+pub const unsafe extern "C" fn signbit(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).sign } < 0) as c_int
 }
 /// See: [`mpfr_setsign`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fsetsign)
