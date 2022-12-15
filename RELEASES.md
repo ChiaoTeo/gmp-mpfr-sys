@@ -9,6 +9,7 @@ Version 1.5.0 (unreleased)
 ==========================
 
   * The crate now requires rustc version 1.65.0 or later.
+  * [MPC] was updated from version 1.2.1 to 1.3.1.
   * The following functions are now `const` functions:
       * <code>[gmp][gmp-1-5]::[mpz\_sgn][gmp-zs-1-5]</code>,
         <code>[gmp][gmp-1-5]::[mpq\_sgn][gmp-qs-1-5]</code>,

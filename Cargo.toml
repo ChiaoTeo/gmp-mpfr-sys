@@ -7,7 +7,8 @@
 
 [package]
 name = "gmp-mpfr-sys"
-version = "1.4.12"
+version = "1.5.0-mpc.2"
+publish = false
 edition = "2021"
 rust-version = "1.65"
 description = "Rust FFI bindings for GMP, MPFR and MPC"

@@ -590,8 +590,8 @@ mod tests {
     fn check_version() {
         use crate::tests;
 
-        let (major, minor, patchlevel) = (1, 2, 1);
-        let version = "1.2.1";
+        let (major, minor, patchlevel) = (1, 3, 1);
+        let version = "1.3.1";
 
         assert_eq!(mpc::VERSION_MAJOR, major);
         assert!(mpc::VERSION_MINOR >= minor);
