@@ -88,6 +88,7 @@ const RNDN: c_int = mpfr_rnd_t::RNDN as c_int;
 const RNDZ: c_int = mpfr_rnd_t::RNDZ as c_int;
 const RNDU: c_int = mpfr_rnd_t::RNDU as c_int;
 const RNDD: c_int = mpfr_rnd_t::RNDD as c_int;
+const RNDA: c_int = mpfr_rnd_t::RNDA as c_int;
 
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDNN: c_int = RNDN + (RNDN << 4);
@@ -98,6 +99,8 @@ pub const RNDNU: c_int = RNDN + (RNDU << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDND: c_int = RNDN + (RNDD << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDNA: c_int = RNDN + (RNDA << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDZN: c_int = RNDZ + (RNDN << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDZZ: c_int = RNDZ + (RNDZ << 4);
@@ -105,6 +108,8 @@ pub const RNDZZ: c_int = RNDZ + (RNDZ << 4);
 pub const RNDZU: c_int = RNDZ + (RNDU << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDZD: c_int = RNDZ + (RNDD << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDZA: c_int = RNDZ + (RNDA << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDUN: c_int = RNDU + (RNDN << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
@@ -114,6 +119,8 @@ pub const RNDUU: c_int = RNDU + (RNDU << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDUD: c_int = RNDU + (RNDD << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDUA: c_int = RNDU + (RNDA << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDDN: c_int = RNDD + (RNDN << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDDZ: c_int = RNDD + (RNDZ << 4);
@@ -121,6 +128,18 @@ pub const RNDDZ: c_int = RNDD + (RNDZ << 4);
 pub const RNDDU: c_int = RNDD + (RNDU << 4);
 /// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
 pub const RNDDD: c_int = RNDD + (RNDD << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDDA: c_int = RNDD + (RNDA << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDAN: c_int = RNDA + (RNDN << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDAZ: c_int = RNDA + (RNDZ << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDAU: c_int = RNDA + (RNDU << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDAD: c_int = RNDA + (RNDD << 4);
+/// See: [Rounding Modes](../C/MPC/constant.GNU_MPC_Basics.html#Rounding-Modes)
+pub const RNDAA: c_int = RNDA + (RNDA << 4);
 
 /// See: [`mpc_t`](../C/MPC/constant.GNU_MPC_Basics.html#index-mpc_005ft)
 ///
@@ -134,6 +153,32 @@ pub struct mpc_t {
     pub im: mpfr_t,
 }
 
+/// Experimental struct.
+/// See: [`mpcr_t`](../C/MPC/constant.Ball_Arithmetic.html#index-mpcr_005ft)
+///
+#[doc = include_str!("internal_fields.md")]
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct mpcr_t {
+    /// Internal implementation detail: positive mantissa.
+    pub mant: i64,
+    /// Internal implementation detail: exponent.
+    pub exp: i64,
+}
+
+/// Experimental struct.
+/// See: [`mpcb_t`](../C/MPC/constant.Ball_Arithmetic.html#index-mpcb_005ft)
+///
+#[doc = include_str!("internal_fields.md")]
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct mpcb_t {
+    /// Internal implementation detail: center.
+    pub c: mpc_t,
+    /// Internal implementation detail: radius.
+    pub r: mpcr_t,
+}
+
 // Types for function declarations in this file.
 
 type mpz_srcptr = *const mpz_t;
@@ -144,6 +189,10 @@ type mpfr_srcptr = *const mpfr_t;
 type mpfr_ptr = *mut mpfr_t;
 type mpc_ptr = *mut mpc_t;
 type mpc_srcptr = *const mpc_t;
+type mpcr_ptr = *mut mpcr_t;
+type mpcr_srcptr = *const mpcr_t;
+type mpcb_ptr = *mut mpcb_t;
+type mpcb_srcptr = *const mpcb_t;
 
 extern "C" {
     // Initialization Functions
@@ -480,6 +529,9 @@ extern "C" {
     /// See: [`mpc_rootofunity`](../C/MPC/constant.Complex_Functions.html#index-mpc_005frootofunity)
     #[link_name = "mpc_rootofunity"]
     pub fn rootofunity(rop: mpc_ptr, n: c_ulong, k: c_ulong, rnd: rnd_t) -> c_int;
+    /// See: [`mpc_agm`](../C/MPC/constant.Complex_Functions.html#index-mpc_005fagm)
+    #[link_name = "mpc_agm"]
+    pub fn agm(rop: mpc_ptr, a: mpc_srcptr, b: mpc_srcptr, rnd: rnd_t) -> c_int;
 
     // Trigonometric Functions
 
@@ -529,6 +581,13 @@ extern "C" {
     #[link_name = "mpc_atanh"]
     pub fn atanh(rop: mpc_ptr, op: mpc_srcptr, rnd: rnd_t) -> c_int;
 
+    // Modular Functions
+
+    /// Experimental function.
+    /// See: [`mpc_eta_fund`](../C/MPC/constant.Complex_Functions.html#index-mpc_005feta_005ffund)
+    #[link_name = "mpc_eta_fund"]
+    pub fn eta_fund(rop: mpc_ptr, op: mpc_srcptr, rnd: rnd_t) -> c_int;
+
     // Miscellaneous Functions
 
     /// See: [`mpc_urandom`](../C/MPC/constant.Complex_Functions.html#index-mpc_005furandom)
@@ -552,6 +611,176 @@ pub const VERSION_STRING: *const c_char = MPC_VERSION_STRING;
 #[inline]
 pub const extern "C" fn VERSION_NUM(major: c_int, minor: c_int, patchlevel: c_int) -> c_int {
     (major << 16) | (minor << 8) | patchlevel
+}
+
+extern "C" {
+    // Ball Arithmetic
+
+    // Radius functions
+
+    /// Experimental function.
+    /// See: [`mpcr_inf_p`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005finf_005fp)
+    #[link_name = "mpcr_inf_p"]
+    pub fn mpcr_inf_p(r: mpcr_srcptr) -> c_int;
+    /// Experimental function.
+    /// See: [`mpcr_zero_p`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fzero_005fp)
+    #[link_name = "mpcr_zero_p"]
+    pub fn mpcr_zero_p(r: mpcr_srcptr) -> c_int;
+    /// Experimental function.
+    /// See: [`mpcr_lt_half_p`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005flt_005fhalf_005fp)
+    #[link_name = "mpcr_lt_half_p"]
+    pub fn mpcr_lt_half_p(r: mpcr_srcptr) -> c_int;
+    /// Experimental function.
+    /// See: [`mpcr_cmp`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fcmp)
+    #[link_name = "mpcr_cmp"]
+    pub fn mpcr_cmp(r: mpcr_srcptr, s: mpcr_srcptr) -> c_int;
+    /// Experimental function.
+    /// See: [`mpcr_set_inf`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fset_005finf)
+    #[link_name = "mpcr_set_inf"]
+    pub fn mpcr_set_inf(r: mpcr_ptr);
+    /// Experimental function.
+    /// See: [`mpcr_set_zero`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fset_005fzero)
+    #[link_name = "mpcr_set_zero"]
+    pub fn mpcr_set_zero(r: mpcr_ptr);
+    /// Experimental function.
+    /// See: [`mpcr_set_one`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fset_005f)
+    #[link_name = "mpcr_set_one"]
+    pub fn mpcr_set_one(r: mpcr_ptr);
+    /// Experimental function.
+    /// See: [`mpcr_set`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fset)
+    #[link_name = "mpcr_set"]
+    pub fn mpcr_set(r: mpcr_ptr, s: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_set_ui64_2si64`](../C/MPC/constant.Ball_Arithmetic.html#index-mpcr_005fset_005fui64_005f2si64)
+    #[link_name = "mpcr_set_ui64_2si64"]
+    pub fn mpcr_set_ui64_2si64(r: mpcr_ptr, mant: u64, exp: i64);
+    /// Experimental function.
+    /// See: [`mpcr_max`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fmax)
+    #[link_name = "mpcr_max"]
+    pub fn mpcr_max(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_get_exp`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fget_005fexp)
+    #[link_name = "mpcr_get_exp"]
+    pub fn mpcr_get_exp(r: mpcr_srcptr) -> i64;
+    /// Experimental function.
+    /// See: [`mpcr_out_str`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fout_005fstr)
+    #[link_name = "mpcr_out_str"]
+    pub fn mpcr_out_str(f: *mut FILE, r: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_add`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fadd)
+    #[link_name = "mpcr_add"]
+    pub fn mpcr_add(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_sub`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fsub)
+    #[link_name = "mpcr_sub"]
+    pub fn mpcr_sub(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_mul`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fmul)
+    #[link_name = "mpcr_mul"]
+    pub fn mpcr_mul(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_div`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fdiv)
+    #[link_name = "mpcr_div"]
+    pub fn mpcr_div(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_mul_2ui`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fmul_005f2ui)
+    #[link_name = "mpcr_mul_2ui"]
+    pub fn mpcr_mul_2ui(r: mpcr_ptr, s: mpcr_srcptr, t: c_ulong);
+    /// Experimental function.
+    /// See: [`mpcr_div_2ui`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fdiv_005f2ui)
+    #[link_name = "mpcr_div_2ui"]
+    pub fn mpcr_div_2ui(r: mpcr_ptr, s: mpcr_srcptr, t: c_ulong);
+    /// Experimental function.
+    /// See: [`mpcr_sqr`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fsqr)
+    #[link_name = "mpcr_sqr"]
+    pub fn mpcr_sqr(r: mpcr_ptr, s: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_sqrt`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fsqrt)
+    #[link_name = "mpcr_sqrt"]
+    pub fn mpcr_sqrt(r: mpcr_ptr, s: mpcr_srcptr);
+    /// Experimental function.
+    /// See: [`mpcr_sub_rnd`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fsub_005frnd)
+    #[link_name = "mpcr_sub_rnd"]
+    pub fn mpcr_sub_rnd(r: mpcr_ptr, s: mpcr_srcptr, t: mpcr_srcptr, rnd: mpfr_rnd_t);
+    /// Experimental function.
+    /// See: [`mpcr_c_abs_rnd`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fc_005fabs_005frnd)
+    #[link_name = "mpcr_c_abs_rnd"]
+    pub fn mpcr_c_abs_rnd(r: mpcr_ptr, z: mpcr_srcptr, rnd: mpfr_rnd_t);
+    /// Experimental function.
+    /// See: [`mpcr_add_rounding_error`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcr_005fadd_005frounding_005ferror)
+    #[link_name = "mpcr_add_rounding_error"]
+    pub fn mpcr_add_rounding_error(r: mpcr_ptr, p: prec_t, rnd: mpfr_rnd_t);
+
+    // Ball functions
+
+    /// Experimental function.
+    /// See: [`mpcb_init`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005finit)
+    #[link_name = "mpcb_init"]
+    pub fn mpcb_init(z: mpcb_ptr);
+    /// Experimental function.
+    /// See: [`mpcb_clear`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fclear)
+    #[link_name = "mpcb_clear"]
+    pub fn mpcb_clear(z: mpcb_ptr);
+    /// Experimental function.
+    /// See: [`mpcb_get_prec`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fget_005fprec)
+    #[link_name = "mpcb_get_prec"]
+    pub fn mpcb_get_prec(z: mpcb_srcptr) -> prec_t;
+    /// Experimental function.
+    /// See: [`mpcb_set`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fset)
+    #[link_name = "mpcb_set"]
+    pub fn mpcb_set(z: mpcb_ptr, z1: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_set_inf`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fset_005finf)
+    #[link_name = "mpcb_set_inf"]
+    pub fn mpcb_set_inf(z: mpcb_ptr);
+    /// Experimental function.
+    /// See: [`mpcb_set_c`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fset_005fc)
+    #[link_name = "mpcb_set_c"]
+    pub fn mpcb_set_c(z: mpcb_ptr, c: mpc_srcptr, prec: prec_t, err_re: c_ulong, err_im: c_ulong);
+    /// Experimental function.
+    /// See: [`mpcb_set_ui_ui`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fset_005fui_005fui)
+    #[link_name = "mpcb_set_ui_ui"]
+    pub fn mpcb_set_ui_ui(z: mpcb_ptr, re: c_ulong, im: c_ulong, prec: prec_t);
+    /// Experimental function.
+    /// See: [`mpcb_neg`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fneg)
+    #[link_name = "mpcb_neg"]
+    pub fn mpcb_neg(z: mpcb_ptr, z1: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_add`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fadd)
+    #[link_name = "mpcb_add"]
+    pub fn mpcb_add(z: mpcb_ptr, z1: mpcb_srcptr, z2: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_mul`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fmul)
+    #[link_name = "mpcb_mul"]
+    pub fn mpcb_mul(z: mpcb_ptr, z1: mpcb_srcptr, z2: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_sqr`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fsqr)
+    #[link_name = "mpcb_sqr"]
+    pub fn mpcb_sqr(z: mpcb_ptr, z1: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_pow_ui`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fpow_005fui)
+    #[link_name = "mpcb_pow_ui"]
+    pub fn mpcb_pow_ui(z: mpcb_ptr, z1: mpcb_srcptr, e: c_ulong);
+    /// Experimental function.
+    /// See: [`mpcb_sqrt`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fsqrt)
+    #[link_name = "mpcb_sqrt"]
+    pub fn mpcb_sqrt(z: mpcb_ptr, z1: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_div`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fdiv)
+    #[link_name = "mpcb_div"]
+    pub fn mpcb_div(z: mpcb_ptr, z1: mpcb_srcptr, z2: mpcb_srcptr);
+    /// Experimental function.
+    /// See: [`mpcb_div_2ui`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fdiv_005f2ui)
+    #[link_name = "mpcb_div_2ui"]
+    pub fn mpcb_div_2ui(z: mpcb_ptr, z1: mpcb_srcptr, e: c_ulong);
+    /// Experimental function.
+    /// See: [`mpcb_can_round`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fcan_005fround)
+    #[link_name = "mpcb_can_round"]
+    pub fn mpcb_can_round(z: mpcb_srcptr, prec_re: prec_t, prec_im: prec_t, rnd: rnd_t) -> c_int;
+    /// Experimental function.
+    /// See: [`mpcb_round`](../C/MPC/constant.Basic_Arithmetic.html#index-mpcb_005fround)
+    #[link_name = "mpcb_round"]
+    pub fn mpcb_round(c: mpc_ptr, z: mpcb_srcptr, rnd: rnd_t) -> c_int;
 }
 
 #[cfg(test)]

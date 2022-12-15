@@ -238,6 +238,12 @@ pub mod MPC {
     ///
     /// ---
     /// <div><span id="start"></span></div>
+    #[doc = include_str!("../doc-c/MPC/Ball-Arithmetic.html")]
+    pub const Ball_Arithmetic: () = ();
+    /// This constant is a place-holder for documentation; do not use it in code.
+    ///
+    /// ---
+    /// <div><span id="start"></span></div>
     #[doc = include_str!("../doc-c/MPC/Complex-Functions.html")]
     pub const Complex_Functions: () = ();
     /// This constant is a place-holder for documentation; do not use it in code.
