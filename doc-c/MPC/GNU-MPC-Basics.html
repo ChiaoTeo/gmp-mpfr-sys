@@ -24,6 +24,8 @@ by adding the line
 <h3 class="section">4.1 Nomenclature and Types</h3>
 <span id="index-Complex-number"></span>
 <span id="index-mpc_005ft"></span>
+<span id="index-mpc_005fptr"></span>
+<span id="index-mpc_005fsrcptr"></span>
 <p><em>Complex number</em> or <em>Complex</em> for short, is a pair of two
 arbitrary precision floating-point numbers (for the real and imaginary parts).
 The C data type for such objects is <code>mpc_t</code>.
@@ -90,7 +92,9 @@ life.
 <h3 class="section">4.4 Rounding Modes</h3>
 <p>A complex rounding mode is of the form <code>MPC_RNDxy</code> where
 <code>x</code> and <code>y</code> are one of <code>N</code> (to nearest), <code>Z</code> (towards
-zero), <code>U</code> (towards plus infinity), <code>D</code> (towards minus infinity).
+zero), <code>U</code> (towards plus infinity), <code>D</code> (towards minus infinity),
+<code>A</code> (away from zero, that is, towards plus or minus infinity depending
+on the sign of the number to be rounded).
 The first letter refers to the rounding mode for the real part,
 and the second one for the imaginary part.
 For example <code>MPC_RNDZU</code> indicates to round the real part towards zero,

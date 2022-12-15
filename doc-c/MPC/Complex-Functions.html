@@ -1,7 +1,7 @@
 <div class="chapter" id="Complex-Functions">
 <div class="header">
 <p>
-Next: <a href="constant.References.html#start" accesskey="n" rel="next">References</a>, Previous: <a href="constant.GNU_MPC_Basics.html#start" accesskey="p" rel="prev">GNU MPC Basics</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Ball_Arithmetic.html#start" accesskey="n" rel="next">Ball Arithmetic</a>, Previous: <a href="constant.GNU_MPC_Basics.html#start" accesskey="p" rel="prev">GNU MPC Basics</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Complex-Functions-1"></span><h2 class="chapter">5 Complex Functions</h2>
 <span id="index-Complex-functions"></span>
@@ -32,6 +32,7 @@ different word size.
 <li><a href="#Basic-Arithmetic" accesskey="7">Basic Arithmetic Functions</a></li>
 <li><a href="#Power-Functions-and-Logarithm" accesskey="8">Power Functions and Logarithm</a></li>
 <li><a href="#Trigonometric-Functions" accesskey="9">Trigonometric Functions</a></li>
+<li><a href="#Modular-Functions">Modular Functions</a></li>
 <li><a href="#Miscellaneous-Complex-Functions">Miscellaneous Functions</a></li>
 <li><a href="#Advanced-Functions">Advanced Functions</a></li>
 <li><a href="#Internals">Internals</a></li>
@@ -426,6 +427,15 @@ with real numbers instead of complex numbers, their complexity should
 essentially be the same as with the GNU MPFR library, with only a marginal
 overhead due to the GNU MPC layer.
 </p>
+<p>For functions taking as input an integer argument
+(for example <code>mpc_add_ui</code>), when this argument is zero,
+it is considered as an unsigned (that is, exact in this context)
+zero, and we follow the MPFR conventions:
+(0) + (+0) = +0, (0) - (+0) = -0, (0) - (+0) = -0, (0) - (-0) = +0.
+The same applies for functions taking an argument of type <code>mpfr_t</code>,
+such as <code>mpc_add_fr</code>, of which the imaginary part is considered
+to be an exact, unsigned zero.
+</p>
 <dl class="def">
 <dt id="index-mpc_005fadd"><span class="category">Function: </span><span><em>int</em> <strong>mpc_add</strong> <em>(mpc_t <var>rop</var>, const mpc_t <var>op1</var>, const mpc_t <var>op2</var>, mpc_rnd_t <var>rnd</var>)</em><a href='#index-mpc_005fadd' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpc_005fadd_005fui"><span class="category">Function: </span><span><em>int</em> <strong>mpc_add_ui</strong> <em>(mpc_t <var>rop</var>, const mpc_t <var>op1</var>, unsigned long int <var>op2</var>, mpc_rnd_t <var>rnd</var>)</em><a href='#index-mpc_005fadd_005fui' class='copiable-anchor'> &para;</a></span></dt>
@@ -577,12 +587,22 @@ respectively.
 <em class='math'>exp (2 Pi i k / n)</em>,
 rounded according to <var>rnd</var> with the precision of <var>rop</var>.
 </p></dd></dl>
+<dl class="def">
+<dt id="index-mpc_005fagm"><span class="category">Function: </span><span><em>int</em> <strong>mpc_agm</strong> <em>(mpc_t <var>rop</var>, const mpc_t <var>a</var>, const mpc_t <var>b</var>, mpc_rnd_t <var>rnd</var>)</em><a href='#index-mpc_005fagm' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to the arithmetic-geometric mean (AGM) of <var>a</var> and
+<var>b</var>, rounded according to <var>rnd</var> with the precision of <var>rop</var>.
+Concerning the branch cut, the function is computed by homogeneity either
+as <var>a</var> AGM(1,b0) with b0=<var>b</var>/<var>a</var> if |<var>a</var>|&gt;=|<var>b</var>|,
+or as <var>b</var> AGM(1,b0) with b0=<var>a</var>/<var>b</var> otherwise;
+then when b0 is real and negative, AGM(1,b0) is chosen to have positive
+imaginary part.
+</p></dd></dl>
 <hr>
 </div>
 <div class="section" id="Trigonometric-Functions">
 <div class="header">
 <p>
-Next: <a href="#Miscellaneous-Complex-Functions" accesskey="n" rel="next">Miscellaneous Functions</a>, Previous: <a href="#Power-Functions-and-Logarithm" accesskey="p" rel="prev">Power Functions and Logarithm</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Modular-Functions" accesskey="n" rel="next">Modular Functions</a>, Previous: <a href="#Power-Functions-and-Logarithm" accesskey="p" rel="prev">Power Functions and Logarithm</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Trigonometric-Functions-1"></span><h3 class="section">5.9 Trigonometric Functions</h3>
 <span id="index-Trigonometric-functions"></span>
@@ -626,12 +646,35 @@ The branch cut of <code>mpc_acosh</code> is
 </p></dd></dl>
 <hr>
 </div>
+<div class="section" id="Modular-Functions">
+<div class="header">
+<p>
+Next: <a href="#Miscellaneous-Complex-Functions" accesskey="n" rel="next">Miscellaneous Functions</a>, Previous: <a href="#Trigonometric-Functions" accesskey="p" rel="prev">Trigonometric Functions</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Modular-Functions-1"></span><h3 class="section">5.10 Modular Functions</h3>
+<span id="index-Modular-functions"></span>
+<p>The following function is experimental, not least because it depends on
+the equally experimental ball arithmetic, see <a href="constant.Ball_Arithmetic.html#start">Ball Arithmetic</a>.
+So its prototype may change in future releases, and it may be removed
+altogether.
+</p>
+<dl class="def">
+<dt id="index-mpc_005feta_005ffund"><span class="category">Function: </span><span><em>int</em> <strong>mpc_eta_fund</strong> <em>(mpc_t <var>rop</var>, const mpc_t <var>op</var>, mpc_rnd_t <var>rnd</var>)</em><a href='#index-mpc_005feta_005ffund' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Assuming that the argument <var>op</var> lies in the fundamental domain for
+<em class='math'>Sl_2(Z)</em>, that is, it has real part not below <em class='math'>-1/2</em> and
+not above <em class='math'>+1/2</em> and absolute value at least 1,
+return the value of the Dedekind eta-function in <var>rop</var>.
+For arguments outside the fundamental domain the function is expected to
+loop indefinitely.
+</p></dd></dl>
+<hr>
+</div>
 <div class="section" id="Miscellaneous-Complex-Functions">
 <div class="header">
 <p>
-Next: <a href="#Advanced-Functions" accesskey="n" rel="next">Advanced Functions</a>, Previous: <a href="#Trigonometric-Functions" accesskey="p" rel="prev">Trigonometric Functions</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Advanced-Functions" accesskey="n" rel="next">Advanced Functions</a>, Previous: <a href="#Modular-Functions" accesskey="p" rel="prev">Modular Functions</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Miscellaneous-Functions"></span><h3 class="section">5.10 Miscellaneous Functions</h3>
+<span id="Miscellaneous-Functions"></span><h3 class="section">5.11 Miscellaneous Functions</h3>
 <span id="index-Miscellaneous-complex-functions"></span>
 <dl class="def">
 <dt id="index-mpc_005furandom"><span class="category">Function: </span><span><em>int</em> <strong>mpc_urandom</strong> <em>(mpc_t <var>rop</var>, gmp_randstate_t <var>state</var>)</em><a href='#index-mpc_005furandom' class='copiable-anchor'> &para;</a></span></dt>
@@ -686,7 +729,7 @@ Here is an example of how to check the GNU MPC version at compile time:
 <p>
 Next: <a href="#Internals" accesskey="n" rel="next">Internals</a>, Previous: <a href="#Miscellaneous-Complex-Functions" accesskey="p" rel="prev">Miscellaneous Functions</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Advanced-Functions-1"></span><h3 class="section">5.11 Advanced Functions</h3>
+<span id="Advanced-Functions-1"></span><h3 class="section">5.12 Advanced Functions</h3>
 <dl class="def">
 <dt id="index-MPC_005fSET_005fX_005fY"><span class="category">Macro: </span><span><strong>MPC_SET_X_Y</strong> <em>(<var>real_suffix</var>, <var>imag_suffix</var>, <var>rop</var>, <var>real</var>, <var>imag</var>, <var>rnd</var>)</em><a href='#index-MPC_005fSET_005fX_005fY' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>The macro MPC_SET_X_Y is designed to serve as the body of an assignment
@@ -715,7 +758,7 @@ Value</a>).
 <p>
 Previous: <a href="#Advanced-Functions" accesskey="p" rel="prev">Advanced Functions</a>, Up: <a href="#Complex-Functions" accesskey="u" rel="up">Complex Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Internals-1"></span><h3 class="section">5.12 Internals</h3>
+<span id="Internals-1"></span><h3 class="section">5.13 Internals</h3>
 <p>These macros and
 functions are mainly designed for the implementation of GNU MPC,
 but may be useful for users too.
@@ -730,5 +773,5 @@ of the real and imaginary parts of a complex number.
 <hr>
 <div class="header">
 <p>
-Next: <a href="constant.References.html#start" accesskey="n" rel="next">References</a>, Previous: <a href="constant.GNU_MPC_Basics.html#start" accesskey="p" rel="prev">GNU MPC Basics</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
+Next: <a href="constant.Ball_Arithmetic.html#start" accesskey="n" rel="next">Ball Arithmetic</a>, Previous: <a href="constant.GNU_MPC_Basics.html#start" accesskey="p" rel="prev">GNU MPC Basics</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
