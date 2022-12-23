@@ -781,10 +781,13 @@ pub const unsafe extern "C" fn nan_p(op: mpfr_srcptr) -> c_int {
 pub const unsafe extern "C" fn inf_p(op: mpfr_srcptr) -> c_int {
     (unsafe { (*op).exp } == EXP_INF) as c_int
 }
-extern "C" {
-    /// See: [`mpfr_number_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fnumber_005fp)
-    #[link_name = "mpfr_number_p"]
-    pub fn number_p(op: mpfr_srcptr) -> c_int;
+/// See: [`mpfr_number_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fnumber_005fp)
+#[inline]
+pub const unsafe extern "C" fn number_p(op: mpfr_srcptr) -> c_int {
+    // Note: mpfr_number_p is not a macro in mpfr.h, but in isnum.c it simply returns
+    // MPFR_IS_FP(x), which is a macro defined in mpfr-impl.h as not nan and not inf
+    let exp = unsafe { (*op).exp };
+    (exp != EXP_NAN && exp != EXP_INF) as c_int
 }
 /// See: [`mpfr_zero_p`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fzero_005fp)
 #[inline]
