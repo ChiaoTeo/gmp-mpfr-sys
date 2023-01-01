@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright © 2017–2022 Trevor Spiteri
+# Copyright © 2017–2023 Trevor Spiteri
 
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
