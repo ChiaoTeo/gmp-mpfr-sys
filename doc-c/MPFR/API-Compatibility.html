@@ -128,9 +128,13 @@ Next: <a href="#Changed-Functions" accesskey="n" rel="next">Changed Functions</a
 that were added after MPFR&nbsp;2.2, and in which MPFR version.
 </p>
 <ul>
-<li> <code>mpfr_add_d</code> in MPFR&nbsp;2.4.
+<li> <code>mpfr_acospi</code> and <code>mpfr_acosu</code> in MPFR&nbsp;4.2.
+</li><li> <code>mpfr_add_d</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_ai</code> in MPFR&nbsp;3.0 (incomplete, experimental).
+</li><li> <code>mpfr_asinpi</code> and <code>mpfr_asinu</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_asprintf</code> in MPFR&nbsp;2.4.
+</li><li> <code>mpfr_atan2pi</code> and <code>mpfr_atan2u</code> in MPFR&nbsp;4.2.
+</li><li> <code>mpfr_atanpi</code> and <code>mpfr_atanu</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_beta</code> in MPFR&nbsp;4.0 (incomplete, experimental).
 </li><li> <code>mpfr_buildopt_decimal_p</code> in MPFR&nbsp;3.0.
 </li><li> <code>mpfr_buildopt_float128_p</code> in MPFR&nbsp;4.0.
@@ -141,11 +145,13 @@ that were added after MPFR&nbsp;2.2, and in which MPFR version.
 </li><li> <code>mpfr_clear_divby0</code> in MPFR&nbsp;3.1
 (new divide-by-zero exception).
 </li><li> <code>mpfr_cmpabs_ui</code> in MPFR&nbsp;4.1.
+</li><li> <code>mpfr_compound_si</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_copysign</code> in MPFR&nbsp;2.3.
 Note: MPFR&nbsp;2.2 had a <code>mpfr_copysign</code> function that was available,
 but not documented,
 and with a slight difference in the semantics (when
 the second input operand is a NaN).
+</li><li> <code>mpfr_cospi</code> and <code>mpfr_cosu</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_custom_get_significand</code> in MPFR&nbsp;3.0.
 This function was named <code>mpfr_custom_get_mantissa</code> in previous
 versions; <code>mpfr_custom_get_mantissa</code> is still available via a
@@ -162,12 +168,14 @@ use <code>mpfr_custom_get_mantissa</code>.
 </li><li> <code>mpfr_div_d</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_dot</code> in MPFR&nbsp;4.1 (incomplete, experimental).
 </li><li> <code>mpfr_erandom</code> in MPFR&nbsp;4.0.
+</li><li> <code>mpfr_exp2m1</code> and <code>mpfr_exp10m1</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_flags_clear</code>, <code>mpfr_flags_restore</code>,
 <code>mpfr_flags_save</code>, <code>mpfr_flags_set</code> and <code>mpfr_flags_test</code>
 in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_fmma</code> and <code>mpfr_fmms</code> in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_fmod</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_fmodquo</code> in MPFR&nbsp;4.0.
+</li><li> <code>mpfr_fmod_ui</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_fms</code> in MPFR&nbsp;2.3.
 </li><li> <code>mpfr_fpif_export</code> and <code>mpfr_fpif_import</code> in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_fprintf</code> in MPFR&nbsp;2.4.
@@ -193,6 +201,7 @@ use <code>mpfr_get_z_exp</code>.
 </p>
 </li><li> <code>mpfr_grandom</code> in MPFR&nbsp;3.1.
 </li><li> <code>mpfr_j0</code>, <code>mpfr_j1</code> and <code>mpfr_jn</code> in MPFR&nbsp;2.3.
+</li><li> <code>mpfr_log2p1</code> and <code>mpfr_log10p1</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_lgamma</code> in MPFR&nbsp;2.3.
 </li><li> <code>mpfr_li2</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_log_ui</code> in MPFR&nbsp;4.0.
@@ -201,12 +210,14 @@ use <code>mpfr_get_z_exp</code>.
 </li><li> <code>mpfr_mp_memory_cleanup</code> in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_mul_d</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_nrandom</code> in MPFR&nbsp;4.0.
+</li><li> <code>mpfr_powr</code>, <code>mpfr_pown</code>, <code>mpfr_pow_sj</code> and <code>mpfr_pow_uj</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_printf</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_rec_sqrt</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_regular_p</code> in MPFR&nbsp;3.0.
 </li><li> <code>mpfr_remainder</code> and <code>mpfr_remquo</code> in MPFR&nbsp;2.3.
 </li><li> <code>mpfr_rint_roundeven</code> and <code>mpfr_roundeven</code> in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_round_nearest_away</code> in MPFR&nbsp;4.0.
+</li><li> <code>mpfr_rootn_si</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_rootn_ui</code> in MPFR&nbsp;4.0.
 </li><li> <code>mpfr_set_decimal128</code> in MPFR&nbsp;4.1.
 </li><li> <code>mpfr_set_divby0</code> in MPFR&nbsp;3.1 (new divide-by-zero exception).
@@ -218,8 +229,10 @@ use <code>mpfr_get_z_exp</code>.
 </li><li> <code>mpfr_setsign</code> in MPFR&nbsp;2.3.
 </li><li> <code>mpfr_signbit</code> in MPFR&nbsp;2.3.
 </li><li> <code>mpfr_sinh_cosh</code> in MPFR&nbsp;2.4.
+</li><li> <code>mpfr_sinpi</code> and <code>mpfr_sinu</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_snprintf</code> and <code>mpfr_sprintf</code> in MPFR&nbsp;2.4.
 </li><li> <code>mpfr_sub_d</code> in MPFR&nbsp;2.4.
+</li><li> <code>mpfr_tanpi</code> and <code>mpfr_tanu</code> in MPFR&nbsp;4.2.
 </li><li> <code>mpfr_total_order_p</code> in MPFR&nbsp;4.1.
 </li><li> <code>mpfr_urandom</code> in MPFR&nbsp;3.0.
 </li><li> <code>mpfr_vasprintf</code>, <code>mpfr_vfprintf</code>, <code>mpfr_vprintf</code>,
@@ -248,7 +261,10 @@ is empty: trailing zeros were not output with the conversion specifier
 it depended on the input value), and also on the value zero with the
 conversion specifiers &lsquo;<samp>f</samp>&rsquo; / &lsquo;<samp>F</samp>&rsquo; / &lsquo;<samp>g</samp>&rsquo; / &lsquo;<samp>G</samp>&rsquo; (this
 could partly be regarded as a bug); they are now kept in a way similar
-to the formatted output functions from C.
+to the formatted output functions from C. Moreover, the case where the
+precision consists only of a period has been fixed in MPFR&nbsp;4.2 to
+be like &lsquo;<samp>.0</samp>&rsquo; as specified in the ISO C standard (it previously
+behaved as a missing precision).
 </li><li> <code>mpfr_abs</code>, <code>mpfr_neg</code> and <code>mpfr_set</code> changed in
 MPFR&nbsp;4.0.
 In previous MPFR versions, the sign bit of a NaN was unspecified; however,
@@ -284,18 +300,18 @@ C code using <code>mpfr_get_z</code> as the second or third term of
 a conditional operator may also be affected. For instance, the
 following is correct with MPFR&nbsp;3.0, but not with MPFR&nbsp;2.x:
 <div class="example">
-<pre class="example">  bool ? mpfr_get_z(...) : mpfr_add(...);
+<pre class="example">bool ? mpfr_get_z(...) : mpfr_add(...);
 </pre></div>
 <p>On the other hand, the following is correct with MPFR&nbsp;2.x, but not
 with MPFR&nbsp;3.0:
 </p><div class="example">
-<pre class="example">  bool ? mpfr_get_z(...) : (void) mpfr_add(...);
+<pre class="example">bool ? mpfr_get_z(...) : (void) mpfr_add(...);
 </pre></div>
 <p>Portable code should cast <code>mpfr_get_z(...)</code> to <code>void</code> to
 use the type <code>void</code> for both terms of the conditional operator,
 as in:
 </p><div class="example">
-<pre class="example">  bool ? (void) mpfr_get_z(...) : (void) mpfr_add(...);
+<pre class="example">bool ? (void) mpfr_get_z(...) : (void) mpfr_add(...);
 </pre></div>
 <p>Alternatively, <code>if ... else</code> can be used instead of the
 conditional operator.

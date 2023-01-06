@@ -55,8 +55,9 @@ different version, please follow the steps below.
 <li> To build MPFR, you first have to install GNU MP (version 5.0.0 or higher)
 on your computer.
 You need a C compiler, preferably GCC, but any reasonable compiler should
-work.  And you need the standard Unix &lsquo;<samp>make</samp>&rsquo; command, plus some other
-standard Unix utility commands.
+work (C++ compilers should work too, under the condition that they do not
+break type punning via union).  And you need the standard Unix &lsquo;<samp>make</samp>&rsquo;
+command, plus some other standard Unix utility commands.
 <p>Then, in the MPFR build directory, type the following commands.
 </p>
 </li><li> &lsquo;<samp>./configure</samp>&rsquo;
@@ -142,7 +143,7 @@ specific to MPFR). Problems are also mentioned in the FAQ
 <p>Please report problems to the MPFR mailing-list &lsquo;<samp>mpfr@inria.fr</samp>&rsquo;.
 See <a href="constant.Reporting_Bugs.html#start">Reporting Bugs</a>.
 Some bug fixes are available on the
-MPFR&nbsp;4.1.1 web page <a href="https://www.mpfr.org/mpfr-4.1.1/">https://www.mpfr.org/mpfr-4.1.1/</a>.
+MPFR&nbsp;4.2.0 web page <a href="https://www.mpfr.org/mpfr-4.2.0/">https://www.mpfr.org/mpfr-4.2.0/</a>.
 </p>
 </div>
 <div class="section" id="Getting-the-Latest-Version-of-MPFR">

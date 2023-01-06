@@ -120,6 +120,7 @@ Next: <a href="#MPFR-Variable-Conventions" accesskey="n" rel="next">MPFR Variabl
 <span id="index-Regular-number"></span>
 <span id="index-mpfr_005ft"></span>
 <span id="index-mpfr_005fptr"></span>
+<span id="index-mpfr_005fsrcptr"></span>
 <p>A <em>floating-point number</em>, or <em>float</em> for short, is an object
 representing a radix-2 floating-point number consisting of a sign,
 an arbitrary-precision normalized significand (also called mantissa),
@@ -145,7 +146,8 @@ are some minor differences.
 as a one-element array of a structure (so that when passed as an
 argument to a function, it is the pointer that is actually passed),
 and <code>mpfr_ptr</code> is the C data type representing a pointer to this
-structure.
+structure; <code>mpfr_srcptr</code> is like <code>mpfr_ptr</code>, but the structure
+is read-only (i.e., const qualified).
 </p>
 <span id="index-Precision"></span>
 <span id="index-mpfr_005fprec_005ft"></span>
@@ -567,7 +569,8 @@ Previous: <a href="#Memory-Handling" accesskey="p" rel="prev">Memory Handling</a
 </li><li> use <code>mpfr_swap</code> instead of <code>mpfr_set</code> whenever possible.
       This will avoid copying the significands;
 </li><li> avoid using MPFR from C++, or make sure your C++ interface does not
-      perform unnecessary allocations or copies;
+      perform unnecessary allocations or copies. Slowdowns of up to a
+      factor 15 have been observed on some applications with a C++ interface;
 </li><li> MPFR functions work in-place: to compute <code>a = a + b</code> you don&rsquo;t
       need an auxiliary variable, you can directly write
       <code>mpfr_add (a, a, b, ...)</code>.

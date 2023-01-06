@@ -163,10 +163,10 @@ and deallocated when the brace-level is exited).
 macro.
 </li><li> Your compiler must support &lsquo;<samp>Non-Constant Initializers</samp>&rsquo; (standard
 in C++ and ISO C99) and &lsquo;<samp>Token Pasting</samp>&rsquo;
-(standard in ISO C89). If <var>prec</var> is not a constant expression, your
+(standard in ISO C90). If <var>prec</var> is not a constant expression, your
 compiler must support &lsquo;<samp>variable-length automatic arrays</samp>&rsquo; (standard
 in ISO C99). GCC 2.95.3 and above supports all these features.
-If you compile your program with GCC in C89 mode and with &lsquo;<samp>-pedantic</samp>&rsquo;,
+If you compile your program with GCC in C90 mode and with &lsquo;<samp>-pedantic</samp>&rsquo;,
 you may want to define the <code>MPFR_USE_EXTENSION</code> macro to avoid warnings
 due to the <code>MPFR_DECL_INIT</code> implementation.
 </li></ul>
@@ -277,7 +277,8 @@ to use <code>mpfr_set_float128</code>, one should define the macro
 If the system does not support the IEEE&nbsp;754 standard,
 <code>mpfr_set_flt</code>, <code>mpfr_set_d</code>, <code>mpfr_set_ld</code>,
 <code>mpfr_set_decimal64</code> and <code>mpfr_set_decimal128</code>
-might not preserve the signed zeros.
+might not preserve the signed zeros
+(and in any case they don&rsquo;t preserve the sign bit of NaN).
 The <code>mpfr_set_decimal64</code> and <code>mpfr_set_decimal128</code>
 functions are built only with the configure
 option &lsquo;<samp>--enable-decimal-float</samp>&rsquo;, and when the compiler or
@@ -469,8 +470,9 @@ Next: <a href="#Arithmetic-Functions" accesskey="n" rel="next">Arithmetic Functi
 <dd><p>Convert <var>op</var> to a <code>float</code> (respectively <code>double</code>,
 <code>long double</code>, <code>_Decimal64</code>, or <code>_Decimal128</code>)
 using the rounding mode <var>rnd</var>.
-If <var>op</var> is NaN, some fixed NaN (either quiet or signaling) or the result
-of 0.0/0.0 is returned. If <var>op</var> is ±Inf, an infinity of the same
+If <var>op</var> is NaN, some NaN (either quiet or signaling) or the result
+of 0.0/0.0 is returned (the sign bit is not preserved).
+If <var>op</var> is ±Inf, an infinity of the same
 sign or the result of ±1.0/0.0 is returned. If <var>op</var> is zero, these
 functions return a zero, trying to preserve its sign, if possible.
 The <code>mpfr_get_float128</code>, <code>mpfr_get_decimal64</code> and
@@ -726,6 +728,8 @@ direction <var>rnd</var>.
 When a result is zero, its sign is the product of the signs of the operands
 (for types having no signed zeros, 0 is considered positive).
 The same restrictions as for <code>mpfr_add_d</code> apply to <code>mpfr_mul_d</code>.
+Note: when <var>op1</var> and <var>op2</var> are equal, use <code>mpfr_sqr</code> instead of
+<code>mpfr_mul</code> for better efficiency.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fsqr"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_sqr</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fsqr' class='copiable-anchor'> &para;</a></span></dt>
@@ -757,7 +761,8 @@ and <code>mpfr_div_d</code>.
 <dd><p>Set <var>rop</var> to the square root of <var>op</var>
 rounded in the direction <var>rnd</var>.  Set <var>rop</var> to -0 if
 <var>op</var> is -0, to be consistent with the IEEE&nbsp;754 standard
-(thus this differs from <code>mpfr_rootn_ui</code> with <var>n</var>&nbsp;=&nbsp;2<!-- /@w -->).
+(thus this differs from <code>mpfr_rootn_ui</code> and <code>mpfr_rootn_si</code>
+with <var>n</var>&nbsp;=&nbsp;2<!-- /@w -->).
 Set <var>rop</var> to NaN if <var>op</var> is negative.
 </p></dd></dl>
 <dl class="def">
@@ -767,11 +772,13 @@ rounded in the direction <var>rnd</var>.  Set <var>rop</var> to +Inf if <var>op<
 ±0, +0 if <var>op</var> is +Inf, and NaN if <var>op</var> is negative.
 Warning!  Therefore the result on -0 is different from the one of the
 rSqrt function recommended by the IEEE&nbsp;754 standard (Section&nbsp;9.2.1),
-which is -Inf instead of +Inf.
+which is -Inf instead of +Inf. However, <code>mpfr_rec_sqrt</code> is
+equivalent to <code>mpfr_rootn_si</code> with <var>n</var>&nbsp;=&nbsp;-2<!-- /@w -->.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fcbrt"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_cbrt</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fcbrt' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005frootn_005fui"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_rootn_ui</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>n</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005frootn_005fui' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005frootn_005fsi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_rootn_si</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, long int <var>n</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005frootn_005fsi' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to the <var>n</var>th root (with <var>n</var>&nbsp;=&nbsp;3<!-- /@w -->, the cubic root,
 for <code>mpfr_cbrt</code>) of <var>op</var> rounded in the direction <var>rnd</var>.
 For <var>n</var>&nbsp;=&nbsp;0<!-- /@w -->, set <var>rop</var> to NaN.
@@ -782,8 +789,6 @@ usual limit rules, i.e., the same sign as <var>op</var> if <var>n</var> is odd, 
 positive if <var>n</var> is even.
 </p>
 <p>These functions agree with the rootn operation of the IEEE&nbsp;754 standard.
-Note that it is here restricted to <var>n</var>&nbsp;&gt;=&nbsp;0<!-- /@w -->. Functions
-allowing a negative <var>n</var> may be implemented in the future.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005froot"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_root</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>n</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005froot' class='copiable-anchor'> &para;</a></span></dt>
@@ -842,7 +847,7 @@ when <var>rop</var> and <var>op1</var> are identical.
 <dt id="index-mpfr_005ffma"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fma</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_t <var>op3</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffma' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005ffms"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fms</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_t <var>op3</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffms' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;+&nbsp;<var>op3</var><!-- /@w -->
-(resp. (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;<span class="nolinebreak">-</span>&nbsp;<var>op3</var><!-- /@w -->)
+(resp. (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;-&nbsp;<var>op3</var><!-- /@w -->)
 rounded in the direction <var>rnd</var>.  Concerning special values (signed zeros,
 infinities, NaN), these functions behave like a multiplication followed by a
 separate addition or subtraction.  That is, the fused operation matters only
@@ -1036,7 +1041,8 @@ some functions on some particular inputs might be very hard to round
 (i.e. the Table Maker&rsquo;s Dilemma occurs in much larger precisions than
 normally expected from the context), meaning that the internal precision
 needs to be increased even more; but it is conjectured that the needed
-precision has a reasonable bound.
+precision has a reasonable bound (and in particular, that potentially
+exact cases are known and can be detected efficiently).
 </p>
 <dl class="def">
 <dt id="index-mpfr_005flog"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_log</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005flog' class='copiable-anchor'> &para;</a></span></dt>
@@ -1054,8 +1060,11 @@ Set <var>rop</var> to -Inf if <var>op</var> is ±0
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005flog1p"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_log1p</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005flog1p' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Set <var>rop</var> to the logarithm of one plus <var>op</var>,
-rounded in the direction <var>rnd</var>.
+<dt id="index-mpfr_005flog2p1"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_log2p1</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005flog2p1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005flog10p1"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_log10p1</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005flog10p1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to the logarithm of one plus <var>op</var> (in radix two for
+<code>mpfr_log2p1</code>, and in radix ten for <code>mpfr_log10p1</code>), rounded in the
+direction <var>rnd</var>.
 Set <var>rop</var> to -Inf if <var>op</var> is -1.
 </p></dd></dl>
 <dl class="def">
@@ -1069,18 +1078,34 @@ rounded in the direction <var>rnd</var>.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fexpm1"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_expm1</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fexpm1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fexp2m1"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_exp2m1</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fexp2m1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fexp10m1"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_exp10m1</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fexp10m1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to the exponential of <var>op</var> followed by a
-subtraction by one, rounded in the direction <var>rnd</var>.
+subtraction by one
+(resp. 2 power of <var>op</var> followed by a
+subtraction by one,
+and 10 power of <var>op</var> followed by a subtraction by one),
+rounded in the direction <var>rnd</var>.
 </p></dd></dl>
 <span id="mpfr_005fpow"></span><dl class="def">
 <dt id="index-mpfr_005fpow"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fpowr"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_powr</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpowr' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fpow_005fui"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow_ui</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, unsigned long int <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow_005fui' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fpow_005fsi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow_si</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, long int <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow_005fsi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fpow_005fuj"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow_uj</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, uintmax_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow_005fuj' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fpow_005fsj"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow_sj</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, intmax_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow_005fsj' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fpown"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pown</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, intmax_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpown' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fpow_005fz"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_pow_z</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpz_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fpow_005fz' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fui_005fpow_005fui"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_ui_pow_ui</strong> <em>(mpfr_t <var>rop</var>, unsigned long int <var>op1</var>, unsigned long int <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fui_005fpow_005fui' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fui_005fpow"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_ui_pow</strong> <em>(mpfr_t <var>rop</var>, unsigned long int <var>op1</var>, mpfr_t <var>op2</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fui_005fpow' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to <var>op1</var> raised to <var>op2</var>,
 rounded in the direction <var>rnd</var>.
+The <code>mpfr_powr</code> function corresponds to the <code>powr</code> function
+from IEEE&nbsp;754, i.e., it computes the exponential of
+<var>op2</var> multiplied by the logarithm of <var>op1</var>.
+The <code>mpfr_pown</code> function is just an alias for <code>mpfr_pow_sj</code>
+(defined with <code>#define mpfr_pown mpfr_pow_sj</code>), to follow the
+C2x function <code>pown</code>.
 Special values are handled as described in the ISO C99 and IEEE&nbsp;754
 standards for the <code>pow</code> function:
 </p><ul>
@@ -1105,11 +1130,42 @@ We do not use the usual limit rules in this case, as these rules are not
 used for <code>pow</code>.
 </p></dd></dl>
 <dl class="def">
+<dt id="index-mpfr_005fcompound_005fsi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_compound_si</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, long int <var>n</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fcompound_005fsi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to the power <var>n</var> of one plus <var>op</var>,
+following IEEE&nbsp;754 for the special cases and exceptions.
+When <var>n</var> is zero and <var>op</var> is NaN or greater or equal to -1,
+<var>rop</var> is set to 1.
+</p></dd></dl>
+<dl class="def">
 <dt id="index-mpfr_005fcos"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_cos</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fcos' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fsin"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_sin</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fsin' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005ftan"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_tan</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ftan' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to the cosine of <var>op</var>, sine of <var>op</var>,
 tangent of <var>op</var>, rounded in the direction <var>rnd</var>.
+</p></dd></dl>
+<dl class="def">
+<dt id="index-mpfr_005fcosu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_cosu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fcosu' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fsinu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_sinu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fsinu' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005ftanu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_tanu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ftanu' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to the cosine (resp. sine and tangent) of
+<var>op</var> multiplied by 2&nbsp;Pi and divided
+by <var>u</var>. For example, if <var>u</var> equals 360, one gets the cosine
+(resp. sine and tangent) for <var>op</var> in degrees. For <code>mpfr_cosu</code>, when
+<var>op</var> multiplied by 2 and divided by <var>u</var>
+is a half-integer, the result is +0, following IEEE&nbsp;754 (cosPi),
+so that the function is even. For <code>mpfr_sinu</code>, when
+<var>op</var> multiplied by 2 and divided by <var>u</var>
+is an integer, the result is zero with the same sign as <var>op</var>, following
+IEEE&nbsp;754 (sinPi), so that the function is odd.
+Similarly, the function <code>mpfr_tanu</code> follows IEEE&nbsp;754 (tanPi).
+</p></dd></dl>
+<dl class="def">
+<dt id="index-mpfr_005fcospi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_cospi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fcospi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fsinpi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_sinpi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fsinpi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005ftanpi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_tanpi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ftanpi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to the cosine (resp. sine and tangent) of
+<var>op</var> multiplied by Pi. See the description of
+<code>mpfr_sinu</code>, <code>mpfr_cosu</code> and <code>mpfr_tanu</code> for special values.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fsin_005fcos"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_sin_cos</strong> <em>(mpfr_t <var>sop</var>, mpfr_t <var>cop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fsin_005fcos' class='copiable-anchor'> &para;</a></span></dt>
@@ -1145,9 +1201,28 @@ The same holds for <code>asin(-1)</code>, <code>asin(1)</code>, <code>atan(-Inf)
 small precision of <var>rop</var>.
 </p></dd></dl>
 <dl class="def">
+<dt id="index-mpfr_005facosu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_acosu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005facosu' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fasinu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_asinu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fasinu' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fatanu"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_atanu</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fatanu' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to <var>a</var> multiplied
+by <var>u</var> and divided by 2&nbsp;Pi, where <var>a</var> is the arc-cosine
+(resp. arc-sine and arc-tangent) of <var>op</var>.
+For example, if <var>u</var> equals 360, <code>mpfr_acosu</code> yields the arc-cosine in
+degrees.
+</p></dd></dl>
+<dl class="def">
+<dt id="index-mpfr_005facospi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_acospi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005facospi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fasinpi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_asinpi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fasinpi' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fatanpi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_atanpi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fatanpi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set <var>rop</var> to <code>acos(<var>op</var>)</code> (resp. <code>asin(<var>op</var>)</code> and
+<code>atan(<var>op</var>)</code>) divided by Pi.
+</p></dd></dl>
+<dl class="def">
 <dt id="index-mpfr_005fatan2"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_atan2</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>y</var>, mpfr_t <var>x</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fatan2' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>Set <var>rop</var> to the arc-tangent2 of <var>y</var> and <var>x</var>,
-rounded in the direction <var>rnd</var>:
+<dt id="index-mpfr_005fatan2u"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_atan2u</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>y</var>, mpfr_t <var>x</var>, unsigned long int <var>u</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fatan2u' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005fatan2pi"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_atan2pi</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>y</var>, mpfr_t <var>x</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fatan2pi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>For <code>mpfr_atan2</code>, set <var>rop</var> to the arc-tangent2 of <var>y</var> and
+<var>x</var>, rounded in the direction <var>rnd</var>:
 if <var>x</var>&nbsp;&gt;&nbsp;0<!-- /@w -->, then <code>atan2(<var>y</var>, <var>x</var>)</code> returns
 atan(<var>y</var>/<var>x</var>)<!-- /@w -->;
 if <var>x</var>&nbsp;&lt;&nbsp;0<!-- /@w -->, then <code>atan2(<var>y</var>, <var>x</var>)</code> returns
@@ -1157,6 +1232,11 @@ thus a number from -Pi to Pi.
 As for <code>atan</code>, in case the exact mathematical result is +Pi or
 -Pi,
 its rounded result might be outside the function output range.
+The function <code>mpfr_atan2u</code> behaves similarly, except the result is
+multiplied by <var>u</var> and divided by 2&nbsp;Pi; and
+<code>mpfr_atan2pi</code> is the same as <code>mpfr_atan2u</code> with <var>u</var>&nbsp;=&nbsp;2<!-- /@w -->.
+For example, if <var>u</var> equals 360, <code>mpfr_atan2u</code> returns the
+arc-tangent in degrees, with values from -180 to 180.
 </p>
 <p><code>atan2(<var>y</var>, 0)</code> does not raise any floating-point exception.
 Special values are handled as described in the ISO C99 and IEEE&nbsp;754
@@ -1232,8 +1312,8 @@ at -<var>op</var> (formula 5.1.1 from the same reference).
 <dt id="index-mpfr_005fli2"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_li2</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fli2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to real part of the dilogarithm of <var>op</var>, rounded in the
 direction <var>rnd</var>. MPFR defines the dilogarithm function as
-the integral of -log(1-t)/t from 0
-to <var>op</var>.
+the integral of
+-log(1-t)/t from 0 to <var>op</var>.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fgamma"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_gamma</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
@@ -1507,7 +1587,7 @@ The conversion specification is of the form:
 <pre class="example">% [flags] [width] [.[precision]] [type] [rounding] conv
 </pre></div>
 <p>&lsquo;<samp>flags</samp>&rsquo;, &lsquo;<samp>width</samp>&rsquo;, and &lsquo;<samp>precision</samp>&rsquo; have the same meaning as for
-the standard <code>printf</code> (in particular, notice that the &lsquo;<samp>precision</samp>&rsquo; is
+the standard <code>printf</code> (in particular, notice that the precision is
 related to the number of digits displayed in the base chosen by &lsquo;<samp>conv</samp>&rsquo;
 and not related to the internal precision of the <code>mpfr_t</code> variable), but
 note that for &lsquo;<samp>Re</samp>&rsquo;, the default precision is not the same as the one for
@@ -1567,8 +1647,8 @@ the &lsquo;<samp>type</samp>&rsquo; specifier &lsquo;<samp>R</samp>&rsquo; (i.e.
 to a <code>mpfr_prec_t</code> argument.
 It is needed because the <code>mpfr_prec_t</code> type does not necessarily
 correspond to an <code>int</code> or any fixed standard type.
-The &lsquo;<samp>precision</samp>&rsquo; field specifies the minimum number of digits to
-appear. The default &lsquo;<samp>precision</samp>&rsquo; is 1.
+The &lsquo;<samp>precision</samp>&rsquo; value specifies the minimum number of digits to
+appear. The default precision is 1.
 For example:
 </p><div class="example">
 <pre class="example">mpfr_t x;
@@ -1633,10 +1713,14 @@ for &lsquo;<samp>a</samp>&rsquo;, &lsquo;<samp>b</samp>&rsquo;, &lsquo;<samp>e</
 &lsquo;<samp>G</samp>&rsquo; specifiers.
 </p>
 <p>The <code>mpfr_t</code> number is rounded to the given precision in the direction
-specified by the rounding mode (see below if the &lsquo;<samp>precision</samp>&rsquo; field is
-empty).
+specified by the rounding mode (see below if the precision is missing).
+Similarly to the native C types, the precision is the number of digits output
+after the decimal-point character, except for the &lsquo;<samp>g</samp>&rsquo; and &lsquo;<samp>G</samp>&rsquo;
+conversion specifiers, where it is the number of significant digits
+(but trailing zeros of the fractional part are not output by default),
+or 1 if the precision is zero.
 If the precision is zero with rounding to nearest mode and one of the
-following &lsquo;<samp>conv</samp>&rsquo; specifiers: &lsquo;<samp>a</samp>&rsquo;, &lsquo;<samp>A</samp>&rsquo;, &lsquo;<samp>b</samp>&rsquo;, &lsquo;<samp>e</samp>&rsquo;,
+following conversion specifiers: &lsquo;<samp>a</samp>&rsquo;, &lsquo;<samp>A</samp>&rsquo;, &lsquo;<samp>b</samp>&rsquo;, &lsquo;<samp>e</samp>&rsquo;,
 &lsquo;<samp>E</samp>&rsquo;, tie case is rounded to even when it lies between two consecutive
 values at the
 wanted precision which have the same exponent, otherwise, it is rounded away
@@ -1648,19 +1732,20 @@ uses the &lsquo;<samp>e</samp>&rsquo; (resp. &lsquo;<samp>E</samp>&rsquo;) style
 If the precision is set to a value greater than the maximum value for an
 <code>int</code>, it will be silently reduced down to <code>INT_MAX</code>.
 </p>
-<p>If the &lsquo;<samp>precision</samp>&rsquo; field is empty with &lsquo;<samp>conv</samp>&rsquo; specifier &lsquo;<samp>e</samp>&rsquo;
-and &lsquo;<samp>E</samp>&rsquo; (as in <code>%Re</code> or <code>%.RE</code>), the chosen precision
-(i.e., the number of digits to be displayed after the initial digit and
-the decimal point) is
+<p>If the precision is missing, it is chosen as follows, depending on the
+conversion specifier.
+</p><ul>
+<li> With &lsquo;<samp>a</samp>&rsquo;, &lsquo;<samp>A</samp>&rsquo;, and &lsquo;<samp>b</samp>&rsquo;, it is chosen to have
+an exact representation with no trailing zeros.
+</li><li> With &lsquo;<samp>e</samp>&rsquo; and &lsquo;<samp>E</samp>&rsquo;, it is
 ceil(p times
 log(2)/log(10)),
 where p<!-- /@w --> is the precision of the input variable, matching the choice
 done for <code>mpfr_get_str</code>; thus, if rounding to nearest is used,
-outputting the value with an empty &lsquo;<samp>precision</samp>&rsquo; field and reading it
-back will yield the original value.
-The chosen precision for an empty &lsquo;<samp>precision</samp>&rsquo; field with &lsquo;<samp>conv</samp>&rsquo;
-specifiers &lsquo;<samp>f</samp>&rsquo;, &lsquo;<samp>F</samp>&rsquo;, &lsquo;<samp>g</samp>&rsquo;, and &lsquo;<samp>G</samp>&rsquo; is 6.
-</p>
+outputting the value with a missing precision and reading it back will
+yield the original value.
+</li><li> With &lsquo;<samp>f</samp>&rsquo;, &lsquo;<samp>F</samp>&rsquo;, &lsquo;<samp>g</samp>&rsquo;, and &lsquo;<samp>G</samp>&rsquo;, it is 6.
+</li></ul>
 </div>
 <div class="subsection" id="Functions">
 <h4 class="subsection">5.9.3 Functions</h4>
@@ -1841,13 +1926,14 @@ corresponding precision of <var>iop</var> and <var>fop</var> (equivalent to
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005ffmod"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fmod</strong> <em>(mpfr_t <var>r</var>, mpfr_t <var>x</var>, mpfr_t <var>y</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffmod' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-mpfr_005ffmod_005fui"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fmod_ui</strong> <em>(mpfr_t <var>r</var>, mpfr_t <var>x</var>, unsigned long int <var>y</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffmod_005fui' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005ffmodquo"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fmodquo</strong> <em>(mpfr_t <var>r</var>, long int* <var>q</var>, mpfr_t <var>x</var>, mpfr_t <var>y</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffmodquo' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fremainder"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_remainder</strong> <em>(mpfr_t <var>r</var>, mpfr_t <var>x</var>, mpfr_t <var>y</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fremainder' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005fremquo"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_remquo</strong> <em>(mpfr_t <var>r</var>, long int* <var>q</var>, mpfr_t <var>x</var>, mpfr_t <var>y</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fremquo' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>r</var> to the value of <var>x</var>&nbsp;-&nbsp;<var>n</var><var>y</var><!-- /@w -->, rounded
 according to the direction <var>rnd</var>, where <var>n</var> is the integer quotient
 of <var>x</var> divided by <var>y</var>, defined as follows: <var>n</var> is rounded
-toward zero for <code>mpfr_fmod</code> and <code>mpfr_fmodquo</code>,
+toward zero for <code>mpfr_fmod</code>, <code>mpfr_fmod_ui</code> and <code>mpfr_fmodquo</code>,
 and to the nearest integer (ties rounded to even) for <code>mpfr_remainder</code>
 and <code>mpfr_remquo</code>.
 </p>
@@ -1864,6 +1950,7 @@ the low significant bits from the quotient <var>n</var> in <var>*q</var>
 (more precisely the number of bits in a <code>long int</code> minus one),
 with the sign of <var>x</var> divided by <var>y</var>
 (except if those low bits are all zero, in which case zero is returned).
+If the result is NaN, the value of <var>*q</var> is unspecified.
 Note that <var>x</var> may be so large in magnitude relative to <var>y</var> that an
 exact representation of the quotient is not practical.
 The <code>mpfr_remainder</code> and <code>mpfr_remquo</code> functions are useful for
@@ -1906,14 +1993,14 @@ In both cases, the precision of <var>x</var> is changed to <var>prec</var>.
 Newton&rsquo;s algorithm to compute the inverse of <var>a</var>, assuming <var>x</var> is
 already an approximation to <var>n</var> bits:
 </p><div class="example">
-<pre class="example">  mpfr_set_prec (t, 2 * n);
-  mpfr_set (t, a, MPFR_RNDN);         /* round a to 2n bits */
-  mpfr_mul (t, t, x, MPFR_RNDN);      /* t is correct to 2n bits */
-  mpfr_ui_sub (t, 1, t, MPFR_RNDN);   /* high n bits cancel with 1 */
-  mpfr_prec_round (t, n, MPFR_RNDN);  /* t is correct to n bits */
-  mpfr_mul (t, t, x, MPFR_RNDN);      /* t is correct to n bits */
-  mpfr_prec_round (x, 2 * n, MPFR_RNDN); /* exact */
-  mpfr_add (x, x, t, MPFR_RNDN);      /* x is correct to 2n bits */
+<pre class="example">mpfr_set_prec (t, 2 * n);
+mpfr_set (t, a, MPFR_RNDN);         /* round a to 2n bits */
+mpfr_mul (t, t, x, MPFR_RNDN);      /* t is correct to 2n bits */
+mpfr_ui_sub (t, 1, t, MPFR_RNDN);   /* high n bits cancel with 1 */
+mpfr_prec_round (t, n, MPFR_RNDN);  /* t is correct to n bits */
+mpfr_mul (t, t, x, MPFR_RNDN);      /* t is correct to n bits */
+mpfr_prec_round (x, 2 * n, MPFR_RNDN); /* exact */
+mpfr_add (x, x, t, MPFR_RNDN);      /* x is correct to 2n bits */
 </pre></div>
 <p>Warning! You must not use this function if <var>x</var> was initialized
 with <code>MPFR_DECL_INIT</code> or with <code>mpfr_custom_init_set</code>
@@ -1957,8 +2044,8 @@ directed rounding mode):
 <pre class="example">if (mpfr_can_round (b, err, MPFR_RNDN, MPFR_RNDZ,
                     prec + (rnd2 == MPFR_RNDN)))
   {
-    /* round the approximation 'b' to the result 'r' of 'prec' bits
-       with rounding mode 'rnd2' and get the ternary value 'inex' */
+    /* round the approximation b to the result r of prec bits
+       with rounding mode rnd2 and get the ternary value inex */
     inex = mpfr_set (r, b, rnd2);
   }
 </pre></div>
@@ -2004,7 +2091,7 @@ This macro has been made such that the compiler is able to detect
 mismatch between the argument list <var>op</var>
 and the function prototype of <var>foo</var>.
 Multiple input arguments <var>op</var> are supported only with C99 compilers.
-Otherwise, for C89 compilers, only one such argument is supported.
+Otherwise, for C90 compilers, only one such argument is supported.
 </p>
 <p>Note: this macro is experimental and its interface might change in future
 versions.
@@ -2035,6 +2122,11 @@ exponent range) in the direction of <var>y</var>
 (the infinite values are seen as the smallest and largest floating-point
 numbers). If the result is zero, it keeps the same sign. No underflow,
 overflow, or inexact exception is raised.
+</p>
+<p>Note: Concerning the exceptions and the sign of 0, the behavior differs
+from the ISO C <code>nextafter</code> and <code>nexttoward</code> functions. It is
+similar to the nextUp and nextDown operations from IEEE 754 (introduced
+in its 2008 revision).
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fnextabove"><span class="category">Function: </span><span><em>void</em> <strong>mpfr_nextabove</strong> <em>(mpfr_t <var>x</var>)</em><a href='#index-mpfr_005fnextabove' class='copiable-anchor'> &para;</a></span></dt>
@@ -2261,9 +2353,9 @@ Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handl
 <dd><p>Return the (current) smallest and largest exponents allowed for a
 floating-point variable. The smallest positive value of a floating-point
 variable is one half times 2 raised to the
-smallest exponent and the largest value has the form (1 - epsilon) times 2 raised to the largest exponent,
-where epsilon depends on the precision of the considered
-variable.
+smallest exponent and the largest value has the form (1 - epsilon) times 2 raised to the largest
+exponent, where epsilon depends on the precision of the
+considered variable.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fset_005femin"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_set_emin</strong> <em>(mpfr_exp_t <var>exp</var>)</em><a href='#index-mpfr_005fset_005femin' class='copiable-anchor'> &para;</a></span></dt>
