@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.5.0 news (unreleased)
+### Version 1.5.0 news (2023-01-06)
 
   * The crate now requires rustc version 1.65.0 or later.
   * [MPFR] was updated from version 4.1.1-p1 to 4.2.0.
@@ -86,16 +86,16 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 [gmp-zsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_size.html
-[mpc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/index.html
-[mpc-i-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref.html
-[mpc-i1-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX1.html
-[mpc-i2-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX2.html
-[mpc-ic-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref_const.html
-[mpc-ii-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_IM.html
-[mpc-ir-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_RE.html
-[mpc-r-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref.html
-[mpc-rc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref_const.html
-[mpc-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.VERSION_NUM.html
+[mpc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/index.html
+[mpc-i-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.imagref.html
+[mpc-i1-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX1.html
+[mpc-i2-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX2.html
+[mpc-ic-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.imagref_const.html
+[mpc-ii-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX_IM.html
+[mpc-ir-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX_RE.html
+[mpc-r-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.realref.html
+[mpc-rc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.realref_const.html
+[mpc-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.VERSION_NUM.html
 [mpfr-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/index.html
 [mpfr-cge-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_exp.html
 [mpfr-cgk-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_kind.html
@@ -111,18 +111,6 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [mpfr-s-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.signbit.html
 [mpfr-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.VERSION_NUM.html
 [mpfr-zp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.zero_p.html
-
-### Version 1.4.12 news (2022-12-11)
-
-  * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.
-  * Bug fix: compilation fixed for new git repositories without HEAD, such as
-    for a new cargo project ([issue 27]).
-
-[issue 27]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/27
-
-### Version 1.4.11 news (2022-11-17)
-
-  * [MPFR] was updated from version 4.1.0-p13 to 4.1.1.
 
 ### Other releases
 
@@ -181,7 +169,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 
 ```toml
 [dependencies]
-gmp-mpfr-sys = "1.4"
+gmp-mpfr-sys = "1.5"
 ```
 
 This crate required rustc version 1.65.0 or later.
@@ -195,7 +183,7 @@ Rust bindings but do not use the C libraries directly.
 If on the other hand a dependent crate makes use of internal
 implementation details, or includes a C library that directly uses the
 header (*.h*) and library (*.a*) files built using C, it can be a good
-idea to depend on version `"~1.4"` instead of version `"1.4"` in order
+idea to depend on version `"~1.5"` instead of version `"1.5"` in order
 to ensure backwards compatibility at the C level as well.
 
 ## Optional features
@@ -214,7 +202,7 @@ selectively, you can add the dependency like this to [*Cargo.toml*]:
 
 ```toml
 [dependencies.gmp-mpfr-sys]
-version = "1.4"
+version = "1.5"
 default-features = false
 features = ["mpfr"]
 ```
@@ -364,26 +352,26 @@ underscore (`"_"`) will disable caching.
 [GNU]: https://www.gnu.org/
 [MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
-[`Complex`]: https://docs.rs/rug/*/rug/struct.Complex.html
-[`Float`]: https://docs.rs/rug/*/rug/struct.Float.html
-[`Integer`]: https://docs.rs/rug/*/rug/struct.Integer.html
-[`MPFR_RNDN`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#Rounding-Modes
-[`Rational`]: https://docs.rs/rug/*/rug/struct.Rational.html
-[`enum MPFR_RND_T`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#index-mpfr_005frnd_005ft
-[`gmp::mpf_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.mpf_t.html
-[`gmp::mpq_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.mpq_t.html
-[`gmp::mpz_init`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/fn.mpz_init.html
-[`gmp::mpz_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.mpz_t.html
-[`gmp::randstate_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.randstate_t.html
-[`gmp::set_memory_functions`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/fn.set_memory_functions.html
-[`gmp`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/index.html
-[`mp_set_memory_functions`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/GMP/constant.Custom_Allocation.html#index-mp_005fset_005fmemory_005ffunctions
-[`mpc::mpc_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/struct.mpc_t.html
-[`mpc`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/index.html
-[`mpfr::mpfr_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/struct.mpfr_t.html
-[`mpfr::rnd_t::RNDN`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/enum.rnd_t.html#variant.RNDN
-[`mpfr`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpfr/index.html
-[`mpz_init`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/GMP/constant.Integer_Functions.html#index-mpz_005finit
+[`Complex`]: https://docs.rs/rug/latest/rug/struct.Complex.html
+[`Float`]: https://docs.rs/rug/latest/rug/struct.Float.html
+[`Integer`]: https://docs.rs/rug/latest/rug/struct.Integer.html
+[`MPFR_RNDN`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#Rounding-Modes
+[`Rational`]: https://docs.rs/rug/latest/rug/struct.Rational.html
+[`enum MPFR_RND_T`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#index-mpfr_005frnd_005ft
+[`gmp::mpf_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/struct.mpf_t.html
+[`gmp::mpq_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/struct.mpq_t.html
+[`gmp::mpz_init`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_init.html
+[`gmp::mpz_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/struct.mpz_t.html
+[`gmp::randstate_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/struct.randstate_t.html
+[`gmp::set_memory_functions`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.set_memory_functions.html
+[`gmp`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/index.html
+[`mp_set_memory_functions`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/C/GMP/constant.Custom_Allocation.html#index-mp_005fset_005fmemory_005ffunctions
+[`mpc::mpc_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/struct.mpc_t.html
+[`mpc`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/index.html
+[`mpfr::mpfr_t`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/struct.mpfr_t.html
+[`mpfr::rnd_t::RNDN`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/enum.rnd_t.html#variant.RNDN
+[`mpfr`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/index.html
+[`mpz_init`]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/C/GMP/constant.Integer_Functions.html#index-mpz_005finit
 [msys]: https://www.msys2.org/
 [rug crate]: https://crates.io/crates/rug
 [sys crate]: https://crates.io/crates/gmp-mpfr-sys

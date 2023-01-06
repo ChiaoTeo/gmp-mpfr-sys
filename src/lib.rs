@@ -85,7 +85,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 
 ```toml
 [dependencies]
-gmp-mpfr-sys = "1.4"
+gmp-mpfr-sys = "1.5"
 ```
 
 This crate required rustc version 1.65.0 or later.
@@ -99,7 +99,7 @@ Rust bindings but do not use the C libraries directly.
 If on the other hand a dependent crate makes use of internal
 implementation details, or includes a C library that directly uses the
 header (*.h*) and library (*.a*) files built using C, it can be a good
-idea to depend on version `"~1.4"` instead of version `"1.4"` in order
+idea to depend on version `"~1.5"` instead of version `"1.5"` in order
 to ensure backwards compatibility at the C level as well.
 
 ## Optional features
@@ -118,7 +118,7 @@ selectively, you can add the dependency like this to [*Cargo.toml*]:
 
 ```toml
 [dependencies.gmp-mpfr-sys]
-version = "1.4"
+version = "1.5"
 default-features = false
 features = ["mpfr"]
 ```
@@ -267,11 +267,11 @@ underscore (`"_"`) will disable caching.
 [GNU]: https://www.gnu.org/
 [MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
-[`Complex`]: https://docs.rs/rug/&#42;/rug/struct.Complex.html
-[`Float`]: https://docs.rs/rug/&#42;/rug/struct.Float.html
-[`Integer`]: https://docs.rs/rug/&#42;/rug/struct.Integer.html
+[`Complex`]: https://docs.rs/rug/latest/rug/struct.Complex.html
+[`Float`]: https://docs.rs/rug/latest/rug/struct.Float.html
+[`Integer`]: https://docs.rs/rug/latest/rug/struct.Integer.html
 [`MPFR_RNDN`]: C/MPFR/constant.MPFR_Basics.html#Rounding-Modes
-[`Rational`]: https://docs.rs/rug/&#42;/rug/struct.Rational.html
+[`Rational`]: https://docs.rs/rug/latest/rug/struct.Rational.html
 [`enum MPFR_RND_T`]: C/MPFR/constant.MPFR_Basics.html#index-mpfr_005frnd_005ft
 [`mp_set_memory_functions`]: C/GMP/constant.Custom_Allocation.html#index-mp_005fset_005fmemory_005ffunctions
 [`mpz_init`]: C/GMP/constant.Integer_Functions.html#index-mpz_005finit
@@ -281,7 +281,7 @@ underscore (`"_"`) will disable caching.
 */
 #![no_std]
 #![warn(missing_docs)]
-#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.4")]
+#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.5")]
 #![doc(html_logo_url = "data:image/svg+xml;base64,
 PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBDcmVhdGVkIHdpdGggSW5rc2NhcGUgKGh0dHA6Ly93
 d3cuaW5rc2NhcGUub3JnLykgLS0+Cjxzdmcgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHZlcnNpb249IjEuMSIgdmlld0JveD0i

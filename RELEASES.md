@@ -5,7 +5,7 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.5.0 (unreleased)
+Version 1.5.0 (2023-01-06)
 ==========================
 
   * The crate now requires rustc version 1.65.0 or later.
@@ -68,16 +68,16 @@ Version 1.5.0 (unreleased)
 [gmp-zrn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.MPZ_ROINIT_N.html
 [gmp-zs-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_sgn.html
 [gmp-zsi-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/gmp/fn.mpz_size.html
-[mpc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/index.html
-[mpc-i-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref.html
-[mpc-i1-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX1.html
-[mpc-i2-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX2.html
-[mpc-ic-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.imagref_const.html
-[mpc-ii-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_IM.html
-[mpc-ir-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.INEX_RE.html
-[mpc-r-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref.html
-[mpc-rc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.realref_const.html
-[mpc-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/mpc/fn.VERSION_NUM.html
+[mpc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/index.html
+[mpc-i-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.imagref.html
+[mpc-i1-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX1.html
+[mpc-i2-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX2.html
+[mpc-ic-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.imagref_const.html
+[mpc-ii-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX_IM.html
+[mpc-ir-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.INEX_RE.html
+[mpc-r-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.realref.html
+[mpc-rc-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.realref_const.html
+[mpc-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpc/fn.VERSION_NUM.html
 [mpfr-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/index.html
 [mpfr-cge-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_exp.html
 [mpfr-cgk-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.custom_get_kind.html
