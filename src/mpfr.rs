@@ -1525,9 +1525,9 @@ mod tests {
     fn check_version() {
         use crate::tests;
 
-        let (major, minor, patchlevel) = (4, 1, 1);
+        let (major, minor, patchlevel) = (4, 2, 0);
         // do not include "-p*" suffix
-        let version = "4.1.1";
+        let version = "4.2.0";
 
         assert_eq!(mpfr::VERSION_MAJOR, major);
         assert!(mpfr::VERSION_MINOR >= minor);
