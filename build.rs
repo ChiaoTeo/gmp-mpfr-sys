@@ -23,6 +23,8 @@
 //  6. Use relative paths for configure otherwise msys/mingw might be
 //     confused with drives and such.
 
+#![cfg_attr(feature = "fail-on-warnings", deny(warnings))]
+
 use std::cmp::Ordering;
 use std::env;
 use std::ffi::{OsStr, OsString};
@@ -1121,7 +1123,7 @@ fn create_dir_or_panic(dir: &Path) {
 }
 
 fn create_file_or_panic(filename: &Path, contents: &str) {
-    println!("$ printf '%s' {:?}... > {:?}", &contents[0..10], filename);
+    println!("$ printf '%s' {:?}... > {filename:?}", &contents[0..10]);
     let mut file =
         File::create(filename).unwrap_or_else(|_| panic!("Unable to create file: {filename:?}"));
     file.write_all(contents.as_bytes())
@@ -1170,7 +1172,7 @@ fn link_dir(src: &Path, dst: &Path) {
 
 #[cfg(windows)]
 fn link_dir(src: &Path, dst: &Path) {
-    println!("$ ln -s {:?} {:?}", src, dst);
+    println!("$ ln -s {src:?} {dst:?}");
     if windows_fs::symlink_dir(src, dst).is_ok() {
         return;
     }
