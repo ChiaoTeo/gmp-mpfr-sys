@@ -24,6 +24,15 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.5.1 news (unreleased)
+
+  * The commits [`01a3ed526..78ff7526d`] and [`80ea348b3..0216f40ed`] from the [4.2
+    branch][mpfr 4.2 branch] of [MPFR] were merged.
+
+[`01a3ed526..78ff7526d`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/01a3ed526...78ff7526d
+[`80ea348b3..0216f40ed`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/80ea348b3...0216f40ed
+[mpfr 4.2 branch]: https://gitlab.inria.fr/mpfr/mpfr/-/tree/4.2
+
 ### Version 1.5.0 news (2023-01-06)
 
   * The crate now requires rustc version 1.65.0 or later.
