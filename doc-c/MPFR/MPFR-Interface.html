@@ -842,7 +842,7 @@ when <var>rop</var> and <var>op1</var> are identical.
 <dt id="index-mpfr_005ffma"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fma</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_t <var>op3</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffma' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-mpfr_005ffms"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_fms</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op1</var>, mpfr_t <var>op2</var>, mpfr_t <var>op3</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005ffms' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;+&nbsp;<var>op3</var><!-- /@w -->
-(resp. (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;<span class="nolinebreak">-</span>&nbsp;<var>op3</var><!-- /@w -->)
+(resp. (<var>op1</var>&nbsp;times&nbsp;<var>op2</var>)&nbsp;-&nbsp;<var>op3</var><!-- /@w -->)
 rounded in the direction <var>rnd</var>.  Concerning special values (signed zeros,
 infinities, NaN), these functions behave like a multiplication followed by a
 separate addition or subtraction.  That is, the fused operation matters only
@@ -1232,8 +1232,8 @@ at -<var>op</var> (formula 5.1.1 from the same reference).
 <dt id="index-mpfr_005fli2"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_li2</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fli2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set <var>rop</var> to real part of the dilogarithm of <var>op</var>, rounded in the
 direction <var>rnd</var>. MPFR defines the dilogarithm function as
-the integral of -log(1-t)/t from 0
-to <var>op</var>.
+the integral of
+-log(1-t)/t from 0 to <var>op</var>.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fgamma"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_gamma</strong> <em>(mpfr_t <var>rop</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em><a href='#index-mpfr_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
@@ -2261,9 +2261,9 @@ Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handl
 <dd><p>Return the (current) smallest and largest exponents allowed for a
 floating-point variable. The smallest positive value of a floating-point
 variable is one half times 2 raised to the
-smallest exponent and the largest value has the form (1 - epsilon) times 2 raised to the largest exponent,
-where epsilon depends on the precision of the considered
-variable.
+smallest exponent and the largest value has the form (1 - epsilon) times 2 raised to the largest
+exponent, where epsilon depends on the precision of the
+considered variable.
 </p></dd></dl>
 <dl class="def">
 <dt id="index-mpfr_005fset_005femin"><span class="category">Function: </span><span><em>int</em> <strong>mpfr_set_emin</strong> <em>(mpfr_exp_t <var>exp</var>)</em><a href='#index-mpfr_005fset_005femin' class='copiable-anchor'> &para;</a></span></dt>
