@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.5.1 news (unreleased)
+### Version 1.5.1 news (2023-02-28)
 
   * The commits [`01a3ed526..78ff7526d`] and [`80ea348b3..0216f40ed`] from the [4.2
     branch][mpfr 4.2 branch] of [MPFR] were merged.
