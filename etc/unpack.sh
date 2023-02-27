@@ -19,17 +19,17 @@ TARDIR="$HOME/Downloads"
 GMPVER=6.2.1
 GMPVERP="$GMPVER"
 GMPTAR="$TARDIR/gmp-$GMPVER.tar.lz"
-GMPPATCH="../etc/gmp-6.2-402b9c4efacb.patch"
+GMPPATCH="../etc/gmp-$GMPVER-p"
 
 MPFRVER=4.1.1
 MPFRVERP="$MPFRVER-p1"
 MPFRTAR="$TARDIR/mpfr-$MPFRVER.tar.xz"
-MPFRPATCH="../etc/mpfr-$MPFRVERP.patch"
+MPFRPATCH="../etc/mpfr-$MPFRVER-p"
 
 MPCVER=1.2.1
 MPCVERP="$MPCVER"
 MPCTAR="$TARDIR/mpc-$MPCVER.tar.gz"
-MPCPATCH="$TARDIR/mpc-$MPCVERP-allpatches"
+MPCPATCH="../etc/mpc-$MPCVER-p"
 
 CHANGELOG_CHARS=100000
 
@@ -58,9 +58,11 @@ fi
 tar xf "$GMPTAR"
 mv gmp-$GMPVER gmp-$GMPVERP-c
 cd gmp-$GMPVERP-c
-if [ -f "$GMPPATCH" ]; then
-    patch -N -Z -p1 < "$GMPPATCH" > /dev/null
-fi
+for p in "$GMPPATCH"*; do
+    if [ -f "$p" ]; then
+	patch -N -Z -p1 < "$p" > /dev/null
+    fi
+done
 # Truncate ChangeLog
 truncate ChangeLog $CHANGELOG_CHARS
 # Remove doc/*.info*, doc/*.tex
@@ -114,9 +116,11 @@ fi
 tar xf "$MPFRTAR"
 mv mpfr-$MPFRVER mpfr-$MPFRVERP-c
 cd mpfr-$MPFRVERP-c
-if [ -f "$MPFRPATCH" ]; then
-    patch -N -Z -p1 < "$MPFRPATCH" > /dev/null
-fi
+for p in "$MPFRPATCH"*; do
+    if [ -f "$p" ]; then
+	patch -N -Z -p1 < "$p" > /dev/null
+    fi
+done
 # Truncate ChangeLog
 truncate ChangeLog $CHANGELOG_CHARS
 # Remove doc/*.info*, doc/*.tex
@@ -149,9 +153,11 @@ fi
 tar xf "$MPCTAR"
 mv mpc-$MPCVER mpc-$MPCVERP-c
 cd mpc-$MPCVERP-c
-if [ -f "$MPCPATCH" ]; then
-    patch -N -Z -p1 < "$MPCPATCH" > /dev/null
-fi
+for p in "$MPCPATCH"*; do
+    if [ -f "$p" ]; then
+	patch -N -Z -p1 < "$p" > /dev/null
+    fi
+done
 # Make sure all files are user writeable
 chmod -R u+w *
 # Truncate ChangeLog
