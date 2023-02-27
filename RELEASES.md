@@ -5,7 +5,7 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.4.13 (unreleased)
+Version 1.4.13 (2023-02-28)
 ===========================
 
   * The commits [`66d78412f..53da44400`] and [`3d3e2d9b0..5a1b1f9a2`] from the [4.1

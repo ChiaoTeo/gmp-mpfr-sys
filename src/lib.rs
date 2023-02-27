@@ -267,11 +267,11 @@ underscore (`"_"`) will disable caching.
 [GNU]: https://www.gnu.org/
 [MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
-[`Complex`]: https://docs.rs/rug/&#42;/rug/struct.Complex.html
-[`Float`]: https://docs.rs/rug/&#42;/rug/struct.Float.html
-[`Integer`]: https://docs.rs/rug/&#42;/rug/struct.Integer.html
+[`Complex`]: https://docs.rs/rug/latest/rug/struct.Complex.html
+[`Float`]: https://docs.rs/rug/latest/rug/struct.Float.html
+[`Integer`]: https://docs.rs/rug/latest/rug/struct.Integer.html
 [`MPFR_RNDN`]: C/MPFR/constant.MPFR_Basics.html#Rounding-Modes
-[`Rational`]: https://docs.rs/rug/&#42;/rug/struct.Rational.html
+[`Rational`]: https://docs.rs/rug/latest/rug/struct.Rational.html
 [`enum MPFR_RND_T`]: C/MPFR/constant.MPFR_Basics.html#index-mpfr_005frnd_005ft
 [`mp_set_memory_functions`]: C/GMP/constant.Custom_Allocation.html#index-mp_005fset_005fmemory_005ffunctions
 [`mpz_init`]: C/GMP/constant.Integer_Functions.html#index-mpz_005finit

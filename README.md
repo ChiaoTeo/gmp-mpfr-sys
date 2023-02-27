@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.4.13 news (unreleased)
+### Version 1.4.13 news (2023-02-28)
 
   * The commits [`66d78412f..53da44400`] and [`3d3e2d9b0..5a1b1f9a2`] from the [4.1
     branch][mpfr 4.1 branch] of [MPFR] were merged.
@@ -32,18 +32,6 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 [`3d3e2d9b0..5a1b1f9a2`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/3d3e2d9b0...5a1b1f9a2
 [`66d78412f..53da44400`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/66d78412f...53da44400
 [mpfr 4.1 branch]: https://gitlab.inria.fr/mpfr/mpfr/-/tree/4.1
-
-### Version 1.4.12 news (2022-12-11)
-
-  * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.
-  * Bug fix: compilation fixed for new git repositories without HEAD, such as
-    for a new cargo project ([issue 27]).
-
-[issue 27]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/27
-
-### Version 1.4.11 news (2022-11-17)
-
-  * [MPFR] was updated from version 4.1.0-p13 to 4.1.1.
 
 ### Other releases
 
@@ -285,11 +273,11 @@ underscore (`"_"`) will disable caching.
 [GNU]: https://www.gnu.org/
 [MPC]: https://www.multiprecision.org/mpc/
 [MPFR]: https://www.mpfr.org/
-[`Complex`]: https://docs.rs/rug/*/rug/struct.Complex.html
-[`Float`]: https://docs.rs/rug/*/rug/struct.Float.html
-[`Integer`]: https://docs.rs/rug/*/rug/struct.Integer.html
+[`Complex`]: https://docs.rs/rug/latest/rug/struct.Complex.html
+[`Float`]: https://docs.rs/rug/latest/rug/struct.Float.html
+[`Integer`]: https://docs.rs/rug/latest/rug/struct.Integer.html
 [`MPFR_RNDN`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#Rounding-Modes
-[`Rational`]: https://docs.rs/rug/*/rug/struct.Rational.html
+[`Rational`]: https://docs.rs/rug/latest/rug/struct.Rational.html
 [`enum MPFR_RND_T`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/C/MPFR/constant.MPFR_Basics.html#index-mpfr_005frnd_005ft
 [`gmp::mpf_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.mpf_t.html
 [`gmp::mpq_t`]: https://docs.rs/gmp-mpfr-sys/~1.4/gmp_mpfr_sys/gmp/struct.mpq_t.html
