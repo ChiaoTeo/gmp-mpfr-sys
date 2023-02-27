@@ -104,6 +104,16 @@ Version 1.5.0 (2023-01-06)
 [mpfr-vn-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.VERSION_NUM.html
 [mpfr-zp-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.zero_p.html
 
+Version 1.4.13 (2023-02-28)
+===========================
+
+  * The commits [`66d78412f..53da44400`] and [`3d3e2d9b0..5a1b1f9a2`] from the [4.1
+    branch][mpfr 4.1 branch] of [MPFR] were merged.
+
+[`3d3e2d9b0..5a1b1f9a2`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/3d3e2d9b0...5a1b1f9a2
+[`66d78412f..53da44400`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/66d78412f...53da44400
+[mpfr 4.1 branch]: https://gitlab.inria.fr/mpfr/mpfr/-/tree/4.1
+
 Version 1.4.12 (2022-12-11)
 ===========================
 
