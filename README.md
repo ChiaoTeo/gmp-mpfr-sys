@@ -24,6 +24,15 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.4.13 news (unreleased)
+
+  * The commits [`66d78412f..53da44400`] and [`3d3e2d9b0..5a1b1f9a2`] from the [4.1
+    branch][mpfr 4.1 branch] of [MPFR] were merged.
+
+[`3d3e2d9b0..5a1b1f9a2`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/3d3e2d9b0...5a1b1f9a2
+[`66d78412f..53da44400`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/66d78412f...53da44400
+[mpfr 4.1 branch]: https://gitlab.inria.fr/mpfr/mpfr/-/tree/4.1
+
 ### Version 1.4.12 news (2022-12-11)
 
   * [MPFR] was updated from version 4.1.1 to 4.1.1-p1.

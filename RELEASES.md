@@ -5,6 +5,16 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.4.13 (unreleased)
+===========================
+
+  * The commits [`66d78412f..53da44400`] and [`3d3e2d9b0..5a1b1f9a2`] from the [4.1
+    branch][mpfr 4.1 branch] of [MPFR] were merged.
+
+[`3d3e2d9b0..5a1b1f9a2`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/3d3e2d9b0...5a1b1f9a2
+[`66d78412f..53da44400`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/66d78412f...53da44400
+[mpfr 4.1 branch]: https://gitlab.inria.fr/mpfr/mpfr/-/tree/4.1
+
 Version 1.4.12 (2022-12-11)
 ===========================
 
