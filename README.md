@@ -29,7 +29,10 @@ text of the [GNU LGPL] and [GNU GPL] for details.
   * Bug fix: <code>[mpfr][mpfr-1-5]::[pow\_sj][mpfr-ps-1-5]</code> and
     <code>[mpfr][mpfr-1-5]::[pow\_uj][mpfr-pu-1-5]</code> were linking
     to the wrong MPFR function name ([issue 30]).
+  * The commits [`0216f40ed..a041c7cbb`] from the [4.2 branch][mpfr 4.2 branch]
+    of [MPFR] were merged.
 
+[`0216f40ed..a041c7cbb`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/0216f40ed...a041c7cbb
 [issue 30]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/30
 [mpfr-ps-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_sj.html
 [mpfr-pu-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_uj.html
