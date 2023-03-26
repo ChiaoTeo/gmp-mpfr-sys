@@ -896,10 +896,10 @@ extern "C" {
     #[link_name = "mpfr_pow_si"]
     pub fn pow_si(rop: mpfr_ptr, op1: mpfr_srcptr, op2: c_long, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_pow_uj`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fuj)
-    #[link_name = "mpfr_pow_uj"]
+    #[link_name = "__gmpfr_mpfr_pow_uj"]
     pub fn pow_uj(rop: mpfr_ptr, op1: mpfr_srcptr, op2: uintmax_t, rnd: rnd_t) -> c_int;
     /// See: [`mpfr_pow_sj`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpow_005fsj)
-    #[link_name = "mpfr_pow_sj"]
+    #[link_name = "__gmpfr_mpfr_pow_sj"]
     pub fn pow_sj(rop: mpfr_ptr, op1: mpfr_srcptr, op2: intmax_t, rnd: rnd_t) -> c_int;
 }
 /// See: [`mpfr_pown`](../C/MPFR/constant.MPFR_Interface.html#index-mpfr_005fpown)

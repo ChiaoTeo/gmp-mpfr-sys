@@ -24,6 +24,16 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.5.2 news (unreleased)
+
+  * Bug fix: <code>[mpfr][mpfr-1-5]::[pow\_sj][mpfr-ps-1-5]</code> and
+    <code>[mpfr][mpfr-1-5]::[pow\_uj][mpfr-pu-1-5]</code> were linking
+    to the wrong MPFR function name ([issue 30]).
+
+[issue 30]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/30
+[mpfr-ps-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_sj.html
+[mpfr-pu-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_uj.html
+
 ### Version 1.5.1 news (2023-02-28)
 
   * The commits [`01a3ed526..78ff7526d`] and [`80ea348b3..0216f40ed`] from the [4.2

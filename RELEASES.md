@@ -5,6 +5,17 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.5.2 (unreleased)
+==========================
+
+  * Bug fix: <code>[mpfr][mpfr-1-5]::[pow\_sj][mpfr-ps-1-5]</code> and
+    <code>[mpfr][mpfr-1-5]::[pow\_uj][mpfr-pu-1-5]</code> were linking
+    to the wrong MPFR function name ([issue 30]).
+
+[issue 30]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/30
+[mpfr-ps-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_sj.html
+[mpfr-pu-1-5]: https://docs.rs/gmp-mpfr-sys/~1.5/gmp_mpfr_sys/mpfr/fn.pow_uj.html
+
 Version 1.5.1 (2023-02-28)
 ==========================
 
