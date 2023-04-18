@@ -19,17 +19,14 @@ TARDIR="$HOME/Downloads"
 GMPVER=6.2.1
 GMPVERP="$GMPVER"
 GMPTAR="$TARDIR/gmp-$GMPVER.tar.lz"
-GMPPATCH="../etc/gmp-$GMPVER-p"
 
 MPFRVER=4.2.0
-MPFRVERP="$MPFRVER"
+MPFRVERP="$MPFRVER-p4"
 MPFRTAR="$TARDIR/mpfr-$MPFRVER.tar.xz"
-MPFRPATCH="../etc/mpfr-$MPFRVER-p"
 
 MPCVER=1.3.1
 MPCVERP="$MPCVER"
 MPCTAR="$TARDIR/mpc-$MPCVER.tar.gz"
-MPCPATCH="../etc/mpc-$MPCVER-p"
 
 CHANGELOG_CHARS=100000
 
@@ -58,9 +55,9 @@ fi
 tar xf "$GMPTAR"
 mv gmp-$GMPVER gmp-$GMPVERP-c
 cd gmp-$GMPVERP-c
-for p in "$GMPPATCH"*; do
+for p in "../etc/gmp-$GMPVER-p"*; do
     if [ -f "$p" ]; then
-	patch -N -Z -p1 < "$p" > /dev/null
+	patch -N -Z -p1 --no-backup-if-mismatch < "$p" > /dev/null
     fi
 done
 # Truncate ChangeLog
@@ -116,9 +113,9 @@ fi
 tar xf "$MPFRTAR"
 mv mpfr-$MPFRVER mpfr-$MPFRVERP-c
 cd mpfr-$MPFRVERP-c
-for p in "$MPFRPATCH"*; do
+for p in "../etc/mpfr-$MPFRVER-p"*; do
     if [ -f "$p" ]; then
-	patch -N -Z -p1 < "$p" > /dev/null
+	patch -N -Z -p1 --no-backup-if-mismatch < "$p" > /dev/null
     fi
 done
 # Truncate ChangeLog
@@ -153,9 +150,9 @@ fi
 tar xf "$MPCTAR"
 mv mpc-$MPCVER mpc-$MPCVERP-c
 cd mpc-$MPCVERP-c
-for p in "$MPCPATCH"*; do
+for p in "../etc/mpc-$MPCVER-p"*; do
     if [ -f "$p" ]; then
-	patch -N -Z -p1 < "$p" > /dev/null
+	patch -N -Z -p1 --no-backup-if-mismatch < "$p" > /dev/null
     fi
 done
 # Make sure all files are user writeable

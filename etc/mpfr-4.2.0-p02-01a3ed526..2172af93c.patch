@@ -1,0 +1,42 @@
+diff --git a/BUGS b/BUGS
+index aa301f9d4..6ed18a951 100644
+--- a/BUGS
++++ b/BUGS
+@@ -39,6 +39,9 @@ Known bugs:
+   between parameters' exponents is near 2*MPFR_EMAX_MAX and on the other hand
+   the output precision or the precision of the parameter with greatest
+   absolute value is greater than 2*MPFR_EMAX_MAX-4.
++  Note: Such huge precisions are not possible as they would be larger than
++  MPFR_PREC_MAX, unless the types for mpfr_exp_t and/or mpfr_prec_t are
++  changed (only for developers or expert users, not officially supported).
+ 
+ Potential bugs:
+ 
+diff --git a/doc/README.dev b/doc/README.dev
+index 49c9676bf..e5b4406e9 100644
+--- a/doc/README.dev
++++ b/doc/README.dev
+@@ -241,6 +241,7 @@ To make a release (for the MPFR team):
+      This should at least be done last, in order to be complete before the
+      generation of the tarball.
+      Note: First, make sure that all the pending commits have been done.
++     Push the changes with "git push".
+ 
+   5) Create an annotated tag whose name corresponds to the content of
+      the VERSION file:
+@@ -435,8 +436,13 @@ To make a release (for the MPFR team):
+      In case of a new patchlevel release, add a link from the web page
+      of the previous release.
+ 
+-     * For the release candidates: Announce the RC in the mpfr-announce,
+-     mpfr, gmp-discuss, gcc and platform-testers[2] mailing-lists.
++     * For the release candidates:
++     Upload the tarballs and the signatures to the MPFR web server
++     (via the misc.git repository).
++     Run the tools/announce-text script to do some checking and get
++     the announce text. Edit this text if need be.
++     Announce the RC in the mpfr-announce, mpfr, gmp-discuss, gcc and
++     platform-testers[2] mailing-lists.
+      A minimal web page for the MPFR release can be created right now
+      (see Git history such as [3] for examples), as the manual already
+      contains the new URLs.
