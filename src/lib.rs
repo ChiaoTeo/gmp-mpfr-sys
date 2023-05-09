@@ -88,7 +88,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 gmp-mpfr-sys = "1.5"
 ```
 
-This crate required rustc version 1.65.0 or later.
+This crate requires rustc version 1.65.0 or later.
 
 If the C libraries have a major version bump with some deprecated
 functions removed, but no features are removed in the Rust bindings,
@@ -133,7 +133,7 @@ minor version bump.
 
 Experimental features may also not work on all platforms.
 
-There are three experimental feature:
+There are three experimental features:
 
  1. `use-system-libs`, disabled by default. Using this feature, the
     system libraries for [GMP], and [MPFR] and [MPC] if enabled, will

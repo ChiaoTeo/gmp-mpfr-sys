@@ -23,9 +23,11 @@ Function and type bindings for the [GMP] library.
 use core::mem::MaybeUninit;
 use gmp_mpfr_sys::gmp;
 unsafe {
-    let mut z = MaybeUninit::uninit();
-    gmp::mpz_init(z.as_mut_ptr());
-    let mut z = z.assume_init();
+    let mut z = {
+        let mut z = MaybeUninit::uninit();
+        gmp::mpz_init(z.as_mut_ptr());
+        z.assume_init()
+    };
     gmp::mpz_set_ui(&mut z, 15);
     let u = gmp::mpz_get_ui(&z);
     assert_eq!(u, 15);
