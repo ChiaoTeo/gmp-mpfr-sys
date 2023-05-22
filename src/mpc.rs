@@ -33,15 +33,9 @@ unsafe {
     };
     let dirs = mpc::set_d_d(&mut c, one_third, neg_inf, mpc::RNDNN);
     assert_eq!(dirs, 0);
-    let re = mpfr::get_d(
-        mpc::realref_const(&c),
-        mpfr::rnd_t::RNDN
-    );
+    let re = mpfr::get_d(mpc::realref_const(&c), mpfr::rnd_t::RNDN);
     assert_eq!(re, one_third);
-    let im = mpfr::get_d(
-        mpc::imagref_const(&c),
-        mpfr::rnd_t::RNDN
-    );
+    let im = mpfr::get_d(mpc::imagref_const(&c), mpfr::rnd_t::RNDN);
     assert_eq!(im, neg_inf);
     mpc::clear(&mut c);
 }
