@@ -8,11 +8,7 @@ as-is, without any warranty. -->
 Version 1.5.3 (unreleased)
 ==========================
 
-  * [MPFR] was updated from version 4.2.0 to 4.2.0-p4.
-  * The commits [`19ba917fe..3b4e30120`] from the [4.2 branch][mpfr 4.2 branch]
-    of [MPFR] were merged.
-
-[`19ba917fe..3b4e30120`]: https://gitlab.inria.fr/mpfr/mpfr/-/compare/19ba917fe...3b4e30120
+  * [MPFR] was updated from version 4.2.0 to 4.2.0-p9.
 
 Version 1.5.2 (2023-03-26)
 ==========================
