@@ -24,9 +24,11 @@ use core::mem::MaybeUninit;
 use gmp_mpfr_sys::mpfr;
 let one_third = 1.0_f64 / 3.0;
 unsafe {
-    let mut f = MaybeUninit::uninit();
-    mpfr::init2(f.as_mut_ptr(), 53);
-    let mut f = f.assume_init();
+    let mut f = {
+        let mut f = MaybeUninit::uninit();
+        mpfr::init2(f.as_mut_ptr(), 53);
+        f.assume_init()
+    };
     let dir = mpfr::set_d(&mut f, one_third, mpfr::rnd_t::RNDN);
     assert_eq!(dir, 0);
     let d = mpfr::get_d(&f, mpfr::rnd_t::RNDN);
@@ -51,19 +53,25 @@ use libc::STDOUT_FILENO;
 
 fn main() {
     unsafe {
-        let mut t = MaybeUninit::uninit();
-        mpfr::init2(t.as_mut_ptr(), 200);
-        let mut t = t.assume_init();
+        let mut t = {
+            let mut t = MaybeUninit::uninit();
+            mpfr::init2(t.as_mut_ptr(), 200);
+            t.assume_init()
+        };
         mpfr::set_d(&mut t, 1.0, rnd_t::RNDD);
 
-        let mut s = MaybeUninit::uninit();
-        mpfr::init2(s.as_mut_ptr(), 200);
-        let mut s = s.assume_init();
+        let mut s = {
+            let mut s = MaybeUninit::uninit();
+            mpfr::init2(s.as_mut_ptr(), 200);
+            s.assume_init()
+        };
         mpfr::set_d(&mut s, 1.0, rnd_t::RNDD);
 
-        let mut u = MaybeUninit::uninit();
-        mpfr::init2(u.as_mut_ptr(), 200);
-        let mut u = u.assume_init();
+        let mut u = {
+            let mut u = MaybeUninit::uninit();
+            mpfr::init2(u.as_mut_ptr(), 200);
+            u.assume_init()
+        };
 
         for i in 1..=100 {
             mpfr::mul_ui(&mut t, &t, i, rnd_t::RNDU);

@@ -26,16 +26,16 @@ use gmp_mpfr_sys::{mpc, mpfr};
 let one_third = 1.0_f64 / 3.0;
 let neg_inf = f64::NEG_INFINITY;
 unsafe {
-    let mut c = MaybeUninit::uninit();
-    mpc::init3(c.as_mut_ptr(), 53, 53);
-    let mut c = c.assume_init();
+    let mut c = {
+        let mut c = MaybeUninit::uninit();
+        mpc::init3(c.as_mut_ptr(), 53, 53);
+        c.assume_init()
+    };
     let dirs = mpc::set_d_d(&mut c, one_third, neg_inf, mpc::RNDNN);
     assert_eq!(dirs, 0);
-    let re_ptr = mpc::realref_const(&c);
-    let re = mpfr::get_d(re_ptr, mpfr::rnd_t::RNDN);
+    let re = mpfr::get_d(mpc::realref_const(&c), mpfr::rnd_t::RNDN);
     assert_eq!(re, one_third);
-    let im_ptr = mpc::imagref_const(&c);
-    let im = mpfr::get_d(im_ptr, mpfr::rnd_t::RNDN);
+    let im = mpfr::get_d(mpc::imagref_const(&c), mpfr::rnd_t::RNDN);
     assert_eq!(im, neg_inf);
     mpc::clear(&mut c);
 }
