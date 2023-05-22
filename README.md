@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.5.3 news (unreleased)
+### Version 1.5.3 news (2023-05-22)
 
   * [MPFR] was updated from version 4.2.0 to 4.2.0-p9.
 
