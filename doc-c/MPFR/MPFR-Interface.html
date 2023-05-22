@@ -318,7 +318,7 @@ Note that the input 0 is converted to +0.
 <dd><p>Set <var class="var">rop</var> to the value of the string <var class="var">s</var> in base <var class="var">base</var>,
 rounded in the direction <var class="var">rnd</var>.
 See the documentation of <code class="code">mpfr_strtofr</code> for a detailed description
-of <var class="var">base</var> (with its special value 0) and the valid string formats.
+of the valid string formats.
 Contrary to <code class="code">mpfr_strtofr</code>, <code class="code">mpfr_set_str</code> requires the
 <em class="emph">whole</em> string to represent a valid floating-point number.
 </p>
@@ -1658,7 +1658,7 @@ mpfr_prec_t p;
 mpfr_init (x);
 &hellip;
 p = mpfr_get_prec (x);
-mpfr_printf (&quot;variable x with %Pd bits&quot;, p);
+mpfr_printf (&quot;variable x with %Pu bits&quot;, p);
 </pre></div>
 <p>The &lsquo;<samp class="samp">R</samp>&rsquo; type specifies that a following &lsquo;<samp class="samp">a</samp>&rsquo;, &lsquo;<samp class="samp">A</samp>&rsquo;, &lsquo;<samp class="samp">b</samp>&rsquo;,
 &lsquo;<samp class="samp">e</samp>&rsquo;, &lsquo;<samp class="samp">E</samp>&rsquo;, &lsquo;<samp class="samp">f</samp>&rsquo;, &lsquo;<samp class="samp">F</samp>&rsquo;, &lsquo;<samp class="samp">g</samp>&rsquo;, &lsquo;<samp class="samp">G</samp>&rsquo;, or &lsquo;<samp class="samp">n</samp>&rsquo;
