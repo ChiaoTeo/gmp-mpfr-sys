@@ -85,7 +85,7 @@ gmp-mpfr-sys in your crate, add it as a dependency inside
 
 ```toml
 [dependencies]
-gmp-mpfr-sys = "1.5"
+gmp-mpfr-sys = "1.6"
 ```
 
 This crate requires rustc version 1.65.0 or later.
@@ -99,7 +99,7 @@ Rust bindings but do not use the C libraries directly.
 If on the other hand a dependent crate makes use of internal
 implementation details, or includes a C library that directly uses the
 header (*.h*) and library (*.a*) files built using C, it can be a good
-idea to depend on version `"~1.5"` instead of version `"1.5"` in order
+idea to depend on version `"~1.6"` instead of version `"1.6"` in order
 to ensure backwards compatibility at the C level as well.
 
 ## Optional features
@@ -118,7 +118,7 @@ selectively, you can add the dependency like this to [*Cargo.toml*]:
 
 ```toml
 [dependencies.gmp-mpfr-sys]
-version = "1.5"
+version = "1.6"
 default-features = false
 features = ["mpfr"]
 ```
@@ -281,7 +281,7 @@ underscore (`"_"`) will disable caching.
 */
 #![no_std]
 #![warn(missing_docs)]
-#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.5")]
+#![doc(html_root_url = "https://docs.rs/gmp-mpfr-sys/~1.6")]
 #![doc(html_logo_url = "data:image/svg+xml;base64,
 PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzMuODY3IDMzLjg2NyIgeG1s
 bnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0yNjMuMTMpIj48Y2lyY2xl
