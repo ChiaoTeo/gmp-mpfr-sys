@@ -40,7 +40,7 @@ This crate contains three modules:
   * [`mpfr`] provides external FFI bindings to [MPFR].
   * [`mpc`] provides external FFI bindings to [MPC].
 
-The versions provided by this crate release are [GMP] version 6.2.1, [MPFR]
+The versions provided by this crate release are [GMP] version 6.3.0, [MPFR]
 version 4.2.0-p9, and [MPC] version 1.3.1.
 
 If you want a high-level API, consider using [Rug][rug crate], a crate

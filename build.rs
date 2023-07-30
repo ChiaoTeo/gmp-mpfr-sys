@@ -39,10 +39,10 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use std::str;
 
-const GMP_DIR: &str = "gmp-6.2.1-c";
+const GMP_DIR: &str = "gmp-6.3.0-c";
 const MPFR_DIR: &str = "mpfr-4.2.0-p9-c";
 const MPC_DIR: &str = "mpc-1.3.1-c";
-const GMP_VER: (i32, i32, i32) = (6, 2, 1);
+const GMP_VER: (i32, i32, i32) = (6, 3, 0);
 const MPFR_VER: (i32, i32, i32) = (4, 2, 0);
 const MPC_VER: (i32, i32, i32) = (1, 3, 1);
 

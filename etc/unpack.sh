@@ -16,9 +16,9 @@ set -e
 # library versions and tar locations
 TARDIR="$HOME/Downloads"
 
-GMPVER=6.2.1
+GMPVER=6.3.0
 GMPVERP="$GMPVER"
-GMPTAR="$TARDIR/gmp-$GMPVER.tar.lz"
+GMPTAR="$TARDIR/gmp-$GMPVER.tar.xz"
 
 MPFRVER=4.2.0
 MPFRVERP="$MPFRVER-p9"
