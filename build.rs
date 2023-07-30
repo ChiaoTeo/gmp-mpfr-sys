@@ -442,7 +442,9 @@ fn save_cache(
 }
 
 fn clear_cache_redundancies(env: &Environment, mpfr: bool, mpc: bool) {
-    let Some(cache_dir) = &env.cache_dir else { return };
+    let Some(cache_dir) = &env.cache_dir else {
+        return;
+    };
     let cache_dirs = cache_directories(env, cache_dir)
         .into_iter()
         .rev()
@@ -492,7 +494,9 @@ fn clear_cache_redundancies(env: &Environment, mpfr: bool, mpc: bool) {
 }
 
 fn cache_directories(env: &Environment, base: &Path) -> Vec<(PathBuf, Option<u64>)> {
-    let Ok(dir) = fs::read_dir(base) else { return Vec::new() };
+    let Ok(dir) = fs::read_dir(base) else {
+        return Vec::new();
+    };
     let mut vec = Vec::new();
     for entry in dir {
         let Ok(e) = entry else { continue };
@@ -501,8 +505,12 @@ fn cache_directories(env: &Environment, base: &Path) -> Vec<(PathBuf, Option<u64
             continue;
         }
         let patch = {
-            let Some(file_name) = path.file_name() else { continue };
-            let Some(path_str) = file_name.to_str() else { continue };
+            let Some(file_name) = path.file_name() else {
+                continue;
+            };
+            let Some(path_str) = file_name.to_str() else {
+                continue;
+            };
             if path_str == env.version_prefix {
                 None
             } else if !path_str.starts_with(&env.version_prefix)
@@ -528,7 +536,9 @@ fn load_cache(
     mpfr_ah: &Option<(PathBuf, PathBuf)>,
     mpc_ah: &Option<(PathBuf, PathBuf)>,
 ) -> bool {
-    let Some(cache_dir) = &env.cache_dir else { return false };
+    let Some(cache_dir) = &env.cache_dir else {
+        return false;
+    };
     let env_version_patch = env.version_patch;
     let cache_dirs = cache_directories(env, cache_dir)
         .into_iter()
@@ -581,7 +591,9 @@ fn load_cache(
 }
 
 fn should_save_cache(env: &Environment, mpfr: bool, mpc: bool) -> bool {
-    let Some(cache_dir) = &env.cache_dir else { return false };
+    let Some(cache_dir) = &env.cache_dir else {
+        return false;
+    };
     let cache_dirs = cache_directories(env, cache_dir)
         .into_iter()
         .rev()
