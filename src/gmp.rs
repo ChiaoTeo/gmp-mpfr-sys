@@ -207,16 +207,25 @@ pub struct randfnptr_t {
 
 // Types for function declarations in this file.
 
-type mpz_srcptr = *const mpz_t;
-type mpz_ptr = *mut mpz_t;
-type mpq_srcptr = *const mpq_t;
-type mpq_ptr = *mut mpq_t;
-type mpf_srcptr = *const mpf_t;
-type mpf_ptr = *mut mpf_t;
+/// See: [`mpz_ptr`](../C/GMP/constant.GMP_Basics.html#index-mpz_005fptr)
+pub type mpz_ptr = *mut mpz_t;
+/// See: [`mpz_srcptr`](../C/GMP/constant.GMP_Basics.html#index-mpz_005fsrcptr)
+pub type mpz_srcptr = *const mpz_t;
+/// See: [`mpq_ptr`](../C/GMP/constant.GMP_Basics.html#index-mpq_005fptr)
+pub type mpq_ptr = *mut mpq_t;
+/// See: [`mpq_srcptr`](../C/GMP/constant.GMP_Basics.html#index-mpq_005fsrcptr)
+pub type mpq_srcptr = *const mpq_t;
+/// See: [`mpf_ptr`](../C/GMP/constant.GMP_Basics.html#index-mpf_005fptr)
+pub type mpf_ptr = *mut mpf_t;
+/// See: [`mpf_srcptr`](../C/GMP/constant.GMP_Basics.html#index-mpf_005fsrcptr)
+pub type mpf_srcptr = *const mpf_t;
+/// See: [`gmp_randstate_ptr`](../C/GMP/constant.GMP_Basics.html#index-gmp_005frandstate_005fptr)
+pub type randstate_ptr = *mut randstate_t;
+/// See: [`gmp_randstate_srcptr`](../C/GMP/constant.GMP_Basics.html#index-gmp_005frandstate_005fsrcptr)
+pub type randstate_srcptr = *const randstate_t;
+
 type mp_ptr = *mut limb_t;
 type mp_srcptr = *const limb_t;
-type randstate_srcptr = *const randstate_t;
-type randstate_ptr = *mut randstate_t;
 
 // Integers
 
@@ -575,6 +584,9 @@ extern "C" {
     /// See: [`mpz_nextprime`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fnextprime)
     #[link_name = "__gmpz_nextprime"]
     pub fn mpz_nextprime(rop: mpz_ptr, op: mpz_srcptr);
+    /// See: [`mpz_prevprime`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fprevprime)
+    #[link_name = "__gmpz_prevprime"]
+    pub fn mpz_prevprime(rop: mpz_ptr, op: mpz_srcptr);
     /// See: [`mpz_gcd`](../C/GMP/constant.Integer_Functions.html#index-mpz_005fgcd)
     #[link_name = "__gmpz_gcd"]
     pub fn mpz_gcd(rop: mpz_ptr, op1: mpz_srcptr, op2: mpz_srcptr);
