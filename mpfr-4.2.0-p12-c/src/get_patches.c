@@ -25,5 +25,5 @@ https://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 const char *
 mpfr_get_patches (void)
 {
-  return "printf_large_prec_for_g compound pow_general tests-reuse reldiff rec_sqrt-zivloop multibyte-decimal_point ui_pow_ui-overflow tsprintf-thousands";
+  return "strtofr-nullchar inp_str-nullchar gcc-pr106155-workaround printf_large_prec_for_g compound pow_general tests-reuse reldiff rec_sqrt-zivloop multibyte-decimal_point ui_pow_ui-overflow tsprintf-thousands";
 }
