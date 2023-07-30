@@ -9,6 +9,7 @@ Version 1.6.0 (unreleased)
 ==========================
 
   * [GMP] was updated from version 6.2.1 to 6.3.0.
+  * [MPFR] was updated from version 4.2.0-p9 to 4.2.0-p12.
 
 Version 1.5.3 (2023-05-22)
 ==========================
