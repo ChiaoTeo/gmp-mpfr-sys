@@ -84,7 +84,7 @@ currently supported is 128.
 <p>Initialize <var class="var">state</var> with an algorithm selected by <var class="var">alg</var>.  The only
 choice is <code class="code">GMP_RAND_ALG_LC</code>, which is <code class="code">gmp_randinit_lc_2exp_size</code>
 described above.  A third parameter of type <code class="code">unsigned long</code> is required,
-this is the <var class="var">size</var> for that function.  <code class="code">GMP_RAND_ALG_DEFAULT</code> or 0
+this is the <var class="var">size</var> for that function.  <code class="code">GMP_RAND_ALG_DEFAULT</code> and 0
 are the same as <code class="code">GMP_RAND_ALG_LC</code>.
 </p>
 <a class="index-entry-id" id="index-gmp_005ferrno"></a>
@@ -116,7 +116,7 @@ Next: <a href="#Random-State-Miscellaneous" accesskey="n" rel="next">Random Stat
 <dd><p>Set an initial seed value into <var class="var">state</var>.
 </p>
 <p>The size of a seed determines how many different sequences of random numbers
-that it&rsquo;s possible to generate.  The &ldquo;quality&rdquo; of the seed is the randomness
+it&rsquo;s possible to generate.  The &ldquo;quality&rdquo; of the seed is the randomness
 of a given seed compared to the previous seed used, and this affects the
 randomness of separate number sequences.  The method for choosing a seed is
 critical if the generated numbers are to be used for important applications,

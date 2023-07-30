@@ -130,7 +130,7 @@ meaningful for &lsquo;<samp class="samp">Z</samp>&rsquo;, &lsquo;<samp class="sa
 </p>
 <p>&lsquo;<samp class="samp">M</samp>&rsquo; is a proxy for the C library &lsquo;<samp class="samp">l</samp>&rsquo; or &lsquo;<samp class="samp">L</samp>&rsquo;, according to the
 size of <code class="code">mp_limb_t</code>.  Unsigned conversions will be usual, but a signed
-conversion can be used and will interpret the value as a twos complement
+conversion can be used and will interpret the value as a two&rsquo;s complement
 negative.
 </p>
 <p>&lsquo;<samp class="samp">n</samp>&rsquo; can be used with any type, even the GMP types.
@@ -237,7 +237,7 @@ if the C library <code class="code">vsnprintf</code> is the older GLIBC 2.0.x st
 <dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvasprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vasprintf</strong> <code class="def-code-arguments">(char **<var class="var">pp</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvasprintf'> &para;</a></span></dt>
 <dd><p>Form a null-terminated string in a block of memory obtained from the current
 memory allocation function (see <a class="pxref" href="constant.Custom_Allocation.html#start">Custom Allocation</a>).  The block will be the
-size of the string and null-terminator.  The address of the block in stored to
+size of the string and null-terminator.  The address of the block is stored to
 *<var class="var">pp</var>.  The return value is the number of characters produced, excluding
 the null-terminator.
 </p>
@@ -279,7 +279,7 @@ Prototypes are available from <code class="code">&lt;gmp.h&gt;</code>.
 </p>
 <p>In hex or octal, <var class="var">op</var> is printed as a signed number, the same as for
 decimal.  This is unlike the standard <code class="code">operator&lt;&lt;</code> routines on <code class="code">int</code>
-etc, which instead give twos complement.
+etc, which instead give two&rsquo;s complement.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c-1"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-operator_003c_003c-1'> &para;</a></span></dt>

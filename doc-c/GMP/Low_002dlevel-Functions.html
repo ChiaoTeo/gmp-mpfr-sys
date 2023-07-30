@@ -100,7 +100,7 @@ either 0 or 1.
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fneg"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_neg</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fneg'> &para;</a></span></dt>
 <dd><p>Perform the negation of {<var class="var">sp</var>, <var class="var">n</var>}, and write the result to
-{<var class="var">rp</var>, <var class="var">n</var>}.  This is equivalent to calling <code class="code">mpn_sub_n</code> with a
+{<var class="var">rp</var>, <var class="var">n</var>}.  This is equivalent to calling <code class="code">mpn_sub_n</code> with an
 <var class="var">n</var>-limb zero minuend and passing {<var class="var">sp</var>, <var class="var">n</var>} as subtrahend.
 Return borrow, either 0 or 1.
 </p></dd></dl>
@@ -276,7 +276,7 @@ be 0, 1 or 2 (these are both borrows really).  When <em class="math">c=0</em> cl
 least significant <var class="var">count</var> bits of the return value (the rest of the return
 value is zero).
 </p>
-<p><var class="var">count</var> must be in the range 1 to <code class="code">mp_bits_per_limb</code>&minus;1.  The
+<p><var class="var">count</var> must be in the range 1 to <code class="code">mp_bits_per_limb</code><em class="math">{}-1</em>.  The
 regions {<var class="var">sp</var>, <var class="var">n</var>} and {<var class="var">rp</var>, <var class="var">n</var>} may overlap, provided
 <em class="math"><var class="var">rp</var> &gt;= <var class="var">sp</var></em>.
 </p>
@@ -289,7 +289,7 @@ regions {<var class="var">sp</var>, <var class="var">n</var>} and {<var class="v
 most significant <var class="var">count</var> bits of the return value (the rest of the return
 value is zero).
 </p>
-<p><var class="var">count</var> must be in the range 1 to <code class="code">mp_bits_per_limb</code>&minus;1.  The
+<p><var class="var">count</var> must be in the range 1 to <code class="code">mp_bits_per_limb</code><em class="math">{}-1</em>.  The
 regions {<var class="var">sp</var>, <var class="var">n</var>} and {<var class="var">rp</var>, <var class="var">n</var>} may overlap, provided
 <em class="math"><var class="var">rp</var> &lt;= <var class="var">sp</var></em>.
 </p>

@@ -234,7 +234,7 @@ Next: <a href="#Applying-Integer-Functions" accesskey="n" rel="next">Applying In
 </p>
 <p><var class="var">num2</var> and <var class="var">den2</var> are allowed to have common factors.
 </p>
-<p>These functions are implemented as a macros and evaluate their arguments
+<p>These functions are implemented as macros and evaluate their arguments
 multiple times.
 </p></dd></dl>
 <dl class="first-deftypefn">
@@ -273,10 +273,13 @@ access to the numerator and denominator of an <code class="code">mpq_t</code>.
 called before any other <code class="code">mpq</code> functions are applied to that <code class="code">mpq_t</code>.
 </p>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-mpq_005fnumref"><span class="category-def">Macro: </span><span><code class="def-type">mpz_t</code> <strong class="def-name">mpq_numref</strong> <code class="def-code-arguments">(const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-mpq_005fnumref'> &para;</a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-mpq_005fdenref"><span class="category-def">Macro: </span><span><code class="def-type">mpz_t</code> <strong class="def-name">mpq_denref</strong> <code class="def-code-arguments">(const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-mpq_005fdenref'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-mpq_005fnumref"><span class="category-def">Macro: </span><span><code class="def-type">mpz_ptr</code> <strong class="def-name">mpq_numref</strong> <code class="def-code-arguments">(const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-mpq_005fnumref'> &para;</a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-mpq_005fdenref"><span class="category-def">Macro: </span><span><code class="def-type">mpz_ptr</code> <strong class="def-name">mpq_denref</strong> <code class="def-code-arguments">(const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-mpq_005fdenref'> &para;</a></span></dt>
 <dd><p>Return a reference to the numerator and denominator of <var class="var">op</var>, respectively.
-The <code class="code">mpz</code> functions can be used on the result of these macros.
+The <code class="code">mpz</code> functions can be used on the result of these macros.  Such
+calls may modify the numerator or denominator. However, care
+should be taken so that <var class="var">op</var> remains in canonical form prior to a
+possible later call to an <code class="code">mpq</code> function.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpq_005fget_005fnum"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpq_get_num</strong> <code class="def-code-arguments">(mpz_t <var class="var">numerator</var>, const mpq_t <var class="var">rational</var>)</code><a class="copiable-link" href='#index-mpq_005fget_005fnum'> &para;</a></span></dt>

@@ -63,7 +63,7 @@ example
 </p>
 <div class="example">
 <pre class="example-preformatted">cd /my/build/dir
-/my/sources/gmp-6.2.1/configure
+/my/sources/gmp-6.3.0/configure
 </pre></div>
 <p>Not all &lsquo;<samp class="samp">make</samp>&rsquo; programs have the necessary features (<code class="code">VPATH</code>) to
 support this.  In particular, SunOS and Slowaris <code class="command">make</code> have bugs that
@@ -128,7 +128,7 @@ example <code class="command">m68k-mac-linux-gnu-ranlib</code> is tried, then pl
 <code class="command">ranlib</code>.  This makes it possible for a set of cross-compiling tools
 to co-exist with native tools.  The prefix is the argument to &lsquo;<samp class="samp">--host</samp>&rsquo;,
 and this can be an alias, such as &lsquo;<samp class="samp">m68k-linux</samp>&rsquo;.  But note that tools
-don&rsquo;t have to be setup this way, it&rsquo;s enough to just have a <code class="env">PATH</code> with a
+don&rsquo;t have to be set up this way, it&rsquo;s enough to just have a <code class="env">PATH</code> with a
 suitable cross-compiling <code class="command">cc</code> etc.
 </p>
 <p>Compiling for a different CPU in the same family as the build system is a form
@@ -173,7 +173,7 @@ of what code and compiler options they select.
 &lsquo;<samp class="samp">alphapca57</samp>&rsquo;,
 &lsquo;<samp class="samp">alphaev6</samp>&rsquo;,
 &lsquo;<samp class="samp">alphaev67</samp>&rsquo;,
-&lsquo;<samp class="samp">alphaev68</samp>&rsquo;
+&lsquo;<samp class="samp">alphaev68</samp>&rsquo;,
 &lsquo;<samp class="samp">alphaev7</samp>&rsquo;
 </li><li>Cray:
 &lsquo;<samp class="samp">c90</samp>&rsquo;,
@@ -458,7 +458,7 @@ of use while debugging, see <a class="pxref" href="constant.GMP_Basics.html#Debu
 </dd>
 <dt id='index-MPN_005fPATH'><span><samp class="option">MPN_PATH</samp><a class="copiable-link" href='#index-MPN_005fPATH'> &para;</a></span></dt>
 <dd><p>Various assembly versions of each mpn subroutines are provided.  For a given
-CPU, a search is made though a path to choose a version of each.  For example
+CPU, a search is made through a path to choose a version of each.  For example
 &lsquo;<samp class="samp">sparcv8</samp>&rsquo; has
 </p>
 <div class="example">
@@ -535,7 +535,7 @@ compilers for a particular ABI will be expected to use the same limb type.
 installing library or header files built for a particular ABI.  This will
 probably only matter when installing multiple builds of GMP, and it might be
 as simple as configuring with a special &lsquo;<samp class="samp">libdir</samp>&rsquo;, or it might require
-more than that.  Note that builds for different ABIs need to done separately,
+more than that.  Note that builds for different ABIs need to be done separately,
 with a fresh <code class="command">./configure</code> and <code class="command">make</code> each.
 </p>
 <br>
@@ -599,7 +599,7 @@ GNU/Linux and on HP-UX 10 or higher.  Applications must be compiled with
 <pre class="example-preformatted">gcc [built for 2.0n]
 cc  +DA2.0 +e
 </pre></div>
-<p>Note that current versions of GCC (eg. 3.2) don&rsquo;t generate 64-bit
+<p>Note that current versions of GCC (e.g. 3.2) don&rsquo;t generate 64-bit
 instructions for <code class="code">long long</code> operations and so may be slower than for
 2.0w.  (The GMP assembly code is the same though.)
 </p>
@@ -660,7 +660,7 @@ each.  The default is n32.
 <dt>&lsquo;<samp class="samp">ABI=o32</samp>&rsquo;</dt>
 <dd><p>The o32 ABI is 32-bit pointers and integers, and no 64-bit operations.  GMP
 will be slower than in n32 or 64, this option only exists to support old
-compilers, eg. GCC 2.7.2.  Applications can be compiled with no special
+compilers, e.g. GCC 2.7.2.  Applications can be compiled with no special
 flags on an old compiler, or on a newer compiler with
 </p>
 <div class="example">
@@ -1094,7 +1094,7 @@ script, it exits silently, having died writing a preamble to
 <samp class="file">config.log</samp>.  Use <code class="command">bash</code> 2.04 or higher.
 </p>
 <p>&lsquo;<samp class="samp">make all</samp>&rsquo; was found to run out of memory during the final
-<samp class="file">libgmp.la</samp> link on one system tested, despite having 64Mb available.
+<samp class="file">libgmp.la</samp> link on one system tested, despite having 64MiB available.
 Running &lsquo;<samp class="samp">make libgmp.la</samp>&rsquo; directly helped, perhaps recursing into the
 various subdirectories uses up memory.
 </p>
@@ -1184,7 +1184,7 @@ operation.
 </p>
 <p>In particular for long-running GMP applications, and applications demanding
 extremely large numbers, building and running the <code class="code">tuneup</code> program in the
-<samp class="file">tune</samp> subdirectory, can be important.  For example,
+<samp class="file">tune</samp> subdirectory can be important.  For example,
 </p>
 <div class="example">
 <pre class="example-preformatted">cd tune

@@ -61,12 +61,12 @@ non-zero <code class="code">_mp_size</code>.  They can only be used as read-only
 </p></dd>
 </dl>
 <p>The various bitwise logical functions like <code class="code">mpz_and</code> behave as if
-negative values were twos complement.  But sign and magnitude is always used
+negative values were two&rsquo;s complement.  But sign and magnitude is always used
 internally, and necessary adjustments are made during the calculations.
 Sometimes this isn&rsquo;t pretty, but sign and magnitude are best for other
 routines.
 </p>
-<p>Some internal temporary variables are setup with <code class="code">MPZ_TMP_INIT</code> and these
+<p>Some internal temporary variables are set up with <code class="code">MPZ_TMP_INIT</code> and these
 have <code class="code">_mp_d</code> space obtained from <code class="code">TMP_ALLOC</code> rather than the memory
 allocation functions.  Care is taken to ensure that these are big enough that
 no reallocation is necessary (since it would have unpredictable consequences).
@@ -269,7 +269,7 @@ limbs, then an extra added for the high being only non-zero, giving an
 back with <code class="code">mpf_get_prec</code> will take <code class="code">_mp_prec</code> subtract 1 limb and
 multiply by 32, giving 256 bits.
 </p>
-<p>Strictly speaking, the fact the high limb has at least one bit means that a
+<p>Strictly speaking, the fact that the high limb has at least one bit means that a
 float with, say, 3 limbs of 32-bits each will be holding at least 65 bits, but
 for the purposes of <code class="code">mpf_t</code> it&rsquo;s considered simply to be 64 bits, a nice
 multiple of the limb size.
@@ -292,7 +292,7 @@ Next: <a href="#C_002b_002b-Interface-Internals" accesskey="n" rel="next">C++ In
 +------+------------------------+
 </pre></div>
 <p>The size is 4 bytes written most significant byte first, being the number of
-subsequent data bytes, or the twos complement negative of that when a negative
+subsequent data bytes, or the two&rsquo;s complement negative of that when a negative
 integer is represented.  The data bytes are the absolute value of the integer,
 written most significant byte first.
 </p>

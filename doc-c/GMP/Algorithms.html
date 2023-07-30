@@ -247,7 +247,7 @@ are
 <p>The <em class="math">w[i]</em> are going to be determined, and when they are they&rsquo;ll give
 the final result using <em class="math">w=W(b)</em>, since
 <em class="math">x*y=X(b)*Y(b)=W(b)</em>.  The coefficients will be roughly
-<em class="math">b^2</em> each, and the final <em class="math">W(b)</em> will be an addition like,
+<em class="math">b^2</em> each, and the final <em class="math">W(b)</em> will be an addition like this:
 </p>
 <div class="example">
 <div class="group"><pre class="example-preformatted"> high                                        low
@@ -274,7 +274,7 @@ nine <em class="math">x[i]*y[j]</em> for <em class="math">i,j=0,1,2</em>, and wo
 to a basecase multiply.  Instead the following approach is used.
 </p>
 <p><em class="math">X(t)</em> and <em class="math">Y(t)</em> are evaluated and multiplied at 5 points, giving
-values of <em class="math">W(t)</em> at those points.  In GMP the following points are used,
+values of <em class="math">W(t)</em> at those points.  In GMP the following points are used:
 </p>
 <blockquote class="quotation">
 <table class="multitable">
@@ -392,7 +392,7 @@ values of <em class="math">W(t)</em> at those points.  In GMP the following poin
 </table>
 </blockquote>
 <p>The number of additions and subtractions for Toom-4 is much larger than for Toom-3.
-But several subexpressions occur multiple times, for example <em class="math">x2+x0</em>, occurs
+But several subexpressions occur multiple times, for example <em class="math">x2+x0</em> occurs
 for both <em class="math">t=1</em> and <em class="math">t=-1</em>.
 </p>
 <p>Toom-4 is asymptotically <em class="math">O(N^1.404<!-- /@w -->)</em>, the exponent being
@@ -409,19 +409,19 @@ Next: <a href="#FFT-Multiplication" accesskey="n" rel="next">FFT Multiplication<
 <h4 class="subsection" id="Higher-degree-Toom_0027n_0027half-1">15.1.5 Higher degree Toom&rsquo;n&rsquo;half</h4>
 <a class="index-entry-id" id="index-Toom-multiplication-2"></a>
 <p>The Toom algorithms described above (see <a class="pxref" href="#Toom-3_002dWay-Multiplication">Toom 3-Way Multiplication</a>,
-see <a class="pxref" href="#Toom-4_002dWay-Multiplication">Toom 4-Way Multiplication</a>) generalizes to split into an arbitrary
+see <a class="pxref" href="#Toom-4_002dWay-Multiplication">Toom 4-Way Multiplication</a>) generalize to split into an arbitrary
 number of pieces. In general a split of two equally long operands into
 <em class="math">r</em> pieces leads to evaluations and pointwise multiplications done at
 <em class="math">2*r-1</em> points. To fully exploit symmetries it would be better to have
 a multiple of 4 points, that&rsquo;s why for higher degree Toom&rsquo;n&rsquo;half is used.
 </p>
 <p>Toom&rsquo;n&rsquo;half means that the existence of one more piece is considered for a
-single operand. It can be virtual, i.e. zero, or real, when the two operand
+single operand. It can be virtual, i.e. zero, or real, when the two operands
 are not exactly balanced. By choosing an even <em class="math">r</em>,
 Toom-<em class="math">r+1/2</em> requires <em class="math">2r</em> points, a multiple of four.
 </p>
-<p>The quadruplets of points include 0, <em class="math">inf</em>, +1, -1 and
-<em class="math">+-2^i</em>, <em class="math">+-2^-i</em> . Each of them giving shortcuts for the
+<p>The quadruplets of points include 0, <em class="math">inf</em>, +1, <em class="math"></em> and
+<em class="math">+-2^i</em>, <em class="math">+-2^-i</em>. Each of them giving shortcuts for the
 evaluation phase and for some steps in the interpolation phase. Further tricks
 are used to reduce the memory footprint of the whole multiplication algorithm
 to a memory buffer equal in size to the result of the product.
@@ -457,7 +457,7 @@ pieces of <em class="math">M=N/2^k</em> bits each.  <em class="math">N</em> must
 the split falls on limb boundaries, avoiding bit shifts in the split and
 combine stages.
 </p>
-<p>The evaluations, pointwise multiplications, and interpolation, are all done
+<p>The evaluations, pointwise multiplications, and interpolation are all done
 modulo <em class="math">2^N'+1</em> where <em class="math">N'</em> is <em class="math">2M+k+3</em> rounded up to a
 multiple of <em class="math">2^k</em> and of <code class="code">mp_bits_per_limb</code>.  The results of
 interpolation will be the following negacyclic convolution of the input
@@ -604,7 +604,7 @@ Previous: <a href="#Other-Multiplication" accesskey="p" rel="prev">Other Multipl
 <p>For operands between these sizes, we use Toom inspired algorithms suggested by
 Alberto Zanoni and Marco Bodrato.  The idea is to split the operands into
 polynomials of different degree.  GMP currently splits the smaller operand
-onto 2 coefficients, i.e., a polynomial of degree 1, but the larger operand
+into 2 coefficients, i.e., a polynomial of degree 1, but the larger operand
 can be split into 2, 3, or 4 coefficients, i.e., a polynomial of degree 1 to
 3.
 </p>
@@ -968,7 +968,7 @@ code as described above.  For two N-bit operands, the algorithm takes about
 0.68 iterations per bit.  For optimum performance some attention needs to be
 paid to the way the factors of 2 are stripped from <em class="math">a</em>.
 </p>
-<p>Firstly it may be noted that in twos complement the number of low zero bits on
+<p>Firstly it may be noted that in two&rsquo;s complement the number of low zero bits on
 <em class="math">a-b</em> is the same as <em class="math">b-a</em>, so counting or testing can begin on
 <em class="math">a-b</em> without waiting for <em class="math">abs(a-b)</em> to be determined.
 </p>
@@ -977,7 +977,7 @@ condition is data dependent.  But on average there&rsquo;s only a few low zeros,
 an option is to strip one or two bits arithmetically then loop for more (as
 done for AMD K6).  Or use a lookup table to get a count for several bits then
 loop for more (as done for AMD K7).  An alternative approach is to keep just
-one of <em class="math">a</em> or <em class="math">b</em> odd and iterate
+one of <em class="math">a</em> and <em class="math">b</em> odd and iterate
 </p>
 <blockquote class="quotation">
 <p><em class="math">a,b = abs(a-b), min(a,b)</em> <br>
@@ -1029,10 +1029,10 @@ section). This means that when called with the most significant two limbs of
 two large numbers, the returned matrix does not always correspond exactly to
 the initial quotient sequence for the two large numbers; the final quotient
 may sometimes be one off.
-</li><li>It takes advantage of the fact the quotients are usually small. The division
+</li><li>It takes advantage of the fact that the quotients are usually small. The division
 operator is not used, since the corresponding assembler instruction is very
 slow on most architectures. (This code could probably be improved further, it
-uses many branches that are unfriendly to prediction).
+uses many branches that are unfriendly to prediction.)
 </li><li>It switches from double-limb calculations to single-limb calculations half-way
 through, when the input numbers have been reduced in size from two limbs to
 one and a half.
@@ -1081,7 +1081,7 @@ algorithm. Where Lehmer repeatedly chops off the top two limbs, calls
 <code class="code">mpn_hgcd2</code>, and applies the resulting matrix to the full numbers, the
 sub-quadratic GCD chops off the most significant third of the limbs (the
 proportion is a tuning parameter, and <em class="math">1/3</em> seems to be more efficient
-than, e.g, <em class="math">1/2</em>), calls <code class="code">mpn_hgcd</code>, and applies the resulting
+than, e.g., <em class="math">1/2</em>), calls <code class="code">mpn_hgcd</code>, and applies the resulting
 matrix. Once the input numbers are reduced to size below
 <code class="code">GCD_DC_THRESHOLD</code>, Lehmer&rsquo;s algorithm is used for the rest of the work.
 </p>
@@ -1102,7 +1102,7 @@ handle this case. The binary algorithm is used only for single-limb GCDEXT.
 Lehmer&rsquo;s algorithm is used for sizes up to <code class="code">GCDEXT_DC_THRESHOLD</code>. Above
 this threshold, GCDEXT is implemented as a loop around HGCD, but with more
 book-keeping to keep track of the cofactors. This gives the same asymptotic
-running time as for GCD and HGCD, <em class="math">O(M(N)*log(N))</em>
+running time as for GCD and HGCD, <em class="math">O(M(N)*log(N))</em>.
 </p>
 <p>One difference to plain GCD is that while the inputs <em class="math">a</em> and <em class="math">b</em> are
 reduced as the algorithm proceeds, the cofactors <em class="math">x</em> and <em class="math">y</em> grow in
@@ -1134,7 +1134,7 @@ and the whole calculation in this case is quite efficient.
 <code class="code">mpz_legendre</code> and <code class="code">mpz_kronecker</code> are computed via the HGCD (Half
 GCD) function, as a generalization to Lehmer&rsquo;s algorithm.
 </p>
-<p>Most GCD algorithms reduce <em class="math">a</em> and <em class="math">b</em> by repeatatily computing the
+<p>Most GCD algorithms reduce <em class="math">a</em> and <em class="math">b</em> by repeatedly computing the
 quotient <em class="math">q = floor(a/b)</em> and iteratively replacing
 </p>
 <p><em class="math">a, b = b, a - q * b</em>
@@ -1158,7 +1158,7 @@ M&ouml;ller (see <a class="pxref" href="constant.References.html#start">Referenc
 twiddling which avoids conditional jumps.
 </p>
 <p>The final result is calculated after verifying the inputs are coprime (GCD = 1)
-by raising <em class="math">(-1)^e</em>
+by raising <em class="math">(-1)^e</em>.
 </p>
 <p>Much of the HGCD code is shared directly with the HGCD implementations, such
 as the 2x2 matrix calculation, See <a class="xref" href="#Lehmer_0027s-Algorithm">Lehmer&rsquo;s algorithm</a> basecase and
@@ -1576,9 +1576,9 @@ recursively. The procedure can be best illustrated with an example,
 <p><em class="math">23! = (23.21.19.17.15.13.11.9.7.5.3)(11.9.7.5.3)(5.3)2^{19}</em>
 </p></blockquote>
 <p>Current code collects all the factors in a single list, with a loop and no
-recursion, and compute the product, with no special care for repeated chunks.
+recursion, and computes the product, with no special care for repeated chunks.
 </p>
-<p>When <em class="math">n</em> is larger, computation pass trough prime sieving. An helper
+<p>When <em class="math">n</em> is larger, computations pass through prime sieving. A helper
 function is used, as suggested by Peter Luschny:
 </p>
 <div class="example">
@@ -1961,10 +1961,10 @@ addressing done with the loop counter as a scaled index.
 </p>
 <p>The final loop control cost can be amortised by processing several limbs in
 each iteration (see <a class="pxref" href="#Assembly-Loop-Unrolling">Loop Unrolling</a>).  This at least ensures loop
-control isn&rsquo;t a big fraction the work done.
+control isn&rsquo;t a big fraction of the work done.
 </p>
 <p>Memory throughput is always a limit.  If perhaps only one load or one store
-can be done per cycle then 3 cycles/limb will the top speed for &ldquo;binary&rdquo;
+can be done per cycle then 3 cycles/limb will be the top speed for &ldquo;binary&rdquo;
 operations like <code class="code">mpn_add_n</code>, and any code achieving that is optimal.
 </p>
 <p>Integer resources can be freed up by having the loop counter in a float
@@ -1983,7 +1983,7 @@ twiddling.
 Next: <a href="#Assembly-SIMD-Instructions" accesskey="n" rel="next">SIMD Instructions</a>, Previous: <a href="#Assembly-Functional-Units" accesskey="p" rel="prev">Functional Units</a>, Up: <a href="#Assembly-Coding" accesskey="u" rel="up">Assembly Coding</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="subsection" id="Floating-Point">15.8.6 Floating Point</h4>
-<a class="index-entry-id" id="index-Assembly-floating-Point"></a>
+<a class="index-entry-id" id="index-Assembly-floating-point"></a>
 <p>Floating point arithmetic is used in GMP for multiplications on CPUs with poor
 integer multipliers.  It&rsquo;s mostly useful for <code class="code">mpn_mul_1</code>,
 <code class="code">mpn_addmul_1</code> and <code class="code">mpn_submul_1</code> on 64-bit machines, and
@@ -2121,7 +2121,7 @@ juggling.
 </p>
 <p>If the latency of some instruction is greater than the loop time then it will
 be necessary to unroll, so one register has a result ready to use while
-another (or multiple others) are still in progress.  (see <a class="pxref" href="#Assembly-Loop-Unrolling">Loop Unrolling</a>).
+another (or multiple others) are still in progress (see <a class="pxref" href="#Assembly-Loop-Unrolling">Loop Unrolling</a>).
 </p>
 <hr>
 </div>

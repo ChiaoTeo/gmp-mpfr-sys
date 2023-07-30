@@ -38,14 +38,16 @@ Next: <a href="#Nomenclature-and-Types" accesskey="n" rel="next">Nomenclature an
 <a class="index-entry-id" id="index-Include-files"></a>
 <a class="index-entry-id" id="index-_0023include"></a>
 <p>All declarations needed to use GMP are collected in the include file
-<samp class="file">gmp.h</samp>.  It is designed to work with both C and C++ compilers.
+<samp class="file">gmp.h</samp>, except for the <a class="ref" href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface">C++ Class Interface</a> which comes with its
+own separate header <samp class="file">gmpxx.h</samp>.  <samp class="file">gmp.h</samp> is designed to work with
+both C and C++ compilers.
 </p>
 <div class="example">
 <pre class="example-preformatted">#include &lt;gmp.h&gt;
 </pre></div>
 <a class="index-entry-id" id="index-stdio_002eh"></a>
 <p>Note however that prototypes for GMP functions with <code class="code">FILE *</code> parameters
-are only provided if <code class="code">&lt;stdio.h&gt;</code> is included too.
+are only provided if <code class="code">&lt;stdio.h&gt;</code> is included before.
 </p>
 <div class="example">
 <pre class="example-preformatted">#include &lt;stdio.h&gt;
@@ -67,9 +69,10 @@ typical Unix-like system this can be done with &lsquo;<samp class="samp">-lgmp</
 <pre class="example-preformatted">gcc myprogram.c -lgmp
 </pre></div>
 <a class="index-entry-id" id="index-libgmpxx"></a>
-<p>GMP C++ functions are in a separate <samp class="file">libgmpxx</samp> library.  This is built
-and installed if C++ support has been enabled (see <a class="pxref" href="constant.Installing_GMP.html#Build-Options">Build Options</a>).  For
-example,
+<p>GMP C++ functions are in a separate <samp class="file">libgmpxx</samp> library, including the
+<a class="ref" href="constant.CPP_Class_Interface.html#C_002b_002b-Class-Interface">C++ Class Interface</a> but also <a class="ref" href="constant.Formatted_Output.html#C_002b_002b-Formatted-Output">C++ Formatted Output</a> for regular
+GMP types.  This is built and installed if C++ support has been enabled
+(see <a class="pxref" href="constant.Installing_GMP.html#Build-Options">Build Options</a>).  For example,
 </p>
 <div class="example">
 <pre class="example-preformatted">g++ mycxxprog.cc -lgmpxx -lgmp
@@ -154,6 +157,58 @@ data type for such objects is <code class="code">gmp_randstate_t</code>.  For ex
 <p>Also, in general <code class="code">mp_bitcnt_t</code> is used for bit counts and ranges, and
 <code class="code">size_t</code> is used for byte or character counts.
 </p>
+<br>
+<a class="index-entry-id" id="index-Pointer-types"></a>
+<a class="index-entry-id" id="index-mpz_005fptr"></a>
+<a class="index-entry-id" id="index-mpz_005fsrcptr"></a>
+<a class="index-entry-id" id="index-mpq_005fptr"></a>
+<a class="index-entry-id" id="index-mpq_005fsrcptr"></a>
+<a class="index-entry-id" id="index-mpf_005fptr"></a>
+<a class="index-entry-id" id="index-mpf_005fsrcptr"></a>
+<a class="index-entry-id" id="index-gmp_005frandstate_005fptr"></a>
+<a class="index-entry-id" id="index-gmp_005frandstate_005fsrcptr"></a>
+<p>Internally, GMP data types such as <code class="code">mpz_t</code> are defined as one-element
+arrays, whose element type is part of the GMP internals (see <a class="pxref" href="constant.Internals.html#Internals">Internals</a>).
+</p>
+<p>When an array is used as a function argument in C, it is not passed by value,
+instead its value is a pointer to the first element. In C jargon, this is
+sometimes referred to as the array &quot;decaying&quot; to a pointer. For GMP types like
+<code class="code">mpz_t</code>, that means that the function called gets a pointer to the
+caller&rsquo;s <code class="code">mpz_t</code> value, which is why no explicit <code class="code">&amp;</code> operator is
+needed when passing output arguments (see <a class="pxref" href="#Parameter-Conventions">Parameter Conventions</a>).
+</p>
+<p>GMP defines names for these pointer types, e.g., <code class="code">mpz_ptr</code> corresponding
+to <code class="code">mpz_t</code>, and <code class="code">mpz_srcptr</code> corresponding to <code class="code">const mpz_t</code>.
+Most functions don&rsquo;t need to use these pointer types directly; it works fine to
+declare a function using the <code class="code">mpz_t</code> or <code class="code">const mpz_t</code> as the argument
+types, the same &quot;pointer decay&quot; happens in the background regardless.
+</p>
+<p>Occasionally, it is useful to manipulate pointers directly, e.g., to
+conditionally swap <em class="emph">references</em> to a function&rsquo;s inputs without changing
+the <em class="emph">values</em> as seen by the caller, or returning a pointer to an
+<code class="code">mpz_t</code> which is part of a larger structure. For these cases, the pointer
+types are necessary. And a <code class="code">mpz_ptr</code> can be passed as argument to any GMP
+function declared to take an <code class="code">mpz_t</code> argument.
+</p>
+<p>Their definition is equivalent to the following code, which is given for
+illustratory purposes only:
+</p>
+<div class="example">
+<pre class="example-preformatted">    typedef foo_internal foo_t[1];
+    typedef foo_internal * foo_ptr;
+    typedef const foo_internal * foo_srcptr;
+</pre></div>
+<p>The following pointer types are defined by GMP:
+</p><ul class="itemize mark-bullet">
+<li><code class="code">mpz_ptr</code> for pointers to the element type in <code class="code">mpz_t</code>
+</li><li><code class="code">mpz_srcptr</code> for <code class="code">const</code> pointers to the element type in <code class="code">mpz_t</code>
+</li><li><code class="code">mpq_ptr</code> for pointers to the element type in <code class="code">mpq_t</code>
+</li><li><code class="code">mpq_srcptr</code> for <code class="code">const</code> pointers to the element type in <code class="code">mpq_t</code>
+</li><li><code class="code">mpf_ptr</code> for pointers to the element type in <code class="code">mpf_t</code>
+</li><li><code class="code">mpf_srcptr</code> for <code class="code">const</code> pointers to the element type in <code class="code">mpf_t</code>
+</li><li><code class="code">gmp_randstate_ptr</code> for pointers to the element type in <code class="code">gmp_randstate_t</code>
+</li><li><code class="code">gmp_randstate_srcptr</code> for <code class="code">const</code> pointers to the element type in <code class="code">gmp_randstate_t</code>
+</li></ul>
 <hr>
 </div>
 <div class="section-level-extent" id="Function-Classes">
@@ -175,7 +230,7 @@ functions in this class, but the integer functions can be used for arithmetic
 on the numerator and denominator separately.  (see <a class="pxref" href="constant.Rational_Number_Functions.html#Rational-Number-Functions">Rational Number Functions</a>)
 </li><li> Functions for floating-point arithmetic, with names beginning with
 <code class="code">mpf_</code>.  The associated type is <code class="code">mpf_t</code>.  There are about 70
-functions is this class.  (see <a class="pxref" href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions">Floating-point Functions</a>)
+functions in this class.  (see <a class="pxref" href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions">Floating-point Functions</a>)
 </li><li> Fast low-level functions that operate on natural numbers.  These are used by
 the functions in the preceding groups, and you can also call them directly
 from very time-critical user programs.  These functions&rsquo; names begin with
@@ -238,7 +293,9 @@ foo (void)
 </pre></div>
 <p>GMP types like <code class="code">mpz_t</code> are implemented as one-element arrays of certain
 structures.  Declaring a variable creates an object with the fields GMP needs,
-but variables are normally manipulated by using the pointer to the object.  For
+but variables are normally manipulated by using the pointer to the
+object.  The appropriate pointer types (<a class="ref" href="#Nomenclature-and-Types">Nomenclature and Types</a>) may
+be used to explicitly manipulate the pointer.  For
 both behavior and efficiency reasons, it is discouraged to make copies of the
 GMP object itself (either directly or via aggregate objects containing such GMP
 objects).  If copies are done, all of them must be used read-only; using a copy
@@ -299,7 +356,12 @@ bother supporting that sort of thing.
 </p>
 <p>Since GMP types are implemented as one-element arrays, using a GMP variable as
 a parameter passes a pointer to the object. Hence the call-by-reference.
+A more explicit (and equivalent) prototype for our function <code class="code">foo</code>
+could be:
 </p>
+<div class="example">
+<pre class="example-preformatted">void foo (mpz_ptr result, mpz_srcptr param, unsigned long n);
+</pre></div>
 <hr>
 </div>
 <div class="section-level-extent" id="Memory-Management">
@@ -398,7 +460,7 @@ For GMP i.j.k, these numbers will be i, j, and k, respectively.
 <dt class="deftypevr" id="index-gmp_005fversion-1"><span class="category-def">Global Constant: </span><span><code class="def-type">const char * const</code> <strong class="def-name">gmp_version</strong><a class="copiable-link" href='#index-gmp_005fversion-1'> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-gmp_005fversion"></a>
 <p>The GMP version number, as a null-terminated string, in the form &ldquo;i.j.k&rdquo;.
-This release is <code class="code">&quot;6.2.1&quot;</code>.  Note that the format &ldquo;i.j&rdquo; was
+This release is <code class="code">&quot;6.3.0&quot;</code>.  Note that the format &ldquo;i.j&rdquo; was
 used, before version 4.3.0, when k was zero.
 </p></dd></dl>
 <dl class="first-deffn first-defmac-alias-first-deffn">
@@ -485,7 +547,7 @@ format in <samp class="file">demos/perl/GMP.pm</samp>.
 expression evaluation within the main GMP library.  Going beyond something
 minimal quickly leads to matters like user-defined functions, looping, fixnums
 for control variables, etc, which are considered outside the scope of GMP
-(much closer to language interpreters or compilers, See <a class="xref" href="constant.Language_Bindings.html#start">Language Bindings</a>.)
+(much closer to language interpreters or compilers, See <a class="xref" href="constant.Language_Bindings.html#start">Language Bindings</a>).
 Something simple for program input convenience may yet be a possibility, a
 combination of the <samp class="file">expr</samp> demo and the <samp class="file">pexpr</samp> tree back-end
 perhaps.  But for now the above evaluators are offered as illustrations.
@@ -549,7 +611,7 @@ usually be very rare and testing every time would be wasteful.
 <dd><p>The <code class="code">ui</code> functions and the small number of <code class="code">si</code> functions exist for
 convenience and should be used where applicable.  But if for example an
 <code class="code">mpz_t</code> contains a value that fits in an <code class="code">unsigned long</code> there&rsquo;s no
-need extract it and call a <code class="code">ui</code> function, just use the regular <code class="code">mpz</code>
+need to extract it and call a <code class="code">ui</code> function, just use the regular <code class="code">mpz</code>
 function.
 </p>
 </dd>
@@ -596,7 +658,7 @@ it&rsquo;s zero (or a particular value).
 </p>
 <p>However when testing divisibility by several small integers, it&rsquo;s best to take
 a remainder modulo their product, to save multi-precision operations.  For
-instance to test whether a number is divisible by any of 23, 29 or 31 take a
+instance to test whether a number is divisible by 23, 29 or 31 take a
 remainder modulo <em class="math">23*29*31 = 20677</em> and then test that.
 </p>
 <p>The division functions like <code class="code">mpz_tdiv_q_ui</code> which give a quotient as well
@@ -732,7 +794,7 @@ use a separate object directory with an absolute path to the source directory.
 </p>
 <div class="example">
 <pre class="example-preformatted">cd /my/build/dir
-/my/source/dir/gmp-6.2.1/configure
+/my/source/dir/gmp-6.3.0/configure
 </pre></div>
 <p>This works via <code class="code">VPATH</code>, and might require GNU <code class="command">make</code>.
 Alternately it might be possible to change the <code class="code">.c.lo</code> rules
