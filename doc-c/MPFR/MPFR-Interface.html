@@ -318,7 +318,7 @@ Note that the input 0 is converted to +0.
 <dd><p>Set <var class="var">rop</var> to the value of the string <var class="var">s</var> in base <var class="var">base</var>,
 rounded in the direction <var class="var">rnd</var>.
 See the documentation of <code class="code">mpfr_strtofr</code> for a detailed description
-of the valid string formats.
+of <var class="var">base</var> (with its special value 0) and the valid string formats.
 Contrary to <code class="code">mpfr_strtofr</code>, <code class="code">mpfr_set_str</code> requires the
 <em class="emph">whole</em> string to represent a valid floating-point number.
 </p>
@@ -1132,9 +1132,13 @@ used for <code class="code">pow</code>.
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpfr_005fcompound_005fsi"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpfr_compound_si</strong> <code class="def-code-arguments">(mpfr_t <var class="var">rop</var>, mpfr_t <var class="var">op</var>, long int <var class="var">n</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpfr_005fcompound_005fsi'> &para;</a></span></dt>
 <dd><p>Set <var class="var">rop</var> to the power <var class="var">n</var> of one plus <var class="var">op</var>,
-following IEEE&nbsp;754 for the special cases and exceptions.
-When <var class="var">n</var> is zero and <var class="var">op</var> is NaN or greater or equal to &minus;1,
-<var class="var">rop</var> is set to 1.
+following IEEE&nbsp;754 for the special cases and exceptions. In particular:
+</p><ul class="itemize mark-bullet">
+<li>When <var class="var">op</var>&nbsp;&lt;&nbsp;&minus;1<!-- /@w -->, <var class="var">rop</var> is set to NaN.
+</li><li>When <var class="var">n</var> is zero and <var class="var">op</var> is NaN (like any value greater or equal to &minus;1), <var class="var">rop</var> is set to 1.
+</li><li>When <var class="var">op</var>&nbsp;=&nbsp;&minus;1<!-- /@w -->, <var class="var">rop</var> is set to +Inf for <var class="var">n</var>&nbsp;&lt;&nbsp;0<!-- /@w -->, and to +0 for <var class="var">n</var>&nbsp;&gt;&nbsp;0<!-- /@w -->.
+</li></ul>
+<p>The other special cases follow the usual rules.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpfr_005fcos"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpfr_cos</strong> <code class="def-code-arguments">(mpfr_t <var class="var">rop</var>, mpfr_t <var class="var">op</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpfr_005fcos'> &para;</a></span></dt>
@@ -1491,12 +1495,16 @@ information on the digits depending on the base.
 rounded in the direction <var class="var">rnd</var>, and put the
 read float in <var class="var">rop</var>.
 </p>
-<p>This function reads a word (defined as a sequence of characters between
-whitespace) and parses it using <code class="code">mpfr_set_str</code>.
+<p>After skipping optional whitespace (as defined by <code class="code">isspace</code>, which
+depends on the current locale), this function reads a word, defined as
+the longest sequence of non-whitespace characters, and parses it using
+<code class="code">mpfr_set_str</code>.
 See the documentation of <code class="code">mpfr_strtofr</code> for a detailed description
 of the valid string formats.
 </p>
-<p>Return the number of bytes read, or if an error occurred, return 0.
+<p>Return the number of bytes read (including the leading whitespace,
+if any), or if the string format is invalid or an error occurred,
+return 0.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpfr_005ffpif_005fexport"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpfr_fpif_export</strong> <code class="def-code-arguments">(FILE *<var class="var">stream</var>, mpfr_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-mpfr_005ffpif_005fexport'> &para;</a></span></dt>
@@ -1658,7 +1666,7 @@ mpfr_prec_t p;
 mpfr_init (x);
 &hellip;
 p = mpfr_get_prec (x);
-mpfr_printf (&quot;variable x with %Pu bits&quot;, p);
+mpfr_printf (&quot;variable x with %Pd bits&quot;, p);
 </pre></div>
 <p>The &lsquo;<samp class="samp">R</samp>&rsquo; type specifies that a following &lsquo;<samp class="samp">a</samp>&rsquo;, &lsquo;<samp class="samp">A</samp>&rsquo;, &lsquo;<samp class="samp">b</samp>&rsquo;,
 &lsquo;<samp class="samp">e</samp>&rsquo;, &lsquo;<samp class="samp">E</samp>&rsquo;, &lsquo;<samp class="samp">f</samp>&rsquo;, &lsquo;<samp class="samp">F</samp>&rsquo;, &lsquo;<samp class="samp">g</samp>&rsquo;, &lsquo;<samp class="samp">G</samp>&rsquo;, or &lsquo;<samp class="samp">n</samp>&rsquo;
@@ -1711,10 +1719,14 @@ argument.
 </p>
 <p>In case of non-decimal output, only the significand is written in the
 specified base, the exponent is always displayed in decimal.
-Special values are always displayed as &lsquo;<samp class="samp">nan</samp>&rsquo;, &lsquo;<samp class="samp">-inf</samp>&rsquo;, and &lsquo;<samp class="samp">inf</samp>&rsquo;
-for &lsquo;<samp class="samp">a</samp>&rsquo;, &lsquo;<samp class="samp">b</samp>&rsquo;, &lsquo;<samp class="samp">e</samp>&rsquo;, &lsquo;<samp class="samp">f</samp>&rsquo;, and &lsquo;<samp class="samp">g</samp>&rsquo; specifiers and
-&lsquo;<samp class="samp">NAN</samp>&rsquo;, &lsquo;<samp class="samp">-INF</samp>&rsquo;, and &lsquo;<samp class="samp">INF</samp>&rsquo; for &lsquo;<samp class="samp">A</samp>&rsquo;, &lsquo;<samp class="samp">E</samp>&rsquo;, &lsquo;<samp class="samp">F</samp>&rsquo;, and
-&lsquo;<samp class="samp">G</samp>&rsquo; specifiers.
+</p>
+<p>Non-real values are always displayed as &lsquo;<samp class="samp">nan</samp>&rsquo; / &lsquo;<samp class="samp">inf</samp>&rsquo; for the
+&lsquo;<samp class="samp">a</samp>&rsquo;, &lsquo;<samp class="samp">b</samp>&rsquo;, &lsquo;<samp class="samp">e</samp>&rsquo;, &lsquo;<samp class="samp">f</samp>&rsquo;, and &lsquo;<samp class="samp">g</samp>&rsquo; specifiers, and
+&lsquo;<samp class="samp">NAN</samp>&rsquo; / &lsquo;<samp class="samp">INF</samp>&rsquo; for &lsquo;<samp class="samp">A</samp>&rsquo;, &lsquo;<samp class="samp">E</samp>&rsquo;, &lsquo;<samp class="samp">F</samp>&rsquo;, and &lsquo;<samp class="samp">G</samp>&rsquo;
+specifiers, possibly preceded by a sign or a space (the minus sign
+when the value has a negative sign, the plus sign when the value has
+a positive sign and the &lsquo;<samp class="samp">+</samp>&rsquo; flag is used, a space when the value
+has a positive sign and the <em class="emph">space</em> flag is used).
 </p>
 <p>The <code class="code">mpfr_t</code> number is rounded to the given precision in the direction
 specified by the rounding mode (see below if the precision is missing).
