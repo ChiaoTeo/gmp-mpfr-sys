@@ -182,6 +182,9 @@ script.
 
 ## Building on GNU/Linux
 
+**Warning:** The build system does not support building in paths that contain
+spaces.
+
 To build on GNU/Linux, simply make sure you have `diffutils`, `gcc`,
 `m4` and `make` installed on your system. For example on Fedora:
 
@@ -194,6 +197,9 @@ environment variable `CC=clang` before building the crate.
 
 ## Building on macOS
 
+**Warning:** The build system does not support building in paths that contain
+spaces.
+
 To build on macOS, you need the command-line developer tools. To
 install them, run the following command in a terminal:
 
@@ -202,6 +208,9 @@ xcode-select --install
 ```
 
 ## Building on Windows
+
+**Warning:** The build system does not support building in paths that contain
+spaces.
 
 You can build on Windows with the Rust GNU toolchain and an up-to-date
 MSYS2 installation. Some steps for a 64-bit environment are listed
