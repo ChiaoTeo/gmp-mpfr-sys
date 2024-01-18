@@ -1103,7 +1103,7 @@ fn rustc_later_eq(major: i32, minor: i32) -> bool {
 
 fn mingw_pkg_config_libdir_or_panic() {
     let mut cmd = Command::new("pkg-config");
-    cmd.args(["--libs-only-L", "gmp"]);
+    cmd.args(["--libs-only-L", "--keep-system-libs", "gmp"]);
     let output = execute_stdout(cmd);
     if output.len() < 2 || &output[0..2] != b"-L" {
         panic!("expected pkg-config output to begin with \"-L\"");
