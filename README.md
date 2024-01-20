@@ -24,6 +24,13 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.6.2 news (unreleased)
+
+  * Bug fix: when using system libs, the build would fail for some cases ([issue
+    32]).
+
+[issue 32]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/32
+
 ### Version 1.6.1 news (2023-08-23)
 
   * [MPFR] was updated from version 4.2.0-p12 to 4.2.1.

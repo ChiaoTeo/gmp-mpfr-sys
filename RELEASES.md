@@ -5,6 +5,14 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.6.2 (unreleased)
+==========================
+
+  * Bug fix: when using system libs, the build would fail for some cases ([issue
+    32]).
+
+[issue 32]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/32
+
 Version 1.6.1 (2023-08-23)
 ==========================
 
