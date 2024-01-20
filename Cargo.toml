@@ -7,7 +7,7 @@
 
 [package]
 name = "gmp-mpfr-sys"
-version = "1.6.1"
+version = "1.6.2"
 edition = "2021"
 rust-version = "1.65"
 description = "Rust FFI bindings for GMP, MPFR and MPC"
@@ -38,5 +38,5 @@ version = "0.2.44"
 default-features = false
 
 [target.'cfg(target_os = "windows")'.build-dependencies.windows-sys]
-version = "0.42"
+version = "0.52"
 features = ["Win32_Foundation", "Win32_Globalization", "Win32_System_Com", "Win32_UI_Shell"]

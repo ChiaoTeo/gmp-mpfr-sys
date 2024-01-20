@@ -5,7 +5,7 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
-Version 1.6.2 (unreleased)
+Version 1.6.2 (2024-01-20)
 ==========================
 
   * Bug fix: when using system libs, the build would fail for some cases ([issue

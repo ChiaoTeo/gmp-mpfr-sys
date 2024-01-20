@@ -24,7 +24,7 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
-### Version 1.6.2 news (unreleased)
+### Version 1.6.2 news (2024-01-20)
 
   * Bug fix: when using system libs, the build would fail for some cases ([issue
     32]).
