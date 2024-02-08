@@ -43,6 +43,7 @@ use core::cmp::Ordering;
 use core::ffi::{c_char, c_int, c_long, c_uchar, c_uint, c_ulong, c_ushort, c_void};
 use core::fmt::{Debug, Formatter, Result as FmtResult};
 use core::mem::MaybeUninit;
+use core::ptr;
 use core::ptr::NonNull;
 use libc::FILE;
 
@@ -1061,22 +1062,22 @@ extern "C" {
 /// See: [`mpq_numref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fnumref)
 #[inline]
 pub const unsafe extern "C" fn mpq_numref(op: mpq_ptr) -> mpz_ptr {
-    op as mpz_ptr
+    ptr::addr_of!((*op.cast_const()).num).cast_mut()
 }
 /// Constant version of [`mpq_numref`](fn.mpq_numref.html).
 #[inline]
 pub const unsafe extern "C" fn mpq_numref_const(op: mpq_srcptr) -> mpz_srcptr {
-    op as mpz_srcptr
+    ptr::addr_of!((*op).num)
 }
 /// See: [`mpq_denref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fdenref)
 #[inline]
 pub const unsafe extern "C" fn mpq_denref(op: mpq_ptr) -> mpz_ptr {
-    unsafe { (op as mpz_ptr).offset(1) }
+    ptr::addr_of!((*op.cast_const()).den).cast_mut()
 }
 /// Constant version of [`mpq_denref`](fn.mpq_denref.html).
 #[inline]
 pub const unsafe extern "C" fn mpq_denref_const(op: mpq_srcptr) -> mpz_srcptr {
-    unsafe { (op as mpz_srcptr).offset(1) }
+    ptr::addr_of!((*op).den)
 }
 extern "C" {
     /// See: [`mpq_get_num`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fget_005fnum)

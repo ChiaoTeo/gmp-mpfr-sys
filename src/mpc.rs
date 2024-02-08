@@ -48,6 +48,7 @@ unsafe {
 use crate::gmp::{mpf_t, mpq_t, mpz_t, randstate_t};
 use crate::mpfr::{mpfr_t, prec_t, rnd_t as mpfr_rnd_t};
 use core::ffi::{c_char, c_int, c_long, c_ulong};
+use core::ptr;
 use libc::{intmax_t, uintmax_t, FILE};
 
 include!(concat!(env!("OUT_DIR"), "/mpc_h.rs"));
@@ -351,22 +352,22 @@ extern "C" {
 /// See: [`mpc_realref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005frealref)
 #[inline]
 pub const unsafe extern "C" fn realref(op: mpc_ptr) -> mpfr_ptr {
-    op as mpfr_ptr
+    ptr::addr_of!((*op.cast_const()).re).cast_mut()
 }
 /// Constant version of [`realref`](fn.realref.html).
 #[inline]
 pub const unsafe extern "C" fn realref_const(op: mpc_srcptr) -> mpfr_srcptr {
-    op as mpfr_srcptr
+    ptr::addr_of!((*op).re)
 }
 /// See: [`mpc_imagref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005fimagref)
 #[inline]
 pub const unsafe extern "C" fn imagref(op: mpc_ptr) -> mpfr_ptr {
-    unsafe { (op as mpfr_ptr).offset(1) }
+    ptr::addr_of!((*op.cast_const()).im).cast_mut()
 }
 /// Constant version of [`imagref`](fn.imagref.html).
 #[inline]
 pub const unsafe extern "C" fn imagref_const(op: mpc_srcptr) -> mpfr_srcptr {
-    unsafe { (op as mpfr_srcptr).offset(1) }
+    ptr::addr_of!((*op).im)
 }
 extern "C" {
     /// See: [`mpc_arg`](../C/MPC/constant.Complex_Functions.html#index-mpc_005farg)
