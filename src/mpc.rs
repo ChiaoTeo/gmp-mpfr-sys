@@ -352,22 +352,22 @@ extern "C" {
 /// See: [`mpc_realref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005frealref)
 #[inline]
 pub const unsafe extern "C" fn realref(op: mpc_ptr) -> mpfr_ptr {
-    ptr::addr_of!((*op.cast_const()).re).cast_mut()
+    unsafe { realref_const(op) as mpfr_ptr }
 }
 /// Constant version of [`realref`](fn.realref.html).
 #[inline]
 pub const unsafe extern "C" fn realref_const(op: mpc_srcptr) -> mpfr_srcptr {
-    ptr::addr_of!((*op).re)
+    unsafe { ptr::addr_of!((*op).re) }
 }
 /// See: [`mpc_imagref`](../C/MPC/constant.Complex_Functions.html#index-mpc_005fimagref)
 #[inline]
 pub const unsafe extern "C" fn imagref(op: mpc_ptr) -> mpfr_ptr {
-    ptr::addr_of!((*op.cast_const()).im).cast_mut()
+    unsafe { imagref_const(op) as mpfr_ptr }
 }
 /// Constant version of [`imagref`](fn.imagref.html).
 #[inline]
 pub const unsafe extern "C" fn imagref_const(op: mpc_srcptr) -> mpfr_srcptr {
-    ptr::addr_of!((*op).im)
+    unsafe { ptr::addr_of!((*op).im) }
 }
 extern "C" {
     /// See: [`mpc_arg`](../C/MPC/constant.Complex_Functions.html#index-mpc_005farg)

@@ -1062,22 +1062,22 @@ extern "C" {
 /// See: [`mpq_numref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fnumref)
 #[inline]
 pub const unsafe extern "C" fn mpq_numref(op: mpq_ptr) -> mpz_ptr {
-    ptr::addr_of!((*op.cast_const()).num).cast_mut()
+    unsafe { mpq_numref_const(op) as mpz_ptr }
 }
 /// Constant version of [`mpq_numref`](fn.mpq_numref.html).
 #[inline]
 pub const unsafe extern "C" fn mpq_numref_const(op: mpq_srcptr) -> mpz_srcptr {
-    ptr::addr_of!((*op).num)
+    unsafe { ptr::addr_of!((*op).num) }
 }
 /// See: [`mpq_denref`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fdenref)
 #[inline]
 pub const unsafe extern "C" fn mpq_denref(op: mpq_ptr) -> mpz_ptr {
-    ptr::addr_of!((*op.cast_const()).den).cast_mut()
+    unsafe { mpq_denref_const(op) as mpz_ptr }
 }
 /// Constant version of [`mpq_denref`](fn.mpq_denref.html).
 #[inline]
 pub const unsafe extern "C" fn mpq_denref_const(op: mpq_srcptr) -> mpz_srcptr {
-    ptr::addr_of!((*op).den)
+    unsafe { ptr::addr_of!((*op).den) }
 }
 extern "C" {
     /// See: [`mpq_get_num`](../C/GMP/constant.Rational_Number_Functions.html#index-mpq_005fget_005fnum)
