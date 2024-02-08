@@ -1,4 +1,4 @@
-// Copyright © 2017–2023 Trevor Spiteri
+// Copyright © 2017–2024 Trevor Spiteri
 
 // Copying and distribution of this file, with or without
 // modification, are permitted in any medium without royalty provided

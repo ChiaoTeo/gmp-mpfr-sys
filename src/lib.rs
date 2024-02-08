@@ -1,4 +1,4 @@
-// Copyright © 2017–2023 Trevor Spiteri
+// Copyright © 2017–2024 Trevor Spiteri
 
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public License
