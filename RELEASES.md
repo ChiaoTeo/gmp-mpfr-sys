@@ -5,6 +5,14 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.6.3 (2024-05-30)
+==========================
+
+  * Make cross-compiling to MinGW use a host understood by [GMP] ([merge request
+    5]).
+
+[merge request 5]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/merge_requests/5
+
 Version 1.6.2 (2024-01-20)
 ==========================
 

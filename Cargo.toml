@@ -7,7 +7,7 @@
 
 [package]
 name = "gmp-mpfr-sys"
-version = "1.6.2"
+version = "1.6.3"
 build = "build.rs"
 categories = ["external-ffi-bindings", "mathematics", "no-std"]
 description = "Rust FFI bindings for GMP, MPFR and MPC."
