@@ -38,6 +38,7 @@ unsafe {
 [GMP]: https://gmplib.org/
 */
 #![allow(non_camel_case_types, non_snake_case)]
+#![allow(unexpected_cfgs)]
 
 use core::cmp::Ordering;
 use core::ffi::{c_char, c_int, c_long, c_uchar, c_uint, c_ulong, c_ushort, c_void};
