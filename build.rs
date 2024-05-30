@@ -639,7 +639,7 @@ fn should_save_cache(env: &Environment, mpfr: bool, mpc: bool) -> bool {
 fn get_actual_cross_target(cross_target: &str) -> &str {
     let actual_target = match cross_target {
         "x86_64-pc-windows-gnu" => "x86_64-w64-mingw32",
-        _ => cross_target
+        _ => cross_target,
     };
 
     actual_target
