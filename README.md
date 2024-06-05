@@ -24,6 +24,13 @@ text of the [GNU LGPL] and [GNU GPL] for details.
 
 ## What’s new
 
+### Version 1.6.4 news (2024-06-05)
+
+  * The license headers in the documentation for the GNU libraries were being
+    inadvertently removed from the html files ([issue 34]).
+
+[issue 34]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/34
+
 ### Version 1.6.3 news (2024-05-30)
 
   * Make cross-compiling to MinGW use a host understood by [GMP] ([merge request

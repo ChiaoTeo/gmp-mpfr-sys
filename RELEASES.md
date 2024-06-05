@@ -5,6 +5,14 @@ modification, are permitted in any medium without royalty provided the
 copyright notice and this notice are preserved. This file is offered
 as-is, without any warranty. -->
 
+Version 1.6.4 (2024-06-05)
+==========================
+
+  * The license headers in the documentation for the GNU libraries were being
+    inadvertently removed from the html files ([issue 34]).
+
+[issue 34]: https://gitlab.com/tspiteri/gmp-mpfr-sys/-/issues/34
+
 Version 1.6.3 (2024-05-30)
 ==========================
 
