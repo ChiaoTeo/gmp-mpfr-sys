@@ -1,9 +1,17 @@
+<!-- This manual documents how to install and use the Multiple Precision
+Floating-Point Reliable Library, version 4.2.1.
+Copyright 1991, 1993-2023 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.2 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with no Front-Cover Texts, and with no Back-Cover Texts.  A copy of the
+license is included in GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="API-Compatibility">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.MPFR_and_the_IEEE_754_Standard.html#start" accesskey="n" rel="next">MPFR and the IEEE 754 Standard</a>, Previous: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="p" rel="prev">MPFR Interface</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="API-Compatibility-1">6 API Compatibility</h2>
+<h2 class="chapter" id="API-Compatibility-1"><span>6 API Compatibility<a class="copiable-link" href="#API-Compatibility-1"> &para;</a></span></h2>
 <p>The goal of this section is to describe some API changes that occurred
 from one version of MPFR to another, and how to write code that can be compiled
 and run with older MPFR versions.  The minimum MPFR version that is
@@ -47,7 +55,7 @@ classified like here), together with other changes.
 <p>
 Next: <a href="#Added-Functions" accesskey="n" rel="next">Added Functions</a>, Previous: <a href="#API-Compatibility" accesskey="p" rel="prev">API Compatibility</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Type-and-Macro-Changes-1">6.1 Type and Macro Changes</h3>
+<h3 class="section" id="Type-and-Macro-Changes-1"><span>6.1 Type and Macro Changes<a class="copiable-link" href="#Type-and-Macro-Changes-1"> &para;</a></span></h3>
 <p>The official type for exponent values changed from <code class="code">mp_exp_t</code> to
 <code class="code">mpfr_exp_t</code> in MPFR&nbsp;3.0.  The type <code class="code">mp_exp_t</code> will remain
 available as it comes from GMP (with a different meaning).  These types
@@ -123,7 +131,7 @@ in particular).
 <p>
 Next: <a href="#Changed-Functions" accesskey="n" rel="next">Changed Functions</a>, Previous: <a href="#Type-and-Macro-Changes" accesskey="p" rel="prev">Type and Macro Changes</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Added-Functions-1">6.2 Added Functions</h3>
+<h3 class="section" id="Added-Functions-1"><span>6.2 Added Functions<a class="copiable-link" href="#Added-Functions-1"> &para;</a></span></h3>
 <p>We give here in alphabetical order the functions (and function-like macros)
 that were added after MPFR&nbsp;2.2, and in which MPFR version.
 </p>
@@ -247,7 +255,7 @@ use <code class="code">mpfr_get_z_exp</code>.
 <p>
 Next: <a href="#Removed-Functions" accesskey="n" rel="next">Removed Functions</a>, Previous: <a href="#Added-Functions" accesskey="p" rel="prev">Added Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Changed-Functions-1">6.3 Changed Functions</h3>
+<h3 class="section" id="Changed-Functions-1"><span>6.3 Changed Functions<a class="copiable-link" href="#Changed-Functions-1"> &para;</a></span></h3>
 <p>The following functions and function-like macros have changed after
 MPFR&nbsp;2.2. Changes can affect the behavior of code written for
 some MPFR version when built and run against another MPFR version
@@ -388,7 +396,7 @@ multiple times or none.
 <p>
 Next: <a href="#Other-Changes" accesskey="n" rel="next">Other Changes</a>, Previous: <a href="#Changed-Functions" accesskey="p" rel="prev">Changed Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Removed-Functions-1">6.4 Removed Functions</h3>
+<h3 class="section" id="Removed-Functions-1"><span>6.4 Removed Functions<a class="copiable-link" href="#Removed-Functions-1"> &para;</a></span></h3>
 <p>Functions <code class="code">mpfr_random</code> and <code class="code">mpfr_random2</code> have been
 removed in MPFR&nbsp;3.0 (this only affects old code built against
 MPFR&nbsp;3.0 or later).
@@ -409,7 +417,7 @@ It will be removed in a future release.
 <p>
 Previous: <a href="#Removed-Functions" accesskey="p" rel="prev">Removed Functions</a>, Up: <a href="#API-Compatibility" accesskey="u" rel="up">API Compatibility</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Other-Changes-1">6.5 Other Changes</h3>
+<h3 class="section" id="Other-Changes-1"><span>6.5 Other Changes<a class="copiable-link" href="#Other-Changes-1"> &para;</a></span></h3>
 <p>For users of a C++ compiler, the way how the availability of <code class="code">intmax_t</code>
 is detected has changed in MPFR&nbsp;3.0.
 In MPFR&nbsp;2.x, if a macro <code class="code">INTMAX_C</code> or <code class="code">UINTMAX_C</code> was defined

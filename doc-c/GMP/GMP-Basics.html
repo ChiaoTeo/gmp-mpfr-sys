@@ -1,9 +1,19 @@
+<!-- This manual describes how to install and use the GNU multiple precision
+arithmetic library, version 6.3.0.
+Copyright 1991, 1993-2016, 2018-2020 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with the Front-Cover Texts being "A GNU Manual", and with the Back-Cover
+Texts being "You have freedom to copy and modify this GNU Manual, like GNU
+software".  A copy of the license is included in
+GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="GMP-Basics">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.Reporting_Bugs.html#start" accesskey="n" rel="next">Reporting Bugs</a>, Previous: <a href="constant.Installing_GMP.html#Installing-GMP" accesskey="p" rel="prev">Installing GMP</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="GMP-Basics-1">3 GMP Basics</h2>
+<h2 class="chapter" id="GMP-Basics-1"><span>3 GMP Basics<a class="copiable-link" href="#GMP-Basics-1"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Basics"></a>
 <p><strong class="strong">Using functions, macros, data types, etc. not documented in this
 manual is strongly discouraged.  If you do so your application is guaranteed
@@ -32,7 +42,7 @@ to be incompatible with future versions of GMP.</strong>
 <p>
 Next: <a href="#Nomenclature-and-Types" accesskey="n" rel="next">Nomenclature and Types</a>, Previous: <a href="#GMP-Basics" accesskey="p" rel="prev">GMP Basics</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Headers-and-Libraries-1">3.1 Headers and Libraries</h3>
+<h3 class="section" id="Headers-and-Libraries-1"><span>3.1 Headers and Libraries<a class="copiable-link" href="#Headers-and-Libraries-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Headers"></a>
 <a class="index-entry-id" id="index-gmp_002eh"></a>
 <a class="index-entry-id" id="index-Include-files"></a>
@@ -92,7 +102,7 @@ directories, and some sort of run-time path for a shared library.
 <p>
 Next: <a href="#Function-Classes" accesskey="n" rel="next">Function Classes</a>, Previous: <a href="#Headers-and-Libraries" accesskey="p" rel="prev">Headers and Libraries</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Nomenclature-and-Types-1">3.2 Nomenclature and Types</h3>
+<h3 class="section" id="Nomenclature-and-Types-1"><span>3.2 Nomenclature and Types<a class="copiable-link" href="#Nomenclature-and-Types-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Nomenclature"></a>
 <a class="index-entry-id" id="index-Types"></a>
 <a class="index-entry-id" id="index-Integer"></a>
@@ -216,7 +226,7 @@ illustratory purposes only:
 <p>
 Next: <a href="#Variable-Conventions" accesskey="n" rel="next">Variable Conventions</a>, Previous: <a href="#Nomenclature-and-Types" accesskey="p" rel="prev">Nomenclature and Types</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Function-Classes-1">3.3 Function Classes</h3>
+<h3 class="section" id="Function-Classes-1"><span>3.3 Function Classes<a class="copiable-link" href="#Function-Classes-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Function-classes"></a>
 <p>There are six classes of functions in the GMP library:
 </p>
@@ -247,7 +257,7 @@ see <a class="pxref" href="constant.Random_Number_Functions.html#Random-Number-F
 <p>
 Next: <a href="#Parameter-Conventions" accesskey="n" rel="next">Parameter Conventions</a>, Previous: <a href="#Function-Classes" accesskey="p" rel="prev">Function Classes</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Variable-Conventions-1">3.4 Variable Conventions</h3>
+<h3 class="section" id="Variable-Conventions-1"><span>3.4 Variable Conventions<a class="copiable-link" href="#Variable-Conventions-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Variable-conventions"></a>
 <a class="index-entry-id" id="index-Conventions-for-variables"></a>
 <p>GMP functions generally have output arguments before input arguments.  This
@@ -284,9 +294,9 @@ foo (void)
   mpz_init (n);
   for (i = 1; i &lt; 100; i++)
     {
-      mpz_mul (n, &hellip;);
-      mpz_fdiv_q (n, &hellip;);
-      &hellip;
+      mpz_mul (n, ...);
+      mpz_fdiv_q (n, ...);
+      ...
     }
   mpz_clear (n);
 }
@@ -311,7 +321,7 @@ releases.
 <p>
 Next: <a href="#Memory-Management" accesskey="n" rel="next">Memory Management</a>, Previous: <a href="#Variable-Conventions" accesskey="p" rel="prev">Variable Conventions</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Parameter-Conventions-1">3.5 Parameter Conventions</h3>
+<h3 class="section" id="Parameter-Conventions-1"><span>3.5 Parameter Conventions<a class="copiable-link" href="#Parameter-Conventions-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Parameter-conventions"></a>
 <a class="index-entry-id" id="index-Conventions-for-parameters"></a>
 <p>When a GMP variable is used as a function parameter, it&rsquo;s effectively a
@@ -369,7 +379,7 @@ could be:
 <p>
 Next: <a href="#Reentrancy" accesskey="n" rel="next">Reentrancy</a>, Previous: <a href="#Parameter-Conventions" accesskey="p" rel="prev">Parameter Conventions</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Memory-Management-1">3.6 Memory Management</h3>
+<h3 class="section" id="Memory-Management-1"><span>3.6 Memory Management<a class="copiable-link" href="#Memory-Management-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Memory-management"></a>
 <p>The GMP types like <code class="code">mpz_t</code> are small, containing only a couple of sizes,
 and pointers to allocated data.  Once a variable is initialized, GMP takes
@@ -397,7 +407,7 @@ desired, see <a class="ref" href="constant.Installing_GMP.html#Build-Options">Bu
 <p>
 Next: <a href="#Useful-Macros-and-Constants" accesskey="n" rel="next">Useful Macros and Constants</a>, Previous: <a href="#Memory-Management" accesskey="p" rel="prev">Memory Management</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Reentrancy-1">3.7 Reentrancy</h3>
+<h3 class="section" id="Reentrancy-1"><span>3.7 Reentrancy<a class="copiable-link" href="#Reentrancy-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Reentrancy"></a>
 <a class="index-entry-id" id="index-Thread-safety"></a>
 <a class="index-entry-id" id="index-Multi_002dthreading"></a>
@@ -436,20 +446,20 @@ since this involves an update of that variable.
 <p>
 Next: <a href="#Compatibility-with-older-versions" accesskey="n" rel="next">Compatibility with older versions</a>, Previous: <a href="#Reentrancy" accesskey="p" rel="prev">Reentrancy</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Useful-Macros-and-Constants-1">3.8 Useful Macros and Constants</h3>
+<h3 class="section" id="Useful-Macros-and-Constants-1"><span>3.8 Useful Macros and Constants<a class="copiable-link" href="#Useful-Macros-and-Constants-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Useful-macros-and-constants"></a>
 <a class="index-entry-id" id="index-Constants"></a>
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-mp_005fbits_005fper_005flimb-1"><span class="category-def">Global Constant: </span><span><code class="def-type">const int</code> <strong class="def-name">mp_bits_per_limb</strong><a class="copiable-link" href='#index-mp_005fbits_005fper_005flimb-1'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-mp_005fbits_005fper_005flimb-1"><span class="category-def">Global Constant: </span><span><code class="def-type">const int</code> <strong class="def-name">mp_bits_per_limb</strong><a class="copiable-link" href="#index-mp_005fbits_005fper_005flimb-1"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-mp_005fbits_005fper_005flimb"></a>
 <a class="index-entry-id" id="index-Bits-per-limb"></a>
 <a class="index-entry-id" id="index-Limb-size"></a>
 <p>The number of bits per limb.
 </p></dd></dl>
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION</strong><a class="copiable-link" href='#index-_005f_005fGNU_005fMP_005fVERSION'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION_005fMINOR"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION_MINOR</strong><a class="copiable-link" href='#index-_005f_005fGNU_005fMP_005fVERSION_005fMINOR'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION_005fPATCHLEVEL"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION_PATCHLEVEL</strong><a class="copiable-link" href='#index-_005f_005fGNU_005fMP_005fVERSION_005fPATCHLEVEL'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION</strong><a class="copiable-link" href="#index-_005f_005fGNU_005fMP_005fVERSION"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION_005fMINOR"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION_MINOR</strong><a class="copiable-link" href="#index-_005f_005fGNU_005fMP_005fVERSION_005fMINOR"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGNU_005fMP_005fVERSION_005fPATCHLEVEL"><span class="category-def">Macro: </span><span><strong class="def-name">__GNU_MP_VERSION_PATCHLEVEL</strong><a class="copiable-link" href="#index-_005f_005fGNU_005fMP_005fVERSION_005fPATCHLEVEL"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-Version-number"></a>
 <a class="index-entry-id" id="index-GMP-version-number"></a>
 <p>The major and minor GMP version, and patch level, respectively, as integers.
@@ -457,15 +467,15 @@ For GMP i.j, these numbers will be i, j, and 0, respectively.
 For GMP i.j.k, these numbers will be i, j, and k, respectively.
 </p></dd></dl>
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-gmp_005fversion-1"><span class="category-def">Global Constant: </span><span><code class="def-type">const char * const</code> <strong class="def-name">gmp_version</strong><a class="copiable-link" href='#index-gmp_005fversion-1'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-gmp_005fversion-1"><span class="category-def">Global Constant: </span><span><code class="def-type">const char * const</code> <strong class="def-name">gmp_version</strong><a class="copiable-link" href="#index-gmp_005fversion-1"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-gmp_005fversion"></a>
 <p>The GMP version number, as a null-terminated string, in the form &ldquo;i.j.k&rdquo;.
 This release is <code class="code">&quot;6.3.0&quot;</code>.  Note that the format &ldquo;i.j&rdquo; was
 used, before version 4.3.0, when k was zero.
 </p></dd></dl>
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-_005f_005fGMP_005fCC"><span class="category-def">Macro: </span><span><strong class="def-name">__GMP_CC</strong><a class="copiable-link" href='#index-_005f_005fGMP_005fCC'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGMP_005fCFLAGS"><span class="category-def">Macro: </span><span><strong class="def-name">__GMP_CFLAGS</strong><a class="copiable-link" href='#index-_005f_005fGMP_005fCFLAGS'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-_005f_005fGMP_005fCC"><span class="category-def">Macro: </span><span><strong class="def-name">__GMP_CC</strong><a class="copiable-link" href="#index-_005f_005fGMP_005fCC"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-_005f_005fGMP_005fCFLAGS"><span class="category-def">Macro: </span><span><strong class="def-name">__GMP_CFLAGS</strong><a class="copiable-link" href="#index-_005f_005fGMP_005fCFLAGS"> &para;</a></span></dt>
 <dd><p>The compiler and compiler flags, respectively, used when compiling GMP, as
 strings.
 </p></dd></dl>
@@ -476,7 +486,7 @@ strings.
 <p>
 Next: <a href="#Demonstration-Programs" accesskey="n" rel="next">Demonstration programs</a>, Previous: <a href="#Useful-Macros-and-Constants" accesskey="p" rel="prev">Useful Macros and Constants</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Compatibility-with-older-versions-1">3.9 Compatibility with older versions</h3>
+<h3 class="section" id="Compatibility-with-older-versions-1"><span>3.9 Compatibility with older versions<a class="copiable-link" href="#Compatibility-with-older-versions-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Compatibility-with-older-versions"></a>
 <a class="index-entry-id" id="index-Past-GMP-versions"></a>
 <a class="index-entry-id" id="index-Upward-compatibility"></a>
@@ -502,7 +512,7 @@ see the GMP 2 manual for details.
 <p>
 Next: <a href="#Efficiency" accesskey="n" rel="next">Efficiency</a>, Previous: <a href="#Compatibility-with-older-versions" accesskey="p" rel="prev">Compatibility with older versions</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Demonstration-programs">3.10 Demonstration programs</h3>
+<h3 class="section" id="Demonstration-programs"><span>3.10 Demonstration programs<a class="copiable-link" href="#Demonstration-programs"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Demonstration-programs"></a>
 <a class="index-entry-id" id="index-Example-programs"></a>
 <a class="index-entry-id" id="index-Sample-programs"></a>
@@ -559,17 +569,17 @@ perhaps.  But for now the above evaluators are offered as illustrations.
 <p>
 Next: <a href="#Debugging" accesskey="n" rel="next">Debugging</a>, Previous: <a href="#Demonstration-Programs" accesskey="p" rel="prev">Demonstration programs</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Efficiency-1">3.11 Efficiency</h3>
+<h3 class="section" id="Efficiency-1"><span>3.11 Efficiency<a class="copiable-link" href="#Efficiency-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Efficiency"></a>
 <dl class="table">
-<dt id='index-Small-operands'><span>Small Operands<a class="copiable-link" href='#index-Small-operands'> &para;</a></span></dt>
+<dt><a id="index-Small-operands"></a><span>Small Operands<a class="copiable-link" href="#index-Small-operands"> &para;</a></span></dt>
 <dd><p>On small operands, the time for function call overheads and memory allocation
 can be significant in comparison to actual calculation.  This is unavoidable
 in a general purpose variable precision library, although GMP attempts to be
 as efficient as it can on both large and small operands.
 </p>
 </dd>
-<dt id='index-Static-linking'><span>Static Linking<a class="copiable-link" href='#index-Static-linking'> &para;</a></span></dt>
+<dt><a id="index-Static-linking"></a><span>Static Linking<a class="copiable-link" href="#index-Static-linking"> &para;</a></span></dt>
 <dd><p>On some CPUs, in particular the x86s, the static <samp class="file">libgmp.a</samp> should be
 used for maximum speed, since the PIC code in the shared <samp class="file">libgmp.so</samp> will
 have a small overhead on each function call and global data address.  For many
@@ -577,7 +587,7 @@ programs this will be insignificant, but for long calculations there&rsquo;s a g
 to be had.
 </p>
 </dd>
-<dt id='index-Initializing-and-clearing'><span>Initializing and Clearing<a class="copiable-link" href='#index-Initializing-and-clearing'> &para;</a></span></dt>
+<dt><a id="index-Initializing-and-clearing"></a><span>Initializing and Clearing<a class="copiable-link" href="#index-Initializing-and-clearing"> &para;</a></span></dt>
 <dd><p>Avoid excessive initializing and clearing of variables, since this can be
 quite time consuming, especially in comparison to otherwise fast operations
 like addition.
@@ -587,7 +597,7 @@ initialized variables ready for use.  It should be possible to integrate
 something like that with a garbage collector too.
 </p>
 </dd>
-<dt id='index-Reallocations'><span>Reallocations<a class="copiable-link" href='#index-Reallocations'> &para;</a></span></dt>
+<dt><a id="index-Reallocations"></a><span>Reallocations<a class="copiable-link" href="#index-Reallocations"> &para;</a></span></dt>
 <dd><p>An <code class="code">mpz_t</code> or <code class="code">mpq_t</code> variable used to hold successively increasing
 values will have its memory repeatedly <code class="code">realloc</code>ed, which could be quite
 slow or could fragment memory, depending on the C library.  If an application
@@ -600,14 +610,14 @@ is too small, since all functions will do a further reallocation if necessary.
 Badly overestimating memory required will waste space though.
 </p>
 </dd>
-<dt id='index-2exp-functions'><span><code class="code">2exp</code> Functions<a class="copiable-link" href='#index-2exp-functions'> &para;</a></span></dt>
+<dt><a id="index-2exp-functions"></a><span><code class="code">2exp</code> Functions<a class="copiable-link" href="#index-2exp-functions"> &para;</a></span></dt>
 <dd><p>It&rsquo;s up to an application to call functions like <code class="code">mpz_mul_2exp</code> when
 appropriate.  General purpose functions like <code class="code">mpz_mul</code> make no attempt to
 identify powers of two or other special forms, because such inputs will
 usually be very rare and testing every time would be wasteful.
 </p>
 </dd>
-<dt id='index-ui-and-si-functions'><span><code class="code">ui</code> and <code class="code">si</code> Functions<a class="copiable-link" href='#index-ui-and-si-functions'> &para;</a></span></dt>
+<dt><a id="index-ui-and-si-functions"></a><span><code class="code">ui</code> and <code class="code">si</code> Functions<a class="copiable-link" href="#index-ui-and-si-functions"> &para;</a></span></dt>
 <dd><p>The <code class="code">ui</code> functions and the small number of <code class="code">si</code> functions exist for
 convenience and should be used where applicable.  But if for example an
 <code class="code">mpz_t</code> contains a value that fits in an <code class="code">unsigned long</code> there&rsquo;s no
@@ -615,7 +625,7 @@ need to extract it and call a <code class="code">ui</code> function, just use th
 function.
 </p>
 </dd>
-<dt id='index-In_002dplace-operations'><span>In-Place Operations<a class="copiable-link" href='#index-In_002dplace-operations'> &para;</a></span></dt>
+<dt><a id="index-In_002dplace-operations"></a><span>In-Place Operations<a class="copiable-link" href="#index-In_002dplace-operations"> &para;</a></span></dt>
 <dd><p><code class="code">mpz_abs</code>, <code class="code">mpq_abs</code>, <code class="code">mpf_abs</code>, <code class="code">mpz_neg</code>, <code class="code">mpq_neg</code>
 and <code class="code">mpf_neg</code> are fast when used for in-place operations like
 <code class="code">mpz_abs(x,x)</code>, since in the current implementation only a single field
@@ -649,7 +659,7 @@ in-place operations.  If a result should go to a particular variable then just
 direct it there and let GMP take care of data movement.
 </p>
 </dd>
-<dt id='index-Divisibility-testing'><span>Divisibility Testing (Small Integers)<a class="copiable-link" href='#index-Divisibility-testing'> &para;</a></span></dt>
+<dt><a id="index-Divisibility-testing"></a><span>Divisibility Testing (Small Integers)<a class="copiable-link" href="#index-Divisibility-testing"> &para;</a></span></dt>
 <dd><p><code class="code">mpz_divisible_ui_p</code> and <code class="code">mpz_congruent_ui_p</code> are the best functions
 for testing whether an <code class="code">mpz_t</code> is divisible by an individual small
 integer.  They use an algorithm which is faster than <code class="code">mpz_tdiv_ui</code>, but
@@ -669,7 +679,7 @@ quotient if and when it&rsquo;s wanted (<code class="code">mpz_divexact_ui</code
 remainder is zero).
 </p>
 </dd>
-<dt id='index-Rational-arithmetic'><span>Rational Arithmetic<a class="copiable-link" href='#index-Rational-arithmetic'> &para;</a></span></dt>
+<dt><a id="index-Rational-arithmetic"></a><span>Rational Arithmetic<a class="copiable-link" href="#index-Rational-arithmetic"> &para;</a></span></dt>
 <dd><p>The <code class="code">mpq</code> functions operate on <code class="code">mpq_t</code> values with no common factors
 in the numerator and denominator.  Common factors are checked-for and cast out
 as necessary.  In general, cancelling factors every time is the best approach
@@ -700,13 +710,13 @@ mpz_addmul_ui (mpq_numref(q), mpq_denref(q), 123UL);
 mpz_submul (mpq_numref(q), mpq_denref(q), z);
 </pre></div>
 </dd>
-<dt id='index-Number-sequences'><span>Number Sequences<a class="copiable-link" href='#index-Number-sequences'> &para;</a></span></dt>
+<dt><a id="index-Number-sequences"></a><span>Number Sequences<a class="copiable-link" href="#index-Number-sequences"> &para;</a></span></dt>
 <dd><p>Functions like <code class="code">mpz_fac_ui</code>, <code class="code">mpz_fib_ui</code> and <code class="code">mpz_bin_uiui</code>
 are designed for calculating isolated values.  If a range of values is wanted
 it&rsquo;s probably best to get a starting point and iterate from there.
 </p>
 </dd>
-<dt id='index-Text-input_002foutput'><span>Text Input/Output<a class="copiable-link" href='#index-Text-input_002foutput'> &para;</a></span></dt>
+<dt><a id="index-Text-input_002foutput"></a><span>Text Input/Output<a class="copiable-link" href="#index-Text-input_002foutput"> &para;</a></span></dt>
 <dd><p>Hexadecimal or octal are suggested for input or output in text form.
 Power-of-2 bases like these can be converted much more efficiently than other
 bases, like decimal.  For big numbers there&rsquo;s usually nothing of particular
@@ -723,13 +733,13 @@ as proposed by King Charles XII of Sweden and later reformers.
 <p>
 Next: <a href="#Profiling" accesskey="n" rel="next">Profiling</a>, Previous: <a href="#Efficiency" accesskey="p" rel="prev">Efficiency</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Debugging-1">3.12 Debugging</h3>
+<h3 class="section" id="Debugging-1"><span>3.12 Debugging<a class="copiable-link" href="#Debugging-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Debugging"></a>
 <dl class="table">
-<dt id='index-Stack-overflow-1'><span>Stack Overflow<a class="copiable-link" href='#index-Stack-overflow-1'> &para;</a></span></dt>
-<dd><a class="index-entry-id" id="index-Segmentation-violation"></a>
+<dt><a class="index-entry-id" id="index-Segmentation-violation"></a>
 <a class="index-entry-id" id="index-Bus-error"></a>
-<p>Depending on the system, a segmentation violation or bus error might be the
+<a id="index-Stack-overflow-1"></a><span>Stack Overflow<a class="copiable-link" href="#index-Stack-overflow-1"> &para;</a></span></dt>
+<dd><p>Depending on the system, a segmentation violation or bus error might be the
 only indication of stack overflow.  See &lsquo;<samp class="samp">--enable-alloca</samp>&rsquo; choices in
 <a class="ref" href="constant.Installing_GMP.html#Build-Options">Build Options</a>, for how to address this.
 </p>
@@ -743,9 +753,9 @@ effect.  Note also they&rsquo;re a slowdown, adding overhead to each function ca
 and each stack allocation.
 </p>
 </dd>
-<dt id='index-Heap-problems'><span>Heap Problems<a class="copiable-link" href='#index-Heap-problems'> &para;</a></span></dt>
-<dd><a class="index-entry-id" id="index-Malloc-problems"></a>
-<p>The most likely cause of application problems with GMP is heap corruption.
+<dt><a class="index-entry-id" id="index-Malloc-problems"></a>
+<a id="index-Heap-problems"></a><span>Heap Problems<a class="copiable-link" href="#index-Heap-problems"> &para;</a></span></dt>
+<dd><p>The most likely cause of application problems with GMP is heap corruption.
 Failing to <code class="code">init</code> GMP variables will have unpredictable effects, and
 corruption arising elsewhere in a program may well affect GMP.  Initializing
 GMP variables more than once or failing to clear them will cause memory leaks.
@@ -768,7 +778,7 @@ This is mainly designed for detecting buffer overruns during GMP development,
 but might find other uses.
 </p>
 </dd>
-<dt id='index-Stack-backtrace'><span>Stack Backtraces<a class="copiable-link" href='#index-Stack-backtrace'> &para;</a></span></dt>
+<dt><a id="index-Stack-backtrace"></a><span>Stack Backtraces<a class="copiable-link" href="#index-Stack-backtrace"> &para;</a></span></dt>
 <dd><p>On some systems the compiler options GMP uses by default can interfere with
 debugging.  In particular on x86 and 68k systems &lsquo;<samp class="samp">-fomit-frame-pointer</samp>&rsquo;
 is used and this generally inhibits stack backtracing.  Recompiling without
@@ -776,9 +786,9 @@ such options may help while debugging, though the usual caveats about it
 potentially moving a memory problem or hiding a compiler bug will apply.
 </p>
 </dd>
-<dt id='index-GDB'><span>GDB, the GNU Debugger<a class="copiable-link" href='#index-GDB'> &para;</a></span></dt>
-<dd><a class="index-entry-id" id="index-GNU-Debugger"></a>
-<p>A sample <samp class="file">.gdbinit</samp> is included in the distribution, showing how to call
+<dt><a class="index-entry-id" id="index-GNU-Debugger"></a>
+<a id="index-GDB"></a><span>GDB, the GNU Debugger<a class="copiable-link" href="#index-GDB"> &para;</a></span></dt>
+<dd><p>A sample <samp class="file">.gdbinit</samp> is included in the distribution, showing how to call
 some undocumented dump functions to print GMP variables from within GDB.  Note
 that these functions shouldn&rsquo;t be used in final application code since they&rsquo;re
 undocumented and may be subject to incompatible changes in future versions of
@@ -801,7 +811,7 @@ Alternately it might be possible to change the <code class="code">.c.lo</code> r
 appropriately.
 </p>
 </dd>
-<dt id='index-Assertion-checking-1'><span>Assertion Checking<a class="copiable-link" href='#index-Assertion-checking-1'> &para;</a></span></dt>
+<dt><a id="index-Assertion-checking-1"></a><span>Assertion Checking<a class="copiable-link" href="#index-Assertion-checking-1"> &para;</a></span></dt>
 <dd><p>The build option <samp class="option">--enable-assert</samp> is available to add some consistency
 checks to the library (see <a class="ref" href="constant.Installing_GMP.html#Build-Options">Build Options</a>).  These are likely to be of
 limited value to most applications.  Assertion failures are just as likely to
@@ -836,9 +846,9 @@ nowhere near any malloc debugger hooks.
 <p>For C++, add &lsquo;<samp class="samp">--enable-cxx CXXFLAGS=-g</samp>&rsquo;.
 </p>
 </dd>
-<dt id='index-Checker'><span>Checker<a class="copiable-link" href='#index-Checker'> &para;</a></span></dt>
-<dd><a class="index-entry-id" id="index-GCC-Checker"></a>
-<p>The GCC checker (<a class="uref" href="https://savannah.nongnu.org/projects/checker/">https://savannah.nongnu.org/projects/checker/</a>) can be
+<dt><a class="index-entry-id" id="index-GCC-Checker"></a>
+<a id="index-Checker"></a><span>Checker<a class="copiable-link" href="#index-Checker"> &para;</a></span></dt>
+<dd><p>The GCC checker (<a class="uref" href="https://savannah.nongnu.org/projects/checker/">https://savannah.nongnu.org/projects/checker/</a>) can be
 used with GMP.  It contains a stub library which means GMP applications
 compiled with checker can use a normal GMP build.
 </p>
@@ -855,7 +865,7 @@ current versions of checker (0.9.9.1) don&rsquo;t yet support the standard C++
 library.
 </p>
 </dd>
-<dt id='index-Valgrind'><span>Valgrind<a class="copiable-link" href='#index-Valgrind'> &para;</a></span></dt>
+<dt><a id="index-Valgrind"></a><span>Valgrind<a class="copiable-link" href="#index-Valgrind"> &para;</a></span></dt>
 <dd><p>Valgrind (<a class="uref" href="http://valgrind.org/">http://valgrind.org/</a>) is a memory checker for x86, ARM, MIPS,
 PowerPC, and S/390.  It translates and emulates machine instructions to do
 strong checks for uninitialized data (at the level of individual bits), memory
@@ -884,7 +894,7 @@ application problem, see <a class="ref" href="constant.Reporting_Bugs.html#start
 <p>
 Next: <a href="#Autoconf" accesskey="n" rel="next">Autoconf</a>, Previous: <a href="#Debugging" accesskey="p" rel="prev">Debugging</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Profiling-1">3.13 Profiling</h3>
+<h3 class="section" id="Profiling-1"><span>3.13 Profiling<a class="copiable-link" href="#Profiling-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Profiling"></a>
 <a class="index-entry-id" id="index-Execution-profiling-1"></a>
 <a class="index-entry-id" id="index-_002d_002denable_002dprofiling-1"></a>
@@ -906,7 +916,7 @@ operation, but on most systems the resolution of the sampling is quite low (10
 milliseconds for instance), requiring long runs to get accurate information.
 </p>
 </dd>
-<dt id='index-prof'><span>&lsquo;<samp class="samp">--enable-profiling=prof</samp>&rsquo;<a class="copiable-link" href='#index-prof'> &para;</a></span></dt>
+<dt><a id="index-prof"></a><span>&lsquo;<samp class="samp">--enable-profiling=prof</samp>&rsquo;<a class="copiable-link" href="#index-prof"> &para;</a></span></dt>
 <dd><p>Build with support for the system <code class="command">prof</code>, which means &lsquo;<samp class="samp">-p</samp>&rsquo; added
 to the &lsquo;<samp class="samp">CFLAGS</samp>&rsquo;.
 </p>
@@ -923,7 +933,7 @@ this case &lsquo;<samp class="samp">--enable-profiling=gprof</samp>&rsquo; descr
 instead.
 </p>
 </dd>
-<dt id='index-gprof'><span>&lsquo;<samp class="samp">--enable-profiling=gprof</samp>&rsquo;<a class="copiable-link" href='#index-gprof'> &para;</a></span></dt>
+<dt><a id="index-gprof"></a><span>&lsquo;<samp class="samp">--enable-profiling=gprof</samp>&rsquo;<a class="copiable-link" href="#index-gprof"> &para;</a></span></dt>
 <dd><p>Build with support for <code class="command">gprof</code>, which means &lsquo;<samp class="samp">-pg</samp>&rsquo; added to the
 &lsquo;<samp class="samp">CFLAGS</samp>&rsquo;.
 </p>
@@ -948,9 +958,9 @@ plain &lsquo;<samp class="samp">--enable-profiling=prof</samp>&rsquo; build.  Bu
 the &lsquo;<samp class="samp">gprof -q</samp>&rsquo; call graph.
 </p>
 </dd>
-<dt id='index-_002dfinstrument_002dfunctions'><span>&lsquo;<samp class="samp">--enable-profiling=instrument</samp>&rsquo;<a class="copiable-link" href='#index-_002dfinstrument_002dfunctions'> &para;</a></span></dt>
-<dd><a class="index-entry-id" id="index-instrument_002dfunctions"></a>
-<p>Build with the GCC option &lsquo;<samp class="samp">-finstrument-functions</samp>&rsquo; added to the
+<dt><a class="index-entry-id" id="index-instrument_002dfunctions"></a>
+<a id="index-_002dfinstrument_002dfunctions"></a><span>&lsquo;<samp class="samp">--enable-profiling=instrument</samp>&rsquo;<a class="copiable-link" href="#index-_002dfinstrument_002dfunctions"> &para;</a></span></dt>
+<dd><p>Build with the GCC option &lsquo;<samp class="samp">-finstrument-functions</samp>&rsquo; added to the
 &lsquo;<samp class="samp">CFLAGS</samp>&rsquo; (see <a data-manual="gcc" href="https://gcc.gnu.org/onlinedocs/gcc/Code-Gen-Options.html#Code-Gen-Options">Options for Code Generation</a> in <cite class="cite">Using the GNU Compiler Collection (GCC)</cite>).
 </p>
 <p>This inserts special instrumenting calls at the start and end of each
@@ -987,7 +997,7 @@ attributed to their caller.
 <p>
 Next: <a href="#Emacs" accesskey="n" rel="next">Emacs</a>, Previous: <a href="#Profiling" accesskey="p" rel="prev">Profiling</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Autoconf-1">3.14 Autoconf</h3>
+<h3 class="section" id="Autoconf-1"><span>3.14 Autoconf<a class="copiable-link" href="#Autoconf-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Autoconf"></a>
 <p>Autoconf based applications can easily check whether GMP is installed.  The
 only thing to be noted is that GMP library symbols from version 3 onwards have
@@ -1039,7 +1049,7 @@ or up,
 <p>
 Previous: <a href="#Autoconf" accesskey="p" rel="prev">Autoconf</a>, Up: <a href="#GMP-Basics" accesskey="u" rel="up">GMP Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Emacs-1">3.15 Emacs</h3>
+<h3 class="section" id="Emacs-1"><span>3.15 Emacs<a class="copiable-link" href="#Emacs-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Emacs"></a>
 <a class="index-entry-id" id="index-info_002dlookup_002dsymbol"></a>
 <p><kbd class="key">C-h C-i</kbd> (<code class="code">info-lookup-symbol</code>) is a good way to find documentation

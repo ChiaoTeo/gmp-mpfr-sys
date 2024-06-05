@@ -1,9 +1,19 @@
+<!-- This manual describes how to install and use the GNU multiple precision
+arithmetic library, version 6.3.0.
+Copyright 1991, 1993-2016, 2018-2020 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with the Front-Cover Texts being "A GNU Manual", and with the Back-Cover
+Texts being "You have freedom to copy and modify this GNU Manual, like GNU
+software".  A copy of the license is included in
+GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="Low_002dlevel-Functions">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.Random_Number_Functions.html#Random-Number-Functions" accesskey="n" rel="next">Random Number Functions</a>, Previous: <a href="constant.Floating_point_Functions.html#Floating_002dpoint-Functions" accesskey="p" rel="prev">Floating-point Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Low_002dlevel-Functions-1">8 Low-level Functions</h2>
+<h2 class="chapter" id="Low_002dlevel-Functions-1"><span>8 Low-level Functions<a class="copiable-link" href="#Low_002dlevel-Functions-1"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Low_002dlevel-functions"></a>
 <p>This chapter describes low-level GMP functions, used to implement the
 high-level GMP functions, but also intended for time-critical user code.
@@ -51,7 +61,7 @@ the least significant limb, and the limb count in braces.  For example,
 {<var class="var">s1p</var>, <var class="var">s1n</var>}.
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fadd_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fadd_005fn"> &para;</a></span></dt>
 <dd><p>Add {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>, <var class="var">n</var>}, and write the <var class="var">n</var>
 least significant limbs of the result to <var class="var">rp</var>.  Return carry, either 0 or
 1.
@@ -62,12 +72,12 @@ a variable to itself (i.e., <var class="var">s1p</var> equals <var class="var">s
 with a count of 1 for optimal speed.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005fadd_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005fadd_005f1"> &para;</a></span></dt>
 <dd><p>Add {<var class="var">s1p</var>, <var class="var">n</var>} and <var class="var">s2limb</var>, and write the <var class="var">n</var> least
 significant limbs of the result to <var class="var">rp</var>.  Return carry, either 0 or 1.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href='#index-mpn_005fadd'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fadd"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_add</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href="#index-mpn_005fadd"> &para;</a></span></dt>
 <dd><p>Add {<var class="var">s1p</var>, <var class="var">s1n</var>} and {<var class="var">s2p</var>, <var class="var">s2n</var>}, and write the
 <var class="var">s1n</var> least significant limbs of the result to <var class="var">rp</var>.  Return carry,
 either 0 or 1.
@@ -75,7 +85,7 @@ either 0 or 1.
 <p>This function requires that <var class="var">s1n</var> is greater than or equal to <var class="var">s2n</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fsub_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fsub_005fn"> &para;</a></span></dt>
 <dd><p>Subtract {<var class="var">s2p</var>, <var class="var">n</var>} from {<var class="var">s1p</var>, <var class="var">n</var>}, and write the
 <var class="var">n</var> least significant limbs of the result to <var class="var">rp</var>.  Return borrow,
 either 0 or 1.
@@ -84,12 +94,12 @@ either 0 or 1.
 function for subtraction, since it is written in assembly for most CPUs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005fsub_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005fsub_005f1"> &para;</a></span></dt>
 <dd><p>Subtract <var class="var">s2limb</var> from {<var class="var">s1p</var>, <var class="var">n</var>}, and write the <var class="var">n</var> least
 significant limbs of the result to <var class="var">rp</var>.  Return borrow, either 0 or 1.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href='#index-mpn_005fsub'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsub"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sub</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href="#index-mpn_005fsub"> &para;</a></span></dt>
 <dd><p>Subtract {<var class="var">s2p</var>, <var class="var">s2n</var>} from {<var class="var">s1p</var>, <var class="var">s1n</var>}, and write the
 <var class="var">s1n</var> least significant limbs of the result to <var class="var">rp</var>.  Return borrow,
 either 0 or 1.
@@ -98,14 +108,14 @@ either 0 or 1.
 <var class="var">s2n</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fneg"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_neg</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fneg'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fneg"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_neg</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fneg"> &para;</a></span></dt>
 <dd><p>Perform the negation of {<var class="var">sp</var>, <var class="var">n</var>}, and write the result to
 {<var class="var">rp</var>, <var class="var">n</var>}.  This is equivalent to calling <code class="code">mpn_sub_n</code> with an
 <var class="var">n</var>-limb zero minuend and passing {<var class="var">sp</var>, <var class="var">n</var>} as subtrahend.
 Return borrow, either 0 or 1.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_mul_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fmul_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_mul_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fmul_005fn"> &para;</a></span></dt>
 <dd><p>Multiply {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>, <var class="var">n</var>}, and write the
 2*<var class="var">n</var>-limb result to <var class="var">rp</var>.
 </p>
@@ -116,7 +126,7 @@ destination and either source.
 <p>If the two input operands are the same, use <code class="code">mpn_sqr</code>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mul</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href='#index-mpn_005fmul'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mul</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">s2n</var>)</code><a class="copiable-link" href="#index-mpn_005fmul"> &para;</a></span></dt>
 <dd><p>Multiply {<var class="var">s1p</var>, <var class="var">s1n</var>} and {<var class="var">s2p</var>, <var class="var">s2n</var>}, and write the
 (<var class="var">s1n</var>+<var class="var">s2n</var>)-limb result to <var class="var">rp</var>.  Return the most significant
 limb of the result.
@@ -128,7 +138,7 @@ destination and either source.
 <p>This function requires that <var class="var">s1n</var> is greater than or equal to <var class="var">s2n</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sqr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fsqr'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sqr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fsqr"> &para;</a></span></dt>
 <dd><p>Compute the square of {<var class="var">s1p</var>, <var class="var">n</var>} and write the 2*<var class="var">n</var>-limb
 result to <var class="var">rp</var>.
 </p>
@@ -137,7 +147,7 @@ most significant limb is zero.  No overlap is permitted between the
 destination and the source.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005fmul_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005fmul_005f1"> &para;</a></span></dt>
 <dd><p>Multiply {<var class="var">s1p</var>, <var class="var">n</var>} by <var class="var">s2limb</var>, and write the <var class="var">n</var> least
 significant limbs of the product to <var class="var">rp</var>.  Return the most significant
 limb of the product.  {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">rp</var>, <var class="var">n</var>} are
@@ -151,7 +161,7 @@ for most CPUs.
 with a count equal to the logarithm of <var class="var">s2limb</var> instead, for optimal speed.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005faddmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_addmul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005faddmul_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005faddmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_addmul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005faddmul_005f1"> &para;</a></span></dt>
 <dd><p>Multiply {<var class="var">s1p</var>, <var class="var">n</var>} and <var class="var">s2limb</var>, and add the <var class="var">n</var> least
 significant limbs of the product to {<var class="var">rp</var>, <var class="var">n</var>} and write the result
 to <var class="var">rp</var>.  Return the most significant limb of the product, plus carry-out
@@ -163,7 +173,7 @@ multiplication as well as other operations in GMP.  It is written in assembly
 for most CPUs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsubmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_submul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005fsubmul_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsubmul_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_submul_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005fsubmul_005f1"> &para;</a></span></dt>
 <dd><p>Multiply {<var class="var">s1p</var>, <var class="var">n</var>} and <var class="var">s2limb</var>, and subtract the <var class="var">n</var>
 least significant limbs of the product from {<var class="var">rp</var>, <var class="var">n</var>} and write the
 result to <var class="var">rp</var>.  Return the most significant limb of the product, plus
@@ -175,7 +185,7 @@ multiplication and division as well as other operations in GMP.  It is written
 in assembly for most CPUs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005ftdiv_005fqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_tdiv_qr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">qp</var>, mp_limb_t *<var class="var">rp</var>, mp_size_t <var class="var">qxn</var>, const mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href='#index-mpn_005ftdiv_005fqr'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005ftdiv_005fqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_tdiv_qr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">qp</var>, mp_limb_t *<var class="var">rp</var>, mp_size_t <var class="var">qxn</var>, const mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href="#index-mpn_005ftdiv_005fqr"> &para;</a></span></dt>
 <dd><p>Divide {<var class="var">np</var>, <var class="var">nn</var>} by {<var class="var">dp</var>, <var class="var">dn</var>} and put the quotient
 at {<var class="var">qp</var>, <var class="var">nn</var>&minus;<var class="var">dn</var>+1} and the remainder at {<var class="var">rp</var>,
 <var class="var">dn</var>}.  The quotient is rounded towards 0.
@@ -186,7 +196,7 @@ size <var class="var">dn</var>.  The most significant limb of the divisor must b
 <var class="var">qxn</var> operand must be zero.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivrem"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divrem</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">qxn</var>, mp_limb_t *<var class="var">rs2p</var>, mp_size_t <var class="var">rs2n</var>, const mp_limb_t *<var class="var">s3p</var>, mp_size_t <var class="var">s3n</var>)</code><a class="copiable-link" href='#index-mpn_005fdivrem'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivrem"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divrem</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">qxn</var>, mp_limb_t *<var class="var">rs2p</var>, mp_size_t <var class="var">rs2n</var>, const mp_limb_t *<var class="var">s3p</var>, mp_size_t <var class="var">s3n</var>)</code><a class="copiable-link" href="#index-mpn_005fdivrem"> &para;</a></span></dt>
 <dd><p>[This function is obsolete.  Please call <code class="code">mpn_tdiv_qr</code> instead for best
 performance.]
 </p>
@@ -210,8 +220,8 @@ from that special case, no overlap between arguments is permitted.
 limbs large.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-mpn_005fdivrem_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divrem_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">qxn</var>, <span class="w-nolinebreak-text">mp_limb_t</span>&nbsp;*<var class="var">s2p</var><!-- /@w -->, mp_size_t <var class="var">s2n</var>, mp_limb_t <var class="var">s3limb</var>)</code><a class="copiable-link" href='#index-mpn_005fdivrem_005f1'> &para;</a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-mpn_005fdivmod_005f1"><span class="category-def">Macro: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divmod_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">s2p</var>, <span class="w-nolinebreak-text">mp_size_t</span>&nbsp;<var class="var">s2n</var><!-- /@w -->, <span class="w-nolinebreak-text">mp_limb_t</span>&nbsp;<var class="var">s3limb</var><!-- /@w -->)</code><a class="copiable-link" href='#index-mpn_005fdivmod_005f1'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-mpn_005fdivrem_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divrem_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">qxn</var>, mp_limb_t&nbsp;*<var class="var">s2p</var><!-- /@w -->, mp_size_t <var class="var">s2n</var>, mp_limb_t <var class="var">s3limb</var>)</code><a class="copiable-link" href="#index-mpn_005fdivrem_005f1"> &para;</a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-mpn_005fdivmod_005f1"><span class="category-def">Macro: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divmod_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">s2p</var>, mp_size_t&nbsp;<var class="var">s2n</var><!-- /@w -->, mp_limb_t&nbsp;<var class="var">s3limb</var><!-- /@w -->)</code><a class="copiable-link" href="#index-mpn_005fdivmod_005f1"> &para;</a></span></dt>
 <dd><p>Divide {<var class="var">s2p</var>, <var class="var">s2n</var>} by <var class="var">s3limb</var>, and write the quotient at
 <var class="var">r1p</var>.  Return the remainder.
 </p>
@@ -227,12 +237,12 @@ macro calling <code class="code">mpn_divrem_1</code> with a <var class="var">qxn
 separate, not partially overlapping.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivmod"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divmod</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">rs2p</var>, mp_size_t <var class="var">rs2n</var>, const mp_limb_t *<var class="var">s3p</var>, mp_size_t <var class="var">s3n</var>)</code><a class="copiable-link" href='#index-mpn_005fdivmod'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivmod"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divmod</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">rs2p</var>, mp_size_t <var class="var">rs2n</var>, const mp_limb_t *<var class="var">s3p</var>, mp_size_t <var class="var">s3n</var>)</code><a class="copiable-link" href="#index-mpn_005fdivmod"> &para;</a></span></dt>
 <dd><p>[This function is obsolete.  Please call <code class="code">mpn_tdiv_qr</code> instead for best
 performance.]
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivexact_005f1"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_divexact_1</strong> <code class="def-code-arguments">(mp_limb_t * <var class="var">rp</var>, const mp_limb_t * <var class="var">sp</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">d</var>)</code><a class="copiable-link" href='#index-mpn_005fdivexact_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fdivexact_005f1"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_divexact_1</strong> <code class="def-code-arguments">(mp_limb_t * <var class="var">rp</var>, const mp_limb_t * <var class="var">sp</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">d</var>)</code><a class="copiable-link" href="#index-mpn_005fdivexact_005f1"> &para;</a></span></dt>
 <dd><p>Divide {<var class="var">sp</var>, <var class="var">n</var>} by <var class="var">d</var>, expecting it to divide exactly, and
 writing the result to {<var class="var">rp</var>, <var class="var">n</var>}. If <var class="var">d</var> doesn&rsquo;t divide
 exactly, the value written to {<var class="var">rp</var>, <var class="var">n</var>} is undefined. The areas at
@@ -240,8 +250,8 @@ exactly, the value written to {<var class="var">rp</var>, <var class="var">n</va
 partially overlapping.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-mpn_005fdivexact_005fby3"><span class="category-def">Macro: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divexact_by3</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">sp</var>, <span class="w-nolinebreak-text">mp_size_t</span>&nbsp;<var class="var">n</var><!-- /@w -->)</code><a class="copiable-link" href='#index-mpn_005fdivexact_005fby3'> &para;</a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-mpn_005fdivexact_005fby3c"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divexact_by3c</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">sp</var>, <span class="w-nolinebreak-text">mp_size_t</span>&nbsp;<var class="var">n</var><!-- /@w -->, mp_limb_t <var class="var">carry</var>)</code><a class="copiable-link" href='#index-mpn_005fdivexact_005fby3c'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-mpn_005fdivexact_005fby3"><span class="category-def">Macro: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divexact_by3</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">sp</var>, mp_size_t&nbsp;<var class="var">n</var><!-- /@w -->)</code><a class="copiable-link" href="#index-mpn_005fdivexact_005fby3"> &para;</a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-mpn_005fdivexact_005fby3c"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_divexact_by3c</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">sp</var>, mp_size_t&nbsp;<var class="var">n</var><!-- /@w -->, mp_limb_t <var class="var">carry</var>)</code><a class="copiable-link" href="#index-mpn_005fdivexact_005fby3c"> &para;</a></span></dt>
 <dd><p>Divide {<var class="var">sp</var>, <var class="var">n</var>} by 3, expecting it to divide exactly, and writing
 the result to {<var class="var">rp</var>, <var class="var">n</var>}.  If 3 divides exactly, the return value is
 zero and the result is the quotient.  If not, the return value is non-zero and
@@ -265,12 +275,12 @@ be 0, 1 or 2 (these are both borrows really).  When <em class="math">c=0</em> cl
 <code class="code">mp_bits_per_limb</code> is even, which is always so currently).
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmod_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mod_1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href='#index-mpn_005fmod_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fmod_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_mod_1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>, mp_limb_t <var class="var">s2limb</var>)</code><a class="copiable-link" href="#index-mpn_005fmod_005f1"> &para;</a></span></dt>
 <dd><p>Divide {<var class="var">s1p</var>, <var class="var">s1n</var>} by <var class="var">s2limb</var>, and return the remainder.
 <var class="var">s1n</var> can be zero.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005flshift"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_lshift</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>, unsigned int <var class="var">count</var>)</code><a class="copiable-link" href='#index-mpn_005flshift'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005flshift"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_lshift</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>, unsigned int <var class="var">count</var>)</code><a class="copiable-link" href="#index-mpn_005flshift"> &para;</a></span></dt>
 <dd><p>Shift {<var class="var">sp</var>, <var class="var">n</var>} left by <var class="var">count</var> bits, and write the result to
 {<var class="var">rp</var>, <var class="var">n</var>}.  The bits shifted out at the left are returned in the
 least significant <var class="var">count</var> bits of the return value (the rest of the return
@@ -283,7 +293,7 @@ regions {<var class="var">sp</var>, <var class="var">n</var>} and {<var class="v
 <p>This function is written in assembly for most CPUs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005frshift"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_rshift</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>, unsigned int <var class="var">count</var>)</code><a class="copiable-link" href='#index-mpn_005frshift'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005frshift"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_rshift</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>, unsigned int <var class="var">count</var>)</code><a class="copiable-link" href="#index-mpn_005frshift"> &para;</a></span></dt>
 <dd><p>Shift {<var class="var">sp</var>, <var class="var">n</var>} right by <var class="var">count</var> bits, and write the result to
 {<var class="var">rp</var>, <var class="var">n</var>}.  The bits shifted out at the right are returned in the
 most significant <var class="var">count</var> bits of the return value (the rest of the return
@@ -296,17 +306,17 @@ regions {<var class="var">sp</var>, <var class="var">n</var>} and {<var class="v
 <p>This function is written in assembly for most CPUs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcmp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_cmp</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcmp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcmp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_cmp</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcmp"> &para;</a></span></dt>
 <dd><p>Compare {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>, <var class="var">n</var>} and return a
 positive value if <em class="math"><var class="var">s1</var> &gt; <var class="var">s2</var></em>, 0 if they are equal, or a
 negative value if <em class="math"><var class="var">s1</var> &lt; <var class="var">s2</var></em>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fzero_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_zero_p</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fzero_005fp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fzero_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_zero_p</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fzero_005fp"> &para;</a></span></dt>
 <dd><p>Test {<var class="var">sp</var>, <var class="var">n</var>} and return 1 if the operand is zero, 0 otherwise.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcd"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_gcd</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">xn</var>, mp_limb_t *<var class="var">yp</var>, mp_size_t <var class="var">yn</var>)</code><a class="copiable-link" href='#index-mpn_005fgcd'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcd"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_gcd</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">xn</var>, mp_limb_t *<var class="var">yp</var>, mp_size_t <var class="var">yn</var>)</code><a class="copiable-link" href="#index-mpn_005fgcd"> &para;</a></span></dt>
 <dd><p>Set {<var class="var">rp</var>, <var class="var">retval</var>} to the greatest common divisor of {<var class="var">xp</var>,
 <var class="var">xn</var>} and {<var class="var">yp</var>, <var class="var">yn</var>}.  The result can be up to <var class="var">yn</var> limbs,
 the return value is the actual number produced.  Both source operands are
@@ -318,12 +328,12 @@ the two operands must be odd.  No overlap is permitted
 between {<var class="var">xp</var>, <var class="var">xn</var>} and {<var class="var">yp</var>, <var class="var">yn</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_gcd_1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">xn</var>, mp_limb_t <var class="var">ylimb</var>)</code><a class="copiable-link" href='#index-mpn_005fgcd_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_gcd_1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">xn</var>, mp_limb_t <var class="var">ylimb</var>)</code><a class="copiable-link" href="#index-mpn_005fgcd_005f1"> &para;</a></span></dt>
 <dd><p>Return the greatest common divisor of {<var class="var">xp</var>, <var class="var">xn</var>} and <var class="var">ylimb</var>.
 Both operands must be non-zero.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcdext"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_gcdext</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">gp</var>, mp_limb_t *<var class="var">sp</var>, mp_size_t *<var class="var">sn</var>, mp_limb_t *<var class="var">up</var>, mp_size_t <var class="var">un</var>, mp_limb_t *<var class="var">vp</var>, mp_size_t <var class="var">vn</var>)</code><a class="copiable-link" href='#index-mpn_005fgcdext'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fgcdext"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_gcdext</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">gp</var>, mp_limb_t *<var class="var">sp</var>, mp_size_t *<var class="var">sn</var>, mp_limb_t *<var class="var">up</var>, mp_size_t <var class="var">un</var>, mp_limb_t *<var class="var">vp</var>, mp_size_t <var class="var">vn</var>)</code><a class="copiable-link" href="#index-mpn_005fgcdext"> &para;</a></span></dt>
 <dd><p>Let <em class="math"><var class="var">U</var></em> be defined by {<var class="var">up</var>, <var class="var">un</var>} and let <em class="math"><var class="var">V</var></em> be
 defined by {<var class="var">vp</var>, <var class="var">vn</var>}.
 </p>
@@ -354,7 +364,7 @@ extra limb past the end of each), and the areas pointed to by <var class="var">g
 <var class="var">sp</var> should each have room for <em class="math"><var class="var">un</var>+1</em> limbs.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsqrtrem"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sqrtrem</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">r2p</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fsqrtrem'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsqrtrem"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sqrtrem</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_limb_t *<var class="var">r2p</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fsqrtrem"> &para;</a></span></dt>
 <dd><p>Compute the square root of {<var class="var">sp</var>, <var class="var">n</var>} and put the result at
 {<var class="var">r1p</var>, <em class="math">ceil(<var class="var">n</var>/2)</em>} and the remainder at {<var class="var">r2p</var>,
 <var class="var">retval</var>}.  <var class="var">r2p</var> needs space for <var class="var">n</var> limbs, but the return value
@@ -373,14 +383,14 @@ would have been zero or non-zero.
 <code class="code">mpn_perfect_square_p</code>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsizeinbase"><span class="category-def">Function: </span><span><code class="def-type">size_t</code> <strong class="def-name">mpn_sizeinbase</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">n</var>, int <var class="var">base</var>)</code><a class="copiable-link" href='#index-mpn_005fsizeinbase'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsizeinbase"><span class="category-def">Function: </span><span><code class="def-type">size_t</code> <strong class="def-name">mpn_sizeinbase</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">xp</var>, mp_size_t <var class="var">n</var>, int <var class="var">base</var>)</code><a class="copiable-link" href="#index-mpn_005fsizeinbase"> &para;</a></span></dt>
 <dd><p>Return the size of {<var class="var">xp</var>,<var class="var">n</var>} measured in number of digits in the
 given <var class="var">base</var>.  <var class="var">base</var> can vary from 2 to 62.  Requires <em class="math"><var class="var">n</var> &gt; 0</em>
 and <em class="math"><var class="var">xp</var>[<var class="var">n</var>-1] &gt; 0</em>.  The result will be either exact or
 1 too big.  If <var class="var">base</var> is a power of 2, the result is always exact.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fget_005fstr"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_get_str</strong> <code class="def-code-arguments">(unsigned char *<var class="var">str</var>, int <var class="var">base</var>, mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>)</code><a class="copiable-link" href='#index-mpn_005fget_005fstr'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fget_005fstr"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_get_str</strong> <code class="def-code-arguments">(unsigned char *<var class="var">str</var>, int <var class="var">base</var>, mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">s1n</var>)</code><a class="copiable-link" href="#index-mpn_005fget_005fstr"> &para;</a></span></dt>
 <dd><p>Convert {<var class="var">s1p</var>, <var class="var">s1n</var>} to a raw unsigned char array at <var class="var">str</var> in
 base <var class="var">base</var>, and return the number of characters produced.  There may be
 leading zeros in the string.  The string is not in ASCII; to convert it to
@@ -395,7 +405,7 @@ non-zero.  The input {<var class="var">s1p</var>, <var class="var">s1n</var>} is
 represented by a <var class="var">s1n</var> long limb array, plus one extra character.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fset_005fstr"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_set_str</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const unsigned char *<var class="var">str</var>, size_t <var class="var">strsize</var>, int <var class="var">base</var>)</code><a class="copiable-link" href='#index-mpn_005fset_005fstr'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fset_005fstr"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_set_str</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const unsigned char *<var class="var">str</var>, size_t <var class="var">strsize</var>, int <var class="var">base</var>)</code><a class="copiable-link" href="#index-mpn_005fset_005fstr"> &para;</a></span></dt>
 <dd><p>Convert bytes {<var class="var">str</var>,<var class="var">strsize</var>} in the given <var class="var">base</var> to limbs at
 <var class="var">rp</var>.
 </p>
@@ -416,22 +426,22 @@ then <em class="math"><var class="var">rp</var>[<var class="var">rn</var>-1]</em
 {<var class="var">str</var>,<var class="var">strsize</var>} and the result at <var class="var">rp</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fscan0"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_scan0</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_bitcnt_t <var class="var">bit</var>)</code><a class="copiable-link" href='#index-mpn_005fscan0'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fscan0"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_scan0</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_bitcnt_t <var class="var">bit</var>)</code><a class="copiable-link" href="#index-mpn_005fscan0"> &para;</a></span></dt>
 <dd><p>Scan <var class="var">s1p</var> from bit position <var class="var">bit</var> for the next clear bit.
 </p>
 <p>It is required that there be a clear bit within the area at <var class="var">s1p</var> at or
 beyond bit position <var class="var">bit</var>, so that the function has something to return.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fscan1"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_scan1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_bitcnt_t <var class="var">bit</var>)</code><a class="copiable-link" href='#index-mpn_005fscan1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fscan1"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_scan1</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_bitcnt_t <var class="var">bit</var>)</code><a class="copiable-link" href="#index-mpn_005fscan1"> &para;</a></span></dt>
 <dd><p>Scan <var class="var">s1p</var> from bit position <var class="var">bit</var> for the next set bit.
 </p>
 <p>It is required that there be a set bit within the area at <var class="var">s1p</var> at or
 beyond bit position <var class="var">bit</var>, so that the function has something to return.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005frandom"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_random</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">r1n</var>)</code><a class="copiable-link" href='#index-mpn_005frandom'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005frandom2"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_random2</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">r1n</var>)</code><a class="copiable-link" href='#index-mpn_005frandom2'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005frandom"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_random</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">r1n</var>)</code><a class="copiable-link" href="#index-mpn_005frandom"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005frandom2"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_random2</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">r1p</var>, mp_size_t <var class="var">r1n</var>)</code><a class="copiable-link" href="#index-mpn_005frandom2"> &para;</a></span></dt>
 <dd><p>Generate a random number of length <var class="var">r1n</var> and store it at <var class="var">r1p</var>.  The
 most significant limb is always non-zero.  <code class="code">mpn_random</code> generates
 uniformly distributed limb data, <code class="code">mpn_random2</code> generates long strings of
@@ -441,78 +451,78 @@ zeros and ones in the binary representation.
 routines.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fpopcount"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_popcount</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fpopcount'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fpopcount"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_popcount</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fpopcount"> &para;</a></span></dt>
 <dd><p>Count the number of set bits in {<var class="var">s1p</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fhamdist"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_hamdist</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fhamdist'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fhamdist"><span class="category-def">Function: </span><span><code class="def-type">mp_bitcnt_t</code> <strong class="def-name">mpn_hamdist</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fhamdist"> &para;</a></span></dt>
 <dd><p>Compute the hamming distance between {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>,
 <var class="var">n</var>}, which is the number of bit positions where the two operands have
 different bit values.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fperfect_005fsquare_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_perfect_square_p</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fperfect_005fsquare_005fp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fperfect_005fsquare_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_perfect_square_p</strong> <code class="def-code-arguments">(const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fperfect_005fsquare_005fp"> &para;</a></span></dt>
 <dd><p>Return non-zero iff {<var class="var">s1p</var>, <var class="var">n</var>} is a perfect square.
 The most significant limb of the input {<var class="var">s1p</var>, <var class="var">n</var>} must be
 non-zero.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fand_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_and_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fand_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fand_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_and_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fand_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical and of {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>,
 <var class="var">n</var>}, and write the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fior_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_ior_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fior_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fior_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_ior_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fior_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical inclusive or of {<var class="var">s1p</var>, <var class="var">n</var>} and
 {<var class="var">s2p</var>, <var class="var">n</var>}, and write the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fxor_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_xor_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fxor_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fxor_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_xor_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fxor_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical exclusive or of {<var class="var">s1p</var>, <var class="var">n</var>} and
 {<var class="var">s2p</var>, <var class="var">n</var>}, and write the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fandn_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_andn_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fandn_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fandn_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_andn_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fandn_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical and of {<var class="var">s1p</var>, <var class="var">n</var>} and the bitwise
 complement of {<var class="var">s2p</var>, <var class="var">n</var>}, and write the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fiorn_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_iorn_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fiorn_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fiorn_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_iorn_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fiorn_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical inclusive or of {<var class="var">s1p</var>, <var class="var">n</var>} and the bitwise
 complement of {<var class="var">s2p</var>, <var class="var">n</var>}, and write the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fnand_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_nand_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fnand_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fnand_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_nand_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fnand_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical and of {<var class="var">s1p</var>, <var class="var">n</var>} and {<var class="var">s2p</var>,
 <var class="var">n</var>}, and write the bitwise complement of the result to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fnior_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_nior_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fnior_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fnior_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_nior_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fnior_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical inclusive or of {<var class="var">s1p</var>, <var class="var">n</var>} and
 {<var class="var">s2p</var>, <var class="var">n</var>}, and write the bitwise complement of the result to
 {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fxnor_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_xnor_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fxnor_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fxnor_005fn"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_xnor_n</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fxnor_005fn"> &para;</a></span></dt>
 <dd><p>Perform the bitwise logical exclusive or of {<var class="var">s1p</var>, <var class="var">n</var>} and
 {<var class="var">s2p</var>, <var class="var">n</var>}, and write the bitwise complement of the result to
 {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcom"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_com</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcom'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcom"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_com</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">sp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcom"> &para;</a></span></dt>
 <dd><p>Perform the bitwise complement of {<var class="var">sp</var>, <var class="var">n</var>}, and write the result
 to {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcopyi"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_copyi</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcopyi'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcopyi"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_copyi</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcopyi"> &para;</a></span></dt>
 <dd><p>Copy from {<var class="var">s1p</var>, <var class="var">n</var>} to {<var class="var">rp</var>, <var class="var">n</var>}, increasingly.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcopyd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_copyd</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcopyd'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcopyd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_copyd</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcopyd"> &para;</a></span></dt>
 <dd><p>Copy from {<var class="var">s1p</var>, <var class="var">n</var>} to {<var class="var">rp</var>, <var class="var">n</var>}, decreasingly.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fzero"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_zero</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fzero'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fzero"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_zero</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fzero"> &para;</a></span></dt>
 <dd><p>Zero {<var class="var">rp</var>, <var class="var">n</var>}.
 </p></dd></dl>
 <br>
@@ -521,7 +531,7 @@ to {<var class="var">rp</var>, <var class="var">n</var>}.
 <li><a href="#Nails" accesskey="2">Nails</a></li>
 </ul>
 <div class="section-level-extent" id="Low_002dlevel-functions-for-cryptography">
-<h3 class="section">8.1 Low-level functions for cryptography</h3>
+<h3 class="section"><span>8.1 Low-level functions for cryptography<a class="copiable-link" href="#Low_002dlevel-functions-for-cryptography"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Low_002dlevel-functions-for-cryptography"></a>
 <a class="index-entry-id" id="index-Cryptography-functions_002c-low_002dlevel"></a>
 <p>The functions prefixed with <code class="code">mpn_sec_</code> and <code class="code">mpn_cnd_</code> are designed to
@@ -557,8 +567,8 @@ Alpha ev6 and Pentium4 using 64-bit limbs have leaky <code class="code">mpn_add_
 <code class="code">mpn_sec_mul</code> on those systems unsafe.
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcnd_005fadd_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_cnd_add_n</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcnd_005fadd_005fn'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fcnd_005fsub_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_cnd_sub_n</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcnd_005fsub_005fn'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcnd_005fadd_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_cnd_add_n</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcnd_005fadd_005fn"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fcnd_005fsub_005fn"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_cnd_sub_n</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">s1p</var>, const mp_limb_t *<var class="var">s2p</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcnd_005fsub_005fn"> &para;</a></span></dt>
 <dd><p>These functions do conditional addition and subtraction.  If <var class="var">cnd</var> is
 non-zero, they produce the same result as a regular <code class="code">mpn_add_n</code> or
 <code class="code">mpn_sub_n</code>, and if <var class="var">cnd</var> is zero, they copy {<var class="var">s1p</var>,<var class="var">n</var>} to
@@ -569,8 +579,8 @@ but independent of the condition <var class="var">cnd</var>.  Like for <code cla
 actual limb values.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fadd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_add_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">b</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fadd_005f1'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fsub_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_sub_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">b</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fsub_005f1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fadd_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_add_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">b</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fadd_005f1"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fsub_005f1"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_sub_1</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">n</var>, mp_limb_t <var class="var">b</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fsub_005f1"> &para;</a></span></dt>
 <dd><p>Set <var class="var">R</var> to <var class="var">A</var> + <var class="var">b</var> or <var class="var">A</var> - <var class="var">b</var>, respectively, where
 <var class="var">R</var> = {<var class="var">rp</var>,<var class="var">n</var>}, <var class="var">A</var> = {<var class="var">ap</var>,<var class="var">n</var>}, and <var class="var">b</var> is
 a single limb. Returns carry.
@@ -583,15 +593,15 @@ requirements are guaranteed to be at most <var class="var">n</var> limbs, and in
 monotonously in the operand size.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcnd_005fswap"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_cnd_swap</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, volatile mp_limb_t *<var class="var">ap</var>, volatile mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fcnd_005fswap'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fcnd_005fswap"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_cnd_swap</strong> <code class="def-code-arguments">(mp_limb_t <var class="var">cnd</var>, volatile mp_limb_t *<var class="var">ap</var>, volatile mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fcnd_005fswap"> &para;</a></span></dt>
 <dd><p>If <var class="var">cnd</var> is non-zero, swaps the contents of the areas {<var class="var">ap</var>,<var class="var">n</var>}
 and {<var class="var">bp</var>,<var class="var">n</var>}. Otherwise, the areas are left unmodified.
 Implemented using logical operations on the limbs, with the same memory
 accesses independent of the value of <var class="var">cnd</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_mul</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">an</var>, const mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">bn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fmul'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fmul_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_mul_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">an</var>, mp_size_t <var class="var">bn</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fmul_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_mul</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">an</var>, const mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">bn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fmul"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fmul_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_mul_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">an</var>, mp_size_t <var class="var">bn</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fmul_005fitch"> &para;</a></span></dt>
 <dd><p>Set <var class="var">R</var> to <em class="math">A * B</em>, where <var class="var">A</var> = {<var class="var">ap</var>,<var class="var">an</var>},
 <var class="var">B</var> = {<var class="var">bp</var>,<var class="var">bn</var>}, and <var class="var">R</var> =
 {<var class="var">rp</var>,<em class="math"><var class="var">an</var>+<var class="var">bn</var></em>}.
@@ -606,8 +616,8 @@ accesses independent of the value of <var class="var">cnd</var>.
 requirements are guaranteed to increase monotonously in the operand sizes.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_sqr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">an</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fsqr'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fsqr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_sqr_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">an</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fsqr_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_sqr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">ap</var>, mp_size_t <var class="var">an</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fsqr"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fsqr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_sqr_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">an</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fsqr_005fitch"> &para;</a></span></dt>
 <dd><p>Set <var class="var">R</var> to <em class="math">A^2</em>, where <var class="var">A</var> = {<var class="var">ap</var>,<var class="var">an</var>}, and <var class="var">R</var> =
 {<var class="var">rp</var>,<em class="math">2<var class="var">an</var></em>}.
 </p>
@@ -620,8 +630,8 @@ to be passed in the <var class="var">tp</var> parameter.  The scratch space requ
 guaranteed to increase monotonously in the operand size.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fpowm"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_powm</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">bn</var>, const mp_limb_t *<var class="var">ep</var>, mp_bitcnt_t <var class="var">enb</var>,  const mp_limb_t *<var class="var">mp</var>, mp_size_t <var class="var">n</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fpowm'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fpowm_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_powm_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">bn</var>, mp_bitcnt_t <var class="var">enb</var>, size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fpowm_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fpowm"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_powm</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">bp</var>, mp_size_t <var class="var">bn</var>, const mp_limb_t *<var class="var">ep</var>, mp_bitcnt_t <var class="var">enb</var>,  const mp_limb_t *<var class="var">mp</var>, mp_size_t <var class="var">n</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fpowm"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fpowm_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_powm_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">bn</var>, mp_bitcnt_t <var class="var">enb</var>, size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fpowm_005fitch"> &para;</a></span></dt>
 <dd><p>Set <var class="var">R</var> to <em class="math">(<var class="var">B</var> raised to <var class="var">E</var>) modulo
 <var class="var">M</var></em>, where <var class="var">R</var> = {<var class="var">rp</var>,<var class="var">n</var>}, <var class="var">M</var> = {<var class="var">mp</var>,<var class="var">n</var>},
 and <var class="var">E</var> = {<var class="var">ep</var>,<em class="math">ceil(<var class="var">enb</var> /
@@ -638,15 +648,15 @@ space requirements are guaranteed to increase monotonously in the operand
 sizes.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005ftabselect"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_tabselect</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">tab</var>, mp_size_t <var class="var">n</var>, mp_size_t <var class="var">nents</var>, mp_size_t <var class="var">which</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005ftabselect'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005ftabselect"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_tabselect</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, const mp_limb_t *<var class="var">tab</var>, mp_size_t <var class="var">n</var>, mp_size_t <var class="var">nents</var>, mp_size_t <var class="var">which</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005ftabselect"> &para;</a></span></dt>
 <dd><p>Select entry <var class="var">which</var> from table <var class="var">tab</var>, which has <var class="var">nents</var> entries, each <var class="var">n</var>
 limbs.  Store the selected entry at <var class="var">rp</var>.
 </p>
 <p>This function reads the entire table to avoid side-channel information leaks.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fdiv_005fqr"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_div_qr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">qp</var>, mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fdiv_005fqr'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fdiv_005fqr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_div_qr_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">nn</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fdiv_005fqr_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fdiv_005fqr"><span class="category-def">Function: </span><span><code class="def-type">mp_limb_t</code> <strong class="def-name">mpn_sec_div_qr</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">qp</var>, mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fdiv_005fqr"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fdiv_005fqr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_div_qr_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">nn</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fdiv_005fqr_005fitch"> &para;</a></span></dt>
 <dd>
 <p>Set <var class="var">Q</var> to <em class="math">the truncated quotient
 <var class="var">N</var> / <var class="var">D</var></em> and <var class="var">R</var> to <em class="math"><var class="var">N</var> modulo
@@ -666,8 +676,8 @@ is allowed.  The entire space occupied by <var class="var">N</var> is overwritte
 <var class="var">dn</var>)</code> limbs to be passed in the <var class="var">tp</var> parameter.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fdiv_005fr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_div_r</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fdiv_005fr'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fdiv_005fr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_div_r_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">nn</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005fdiv_005fr_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005fdiv_005fr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpn_sec_div_r</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">np</var>, mp_size_t <var class="var">nn</var>, const mp_limb_t *<var class="var">dp</var>, mp_size_t <var class="var">dn</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fdiv_005fr"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005fdiv_005fr_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_div_r_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">nn</var>, mp_size_t <var class="var">dn</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005fdiv_005fr_005fitch"> &para;</a></span></dt>
 <dd>
 <p>Set <var class="var">R</var> to <em class="math"><var class="var">N</var> modulo <var class="var">D</var></em>, where <var class="var">N</var>
 = {<var class="var">np</var>,<var class="var">nn</var>}, <var class="var">D</var> = {<var class="var">dp</var>,<var class="var">dn</var>}, and <var class="var">R</var> =
@@ -684,8 +694,8 @@ is allowed.  The entire space occupied by <var class="var">N</var> is overwritte
 <var class="var">dn</var>)</code> limbs to be passed in the <var class="var">tp</var> parameter.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005finvert"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_sec_invert</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">ap</var>, const mp_limb_t *<var class="var">mp</var>, mp_size_t <var class="var">n</var>, mp_bitcnt_t <var class="var">nbcnt</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005finvert'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005finvert_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_invert_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href='#index-mpn_005fsec_005finvert_005fitch'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpn_005fsec_005finvert"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpn_sec_invert</strong> <code class="def-code-arguments">(mp_limb_t *<var class="var">rp</var>, mp_limb_t *<var class="var">ap</var>, const mp_limb_t *<var class="var">mp</var>, mp_size_t <var class="var">n</var>, mp_bitcnt_t <var class="var">nbcnt</var>, mp_limb_t *<var class="var">tp</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005finvert"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpn_005fsec_005finvert_005fitch"><span class="category-def">Function: </span><span><code class="def-type">mp_size_t</code> <strong class="def-name">mpn_sec_invert_itch</strong> <code class="def-code-arguments">(mp_size_t <var class="var">n</var>)</code><a class="copiable-link" href="#index-mpn_005fsec_005finvert_005fitch"> &para;</a></span></dt>
 <dd><p>Set <var class="var">R</var> to <em class="math">the inverse of <var class="var">A</var> modulo
 <var class="var">M</var></em>, where <var class="var">R</var> = {<var class="var">rp</var>,<var class="var">n</var>}, <var class="var">A</var> = {<var class="var">ap</var>,<var class="var">n</var>},
 and <var class="var">M</var> = {<var class="var">mp</var>,<var class="var">n</var>}.  <strong class="strong">This function&rsquo;s interface is
@@ -706,7 +716,7 @@ limbs to be passed in the <var class="var">tp</var> parameter.
 <br>
 </div>
 <div class="section-level-extent" id="Nails">
-<h3 class="section">8.2 Nails</h3>
+<h3 class="section"><span>8.2 Nails<a class="copiable-link" href="#Nails"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Nails"></a>
 <p><strong class="strong">Everything in this section is highly experimental and may disappear or
 be subject to incompatible changes in a future version of GMP.</strong>
@@ -733,9 +743,9 @@ either build, at the source level.
 fully source and binary compatible with a non-nail build.
 </p>
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNAIL_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NAIL_BITS</strong><a class="copiable-link" href='#index-GMP_005fNAIL_005fBITS'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fNUMB_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_BITS</strong><a class="copiable-link" href='#index-GMP_005fNUMB_005fBITS'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fLIMB_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_LIMB_BITS</strong><a class="copiable-link" href='#index-GMP_005fLIMB_005fBITS'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNAIL_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NAIL_BITS</strong><a class="copiable-link" href="#index-GMP_005fNAIL_005fBITS"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fNUMB_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_BITS</strong><a class="copiable-link" href="#index-GMP_005fNUMB_005fBITS"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fLIMB_005fBITS"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_LIMB_BITS</strong><a class="copiable-link" href="#index-GMP_005fLIMB_005fBITS"> &para;</a></span></dt>
 <dd><p><code class="code">GMP_NAIL_BITS</code> is the number of nail bits, or 0 when nails are not in
 use.  <code class="code">GMP_NUMB_BITS</code> is the number of data bits in a limb.
 <code class="code">GMP_LIMB_BITS</code> is the total number of bits in an <code class="code">mp_limb_t</code>.  In
@@ -746,8 +756,8 @@ all cases
 </pre></div>
 </dd></dl>
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNAIL_005fMASK"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NAIL_MASK</strong><a class="copiable-link" href='#index-GMP_005fNAIL_005fMASK'> &para;</a></span></dt>
-<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fNUMB_005fMASK"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_MASK</strong><a class="copiable-link" href='#index-GMP_005fNUMB_005fMASK'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNAIL_005fMASK"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NAIL_MASK</strong><a class="copiable-link" href="#index-GMP_005fNAIL_005fMASK"> &para;</a></span></dt>
+<dt class="deffnx defmacx-alias-deffnx def-cmd-deffn" id="index-GMP_005fNUMB_005fMASK"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_MASK</strong><a class="copiable-link" href="#index-GMP_005fNUMB_005fMASK"> &para;</a></span></dt>
 <dd><p>Bit masks for the nail and number parts of a limb.  <code class="code">GMP_NAIL_MASK</code> is 0
 when nails are not in use.
 </p>
@@ -756,7 +766,7 @@ with <code class="code">x &gt;&gt; GMP_NUMB_BITS</code>, and that means one less
 can help various RISC chips.
 </p></dd></dl>
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNUMB_005fMAX"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_MAX</strong><a class="copiable-link" href='#index-GMP_005fNUMB_005fMAX'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-GMP_005fNUMB_005fMAX"><span class="category-def">Macro: </span><span><strong class="def-name">GMP_NUMB_MAX</strong><a class="copiable-link" href="#index-GMP_005fNUMB_005fMAX"> &para;</a></span></dt>
 <dd><p>The maximum value that can be stored in the number part of a limb.  This is
 the same as <code class="code">GMP_NUMB_MASK</code>, but can be used for clarity when doing
 comparisons rather than bit-wise operations.

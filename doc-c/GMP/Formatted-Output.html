@@ -1,9 +1,19 @@
+<!-- This manual describes how to install and use the GNU multiple precision
+arithmetic library, version 6.3.0.
+Copyright 1991, 1993-2016, 2018-2020 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with the Front-Cover Texts being "A GNU Manual", and with the Back-Cover
+Texts being "You have freedom to copy and modify this GNU Manual, like GNU
+software".  A copy of the license is included in
+GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="Formatted-Output">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.Formatted_Input.html#Formatted-Input" accesskey="n" rel="next">Formatted Input</a>, Previous: <a href="constant.Random_Number_Functions.html#Random-Number-Functions" accesskey="p" rel="prev">Random Number Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Formatted-Output-1">10 Formatted Output</h2>
+<h2 class="chapter" id="Formatted-Output-1"><span>10 Formatted Output<a class="copiable-link" href="#Formatted-Output-1"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Formatted-output"></a>
 <a class="index-entry-id" id="index-printf-formatted-output"></a>
 <ul class="mini-toc">
@@ -17,7 +27,7 @@ Next: <a href="constant.Formatted_Input.html#Formatted-Input" accesskey="n" rel=
 <p>
 Next: <a href="#Formatted-Output-Functions" accesskey="n" rel="next">Functions</a>, Previous: <a href="#Formatted-Output" accesskey="p" rel="prev">Formatted Output</a>, Up: <a href="#Formatted-Output" accesskey="u" rel="up">Formatted Output</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Format-Strings">10.1 Format Strings</h3>
+<h3 class="section" id="Format-Strings"><span>10.1 Format Strings<a class="copiable-link" href="#Format-Strings"> &para;</a></span></h3>
 <p><code class="code">gmp_printf</code> and friends accept format strings similar to the standard C
 <code class="code">printf</code> (see <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Formatted-Output.html#Formatted-Output">Formatted Output</a> in <cite class="cite">The GNU C
 Library Reference Manual</cite>).  A format specification is of the form
@@ -172,7 +182,7 @@ characters are not recognised.  Perhaps this will change in the future.
 <p>
 Next: <a href="#C_002b_002b-Formatted-Output" accesskey="n" rel="next">C++ Formatted Output</a>, Previous: <a href="#Formatted-Output-Strings" accesskey="p" rel="prev">Format Strings</a>, Up: <a href="#Formatted-Output" accesskey="u" rel="up">Formatted Output</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Functions">10.2 Functions</h3>
+<h3 class="section" id="Functions"><span>10.2 Functions<a class="copiable-link" href="#Functions"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Output-functions-3"></a>
 <p>Each of the following functions is similar to the corresponding C library
 function.  The basic <code class="code">printf</code> forms take a variable argument list.  The
@@ -191,20 +201,20 @@ output may be produced if a write error occurs.  All the functions can return
 this shouldn&rsquo;t normally occur.
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_printf</strong> <code class="def-code-arguments">(const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005fprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vprintf</strong> <code class="def-code-arguments">(const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_printf</strong> <code class="def-code-arguments">(const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005fprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vprintf</strong> <code class="def-code-arguments">(const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fvprintf"> &para;</a></span></dt>
 <dd><p>Print to the standard output <code class="code">stdout</code>.  Return the number of characters
 written, or <em class="math">-1</em> if an error occurred.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005ffprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_fprintf</strong> <code class="def-code-arguments">(FILE *<var class="var">fp</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005ffprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvfprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vfprintf</strong> <code class="def-code-arguments">(FILE *<var class="var">fp</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvfprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005ffprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_fprintf</strong> <code class="def-code-arguments">(FILE *<var class="var">fp</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005ffprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvfprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vfprintf</strong> <code class="def-code-arguments">(FILE *<var class="var">fp</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fvfprintf"> &para;</a></span></dt>
 <dd><p>Print to the stream <var class="var">fp</var>.  Return the number of characters written, or
 <em class="math">-1</em> if an error occurred.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fsprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_sprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005fsprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvsprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vsprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvsprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fsprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_sprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005fsprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvsprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vsprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fvsprintf"> &para;</a></span></dt>
 <dd><p>Form a null-terminated string in <var class="var">buf</var>.  Return the number of characters
 written, excluding the terminating null.
 </p>
@@ -215,8 +225,8 @@ written, excluding the terminating null.
 exceeding the space available at <var class="var">buf</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fsnprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_snprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, size_t <var class="var">size</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005fsnprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvsnprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vsnprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, size_t <var class="var">size</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvsnprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fsnprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_snprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, size_t <var class="var">size</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005fsnprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvsnprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vsnprintf</strong> <code class="def-code-arguments">(char *<var class="var">buf</var>, size_t <var class="var">size</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fvsnprintf"> &para;</a></span></dt>
 <dd><p>Form a null-terminated string in <var class="var">buf</var>.  No more than <var class="var">size</var> bytes
 will be written.  To get the full output, <var class="var">size</var> must be enough for the
 string and null-terminator.
@@ -233,8 +243,8 @@ produced, excluding the terminating null.  If <em class="math"><var class="var">
 if the C library <code class="code">vsnprintf</code> is the older GLIBC 2.0.x style.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fasprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_asprintf</strong> <code class="def-code-arguments">(char **<var class="var">pp</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005fasprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvasprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vasprintf</strong> <code class="def-code-arguments">(char **<var class="var">pp</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fvasprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fasprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_asprintf</strong> <code class="def-code-arguments">(char **<var class="var">pp</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005fasprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fvasprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_vasprintf</strong> <code class="def-code-arguments">(char **<var class="var">pp</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fvasprintf"> &para;</a></span></dt>
 <dd><p>Form a null-terminated string in a block of memory obtained from the current
 memory allocation function (see <a class="pxref" href="constant.Custom_Allocation.html#start">Custom Allocation</a>).  The block will be the
 size of the string and null-terminator.  The address of the block is stored to
@@ -246,8 +256,8 @@ the null-terminator.
 function handle that.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fobstack_005fprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_obstack_printf</strong> <code class="def-code-arguments">(struct obstack *<var class="var">ob</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href='#index-gmp_005fobstack_005fprintf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fobstack_005fvprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_obstack_vprintf</strong> <code class="def-code-arguments">(struct obstack *<var class="var">ob</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href='#index-gmp_005fobstack_005fvprintf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005fobstack_005fprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_obstack_printf</strong> <code class="def-code-arguments">(struct obstack *<var class="var">ob</var>, const char *<var class="var">fmt</var>, &hellip;)</code><a class="copiable-link" href="#index-gmp_005fobstack_005fprintf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005fobstack_005fvprintf"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_obstack_vprintf</strong> <code class="def-code-arguments">(struct obstack *<var class="var">ob</var>, const char *<var class="var">fmt</var>, va_list <var class="var">ap</var>)</code><a class="copiable-link" href="#index-gmp_005fobstack_005fvprintf"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-obstack-output"></a>
 <p>Append to the current object in <var class="var">ob</var>.  The return value is the number of
 characters written.  A null-terminator is not written.
@@ -265,14 +275,14 @@ feature, which probably means only on GNU systems, see <a data-manual="libc" hre
 <p>
 Previous: <a href="#Formatted-Output-Functions" accesskey="p" rel="prev">Functions</a>, Up: <a href="#Formatted-Output" accesskey="u" rel="up">Formatted Output</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="C_002b_002b-Formatted-Output-1">10.3 C++ Formatted Output</h3>
+<h3 class="section" id="C_002b_002b-Formatted-Output-1"><span>10.3 C++ Formatted Output<a class="copiable-link" href="#C_002b_002b-Formatted-Output-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-C_002b_002b-ostream-output"></a>
 <a class="index-entry-id" id="index-ostream-output"></a>
 <p>The following functions are provided in <samp class="file">libgmpxx</samp> (see <a class="pxref" href="constant.GMP_Basics.html#Headers-and-Libraries">Headers and Libraries</a>), which is built if C++ support is enabled (see <a class="pxref" href="constant.Installing_GMP.html#Build-Options">Build Options</a>).
 Prototypes are available from <code class="code">&lt;gmp.h&gt;</code>.
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpz_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-operator_003c_003c'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpz_t <var class="var">op</var>)</code><a class="copiable-link" href="#index-operator_003c_003c"> &para;</a></span></dt>
 <dd><p>Print <var class="var">op</var> to <var class="var">stream</var>, using its <code class="code">ios</code> formatting settings.
 <code class="code">ios::width</code> is reset to 0 after output, the same as the standard
 <code class="code">ostream operator&lt;&lt;</code> routines do.
@@ -282,7 +292,7 @@ decimal.  This is unlike the standard <code class="code">operator&lt;&lt;</code>
 etc, which instead give two&rsquo;s complement.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c-1"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-operator_003c_003c-1'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c-1"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpq_t <var class="var">op</var>)</code><a class="copiable-link" href="#index-operator_003c_003c-1"> &para;</a></span></dt>
 <dd><p>Print <var class="var">op</var> to <var class="var">stream</var>, using its <code class="code">ios</code> formatting settings.
 <code class="code">ios::width</code> is reset to 0 after output, the same as the standard
 <code class="code">ostream operator&lt;&lt;</code> routines do.
@@ -295,7 +305,7 @@ decimal.  If <code class="code">ios::showbase</code> is set then a base indicato
 both the numerator and denominator (if the denominator is required).
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c-2"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpf_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-operator_003c_003c-2'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-operator_003c_003c-2"><span class="category-def">Function: </span><span><code class="def-type">ostream&amp;</code> <strong class="def-name">operator&lt;&lt;</strong> <code class="def-code-arguments">(ostream&amp; <var class="var">stream</var>, const mpf_t <var class="var">op</var>)</code><a class="copiable-link" href="#index-operator_003c_003c-2"> &para;</a></span></dt>
 <dd><p>Print <var class="var">op</var> to <var class="var">stream</var>, using its <code class="code">ios</code> formatting settings.
 <code class="code">ios::width</code> is reset to 0 after output, the same as the standard
 <code class="code">ostream operator&lt;&lt;</code> routines do.

@@ -1,9 +1,17 @@
+<!-- This manual documents how to install and use the Multiple Precision
+Floating-Point Reliable Library, version 4.2.1.
+Copyright 1991, 1993-2023 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.2 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with no Front-Cover Texts, and with no Back-Cover Texts.  A copy of the
+license is included in GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="MPFR-Basics">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="n" rel="next">MPFR Interface</a>, Previous: <a href="constant.Reporting_Bugs.html#start" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPFR</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="MPFR-Basics-1">4 MPFR Basics</h2>
+<h2 class="chapter" id="MPFR-Basics-1"><span>4 MPFR Basics<a class="copiable-link" href="#MPFR-Basics-1"> &para;</a></span></h2>
 <ul class="mini-toc">
 <li><a href="#Headers-and-Libraries" accesskey="1">Headers and Libraries</a></li>
 <li><a href="#Nomenclature-and-Types" accesskey="2">Nomenclature and Types</a></li>
@@ -20,7 +28,7 @@ Next: <a href="constant.MPFR_Interface.html#MPFR-Interface" accesskey="n" rel="n
 <p>
 Next: <a href="#Nomenclature-and-Types" accesskey="n" rel="next">Nomenclature and Types</a>, Previous: <a href="#MPFR-Basics" accesskey="p" rel="prev">MPFR Basics</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Headers-and-Libraries-1">4.1 Headers and Libraries</h3>
+<h3 class="section" id="Headers-and-Libraries-1"><span>4.1 Headers and Libraries<a class="copiable-link" href="#Headers-and-Libraries-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-mpfr_002eh"></a>
 <p>All declarations needed to use MPFR are collected in the include file
 <samp class="file">mpfr.h</samp>.  It is designed to work with both C and C++ compilers.
@@ -115,7 +123,7 @@ symbols using these prefixes.
 <p>
 Next: <a href="#MPFR-Variable-Conventions" accesskey="n" rel="next">MPFR Variable Conventions</a>, Previous: <a href="#Headers-and-Libraries" accesskey="p" rel="prev">Headers and Libraries</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Nomenclature-and-Types-1">4.2 Nomenclature and Types</h3>
+<h3 class="section" id="Nomenclature-and-Types-1"><span>4.2 Nomenclature and Types<a class="copiable-link" href="#Nomenclature-and-Types-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Floating_002dpoint-number"></a>
 <a class="index-entry-id" id="index-Regular-number"></a>
 <a class="index-entry-id" id="index-mpfr_005ft"></a>
@@ -194,7 +202,7 @@ to represent a group of flags (or a mask).
 <p>
 Next: <a href="#Rounding" accesskey="n" rel="next">Rounding</a>, Previous: <a href="#Nomenclature-and-Types" accesskey="p" rel="prev">Nomenclature and Types</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="MPFR-Variable-Conventions-1">4.3 MPFR Variable Conventions</h3>
+<h3 class="section" id="MPFR-Variable-Conventions-1"><span>4.3 MPFR Variable Conventions<a class="copiable-link" href="#MPFR-Variable-Conventions-1"> &para;</a></span></h3>
 <p>Before you can assign to a MPFR variable, you need to initialize it by calling
 one of the special initialization functions.  When you are done with a
 variable, you need to clear it out, using one of the functions for that
@@ -226,7 +234,7 @@ and puts the result back in <var class="var">x</var>.
 <p>
 Next: <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="n" rel="next">Floating-Point Values on Special Numbers</a>, Previous: <a href="#MPFR-Variable-Conventions" accesskey="p" rel="prev">MPFR Variable Conventions</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Rounding-1">4.4 Rounding</h3>
+<h3 class="section" id="Rounding-1"><span>4.4 Rounding<a class="copiable-link" href="#Rounding-1"> &para;</a></span></h3>
 <p>The following rounding modes are supported:
 </p>
 <ul class="itemize mark-bullet">
@@ -341,7 +349,7 @@ an underflow if that value is not representable in the current exponent range.
 <p>
 Next: <a href="#Exceptions" accesskey="n" rel="next">Exceptions</a>, Previous: <a href="#Rounding" accesskey="p" rel="prev">Rounding</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Floating_002dPoint-Values-on-Special-Numbers-1">4.5 Floating-Point Values on Special Numbers</h3>
+<h3 class="section" id="Floating_002dPoint-Values-on-Special-Numbers-1"><span>4.5 Floating-Point Values on Special Numbers<a class="copiable-link" href="#Floating_002dPoint-Values-on-Special-Numbers-1"> &para;</a></span></h3>
 <p>This section specifies the floating-point values (of type <code class="code">mpfr_t</code>)
 returned by MPFR functions (where by &ldquo;returned&rdquo; we mean here the modified
 value of the destination object, which should not be mixed with the ternary
@@ -412,7 +420,7 @@ bug. See also <a class="ref" href="constant.MPFR_and_the_IEEE_754_Standard.html#
 <p>
 Next: <a href="#Memory-Handling" accesskey="n" rel="next">Memory Handling</a>, Previous: <a href="#Floating_002dPoint-Values-on-Special-Numbers" accesskey="p" rel="prev">Floating-Point Values on Special Numbers</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Exceptions-1">4.6 Exceptions</h3>
+<h3 class="section" id="Exceptions-1"><span>4.6 Exceptions<a class="copiable-link" href="#Exceptions-1"> &para;</a></span></h3>
 <p>MPFR defines a global (or per-thread) flag for each supported exception.
 A macro evaluating to a power of two is associated with each flag and
 exception, in order to be able to specify a group of flags (or a mask)
@@ -489,7 +497,7 @@ a range error in MPFR.
 <p>
 Next: <a href="#Getting-the-Best-Efficiency-Out-of-MPFR" accesskey="n" rel="next">Getting the Best Efficiency Out of MPFR</a>, Previous: <a href="#Exceptions" accesskey="p" rel="prev">Exceptions</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Memory-Handling-1">4.7 Memory Handling</h3>
+<h3 class="section" id="Memory-Handling-1"><span>4.7 Memory Handling<a class="copiable-link" href="#Memory-Handling-1"> &para;</a></span></h3>
 <p>MPFR functions may create caches, e.g., when computing constants such
 as Pi, either because the user has called a function like
 <code class="code">mpfr_const_pi</code> directly or because such a function was called
@@ -558,7 +566,7 @@ such a change is compatible with the library.
 <p>
 Previous: <a href="#Memory-Handling" accesskey="p" rel="prev">Memory Handling</a>, Up: <a href="#MPFR-Basics" accesskey="u" rel="up">MPFR Basics</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Getting-the-Best-Efficiency-Out-of-MPFR-1">4.8 Getting the Best Efficiency Out of MPFR</h3>
+<h3 class="section" id="Getting-the-Best-Efficiency-Out-of-MPFR-1"><span>4.8 Getting the Best Efficiency Out of MPFR<a class="copiable-link" href="#Getting-the-Best-Efficiency-Out-of-MPFR-1"> &para;</a></span></h3>
 <p>Here are a few hints to get the best efficiency out of MPFR:
 </p>
 <ul class="itemize mark-bullet">

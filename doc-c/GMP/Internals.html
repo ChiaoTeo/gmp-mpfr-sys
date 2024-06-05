@@ -1,9 +1,19 @@
+<!-- This manual describes how to install and use the GNU multiple precision
+arithmetic library, version 6.3.0.
+Copyright 1991, 1993-2016, 2018-2020 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with the Front-Cover Texts being "A GNU Manual", and with the Back-Cover
+Texts being "You have freedom to copy and modify this GNU Manual, like GNU
+software".  A copy of the license is included in
+GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="Internals">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.Contributors.html#start" accesskey="n" rel="next">Contributors</a>, Previous: <a href="constant.Algorithms.html#Algorithms" accesskey="p" rel="prev">Algorithms</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Internals-1">16 Internals</h2>
+<h2 class="chapter" id="Internals-1"><span>16 Internals<a class="copiable-link" href="#Internals-1"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Internals"></a>
 <p><strong class="strong">This chapter is provided only for informational purposes and the
 various internals described here may change in future GMP releases.
@@ -23,7 +33,7 @@ the documented interfaces described in previous chapters.</strong>
 <p>
 Next: <a href="#Rational-Internals" accesskey="n" rel="next">Rational Internals</a>, Previous: <a href="#Internals" accesskey="p" rel="prev">Internals</a>, Up: <a href="#Internals" accesskey="u" rel="up">Internals</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Integer-Internals-1">16.1 Integer Internals</h3>
+<h3 class="section" id="Integer-Internals-1"><span>16.1 Integer Internals<a class="copiable-link" href="#Integer-Internals-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Integer-internals"></a>
 <p><code class="code">mpz_t</code> variables represent integers using sign and magnitude, in space
 dynamically allocated and reallocated.  The fields are as follows.
@@ -83,7 +93,7 @@ providing plenty of range.
 <p>
 Next: <a href="#Float-Internals" accesskey="n" rel="next">Float Internals</a>, Previous: <a href="#Integer-Internals" accesskey="p" rel="prev">Integer Internals</a>, Up: <a href="#Internals" accesskey="u" rel="up">Internals</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Rational-Internals-1">16.2 Rational Internals</h3>
+<h3 class="section" id="Rational-Internals-1"><span>16.2 Rational Internals<a class="copiable-link" href="#Rational-Internals-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Rational-internals"></a>
 <p><code class="code">mpq_t</code> variables represent rationals using an <code class="code">mpz_t</code> numerator and
 denominator (see <a class="pxref" href="#Integer-Internals">Integer Internals</a>).
@@ -112,7 +122,7 @@ denominator, or of course <code class="code">mpz_t</code> variables can be used 
 <p>
 Next: <a href="#Raw-Output-Internals" accesskey="n" rel="next">Raw Output Internals</a>, Previous: <a href="#Rational-Internals" accesskey="p" rel="prev">Rational Internals</a>, Up: <a href="#Internals" accesskey="u" rel="up">Internals</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Float-Internals-1">16.3 Float Internals</h3>
+<h3 class="section" id="Float-Internals-1"><span>16.3 Float Internals<a class="copiable-link" href="#Float-Internals-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Float-internals"></a>
 <p>Efficient calculation is the primary aim of GMP floats and the use of whole
 limbs and simple rounding facilitates this.
@@ -282,7 +292,7 @@ multiple of the limb size.
 <p>
 Next: <a href="#C_002b_002b-Interface-Internals" accesskey="n" rel="next">C++ Interface Internals</a>, Previous: <a href="#Float-Internals" accesskey="p" rel="prev">Float Internals</a>, Up: <a href="#Internals" accesskey="u" rel="up">Internals</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Raw-Output-Internals-1">16.4 Raw Output Internals</h3>
+<h3 class="section" id="Raw-Output-Internals-1"><span>16.4 Raw Output Internals<a class="copiable-link" href="#Raw-Output-Internals-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Raw-output-internals"></a>
 <p><code class="code">mpz_out_raw</code> uses the following format.
 </p>
@@ -315,7 +325,7 @@ a big endian nor little endian system can just read and write <code class="code"
 <p>
 Previous: <a href="#Raw-Output-Internals" accesskey="p" rel="prev">Raw Output Internals</a>, Up: <a href="#Internals" accesskey="u" rel="up">Internals</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="C_002b_002b-Interface-Internals-1">16.5 C++ Interface Internals</h3>
+<h3 class="section" id="C_002b_002b-Interface-Internals-1"><span>16.5 C++ Interface Internals<a class="copiable-link" href="#C_002b_002b-Interface-Internals-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-C_002b_002b-interface-internals"></a>
 <p>A system of expression templates is used to ensure something like <code class="code">a=b+c</code>
 turns into a simple call to <code class="code">mpz_add</code> etc.  For <code class="code">mpf_class</code>

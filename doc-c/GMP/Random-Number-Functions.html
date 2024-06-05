@@ -1,9 +1,19 @@
+<!-- This manual describes how to install and use the GNU multiple precision
+arithmetic library, version 6.3.0.
+Copyright 1991, 1993-2016, 2018-2020 Free Software Foundation, Inc.
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with the Front-Cover Texts being "A GNU Manual", and with the Back-Cover
+Texts being "You have freedom to copy and modify this GNU Manual, like GNU
+software".  A copy of the license is included in
+GNU Free Documentation License. -->
 <div class="chapter-level-extent" id="Random-Number-Functions">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.Formatted_Output.html#Formatted-Output" accesskey="n" rel="next">Formatted Output</a>, Previous: <a href="constant.Low_level_Functions.html#start" accesskey="p" rel="prev">Low-level Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MP</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Random-Number-Functions-2">9 Random Number Functions</h2>
+<h2 class="chapter" id="Random-Number-Functions-2"><span>9 Random Number Functions<a class="copiable-link" href="#Random-Number-Functions-2"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Random-number-functions-2"></a>
 <p>Sequences of pseudo-random numbers in GMP are generated using a variable of
 type <code class="code">gmp_randstate_t</code>, which holds an algorithm selection and a current
@@ -30,23 +40,23 @@ are recommended for applications that care about randomness.
 <p>
 Next: <a href="#Random-State-Seeding" accesskey="n" rel="next">Random State Seeding</a>, Previous: <a href="#Random-Number-Functions" accesskey="p" rel="prev">Random Number Functions</a>, Up: <a href="#Random-Number-Functions" accesskey="u" rel="up">Random Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Random-State-Initialization-1">9.1 Random State Initialization</h3>
+<h3 class="section" id="Random-State-Initialization-1"><span>9.1 Random State Initialization<a class="copiable-link" href="#Random-State-Initialization-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Random-number-state"></a>
 <a class="index-entry-id" id="index-Initialization-functions-5"></a>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fdefault"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_default</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href='#index-gmp_005frandinit_005fdefault'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fdefault"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_default</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href="#index-gmp_005frandinit_005fdefault"> &para;</a></span></dt>
 <dd><p>Initialize <var class="var">state</var> with a default algorithm.  This will be a compromise
 between speed and randomness, and is recommended for applications with no
 special requirements.  Currently this is <code class="code">gmp_randinit_mt</code>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fmt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_mt</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href='#index-gmp_005frandinit_005fmt'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fmt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_mt</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href="#index-gmp_005frandinit_005fmt"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-Mersenne-twister-random-numbers"></a>
 <p>Initialize <var class="var">state</var> for a Mersenne Twister algorithm.  This algorithm is
 fast and has good randomness properties.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005flc_005f2exp"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_lc_2exp</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, const mpz_t <var class="var">a</var>, unsigned&nbsp;long&nbsp;<var class="var">c</var><!-- /@w -->, <span class="w-nolinebreak-text">mp_bitcnt_t</span>&nbsp;<var class="var">m2exp</var><!-- /@w -->)</code><a class="copiable-link" href='#index-gmp_005frandinit_005flc_005f2exp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005flc_005f2exp"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_lc_2exp</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, const mpz_t <var class="var">a</var>, unsigned&nbsp;long&nbsp;<var class="var">c</var><!-- /@w -->, mp_bitcnt_t&nbsp;<var class="var">m2exp</var><!-- /@w -->)</code><a class="copiable-link" href="#index-gmp_005frandinit_005flc_005f2exp"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-Linear-congruential-random-numbers"></a>
 <p>Initialize <var class="var">state</var> with a linear congruential algorithm <em class="math">X = (<var class="var">a</var>*X + <var class="var">c</var>) mod 2^<var class="var">m2exp</var></em>.
 </p>
@@ -60,7 +70,7 @@ generated, multiple iterations of the recurrence are used and the results
 concatenated.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005flc_005f2exp_005fsize"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_randinit_lc_2exp_size</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, mp_bitcnt_t <var class="var">size</var>)</code><a class="copiable-link" href='#index-gmp_005frandinit_005flc_005f2exp_005fsize'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005flc_005f2exp_005fsize"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">gmp_randinit_lc_2exp_size</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, mp_bitcnt_t <var class="var">size</var>)</code><a class="copiable-link" href="#index-gmp_005frandinit_005flc_005f2exp_005fsize"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-Linear-congruential-random-numbers-1"></a>
 <p>Initialize <var class="var">state</var> for a linear congruential algorithm as per
 <code class="code">gmp_randinit_lc_2exp</code>.  <var class="var">a</var>, <var class="var">c</var> and <var class="var">m2exp</var> are selected
@@ -72,11 +82,11 @@ table data provides then the return value is zero.  The maximum <var class="var"
 currently supported is 128.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_set</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">rop</var>, gmp_randstate_t <var class="var">op</var>)</code><a class="copiable-link" href='#index-gmp_005frandinit_005fset'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit_set</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">rop</var>, gmp_randstate_t <var class="var">op</var>)</code><a class="copiable-link" href="#index-gmp_005frandinit_005fset"> &para;</a></span></dt>
 <dd><p>Initialize <var class="var">rop</var> with a copy of the algorithm and state from <var class="var">op</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, <span class="w-nolinebreak-text">gmp_randalg_t</span>&nbsp;<var class="var">alg</var><!-- /@w -->, &hellip;)</code><a class="copiable-link" href='#index-gmp_005frandinit'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandinit"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randinit</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, gmp_randalg_t&nbsp;<var class="var">alg</var><!-- /@w -->, &hellip;)</code><a class="copiable-link" href="#index-gmp_005frandinit"> &para;</a></span></dt>
 <dd><p><strong class="strong">This function is obsolete.</strong>
 </p>
 <a class="index-entry-id" id="index-GMP_005fRAND_005fALG_005fLC"></a>
@@ -97,7 +107,7 @@ is too big.  It may be noted this error reporting is not thread safe (a good
 reason to use <code class="code">gmp_randinit_lc_2exp_size</code> instead).
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandclear"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randclear</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href='#index-gmp_005frandclear'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandclear"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randclear</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>)</code><a class="copiable-link" href="#index-gmp_005frandclear"> &para;</a></span></dt>
 <dd><p>Free all memory occupied by <var class="var">state</var>.
 </p></dd></dl>
 <hr>
@@ -107,12 +117,12 @@ reason to use <code class="code">gmp_randinit_lc_2exp_size</code> instead).
 <p>
 Next: <a href="#Random-State-Miscellaneous" accesskey="n" rel="next">Random State Miscellaneous</a>, Previous: <a href="#Random-State-Initialization" accesskey="p" rel="prev">Random State Initialization</a>, Up: <a href="#Random-Number-Functions" accesskey="u" rel="up">Random Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Random-State-Seeding-1">9.2 Random State Seeding</h3>
+<h3 class="section" id="Random-State-Seeding-1"><span>9.2 Random State Seeding<a class="copiable-link" href="#Random-State-Seeding-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Random-number-seeding"></a>
 <a class="index-entry-id" id="index-Seeding-random-numbers"></a>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandseed"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randseed</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, const mpz_t <var class="var">seed</var>)</code><a class="copiable-link" href='#index-gmp_005frandseed'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005frandseed_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randseed_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned&nbsp;long&nbsp;int&nbsp;<var class="var">seed</var><!-- /@w -->)</code><a class="copiable-link" href='#index-gmp_005frandseed_005fui'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005frandseed"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randseed</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, const mpz_t <var class="var">seed</var>)</code><a class="copiable-link" href="#index-gmp_005frandseed"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-gmp_005frandseed_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">gmp_randseed_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned&nbsp;long&nbsp;int&nbsp;<var class="var">seed</var><!-- /@w -->)</code><a class="copiable-link" href="#index-gmp_005frandseed_005fui"> &para;</a></span></dt>
 <dd><p>Set an initial seed value into <var class="var">state</var>.
 </p>
 <p>The size of a seed determines how many different sequences of random numbers
@@ -137,15 +147,15 @@ random data better suited for use as a seed.
 <p>
 Previous: <a href="#Random-State-Seeding" accesskey="p" rel="prev">Random State Seeding</a>, Up: <a href="#Random-Number-Functions" accesskey="u" rel="up">Random Number Functions</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section" id="Random-State-Miscellaneous-1">9.3 Random State Miscellaneous</h3>
+<h3 class="section" id="Random-State-Miscellaneous-1"><span>9.3 Random State Miscellaneous<a class="copiable-link" href="#Random-State-Miscellaneous-1"> &para;</a></span></h3>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005furandomb_005fui"><span class="category-def">Function: </span><span><code class="def-type">unsigned long</code> <strong class="def-name">gmp_urandomb_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned long <var class="var">n</var>)</code><a class="copiable-link" href='#index-gmp_005furandomb_005fui'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005furandomb_005fui"><span class="category-def">Function: </span><span><code class="def-type">unsigned long</code> <strong class="def-name">gmp_urandomb_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned long <var class="var">n</var>)</code><a class="copiable-link" href="#index-gmp_005furandomb_005fui"> &para;</a></span></dt>
 <dd><p>Return a uniformly distributed random number of <var class="var">n</var> bits, i.e. in the
 range 0 to <em class="math">2^<var class="var">n</var>-1</em> inclusive.  <var class="var">n</var> must be less than or
 equal to the number of bits in an <code class="code">unsigned long</code>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005furandomm_005fui"><span class="category-def">Function: </span><span><code class="def-type">unsigned long</code> <strong class="def-name">gmp_urandomm_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned long <var class="var">n</var>)</code><a class="copiable-link" href='#index-gmp_005furandomm_005fui'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-gmp_005furandomm_005fui"><span class="category-def">Function: </span><span><code class="def-type">unsigned long</code> <strong class="def-name">gmp_urandomm_ui</strong> <code class="def-code-arguments">(gmp_randstate_t <var class="var">state</var>, unsigned long <var class="var">n</var>)</code><a class="copiable-link" href="#index-gmp_005furandomm_005fui"> &para;</a></span></dt>
 <dd><p>Return a uniformly distributed random number in the range 0 to
 <em class="math"><var class="var">n</var>-1</em>, inclusive.
 </p></dd></dl>

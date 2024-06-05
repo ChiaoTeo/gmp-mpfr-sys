@@ -1,9 +1,17 @@
+<!-- This manual is for GNU MPC, a library for multiple precision complex arithmetic,
+version 1.3.1 of December 2022.
+Copyright © 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2016, 2018, 2020, 2022 INRIA
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections. A copy of the license is included in the section
+entitled "GNU Free Documentation License." -->
 <div class="chapter-level-extent" id="Ball-Arithmetic">
 <div class="nav-panel">
 <p>
 Next: <a href="constant.References.html#start" accesskey="n" rel="next">References</a>, Previous: <a href="constant.Complex_Functions.html#Complex-Functions" accesskey="p" rel="prev">Complex Functions</a>, Up: <a href="index.html#start" accesskey="u" rel="up">GNU MPC</a> &nbsp; [<a href="constant.Concept_Index.html#start" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Ball-Arithmetic-1">6 Ball Arithmetic</h2>
+<h2 class="chapter" id="Ball-Arithmetic-1"><span>6 Ball Arithmetic<a class="copiable-link" href="#Ball-Arithmetic-1"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-Ball-arithmetic"></a>
 <p>Since release 1.3.0, GNU MPC contains a simple and very limited
 implementation of complex balls (or rather, circles). This part is
@@ -30,7 +38,7 @@ discussion on these issues, see the file <code class="code">algorithms.tex</code
 <li><a href="#Ball-type-and-functions" accesskey="2">Ball type and functions</a></li>
 </ul>
 <div class="section-level-extent" id="Radius-type-and-functions">
-<h3 class="section">6.1 Radius type and functions</h3>
+<h3 class="section"><span>6.1 Radius type and functions<a class="copiable-link" href="#Radius-type-and-functions"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-mpcr_005ft"></a>
 <a class="index-entry-id" id="index-mpcr_005fptr"></a>
 <a class="index-entry-id" id="index-mpcr_005fsrcptr"></a>
@@ -64,39 +72,39 @@ increased by 1. It might be more efficient to add 1 all the time instead
 of testing the last bit of the mantissa.)
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005finf_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_inf_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005finf_005fp'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fzero_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_zero_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fzero_005fp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005finf_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_inf_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005finf_005fp"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fzero_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_zero_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fzero_005fp"> &para;</a></span></dt>
 <dd><p>Test whether <var class="var">r</var> is infinity or zero, respectively, and return a
 boolean.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005flt_005fhalf_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_lt_half_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005flt_005fhalf_005fp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005flt_005fhalf_005fp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_lt_half_p</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005flt_005fhalf_005fp"> &para;</a></span></dt>
 <dd><p>Return <code class="code">true</code> if <var class="var">r</var>&lt;1/2, and <code class="code">false</code> otherwise.
 (Everywhere in this document,
 <code class="code">true</code> means any non-zero value, and <code class="code">false</code> means zero.)
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fcmp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_cmp</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href='#index-mpcr_005fcmp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fcmp"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcr_cmp</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href="#index-mpcr_005fcmp"> &para;</a></span></dt>
 <dd><p>Return +1, 0 or -1 depending on whether <var class="var">r</var> is larger than, equal to
 or less than <var class="var">s</var>, with the natural total order on the compactified
 non-negative real axis letting 0 be smaller and letting infinity be larger
 than any finite real number.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fset_005finf"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_inf</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fset_005finf'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fzero"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_zero</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fset_005fzero'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fone"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_one</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fset_005fone'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href='#index-mpcr_005fset'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fui64_005f2si64"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_ui64_2si64</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, uint64_t <var class="var">mant</var>, int64_t <var class="var">exp</var>)</code><a class="copiable-link" href='#index-mpcr_005fset_005fui64_005f2si64'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fset_005finf"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_inf</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fset_005finf"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fzero"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_zero</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fset_005fzero"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fone"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_one</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fset_005fone"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href="#index-mpcr_005fset"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fset_005fui64_005f2si64"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_set_ui64_2si64</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, uint64_t <var class="var">mant</var>, int64_t <var class="var">exp</var>)</code><a class="copiable-link" href="#index-mpcr_005fset_005fui64_005f2si64"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to infinity, zero, 1, <var class="var">s</var> or
 <var class="var">mant</var>⋅2<sup class="sup"><var class="var">exp</var></sup>, respectively.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fmax"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_max</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fmax'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fmax"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_max</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fmax"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to the maximum of <var class="var">s</var> and <var class="var">t</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fget_005fexp"><span class="category-def">Function: </span><span><code class="def-type">int64_t</code> <strong class="def-name">mpcr_get_exp</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fget_005fexp'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fget_005fexp"><span class="category-def">Function: </span><span><code class="def-type">int64_t</code> <strong class="def-name">mpcr_get_exp</strong> <code class="def-code-arguments">(mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fget_005fexp"> &para;</a></span></dt>
 <dd><p>Assuming that <var class="var">r</var> is neither infinity nor 0, return its exponent
 <em class="math">e</em> when writing <em class="math">r = m⋅2<sup class="sup">e</sup></em> with
 <em class="math">1/2 ≤ m &lt; 1</em>. (Notice that this is <em class="emph">not</em> the same as the
@@ -105,20 +113,20 @@ is independent of the implementation.)
 Otherwise the behaviour is undefined.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fout_005fstr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_out_str</strong> <code class="def-code-arguments">(FILE *<var class="var">f</var>, mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href='#index-mpcr_005fout_005fstr'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fout_005fstr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_out_str</strong> <code class="def-code-arguments">(FILE *<var class="var">f</var>, mpcr_srcptr <var class="var">r</var>)</code><a class="copiable-link" href="#index-mpcr_005fout_005fstr"> &para;</a></span></dt>
 <dd><p>Output <var class="var">r</var> on <var class="var">f</var>, which may be <code class="code">stdout</code>.
 Caveat: This function so far serves mainly for debugging purposes, its
 behaviour will probably change in the future.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fadd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_add</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fadd'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsub"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sub</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fsub'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_mul</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fmul'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fdiv"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_div</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fdiv'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fmul_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_mul_2ui</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, unsigned long int <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fmul_005f2ui'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fdiv_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_div_2ui</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, unsigned long int <var class="var">t</var>)</code><a class="copiable-link" href='#index-mpcr_005fdiv_005f2ui'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sqr</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href='#index-mpcr_005fsqr'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsqrt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sqrt</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href='#index-mpcr_005fsqrt'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fadd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_add</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fadd"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsub"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sub</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fsub"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_mul</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fmul"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fdiv"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_div</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fdiv"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fmul_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_mul_2ui</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, unsigned long int <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fmul_005f2ui"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fdiv_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_div_2ui</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, unsigned long int <var class="var">t</var>)</code><a class="copiable-link" href="#index-mpcr_005fdiv_005f2ui"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sqr</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href="#index-mpcr_005fsqr"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcr_005fsqrt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sqrt</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>)</code><a class="copiable-link" href="#index-mpcr_005fsqrt"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to the sum, difference, product or quotient of <var class="var">s</var> and
 <var class="var">t</var>, or to the product of <var class="var">s</var> by 2<sup class="sup"><var class="var">t</var></sup> or to the
 quotient of <var class="var">s</var> by 2<sup class="sup"><var class="var">t</var></sup>,
@@ -127,7 +135,7 @@ If any of the arguments is infinity, or if a difference is negative,
 the result is infinity.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fsub_005frnd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sub_rnd</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpcr_005fsub_005frnd'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fsub_005frnd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_sub_rnd</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpcr_srcptr <var class="var">s</var>, mpcr_srcptr <var class="var">t</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href="#index-mpcr_005fsub_005frnd"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to the difference of <var class="var">s</var> and <var class="var">t</var>, rounded into
 direction <var class="var">rnd</var>, which can be one of <code class="code">MPFR_RNDU</code> or
 <code class="code">MPFR_RNDD</code>. If one of the arguments is infinity or the difference is
@@ -138,13 +146,13 @@ is equivalent to calling <code class="code">mpcr_sub</code>.
 down may be useful to obtain an upper bound when dividing by the result.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fc_005fabs_005frnd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_c_abs_rnd</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpc_srcptr <var class="var">z</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpcr_005fc_005fabs_005frnd'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fc_005fabs_005frnd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_c_abs_rnd</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpc_srcptr <var class="var">z</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href="#index-mpcr_005fc_005fabs_005frnd"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to the absolute value of the complex number <var class="var">z</var>, rounded
 in direction <var class="var">rnd</var>, which may be one of <code class="code">MPFR_RNDU</code> or
 <code class="code">MPFR_RNDD</code>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fadd_005frounding_005ferror"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_add_rounding_error</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpfr_prec_t <var class="var">p</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpcr_005fadd_005frounding_005ferror'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcr_005fadd_005frounding_005ferror"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcr_add_rounding_error</strong> <code class="def-code-arguments">(mpcr_ptr <var class="var">r</var>, mpfr_prec_t <var class="var">p</var>, mpfr_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href="#index-mpcr_005fadd_005frounding_005ferror"> &para;</a></span></dt>
 <dd><p>Set <var class="var">r</var> to <em class="math">r + (1 + r) 2<sup class="sup">-p</sup></em> if <var class="var">rnd</var> equals
 <code class="code">MPFR_RNDN</code>, and to <em class="math">r + (1 + r) 2<sup class="sup">1-p</sup></em> otherwise.
 The idea is that if a (potentially not representable) centre of an ideal
@@ -158,7 +166,7 @@ the centre.
 </p></dd></dl>
 </div>
 <div class="section-level-extent" id="Ball-type-and-functions">
-<h3 class="section">6.2 Ball type and functions</h3>
+<h3 class="section"><span>6.2 Ball type and functions<a class="copiable-link" href="#Ball-type-and-functions"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-mpcb_005ft-1"></a>
 <a class="index-entry-id" id="index-mpcb_005fptr"></a>
 <a class="index-entry-id" id="index-mpcb_005fsrcptr"></a>
@@ -217,8 +225,8 @@ results; for instance
 by its square.
 </p>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005finit"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_init</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href='#index-mpcb_005finit'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fclear"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_clear</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href='#index-mpcb_005fclear'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005finit"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_init</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href="#index-mpcb_005finit"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fclear"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_clear</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href="#index-mpcb_005fclear"> &para;</a></span></dt>
 <dd><p>Initialise or free memory for <var class="var">z</var>; <code class="code">mpcb_init</code> must be called once
 before using a variable, and <code class="code">mpcb_clear</code> must be called once before
 stopping to use a variable. Unlike its <code class="code">mpc_t</code> counterpart,
@@ -226,23 +234,23 @@ stopping to use a variable. Unlike its <code class="code">mpc_t</code> counterpa
 radius to infinity, so that <var class="var">z</var> represents the whole complex plane.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fget_005fprec"><span class="category-def">Function: </span><span><code class="def-type">mpfr_prec_t</code> <strong class="def-name">mpcb_get_prec</strong> <code class="def-code-arguments">(mpcb_srcptr <var class="var">z</var>)</code><a class="copiable-link" href='#index-mpcb_005fget_005fprec'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fget_005fprec"><span class="category-def">Function: </span><span><code class="def-type">mpfr_prec_t</code> <strong class="def-name">mpcb_get_prec</strong> <code class="def-code-arguments">(mpcb_srcptr <var class="var">z</var>)</code><a class="copiable-link" href="#index-mpcb_005fget_005fprec"> &para;</a></span></dt>
 <dd><p>Return the (common) precision of the real and the complex parts of the
 centre of <var class="var">z</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href='#index-mpcb_005fset'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href="#index-mpcb_005fset"> &para;</a></span></dt>
 <dd><p>Set <var class="var">z</var> to <var class="var">z1</var>, preserving the precision of the centre.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005finf"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_inf</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href='#index-mpcb_005fset_005finf'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005finf"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_inf</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>)</code><a class="copiable-link" href="#index-mpcb_005fset_005finf"> &para;</a></span></dt>
 <dd><p>Set <var class="var">z</var> to the whole complex plane. This is intended to be used much
 in the spirit of an assertion: When a precondition is not satisfied inside
 a function, it can set its result to this value, which will propagate
 through further computations.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005fc"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_c</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpc_srcptr <var class="var">c</var>, mpfr_prec_t <var class="var">prec</var>, unsigned long int <var class="var">err_re</var>, unsigned long int <var class="var">err_im</var>)</code><a class="copiable-link" href='#index-mpcb_005fset_005fc'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005fc"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_c</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpc_srcptr <var class="var">c</var>, mpfr_prec_t <var class="var">prec</var>, unsigned long int <var class="var">err_re</var>, unsigned long int <var class="var">err_im</var>)</code><a class="copiable-link" href="#index-mpcb_005fset_005fc"> &para;</a></span></dt>
 <dd><p>Set <var class="var">z</var> to a ball with centre <var class="var">c</var> at precision <var class="var">prec</var>.
 If <var class="var">prec</var> is at least the maximum of the precisions of the real and the
 imaginary parts of <var class="var">c</var> and <var class="var">err_re</var> and <var class="var">err_im</var> are 0, then
@@ -284,25 +292,25 @@ again the resulting ball <var class="var">z</var> is known to contain the exact 
 when using appropriate values for <var class="var">err_re</var> and <var class="var">err_im</var>.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005fui_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_ui_ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, unsigned long int <var class="var">re</var>, unsigned long int <var class="var">im</var>, mpfr_prec_t <var class="var">prec</var>)</code><a class="copiable-link" href='#index-mpcb_005fset_005fui_005fui'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fset_005fui_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_set_ui_ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, unsigned long int <var class="var">re</var>, unsigned long int <var class="var">im</var>, mpfr_prec_t <var class="var">prec</var>)</code><a class="copiable-link" href="#index-mpcb_005fset_005fui_005fui"> &para;</a></span></dt>
 <dd><p>Set <var class="var">z</var> to a ball with centre <var class="var">re</var>+I*<var class="var">im</var> at precision
 <var class="var">prec</var> or the size of an <code class="code">unsigned long int</code>, whatever is larger.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fneg"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_neg</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href='#index-mpcb_005fneg'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fadd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_add</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href='#index-mpcb_005fadd'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_mul</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href='#index-mpcb_005fmul'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_sqr</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href='#index-mpcb_005fsqr'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fpow_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_pow_ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, unsigned long int <var class="var">e</var>)</code><a class="copiable-link" href='#index-mpcb_005fpow_005fui'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fsqrt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_sqrt</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href='#index-mpcb_005fsqrt'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fdiv"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_div</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href='#index-mpcb_005fdiv'> &para;</a></span></dt>
-<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fdiv_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_div_2ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, unsigned long int <var class="var">e</var>)</code><a class="copiable-link" href='#index-mpcb_005fdiv_005f2ui'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fneg"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_neg</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href="#index-mpcb_005fneg"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fadd"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_add</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href="#index-mpcb_005fadd"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fmul"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_mul</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href="#index-mpcb_005fmul"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fsqr"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_sqr</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href="#index-mpcb_005fsqr"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fpow_005fui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_pow_ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, unsigned long int <var class="var">e</var>)</code><a class="copiable-link" href="#index-mpcb_005fpow_005fui"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fsqrt"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_sqrt</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>)</code><a class="copiable-link" href="#index-mpcb_005fsqrt"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fdiv"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_div</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, mpcb_srcptr <var class="var">z2</var>)</code><a class="copiable-link" href="#index-mpcb_005fdiv"> &para;</a></span></dt>
+<dt class="deftypefnx deftypefunx-alias-deftypefnx def-cmd-deftypefn" id="index-mpcb_005fdiv_005f2ui"><span class="category-def">Function: </span><span><code class="def-type">void</code> <strong class="def-name">mpcb_div_2ui</strong> <code class="def-code-arguments">(mpcb_ptr <var class="var">z</var>, mpcb_srcptr <var class="var">z1</var>, unsigned long int <var class="var">e</var>)</code><a class="copiable-link" href="#index-mpcb_005fdiv_005f2ui"> &para;</a></span></dt>
 <dd><p>These are the exact counterparts of the corresponding functions
 <code class="code">mpc_neg</code>, <code class="code">mpc_add</code> and so on, but on complex balls instead of
 complex numbers.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fcan_005fround"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcb_can_round</strong> <code class="def-code-arguments">(mpcb_srcptr <var class="var">z</var>, mpfr_prec_t <var class="var">prec_re</var>, mpfr_prec_t <var class="var">prec_im</var>, mpc_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpcb_005fcan_005fround'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fcan_005fround"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcb_can_round</strong> <code class="def-code-arguments">(mpcb_srcptr <var class="var">z</var>, mpfr_prec_t <var class="var">prec_re</var>, mpfr_prec_t <var class="var">prec_im</var>, mpc_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href="#index-mpcb_005fcan_005fround"> &para;</a></span></dt>
 <dd><p>If the function returns <code class="code">true</code> (a non-zero number), then rounding
 any of the complex numbers in the ball to a complex number with precision
 <var class="var">prec_re</var> of its real and precision <var class="var">prec_im</var> of its imaginary
@@ -338,7 +346,7 @@ has a non-zero radius, then the return value is also necessarily
 direction value cannot be determined.
 </p></dd></dl>
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fround"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcb_round</strong> <code class="def-code-arguments">(mpc_ptr <var class="var">c</var>, mpcb_srcptr <var class="var">z</var>, mpc_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href='#index-mpcb_005fround'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-mpcb_005fround"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">mpcb_round</strong> <code class="def-code-arguments">(mpc_ptr <var class="var">c</var>, mpcb_srcptr <var class="var">z</var>, mpc_rnd_t <var class="var">rnd</var>)</code><a class="copiable-link" href="#index-mpcb_005fround"> &para;</a></span></dt>
 <dd><p>Set <var class="var">c</var> to the centre of <var class="var">z</var>, rounded in direction <var class="var">rnd</var>,
 and return the corresponding rounding direction value.
 If <code class="code">mpcb_can_round</code>, called with <var class="var">z</var>, the precisions of <var class="var">c</var>
