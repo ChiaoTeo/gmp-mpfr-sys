@@ -194,7 +194,9 @@ for f in doc-c/*/*.html; do
     # a. Remove anything outside <body>, including the <body> and </body> tags themselves
     # b. Remove blank lines (so that rustdoc's markdown interpreter sees as html)
     sed -i.rm~ -e '
-        0,/<body/d
+        0,/<body/{
+            /<!-- This manual/,/-->/!d
+        }
     	/<\/body>/,$d
         /^$/d
     ' "$f"
