@@ -15,7 +15,7 @@ environment:
   MSRV: 1.65.0
   matrix:
     - CI_OS: mac
-      APPVEYOR_BUILD_WORKER_IMAGE: macos-monterey
+      APPVEYOR_BUILD_WORKER_IMAGE: macos-sonoma
     - CI_OS: mac
       APPVEYOR_BUILD_WORKER_IMAGE: macos-catalina
     - CI_OS: win
