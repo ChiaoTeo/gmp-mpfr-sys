@@ -748,11 +748,13 @@ fn process_gmp_header(
     let limb_bits = limb_bits.expect("Cannot determine GMP_LIMB_BITS");
     println!("cargo:limb_bits={limb_bits}");
 
+    println!("cargo:rustc-check-cfg=cfg(nails)");
     let nail_bits = nail_bits.expect("Cannot determine GMP_NAIL_BITS");
     if nail_bits > 0 {
         println!("cargo:rustc-cfg=nails");
     }
 
+    println!("cargo:rustc-check-cfg=cfg(long_long_limb)");
     let long_long_limb = long_long_limb.expect("Cannot determine _LONG_LONG_LIMB");
     let long_long_limb = if long_long_limb {
         println!("cargo:rustc-cfg=long_long_limb");
@@ -1050,6 +1052,8 @@ impl Environment {
             let status = cmd
                 .status()
                 .unwrap_or_else(|_| panic!("Unable to execute: {cmd:?}"));
+            println!("cargo:rustc-check-cfg=cfg({name})");
+            println!("cargo:rustc-check-cfg=cfg(nightly_{name})");
             if status.success() {
                 println!("cargo:rustc-cfg={name}");
                 if let Iteration::Unstable = *i {
