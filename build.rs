@@ -69,6 +69,7 @@ struct Environment {
     version_prefix: String,
     version_patch: Option<u64>,
     use_system_libs: bool,
+    sysroot: Option<OsString>,
 }
 
 fn main() {
@@ -155,6 +156,7 @@ fn main() {
             _ => {}
         }
     }
+    let sysroot = env::var_os("SYSROOT");
     let env = Environment {
         rustc,
         c_compiler,
@@ -171,6 +173,7 @@ fn main() {
         version_prefix,
         version_patch,
         use_system_libs,
+        sysroot,
     };
 
     // make sure we have target directories
@@ -639,6 +642,7 @@ fn should_save_cache(env: &Environment, mpfr: bool, mpc: bool) -> bool {
 fn get_actual_cross_target(cross_target: &str) -> &str {
     match cross_target {
         "x86_64-pc-windows-gnu" => "x86_64-w64-mingw32",
+        "aarch64-apple-ios-sim" => "aarch64-apple-ios_simulator",
         _ => cross_target,
     }
 }
@@ -647,11 +651,18 @@ fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("gmp-build");
     create_dir_or_panic(&build_dir);
     println!("$ cd {build_dir:?}");
-    let mut conf = String::from("../gmp-src/configure --enable-fat --disable-shared --with-pic");
+    let mut conf =
+        String::from("../gmp-src/configure --disable-shared --with-pic --disable-assembly ");
     if let Some(cross_target) = env.cross_target.as_ref() {
-        conf.push_str(" --host ");
+        conf.push_str(" --host=");
         conf.push_str(get_actual_cross_target(cross_target));
     }
+
+    if let Some(sysroot) = env.sysroot.as_ref() {
+        conf.push_str(" --with-sysroot=");
+        conf.push_str(sysroot.to_str().expect("sysroot must be a string"));
+    }
+
     configure(&build_dir, &OsString::from(conf));
     make_and_check(env, &build_dir);
     let build_lib = build_dir.join(".libs").join("libgmp.a");
