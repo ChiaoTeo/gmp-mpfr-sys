@@ -46,13 +46,14 @@ const GMP_VER: (i32, i32, i32) = (6, 3, 0);
 const MPFR_VER: (i32, i32, i32) = (4, 2, 1);
 const MPC_VER: (i32, i32, i32) = (1, 3, 1);
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq, Debug)]
 enum Target {
     Mingw,
     Msvc,
     Other,
 }
 
+#[derive(Debug)]
 struct Environment {
     rustc: OsString,
     c_compiler: OsString,
@@ -76,6 +77,7 @@ fn main() {
     let rustc = cargo_env("RUSTC");
 
     let cc = env::var_os("CC");
+
     let cc_cache_dir = cc.as_ref().map(|cc| {
         let mut dir = OsString::from("CC-");
         dir.push(cc);
@@ -175,6 +177,8 @@ fn main() {
         use_system_libs,
         sysroot,
     };
+
+    println!("env is {env:?}");
 
     // make sure we have target directories
     create_dir_or_panic(&env.lib_dir);
@@ -643,6 +647,7 @@ fn get_actual_cross_target(cross_target: &str) -> &str {
     match cross_target {
         "x86_64-pc-windows-gnu" => "x86_64-w64-mingw32",
         "aarch64-apple-ios-sim" => "aarch64-apple-ios_simulator",
+        "wasm32-unknown-emscripten" => "none",
         _ => cross_target,
     }
 }
@@ -651,8 +656,12 @@ fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
     let build_dir = env.build_dir.join("gmp-build");
     create_dir_or_panic(&build_dir);
     println!("$ cd {build_dir:?}");
-    let mut conf =
-        String::from("../gmp-src/configure --disable-shared --with-pic --disable-assembly ");
+
+    let mut conf =  match env.cross_target.as_ref().map(|e| e.as_str()) {
+        Some("wasm32-unknown-emscripten") =>  String::from("emconfigure ../gmp-src/configure  --build=aarch64-apple-darwin   --disable-shared --with-pic --disable-assembly"),
+        _ => String::from("../gmp-src/configure  --build=aarch64-apple-darwin  --disable-shared --with-pic --disable-assembly "),
+    };
+
     if let Some(cross_target) = env.cross_target.as_ref() {
         conf.push_str(" --host=");
         conf.push_str(get_actual_cross_target(cross_target));
@@ -940,10 +949,14 @@ fn build_mpfr(env: &Environment, lib: &Path, header: &Path) {
     std::env::remove_var("CC");
     std::env::remove_var("CFLAGS");
 
-    let mut conf = String::from(
-        "../mpfr-src/configure --enable-thread-safe --disable-decimal-float --disable-float128 \
-         --disable-shared --with-gmp-build=../gmp-build --with-pic",
-    );
+    let mut conf =  match env.cross_target.as_ref().map(|e| e.as_str()) {
+        Some("wasm32-unknown-emscripten") =>  String::from("emconfigure ../mpfr-src/configure  --enable-thread-safe --disable-decimal-float --disable-float128  --disable-shared  --with-gmp-build=../gmp-build --with-pic"),
+        _ => String::from(
+            "../mpfr-src/configure --enable-thread-safe --disable-decimal-float --disable-float128  --disable-shared --with-gmp-build=../gmp-build --with-pic",
+        )
+    };
+
+    // let mut conf =
     if let Some(cross_target) = env.cross_target.as_ref() {
         conf.push_str(" --host ");
         conf.push_str(get_actual_cross_target(cross_target));
@@ -968,13 +981,25 @@ fn build_mpc(env: &Environment, lib: &Path, header: &Path) {
         &env.build_dir.join("mpfr-build"),
         &build_dir.join("mpfr-build"),
     );
-    let mut conf = String::from(
-        "../mpc-src/configure --disable-shared \
-         --with-mpfr-include=../mpfr-src/src \
-         --with-mpfr-lib=../mpfr-build/src/.libs \
-         --with-gmp-include=../gmp-build \
-         --with-gmp-lib=../gmp-build/.libs --with-pic",
-    );
+
+    let mut conf = match env.cross_target.as_ref().map(|e| e.as_str()) {
+        Some("wasm32-unknown-emscripten") => String::from(
+            "emconfigure ../mpc-src/configure --disable-shared \
+             --build=aarch64-apple-darwin
+             --with-mpfr-include=../mpfr-src/src \
+             --with-mpfr-lib=../mpfr-build/src/.libs \
+             --with-gmp-include=../gmp-build \
+             --with-gmp-lib=../gmp-build/.libs --with-pic",
+        ),
+        _ => String::from(
+            "../mpc-src/configure --disable-shared \
+             --with-mpfr-include=../mpfr-src/src \
+             --with-mpfr-lib=../mpfr-build/src/.libs \
+             --with-gmp-include=../gmp-build \
+             --with-gmp-lib=../gmp-build/.libs --with-pic",
+        ),
+    };
+
     if let Some(cross_target) = env.cross_target.as_ref() {
         conf.push_str(" --host ");
         conf.push_str(get_actual_cross_target(cross_target));
@@ -1182,7 +1207,14 @@ fn configure(build_dir: &Path, conf_line: &OsStr) {
 }
 
 fn make_and_check(env: &Environment, build_dir: &Path) {
-    let mut make = Command::new("make");
+    let mut make = match env.cross_target.as_ref().map(|e| e.as_str()) {
+        Some("wasm32-unknown-emscripten") => {
+            let mut cmd = Command::new("emmake");
+            cmd.arg("make");
+            cmd
+        }
+        _ => Command::new("make"),
+    };
     make.current_dir(build_dir).arg("-j").arg(&env.jobs);
     execute(make);
     if !env.c_no_tests && env.cross_target.is_none() {
