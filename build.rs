@@ -659,7 +659,7 @@ fn build_gmp(env: &Environment, lib: &Path, header: &Path) {
 
     let mut conf =  match env.cross_target.as_ref().map(|e| e.as_str()) {
         Some("wasm32-unknown-emscripten") =>  String::from("emconfigure ../gmp-src/configure  --build=aarch64-apple-darwin   --disable-shared --with-pic --disable-assembly"),
-        _ => String::from("../gmp-src/configure --with-no-pie --disable-assembly "),
+        _ => String::from("../gmp-src/configure -fPIC  --disable-assembly "),
     };
 
     if let Some(cross_target) = env.cross_target.as_ref() {
